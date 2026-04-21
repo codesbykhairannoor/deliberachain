@@ -1,0 +1,1 @@
+jangan langsung tulis kode nya yah kadang saya minta diskusi dulu biar lu paham da kalauu gw suruh kerjain, kerjain semuanya
