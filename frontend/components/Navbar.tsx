@@ -15,7 +15,7 @@ import {
   Settings
 } from "lucide-react"; 
 import { useRole } from "@/hooks/useRole";
-import { baseSepolia } from \"thirdweb/chains\";
+import { baseSepolia } from "thirdweb/chains";
 
 interface NavbarProps {
   client: any;
