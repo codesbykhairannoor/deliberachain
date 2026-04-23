@@ -55,7 +55,7 @@ export default function PublicProfilePage() {
               </h1>
               
               <p className="text-slate-400 mt-3 text-sm max-w-xl leading-relaxed">
-                {t.publicDesc || "Arsip abadi yang tersimpan di jaringan terdesentralisasi KarsaChain."}
+                {t.publicDesc || "Arsip abadi yang tersimpan di jaringan terdesentralisasi Dlibration."}
               </p>
             </div>
 

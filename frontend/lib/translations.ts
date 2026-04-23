@@ -93,6 +93,7 @@ export const translations = {
     labelStatus: "Status:",
     statusSuccess: "Verifikasi Berhasil",
     publicTitle: "PUBLIK VAULT",
+    publicDesc: "Arsip abadi yang tersimpan di jaringan terdesentralisasi Base Sepolia.",
 
     // NEW PAGES
     aboutTitle: "Tentang Dlibration",
@@ -109,6 +110,7 @@ export const translations = {
     legalSub: "Kepatuhan regulasi dan perlindungan data pribadi Anda.",
     contactTitle: "Hubungi Kami",
     contactSub: "Kami siap mendengar masukan dan bantuan teknis Anda.",
+    backHome: "Kembali ke Beranda",
   },
   en: {
     // LAYOUT & NAV
@@ -204,5 +206,7 @@ export const translations = {
     labelStatus: "Status:",
     statusSuccess: "Verification Success",
     publicTitle: "PUBLIC VAULT",
+    publicDesc: "Eternal archives stored on the decentralized Base Sepolia network.",
+    backHome: "Back to Home",
   }
 };
