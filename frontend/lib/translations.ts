@@ -92,6 +92,7 @@ export const translations = {
     labelTxHash: "Transaction Hash:",
     labelStatus: "Status:",
     statusSuccess: "Verifikasi Berhasil",
+    publicTitle: "PUBLIK VAULT",
 
     // NEW PAGES
     aboutTitle: "Tentang Dlibration",
@@ -202,5 +203,6 @@ export const translations = {
     labelTxHash: "Transaction Hash:",
     labelStatus: "Status:",
     statusSuccess: "Verification Success",
+    publicTitle: "PUBLIC VAULT",
   }
 };
