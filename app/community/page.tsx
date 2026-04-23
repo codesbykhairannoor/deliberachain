@@ -26,26 +26,26 @@ export default function CommunityPage() {
         <SocialCard icon={MessageSquare} label="Discord" handle="Join Deliberate" link="#" />
         <SocialCard icon={Github} label="GitHub" handle="deliberate-chain/core" link="#" />
       </section>
-
+ 
       {/* HOW TO CONTRIBUTE */}
       <section className="py-24 px-6 bg-white/[0.02] border-y border-white/5">
         <div className="max-w-7xl mx-auto">
-            <h2 className="text-4xl font-bold text-white mb-16 text-center">Jadilah Bagian dari Deliberasi</h2>
+            <h2 className="text-4xl font-bold text-white mb-16 text-center">{lang === 'id' ? "Jadilah Bagian dari Deliberasi" : "Be Part of the Deliberation"}</h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
                 <ContributionStep 
                     icon={Vote} 
-                    title="Tata Kelola (DAO)" 
-                    desc="Pemegang token tata kelola dapat memberikan suara pada fitur baru atau perubahan parameter moderasi AI." 
+                    title={lang === 'id' ? "Tata Kelola (DAO)" : "Governance (DAO)"} 
+                    desc={t.commDAODesc} 
                 />
                 <ContributionStep 
                     icon={Users} 
-                    title="Duta Daerah" 
-                    desc="Daftarkan diri Anda sebagai koordinator wilayah untuk memverifikasi isu lokal secara offline." 
+                    title={lang === 'id' ? "Duta Daerah" : "Regional Ambassador"} 
+                    desc={lang === 'id' ? "Daftarkan diri Anda sebagai koordinator wilayah untuk memverifikasi isu lokal secara offline." : "Register yourself as a regional coordinator to verify local issues offline."} 
                 />
                 <ContributionStep 
                     icon={MessageSquare} 
-                    title="Moderator Komunitas" 
-                    desc="Bantu kami memastikan diskusi di platform tetap sehat dan produktif bagi semua orang." 
+                    title={lang === 'id' ? "Moderator Komunitas" : "Community Moderator"} 
+                    desc={lang === 'id' ? "Bantu kami memastikan diskusi di platform tetap sehat dan produktif bagi semua orang." : "Help us ensure that discussions on the platform remain healthy and productive for everyone."} 
                 />
             </div>
         </div>

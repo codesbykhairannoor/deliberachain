@@ -22,27 +22,29 @@ export default function LegalPage() {
       <section className="py-24 px-6 max-w-5xl mx-auto space-y-16">
           <LegalItem 
             icon={FileText} 
-            title="Ketentuan Penggunaan (Terms of Service)" 
-            desc="Dengan menggunakan platform ini, Anda setuju untuk menyampaikan aspirasi yang jujur, tidak mengandung fitnah, kebencian, atau informasi palsu (hoaks). Kami berhak menyembunyikan konten yang melanggar aturan melalui sistem moderasi AI." 
+            title={lang === 'id' ? "Ketentuan Penggunaan (Terms of Service)" : "Terms of Service"} 
+            desc={t.legalTermsDesc} 
           />
           <LegalItem 
             icon={ShieldCheck} 
-            title="Kebijakan Privasi (Privacy Policy)" 
-            desc="Kami berkomitmen melindungi privasi Anda. Laporan yang bersifat rahasia akan dienkripsi dengan standar AES-256. Alamat wallet Anda akan terlihat secara publik sebagai bagian dari audit blockchain, namun kami tidak menyimpan data pribadi di server pusat." 
+            title={lang === 'id' ? "Kebijakan Privasi (Privacy Policy)" : "Privacy Policy"} 
+            desc={t.legalDataDesc} 
           />
           <LegalItem 
             icon={Scale} 
-            title="Kepatuhan Regulasi" 
-            desc="DeliberateChain berupaya mematuhi regulasi keterbukaan informasi publik dan perlindungan data pribadi yang berlaku di wilayah yurisdiksi masing-masing mitra pemerintah." 
+            title={lang === 'id' ? "Kepatuhan Regulasi" : "Regulatory Compliance"} 
+            desc={t.sec1desc} 
           />
       </section>
-
+ 
       {/* FOOTER INFO */}
       <section className="py-24 border-t border-white/5 bg-white/[0.02]">
           <div className="max-w-4xl mx-auto px-6 text-center">
               <Lock size={32} className="text-slate-700 mx-auto mb-6" />
               <p className="text-slate-500 text-sm leading-relaxed">
-                  Terakhir diperbarui: 23 April 2026. Protokol ini bersifat open-source dan didistribusikan di bawah Lisensi MIT. Segala bentuk pelanggaran hukum tetap menjadi tanggung jawab pengguna sesuai dengan regulasi negara masing-masing.
+                  {lang === 'id' 
+                    ? "Terakhir diperbarui: 23 April 2026. Protokol ini bersifat open-source dan didistribusikan di bawah Lisensi MIT. Segala bentuk pelanggaran hukum tetap menjadi tanggung jawab pengguna sesuai dengan regulasi negara masing-masing."
+                    : "Last updated: April 23, 2026. This protocol is open-source and distributed under the MIT License. Any legal violations remain the responsibility of the user in accordance with their respective country's regulations."}
               </p>
           </div>
       </section>

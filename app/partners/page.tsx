@@ -23,13 +23,13 @@ export default function PartnersPage() {
       <section className="py-24 px-6 max-w-7xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
               <div>
-                  <h2 className="text-4xl font-bold text-white mb-8">Solusi Digital untuk Instansi Pemerintah</h2>
+                  <h2 className="text-4xl font-bold text-white mb-8">{lang === 'id' ? "Solusi Digital untuk Instansi Pemerintah" : "Digital Solutions for Government Agencies"}</h2>
                   <p className="text-slate-400 text-lg mb-8 leading-relaxed">
-                      Kami menyediakan infrastruktur siap pakai untuk mengelola aspirasi publik secara cerdas, transparan, dan auditable. Tidak perlu membangun sistem dari nol.
+                      {t.partnersSub}
                   </p>
                   <div className="space-y-6">
-                      <Benefit icon={Zap} title="Integrasi Instan" desc="Gunakan API kami untuk menghubungkan portal daerah Anda dengan jaringan DeliberateChain." />
-                      <Benefit icon={ShieldCheck} title="Kepatuhan Hukum" desc="Sistem kami dirancang sesuai dengan standar perlindungan data pribadi dan keterbukaan informasi publik." />
+                      <Benefit icon={Zap} title={t.partIntegrationTitle} desc={t.partIntegrationDesc} />
+                      <Benefit icon={ShieldCheck} title={t.partCollabTitle} desc={t.partCollabDesc} />
                   </div>
               </div>
               <div className="bg-[#0a0a0a] border border-white/10 rounded-[3rem] p-12">

@@ -29,39 +29,39 @@ export default function SecurityPage() {
           <TechCard 
             icon={Database} 
             title="Base L2 Blockchain" 
-            desc="Setiap transaksi diamankan oleh Ethereum Layer 2 untuk keamanan maksimal dengan biaya gas nol bagi pengguna."
+            desc={t.secBlockchainDesc}
           />
           <TechCard 
             icon={Cpu} 
             title="Gemini AI Moderation" 
-            desc="Model AI canggih melakukan filtering real-time untuk mencegah spam, kebencian, dan data pribadi (PII) masuk ke rantai."
+            desc={t.secAIDesc}
           />
           <TechCard 
             icon={Lock} 
             title="AES-256 Encryption" 
-            desc="Data sensitif pada 'Secret Report' dienkripsi sebelum diupload ke IPFS, hanya bisa dibuka oleh otoritas resmi."
+            desc={t.secPrivacyDesc}
           />
         </div>
       </section>
-
+ 
       {/* DETAILED ARCHITECTURE */}
       <section className="py-24 px-6 max-w-5xl mx-auto">
-        <h2 className="text-3xl font-bold text-white mb-12 text-center">Lapisan Keamanan Kami</h2>
+        <h2 className="text-3xl font-bold text-white mb-12 text-center">{t.securityTitle}</h2>
         <div className="space-y-12">
           <SecurityRow 
             num="01" 
             title="On-Chain Integrity" 
-            desc="Aspirasi Anda di-hash dan disimpan dalam Smart Contract. Sekali tersimpan, data ini tidak bisa dihapus atau dimodifikasi oleh admin sekalipun." 
+            desc={t.feat1Desc} 
           />
           <SecurityRow 
             num="02" 
             title="Decentralized Storage" 
-            desc="Kami menggunakan IPFS untuk memastikan lampiran dokumen Anda tetap tersedia dan terdistribusi secara global tanpa titik kegagalan tunggal." 
+            desc={t.step3Desc} 
           />
           <SecurityRow 
             num="03" 
             title="Account Abstraction" 
-            desc="Teknologi Smart Wallet memungkinkan warga berpartisipasi tanpa harus mengelola private key yang rumit atau memiliki saldo ETH awal." 
+            desc={t.step6Desc} 
           />
         </div>
       </section>

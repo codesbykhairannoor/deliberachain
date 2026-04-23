@@ -28,32 +28,32 @@ export default function AboutPage() {
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12">
           <div className="bg-[#0a0a0a] border border-white/10 p-10 rounded-[3rem] hover:border-vault-amber/30 transition-all group">
             <Target size={40} className="text-vault-amber mb-6 group-hover:scale-110 transition-transform" />
-            <h2 className="text-3xl font-bold text-white mb-4">Visi Kami</h2>
+            <h2 className="text-3xl font-bold text-white mb-4">{t.visiTitle}</h2>
             <p className="text-slate-400 leading-relaxed">
-              Mewujudkan ekosistem demokrasi digital dunia yang paling transparan, di mana setiap suara rakyat dihargai dan tidak dapat dimanipulasi oleh kepentingan manapun.
+              {t.visiDesc}
             </p>
           </div>
           <div className="bg-[#0a0a0a] border border-white/10 p-10 rounded-[3rem] hover:border-vault-amber/30 transition-all group">
             <Users size={40} className="text-blue-500 mb-6 group-hover:scale-110 transition-transform" />
-            <h2 className="text-3xl font-bold text-white mb-4">Misi Kami</h2>
+            <h2 className="text-3xl font-bold text-white mb-4">{t.misiTitle}</h2>
             <p className="text-slate-400 leading-relaxed">
-              Mengintegrasikan teknologi Blockchain dan Kecerdasan Buatan (AI) ke dalam sistem birokrasi publik untuk mempercepat respon pemerintah terhadap aspirasi warga secara adil.
+              {t.misiDesc}
             </p>
           </div>
         </div>
       </section>
-
+ 
       {/* OUR VALUES */}
       <section className="py-24 px-6 max-w-7xl mx-auto">
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-white mb-4">Nilai Inti Protokol</h2>
+          <h2 className="text-4xl font-bold text-white mb-4">{t.valuesTitle}</h2>
           <div className="h-1 w-20 bg-vault-amber mx-auto rounded-full"></div>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {[
-            { icon: Landmark, title: "Integritas Data", desc: "Data aspirasi disimpan di Ledger publik yang tidak bisa diubah." },
-            { icon: Award, title: "Kualitas Berbasis AI", desc: "Setiap laporan divalidasi oleh AI untuk memastikan standar kualitas." },
-            { icon: Users, title: "Inklusivitas", desc: "Tanpa batasan jarak dan waktu, semua warga punya hak akses yang sama." }
+            { icon: Landmark, title: t.val1Title, desc: t.val1Desc },
+            { icon: Award, title: t.val2Title, desc: t.val2Desc },
+            { icon: Users, title: t.val3Title, desc: t.val3Desc }
           ].map((item, i) => (
             <div key={i} className="p-8 border border-white/5 rounded-3xl hover:bg-white/5 transition-colors">
               <item.icon size={32} className="text-vault-amber mb-4" />

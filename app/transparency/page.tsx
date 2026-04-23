@@ -21,29 +21,29 @@ export default function TransparencyPage() {
 
       {/* LIVE STATS MOCKUP */}
       <section className="py-12 px-6 max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-6">
-        <StatItem label="Total Aspirasi" value="12,492" trend="+12%" icon={Activity} color="amber" />
-        <StatItem label="Dukungan Warga" value="450k+" trend="+5%" icon={CheckCircle2} color="green" />
-        <StatItem label="Kebijakan Terbit" value="84" trend="+2" icon={BarChart3} color="blue" />
-        <StatItem label="Laporan Tak Pantas" value="1,203" trend="-15%" icon={AlertCircle} color="red" />
+        <StatItem label={lang === 'id' ? "Total Aspirasi" : "Total Aspirations"} value="12,492" trend="+12%" icon={Activity} color="amber" />
+        <StatItem label={lang === 'id' ? "Dukungan Warga" : "Citizen Support"} value="450k+" trend="+5%" icon={CheckCircle2} color="green" />
+        <StatItem label={lang === 'id' ? "Kebijakan Terbit" : "Issued Policies"} value="84" trend="+2" icon={BarChart3} color="blue" />
+        <StatItem label={lang === 'id' ? "Laporan Tak Pantas" : "Inappropriate Reports"} value="1,203" trend="-15%" icon={AlertCircle} color="red" />
       </section>
-
+ 
       {/* DETAILED REPORT SECTIONS */}
       <section className="py-24 px-6 bg-white/[0.02] border-y border-white/5">
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12">
             <div className="lg:col-span-8 bg-black border border-white/10 rounded-[2.5rem] p-10">
-                <h3 className="text-2xl font-bold text-white mb-8">Distribusi Isu Nasional</h3>
+                <h3 className="text-2xl font-bold text-white mb-8">{lang === 'id' ? "Distribusi Isu Nasional" : "National Issue Distribution"}</h3>
                 <div className="space-y-6">
-                    <ProgressBar label="Infrastruktur" value={45} color="bg-vault-amber" />
-                    <ProgressBar label="Kesehatan" value={25} color="bg-blue-500" />
-                    <ProgressBar label="Pendidikan" value={20} color="bg-green-500" />
-                    <ProgressBar label="Lainnya" value={10} color="bg-slate-500" />
+                    <ProgressBar label={t.cat1Title} value={45} color="bg-vault-amber" />
+                    <ProgressBar label={t.cat2Title} value={25} color="bg-blue-500" />
+                    <ProgressBar label={t.cat3Title} value={20} color="bg-green-500" />
+                    <ProgressBar label={lang === 'id' ? "Lainnya" : "Others"} value={10} color="bg-slate-500" />
                 </div>
             </div>
             <div className="lg:col-span-4 bg-vault-amber/10 border border-vault-amber/20 rounded-[2.5rem] p-10 flex flex-col justify-center">
                 <PieChart size={64} className="text-vault-amber mb-6" />
-                <h3 className="text-xl font-bold text-white mb-4">Audit Akurasi AI</h3>
+                <h3 className="text-xl font-bold text-white mb-4">{lang === 'id' ? "Audit Akurasi AI" : "AI Accuracy Audit"}</h3>
                 <p className="text-slate-400 text-sm leading-relaxed mb-6">
-                    Sistem Gemini AI kami mencapai tingkat akurasi moderasi sebesar <b>99.4%</b> berdasarkan hasil audit tim independen bulan Maret 2026.
+                    {t.transImpactDesc}
                 </p>
                 <button className="text-vault-amber font-bold text-sm uppercase tracking-widest hover:underline">Download Full Report (PDF)</button>
             </div>

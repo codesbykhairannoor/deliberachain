@@ -46,14 +46,14 @@ export default function HomePage() {
              {t.heroDesc}
            </p>
 
-           <div className="flex flex-col md:flex-row justify-center gap-4">
-               <Link href="/dashboard" className="bg-vault-amber hover:bg-yellow-400 text-black px-8 py-4 rounded-xl font-bold text-lg transition-all flex items-center justify-center gap-2 shadow-[0_0_20px_rgba(245,158,11,0.3)] hover:shadow-[0_0_40px_rgba(245,158,11,0.5)]">
-                  Suarakan Aspirasi <ArrowRight size={20} />
-               </Link>
-               <Link href="/explore" className="px-8 py-4 rounded-xl font-bold text-lg border border-white/20 hover:bg-white/10 transition-all flex items-center justify-center gap-2 backdrop-blur-sm">
-                  <Globe size={20} /> Pantau Demokrasi
-               </Link>
-           </div>
+            <div className="flex flex-col md:flex-row justify-center gap-4">
+                <Link href="/dashboard" className="bg-vault-amber hover:bg-yellow-400 text-black px-8 py-4 rounded-xl font-bold text-lg transition-all flex items-center justify-center gap-2 shadow-[0_0_20px_rgba(245,158,11,0.3)] hover:shadow-[0_0_40px_rgba(245,158,11,0.5)]">
+                   {t.btnGoDashboard} <ArrowRight size={20} />
+                </Link>
+                <Link href="/explore" className="px-8 py-4 rounded-xl font-bold text-lg border border-white/20 hover:bg-white/10 transition-all flex items-center justify-center gap-2 backdrop-blur-sm">
+                   <Globe size={20} /> {lang === 'id' ? "Pantau Demokrasi" : "Monitor Democracy"}
+                </Link>
+            </div>
         </div>
       </section>
 
@@ -160,109 +160,109 @@ export default function HomePage() {
          </div>
       </section>
 
-      {/* =========================================
-          SECTION 3.5: BENEFITS (CITIZENS VS GOV)
-      ========================================= */}
-      <section className="py-24 bg-[#050505]">
-          <div className="max-w-7xl mx-auto px-6">
-              <div className="text-center mb-16">
-                  <h2 className="text-3xl md:text-5xl font-black text-white mb-4">Satu Platform, <span className="text-vault-amber">Dua Solusi</span></h2>
-                  <p className="text-slate-400 max-w-2xl mx-auto text-lg">Dlibration dibangun untuk menjembatani kesenjangan antara suara rakyat dan meja pembuat kebijakan.</p>
-              </div>
+       {/* =========================================
+           SECTION 3.5: BENEFITS (CITIZENS VS GOV)
+       ========================================= */}
+       <section className="py-24 bg-[#050505]">
+           <div className="max-w-7xl mx-auto px-6">
+               <div className="text-center mb-16">
+                   <h2 className="text-3xl md:text-5xl font-black text-white mb-4">{t.solTitle}</h2>
+                   <p className="text-slate-400 max-w-2xl mx-auto text-lg">{t.solSub}</p>
+               </div>
+ 
+               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                   {/* Citizen Card */}
+                   <div className="bg-gradient-to-br from-blue-900/20 to-black border border-blue-500/20 rounded-[2.5rem] p-10 hover:border-blue-500/50 transition-all">
+                       <div className="w-16 h-16 bg-blue-500/10 rounded-2xl flex items-center justify-center mb-6 border border-blue-500/30">
+                           <Globe className="text-blue-500" size={28} />
+                       </div>
+                       <h3 className="text-3xl font-black text-white mb-4">{t.citizenTitle}</h3>
+                       <ul className="space-y-4">
+                           <li className="flex items-start gap-3">
+                               <ShieldCheck className="text-blue-500 shrink-0 mt-1" size={20}/>
+                               <span className="text-slate-300">{t.citizen1}</span>
+                           </li>
+                           <li className="flex items-start gap-3">
+                               <ShieldCheck className="text-blue-500 shrink-0 mt-1" size={20}/>
+                               <span className="text-slate-300">{t.citizen2}</span>
+                           </li>
+                           <li className="flex items-start gap-3">
+                               <ShieldCheck className="text-blue-500 shrink-0 mt-1" size={20}/>
+                               <span className="text-slate-300">{t.citizen3}</span>
+                           </li>
+                       </ul>
+                   </div>
+ 
+                   {/* Government Card */}
+                   <div className="bg-gradient-to-br from-vault-amber/20 to-black border border-vault-amber/20 rounded-[2.5rem] p-10 hover:border-vault-amber/50 transition-all">
+                       <div className="w-16 h-16 bg-vault-amber/10 rounded-2xl flex items-center justify-center mb-6 border border-vault-amber/30">
+                           <Cpu className="text-vault-amber" size={28} />
+                       </div>
+                       <h3 className="text-3xl font-black text-white mb-4">{t.govTitle}</h3>
+                       <ul className="space-y-4">
+                           <li className="flex items-start gap-3">
+                               <ShieldCheck className="text-vault-amber shrink-0 mt-1" size={20}/>
+                               <span className="text-slate-300">{t.gov1}</span>
+                           </li>
+                           <li className="flex items-start gap-3">
+                               <ShieldCheck className="text-vault-amber shrink-0 mt-1" size={20}/>
+                               <span className="text-slate-300">{t.gov2}</span>
+                           </li>
+                           <li className="flex items-start gap-3">
+                               <ShieldCheck className="text-vault-amber shrink-0 mt-1" size={20}/>
+                               <span className="text-slate-300">{t.gov3}</span>
+                           </li>
+                       </ul>
+                   </div>
+               </div>
+           </div>
+       </section>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                  {/* Citizen Card */}
-                  <div className="bg-gradient-to-br from-blue-900/20 to-black border border-blue-500/20 rounded-[2.5rem] p-10 hover:border-blue-500/50 transition-all">
-                      <div className="w-16 h-16 bg-blue-500/10 rounded-2xl flex items-center justify-center mb-6 border border-blue-500/30">
-                          <Globe className="text-blue-500" size={28} />
-                      </div>
-                      <h3 className="text-3xl font-black text-white mb-4">Untuk Warga</h3>
-                      <ul className="space-y-4">
-                          <li className="flex items-start gap-3">
-                              <ShieldCheck className="text-blue-500 shrink-0 mt-1" size={20}/>
-                              <span className="text-slate-300"><b>Aman & Anonim:</b> Laporan sensitif dienkripsi, identitas Anda terlindungi.</span>
-                          </li>
-                          <li className="flex items-start gap-3">
-                              <ShieldCheck className="text-blue-500 shrink-0 mt-1" size={20}/>
-                              <span className="text-slate-300"><b>Tanpa Sensor:</b> Aspirasi yang sesuai aturan dicatat abadi di Blockchain.</span>
-                          </li>
-                          <li className="flex items-start gap-3">
-                              <ShieldCheck className="text-blue-500 shrink-0 mt-1" size={20}/>
-                              <span className="text-slate-300"><b>Kawal Bersama:</b> Pantau status laporan dan dukung aspirasi warga lain secara transparan.</span>
-                          </li>
-                      </ul>
-                  </div>
-
-                  {/* Government Card */}
-                  <div className="bg-gradient-to-br from-vault-amber/20 to-black border border-vault-amber/20 rounded-[2.5rem] p-10 hover:border-vault-amber/50 transition-all">
-                      <div className="w-16 h-16 bg-vault-amber/10 rounded-2xl flex items-center justify-center mb-6 border border-vault-amber/30">
-                          <Cpu className="text-vault-amber" size={28} />
-                      </div>
-                      <h3 className="text-3xl font-black text-white mb-4">Untuk Pemerintah</h3>
-                      <ul className="space-y-4">
-                          <li className="flex items-start gap-3">
-                              <ShieldCheck className="text-vault-amber shrink-0 mt-1" size={20}/>
-                              <span className="text-slate-300"><b>Filter Anti-Spam (AI):</b> Hanya menerima laporan yang sudah divalidasi kualitasnya.</span>
-                          </li>
-                          <li className="flex items-start gap-3">
-                              <ShieldCheck className="text-vault-amber shrink-0 mt-1" size={20}/>
-                              <span className="text-slate-300"><b>Policy Brief Otomatis:</b> Dapatkan ringkasan tren aspirasi mingguan dari AI.</span>
-                          </li>
-                          <li className="flex items-start gap-3">
-                              <ShieldCheck className="text-vault-amber shrink-0 mt-1" size={20}/>
-                              <span className="text-slate-300"><b>Takedown Legal:</b> Sembunyikan konten fitnah/hoaks tanpa merusak integritas data historis.</span>
-                          </li>
-                      </ul>
-                  </div>
-              </div>
-          </div>
-      </section>
-
-      {/* =========================================
-          SECTION 3.8: FAQ
-      ========================================= */}
-      <section className="py-24 bg-[#0a0a0a] border-y border-white/5">
-          <div className="max-w-4xl mx-auto px-6">
-              <div className="text-center mb-16">
-                  <h2 className="text-3xl font-bold text-white mb-4">Frequently Asked Questions</h2>
-              </div>
-
-              <div className="space-y-4">
-                  {/* FAQ 1 */}
-                  <div className="bg-black border border-white/10 p-6 rounded-2xl">
-                      <h4 className="text-lg font-bold text-white mb-2">Apakah saya harus membayar biaya (Gas Fee) untuk mengirim aspirasi?</h4>
-                      <p className="text-slate-400">Tidak. Platform kami menggunakan teknologi <b>Account Abstraction (Smart Wallets)</b>. Seluruh biaya transaksi (Gas Fee) ditanggung oleh protokol (Sponsored by Protocol). Anda hanya butuh koneksi internet.</p>
-                  </div>
-                  {/* FAQ 2 */}
-                  <div className="bg-black border border-white/10 p-6 rounded-2xl">
-                      <h4 className="text-lg font-bold text-white mb-2">Bagaimana jika ada laporan hoaks atau fitnah?</h4>
-                      <p className="text-slate-400">Sistem AI kami akan memblokir sebagian besar kata-kata kasar dan spam sebelum masuk ke blockchain. Jika ada laporan lolos yang terbukti fitnah, Admin dapat melakukan <i>Takedown</i> agar tidak tampil di publik, namun bukti transaksinya tetap ada di blockchain untuk keperluan hukum.</p>
-                  </div>
-                  {/* FAQ 3 */}
-                  <div className="bg-black border border-white/10 p-6 rounded-2xl">
-                      <h4 className="text-lg font-bold text-white mb-2">Apakah identitas saya aman?</h4>
-                      <p className="text-slate-400">Jika Anda memilih opsi <b>Secret Report</b>, data Anda akan dienkripsi dan hanya dapat dibuka oleh instansi terkait yang memiliki otoritas kunci dekripsi.</p>
-                  </div>
-              </div>
-          </div>
-      </section>
+       {/* =========================================
+           SECTION 3.8: FAQ
+       ========================================= */}
+       <section className="py-24 bg-[#0a0a0a] border-y border-white/5">
+           <div className="max-w-4xl mx-auto px-6">
+               <div className="text-center mb-16">
+                   <h2 className="text-3xl font-bold text-white mb-4">{t.faqTitle}</h2>
+               </div>
+ 
+               <div className="space-y-4">
+                   {/* FAQ 1 */}
+                   <div className="bg-black border border-white/10 p-6 rounded-2xl">
+                       <h4 className="text-lg font-bold text-white mb-2">{t.faq1Q}</h4>
+                       <p className="text-slate-400">{t.faq1A}</p>
+                   </div>
+                   {/* FAQ 2 */}
+                   <div className="bg-black border border-white/10 p-6 rounded-2xl">
+                       <h4 className="text-lg font-bold text-white mb-2">{t.faq2Q}</h4>
+                       <p className="text-slate-400">{t.faq2A}</p>
+                   </div>
+                   {/* FAQ 3 */}
+                   <div className="bg-black border border-white/10 p-6 rounded-2xl">
+                       <h4 className="text-lg font-bold text-white mb-2">{t.faq3Q}</h4>
+                       <p className="text-slate-400">{t.faq3A}</p>
+                   </div>
+               </div>
+           </div>
+       </section>
 
 
       {/* =========================================
           SECTION 4: CALL TO ACTION (CTA)
       ========================================= */}
-      <section className="py-32 px-6 text-center relative overflow-hidden">
-         {/* Background Glow */}
-         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-vault-amber/10 rounded-full blur-[100px] -z-10"></div>
-         
-         <div className="max-w-3xl mx-auto">
-            <h2 className="text-4xl md:text-6xl font-black text-white mb-6">{t.ctaTitle}</h2>
-            <p className="text-slate-400 text-xl mb-10">{t.ctaDesc}</p>
-            
-            <Link href="/dashboard" className="inline-flex items-center gap-3 bg-white text-black hover:bg-vault-amber px-10 py-5 rounded-full font-bold text-xl transition-all transform hover:scale-105 shadow-[0_0_30px_rgba(255,255,255,0.2)]">
-               {t.ctaBtn} <ArrowRight />
-            </Link>
-         </div>
+       <section className="py-32 px-6 text-center relative overflow-hidden">
+          {/* Background Glow */}
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-vault-amber/10 rounded-full blur-[100px] -z-10"></div>
+          
+          <div className="max-w-3xl mx-auto">
+             <h2 className="text-4xl md:text-6xl font-black text-white mb-6">{t.ctaTitle}</h2>
+             <p className="text-slate-400 text-xl mb-10">{t.ctaDesc}</p>
+             
+             <Link href="/dashboard" className="inline-flex items-center gap-3 bg-white text-black hover:bg-vault-amber px-10 py-5 rounded-full font-bold text-xl transition-all transform hover:scale-105 shadow-[0_0_30px_rgba(255,255,255,0.2)]">
+                {t.ctaBtn} <ArrowRight />
+             </Link>
+          </div>
 
          {/* Footer Copyright Kecil */}
          <div className="mt-20 pt-10 border-t border-white/5 text-slate-600 text-sm">

@@ -111,6 +111,89 @@ export const translations = {
     contactTitle: "Hubungi Kami",
     contactSub: "Kami siap mendengar masukan dan bantuan teknis Anda.",
     backHome: "Kembali ke Beranda",
+    
+    // ABOUT DETAILS
+    visiTitle: "Visi Kami",
+    visiDesc: "Mewujudkan ekosistem demokrasi digital dunia yang paling transparan, di mana setiap suara rakyat dihargai dan tidak dapat dimanipulasi.",
+    misiTitle: "Misi Kami",
+    misiDesc: "Mengintegrasikan teknologi Blockchain dan AI ke dalam sistem birokrasi publik untuk mempercepat respon pemerintah secara adil.",
+    valuesTitle: "Nilai Inti Protokol",
+    val1Title: "Integritas Data",
+    val1Desc: "Data aspirasi disimpan di Ledger publik yang tidak bisa diubah selamanya.",
+    val2Title: "Kualitas Berbasis AI",
+    val2Desc: "Setiap laporan divalidasi oleh AI untuk memastikan standar kualitas dan akurasi.",
+    val3Title: "Inklusivitas",
+    val3Desc: "Tanpa batasan jarak dan waktu, semua warga punya hak akses yang sama ke meja kebijakan.",
+
+    // SECURITY DETAILS
+    secBlockchainTitle: "Keamanan Blockchain",
+    secBlockchainDesc: "Menggunakan jaringan Base Sepolia untuk memastikan data tidak dapat diubah (immutable) dan tahan terhadap sensor.",
+    secAITitle: "Moderasi Cerdas",
+    secAIDesc: "Sistem AI Gemini 1.5 Pro melakukan pemindaian otomatis terhadap spam, ujaran kebencian, dan konten tidak relevan.",
+    secPrivacyTitle: "Privasi Terenkripsi",
+    secPrivacyDesc: "Laporan sensitol dilindungi dengan enkripsi tingkat tinggi yang hanya dapat dibuka oleh pihak berwenang.",
+
+    // TRANSPARENCY DETAILS
+    transAuditTitle: "Audit On-Chain",
+    transAuditDesc: "Setiap transaksi dapat dilacak di Explorer Blockchain secara real-time oleh siapapun.",
+    transImpactTitle: "Dampak Kebijakan",
+    transImpactDesc: "Visualisasi data tentang bagaimana aspirasi warga diubah menjadi tindakan nyata oleh pemerintah.",
+
+    // COMMUNITY DETAILS
+    commDAOTitle: "Dlibration DAO",
+    commDAODesc: "Pemegang reputasi dapat memberikan suara pada arah pengembangan protokol di masa depan.",
+    commJoinTitle: "Gabung Diskusi",
+    commJoinDesc: "Masuk ke kanal Discord atau Telegram kami untuk berdiskusi langsung dengan Patriot Digital lainnya.",
+
+    // PARTNERS DETAILS
+    partIntegrationTitle: "Integrasi API",
+    partIntegrationDesc: "API khusus untuk instansi pemerintah untuk menarik data aspirasi secara otomatis ke sistem internal mereka.",
+    partCollabTitle: "Kolaborasi Strategis",
+    partCollabDesc: "Bekerja sama dengan berbagai kementerian untuk memastikan aspirasi sampai ke tangan yang tepat.",
+
+    // LEGAL DETAILS
+    legalTermsTitle: "Syarat & Ketentuan",
+    legalTermsDesc: "Aturan penggunaan platform untuk menjaga ekosistem tetap sehat dan produktif.",
+    legalDataTitle: "Kebijakan Data",
+    legalDataDesc: "Bagaimana kami mengelola dan melindungi data anonim Anda sesuai regulasi yang berlaku.",
+
+    // CONTACT DETAILS
+    contactFormTitle: "Kirim Pesan",
+    contactFormDesc: "Gunakan formulir ini untuk pertanyaan umum atau kemitraan.",
+    contactSupportTitle: "Dukungan Teknis",
+    contactSupportDesc: "Butuh bantuan dengan wallet atau transaksi? Tim kami siap membantu 24/7.",
+
+    // NAV ADDITIONAL
+    navEcosystem: "Ekosistem",
+    ecoVisi: "Visi & Misi",
+    ecoSec: "Keamanan Teknis",
+    ecoTrans: "Transparansi",
+    ecoComm: "Komunitas",
+    ecoPart: "Instansi",
+    ecoLegal: "Legal & Privasi",
+    ecoContact: "Hubungi Kami",
+
+    // SOLUTIONS SECTION
+    solTitle: "Satu Platform, Dua Solusi",
+    solSub: "Dlibration dibangun untuk menjembatani kesenjangan antara suara rakyat dan meja pembuat kebijakan.",
+    citizenTitle: "Untuk Warga",
+    citizen1: "Aman & Anonim: Laporan sensitif dienkripsi, identitas Anda terlindungi.",
+    citizen2: "Tanpa Sensor: Aspirasi yang sesuai aturan dicatat abadi di Blockchain.",
+    citizen3: "Kawal Bersama: Pantau status laporan dan dukung aspirasi warga lain secara transparan.",
+    govTitle: "Untuk Pemerintah",
+    gov1: "Filter Anti-Spam (AI): Hanya menerima laporan yang sudah divalidasi kualitasnya.",
+    gov2: "Policy Brief Otomatis: Dapatkan ringkasan tren aspirasi mingguan dari AI.",
+    gov3: "Takedown Legal: Sembunyikan konten fitnah/hoaks tanpa merusak integritas data historis.",
+
+    // FAQ SECTION
+    faqTitle: "Frequently Asked Questions",
+    faq1Q: "Apakah saya harus membayar biaya (Gas Fee)?",
+    faq1A: "Tidak. Seluruh biaya transaksi (Gas Fee) ditanggung oleh protokol (Sponsored by Protocol). Anda hanya butuh koneksi internet.",
+    faq2Q: "Bagaimana jika ada laporan hoaks?",
+    faq2A: "Sistem AI kami memblokir spam sebelum masuk blockchain. Admin dapat menyembunyikan konten fitnah tanpa merusak integritas data historis.",
+    faq3Q: "Apakah identitas saya aman?",
+    faq3A: "Jika memilih opsi Secret Report, data Anda dienkripsi dan hanya dapat dibuka oleh instansi terkait yang berwenang.",
+
     sec1desc: "Platform ini dirancang untuk memastikan setiap aspirasi warga memiliki jejak digital yang permanen dan dapat diverifikasi, menciptakan transparansi total dalam tata kelola publik.",
     step111Title: "Koneksi Identitas",
     simulasip: "Simulasi Tampilan:",
@@ -250,6 +333,89 @@ export const translations = {
     legalSub: "Regulatory compliance and protection of your personal data.",
     contactTitle: "Contact Us",
     contactSub: "We are ready to hear your feedback and technical assistance.",
+    
+    // ABOUT DETAILS
+    visiTitle: "Our Vision",
+    visiDesc: "To realize the world's most transparent digital democracy ecosystem, where every citizen's voice is valued and cannot be manipulated.",
+    misiTitle: "Our Mission",
+    misiDesc: "Integrating Blockchain and AI technologies into public bureaucracy systems to accelerate fair government response.",
+    valuesTitle: "Protocol Core Values",
+    val1Title: "Data Integrity",
+    val1Desc: "Aspiration data is stored in a public Ledger that cannot be changed forever.",
+    val2Title: "AI-Based Quality",
+    val2Desc: "Every report is validated by AI to ensure quality and accuracy standards.",
+    val3Title: "Inclusivity",
+    val3Desc: "Without distance and time limits, all citizens have equal access to the policy table.",
+
+    // SECURITY DETAILS
+    secBlockchainTitle: "Blockchain Security",
+    secBlockchainDesc: "Using the Base Sepolia network to ensure data is immutable and censorship-resistant.",
+    secAITitle: "Smart Moderation",
+    secAIDesc: "Gemini 1.5 Pro AI system performs automatic scans for spam, hate speech, and irrelevant content.",
+    secPrivacyTitle: "Encrypted Privacy",
+    secPrivacyDesc: "Sensitive reports are protected with high-level encryption that can only be opened by authorities.",
+
+    // TRANSPARENCY DETAILS
+    transAuditTitle: "On-Chain Audit",
+    transAuditDesc: "Every transaction can be traced on the Blockchain Explorer in real-time by anyone.",
+    transImpactTitle: "Policy Impact",
+    transImpactDesc: "Data visualization on how citizen aspirations are transformed into real government action.",
+
+    // COMMUNITY DETAILS
+    commDAOTitle: "Dlibration DAO",
+    commDAODesc: "Reputation holders can vote on the future development direction of the protocol.",
+    commJoinTitle: "Join Discussion",
+    commJoinDesc: "Enter our Discord or Telegram channels to discuss directly with other Digital Patriots.",
+
+    // PARTNERS DETAILS
+    partIntegrationTitle: "API Integration",
+    partIntegrationDesc: "Special API for government agencies to automatically pull aspiration data into their internal systems.",
+    partCollabTitle: "Strategic Collaboration",
+    partCollabDesc: "Working with various ministries to ensure aspirations reach the right hands.",
+
+    // LEGAL DETAILS
+    legalTermsTitle: "Terms & Conditions",
+    legalTermsDesc: "Platform usage rules to keep the ecosystem healthy and productive.",
+    legalDataTitle: "Data Policy",
+    legalDataDesc: "How we manage and protect your anonymous data in accordance with applicable regulations.",
+
+    // CONTACT DETAILS
+    contactFormTitle: "Send Message",
+    contactFormDesc: "Use this form for general inquiries or partnerships.",
+    contactSupportTitle: "Technical Support",
+    contactSupportDesc: "Need help with wallet or transactions? Our team is ready to help 24/7.",
+
+    // NAV ADDITIONAL
+    navEcosystem: "Ecosystem",
+    ecoVisi: "Vision & Mission",
+    ecoSec: "Technical Security",
+    ecoTrans: "Transparency",
+    ecoComm: "Community",
+    ecoPart: "Agencies",
+    ecoLegal: "Legal & Privacy",
+    ecoContact: "Contact Us",
+ 
+    // SOLUTIONS SECTION
+    solTitle: "One Platform, Two Solutions",
+    solSub: "Dlibration is built to bridge the gap between citizen voices and policymaking tables.",
+    citizenTitle: "For Citizens",
+    citizen1: "Safe & Anonymous: Sensitive reports are encrypted, your identity is protected.",
+    citizen2: "Censorship-Free: Rule-compliant aspirations are permanently recorded on Blockchain.",
+    citizen3: "Monitor Together: Track report status and support other citizens' aspirations transparently.",
+    govTitle: "For Government",
+    gov1: "Anti-Spam Filter (AI): Only receive reports with validated quality.",
+    gov2: "Automatic Policy Brief: Get weekly aspiration trend summaries from AI.",
+    gov3: "Legal Takedown: Hide slanderous/hoax content without damaging historical data integrity.",
+
+    // FAQ SECTION
+    faqTitle: "Frequently Asked Questions",
+    faq1Q: "Do I have to pay transaction fees (Gas Fee)?",
+    faq1A: "No. All transaction costs (Gas Fee) are covered by the protocol (Sponsored by Protocol). You only need an internet connection.",
+    faq2Q: "What if there are hoax reports?",
+    faq2A: "Our AI system blocks spam before it enters the blockchain. Admin can hide slanderous content without damaging historical data integrity.",
+    faq3Q: "Is my identity safe?",
+    faq3A: "If you choose the Secret Report option, your data is encrypted and can only be opened by authorized relevant agencies.",
+
     sec1desc: "This platform is designed to ensure every citizen's aspiration has a permanent and verifiable digital footprint, creating total transparency in public governance.",
     step111Title: "Identity Connection",
     simulasip: "UI Simulation:",

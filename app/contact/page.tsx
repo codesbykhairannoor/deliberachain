@@ -22,9 +22,9 @@ export default function ContactPage() {
       <section className="py-24 px-6 max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12">
           {/* LEFT: INFO */}
           <div className="lg:col-span-5 space-y-12">
-              <h2 className="text-3xl font-bold text-white">Hubungi Tim Kami</h2>
+              <h2 className="text-3xl font-bold text-white">{lang === 'id' ? "Hubungi Tim Kami" : "Contact Our Team"}</h2>
               <p className="text-slate-400 leading-relaxed">
-                  Punya kendala teknis atau pertanyaan tentang cara kerja platform? Tim patriot digital kami siap membantu Anda 24/7.
+                  {t.contactSupportDesc}
               </p>
               
               <div className="space-y-6">
@@ -33,34 +33,34 @@ export default function ContactPage() {
                   <ContactRow icon={MapPin} label="Office (HQ)" value="Jl. Blockchain No. 1, Jakarta, Indonesia" />
               </div>
           </div>
-
+ 
           {/* RIGHT: FORM */}
           <div className="lg:col-span-7">
               <div className="bg-[#0a0a0a] border border-white/10 rounded-[3rem] p-10 md:p-12">
                   <form className="grid grid-cols-1 md:grid-cols-2 gap-6">
                       <div className="space-y-2">
-                          <label className="text-xs font-bold text-slate-500 uppercase tracking-widest">Nama Lengkap</label>
+                          <label className="text-xs font-bold text-slate-500 uppercase tracking-widest">{lang === 'id' ? "Nama Lengkap" : "Full Name"}</label>
                           <input type="text" className="w-full bg-white/5 border border-white/10 p-4 rounded-xl text-white focus:border-vault-amber outline-none transition-all" />
                       </div>
                       <div className="space-y-2">
-                          <label className="text-xs font-bold text-slate-500 uppercase tracking-widest">Alamat Email</label>
+                          <label className="text-xs font-bold text-slate-500 uppercase tracking-widest">{lang === 'id' ? "Alamat Email" : "Email Address"}</label>
                           <input type="email" className="w-full bg-white/5 border border-white/10 p-4 rounded-xl text-white focus:border-vault-amber outline-none transition-all" />
                       </div>
                       <div className="md:col-span-2 space-y-2">
-                          <label className="text-xs font-bold text-slate-500 uppercase tracking-widest">Subjek Bantuan</label>
+                          <label className="text-xs font-bold text-slate-500 uppercase tracking-widest">{lang === 'id' ? "Subjek Bantuan" : "Support Subject"}</label>
                           <select className="w-full bg-white/5 border border-white/10 p-4 rounded-xl text-white focus:border-vault-amber outline-none transition-all">
-                              <option>Masalah Teknis Wallet</option>
-                              <option>Laporan Konten Tidak Pantas</option>
-                              <option>Pertanyaan Kemitraan</option>
-                              <option>Lainnya</option>
+                              <option>{lang === 'id' ? "Masalah Teknis Wallet" : "Wallet Technical Issues"}</option>
+                              <option>{lang === 'id' ? "Laporan Konten Tidak Pantas" : "Inappropriate Content Report"}</option>
+                              <option>{lang === 'id' ? "Pertanyaan Kemitraan" : "Partnership Inquiry"}</option>
+                              <option>{lang === 'id' ? "Lainnya" : "Others"}</option>
                           </select>
                       </div>
                       <div className="md:col-span-2 space-y-2">
-                          <label className="text-xs font-bold text-slate-500 uppercase tracking-widest">Detail Pesan</label>
+                          <label className="text-xs font-bold text-slate-500 uppercase tracking-widest">{lang === 'id' ? "Detail Pesan" : "Message Detail"}</label>
                           <textarea rows={6} className="w-full bg-white/5 border border-white/10 p-4 rounded-xl text-white focus:border-vault-amber outline-none transition-all"></textarea>
                       </div>
                       <button className="md:col-span-2 bg-white text-black font-black py-5 rounded-2xl hover:bg-vault-amber transition-all flex items-center justify-center gap-3">
-                          <Send size={20} /> Kirim Pesan Sekarang
+                          <Send size={20} /> {t.contactFormTitle}
                       </button>
                   </form>
               </div>

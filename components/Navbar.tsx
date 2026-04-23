@@ -81,19 +81,21 @@ export default function Navbar({ client }: NavbarProps) {
             {address && <NavLink href="/profile" icon={User} label={t.navProfile} />}
             
             {/* DROPDOWN ECOSYSTEM */}
-            <div className="relative group/drop ml-2">
+            <div className="relative group ml-2">
                 <button className="flex items-center gap-2 px-4 py-2 rounded-full text-sm font-bold text-slate-400 hover:text-white hover:bg-white/10 transition-all">
-                    <span>Ecosystem</span>
-                    <svg className="w-4 h-4 group-hover/drop:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path></svg>
+                    <span>{t.navEcosystem}</span>
+                    <svg className="w-4 h-4 group-hover:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path></svg>
                 </button>
-                <div className="absolute top-full right-0 mt-2 w-56 bg-[#0a0a0a] border border-white/10 rounded-2xl p-2 hidden group-hover/drop:block animate-in fade-in slide-in-from-top-2 shadow-2xl backdrop-blur-xl">
-                    <Link href="/about" className="block px-4 py-3 text-xs text-slate-400 hover:text-vault-amber hover:bg-white/5 rounded-xl transition-all font-bold">Visi & Misi</Link>
-                    <Link href="/security" className="block px-4 py-3 text-xs text-slate-400 hover:text-vault-amber hover:bg-white/5 rounded-xl transition-all font-bold">Keamanan Teknis</Link>
-                    <Link href="/transparency" className="block px-4 py-3 text-xs text-slate-400 hover:text-vault-amber hover:bg-white/5 rounded-xl transition-all font-bold">Laporan Transparansi</Link>
-                    <Link href="/community" className="block px-4 py-3 text-xs text-slate-400 hover:text-vault-amber hover:bg-white/5 rounded-xl transition-all font-bold">Komunitas DAO</Link>
-                    <Link href="/partners" className="block px-4 py-3 text-xs text-slate-400 hover:text-vault-amber hover:bg-white/5 rounded-xl transition-all font-bold">Layanan Instansi</Link>
-                    <Link href="/legal" className="block px-4 py-3 text-xs text-slate-400 hover:text-vault-amber hover:bg-white/5 rounded-xl transition-all font-bold">Legal & Privasi</Link>
-                    <Link href="/contact" className="block px-4 py-3 text-xs text-slate-400 hover:text-vault-amber hover:bg-white/5 rounded-xl transition-all font-bold">Hubungi Kami</Link>
+                <div className="absolute top-full right-0 mt-2 w-64 bg-[#0a0a0a] border border-white/10 rounded-2xl p-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform origin-top-right scale-95 group-hover:scale-100 z-50 shadow-2xl backdrop-blur-xl">
+                    <div className="grid grid-cols-1 gap-1">
+                        <Link href="/about" className="block px-4 py-3 text-sm text-slate-400 hover:text-vault-amber hover:bg-white/5 rounded-xl transition-all font-bold">{t.ecoVisi}</Link>
+                        <Link href="/security" className="block px-4 py-3 text-sm text-slate-400 hover:text-vault-amber hover:bg-white/5 rounded-xl transition-all font-bold">{t.ecoSec}</Link>
+                        <Link href="/transparency" className="block px-4 py-3 text-sm text-slate-400 hover:text-vault-amber hover:bg-white/5 rounded-xl transition-all font-bold">{t.ecoTrans}</Link>
+                        <Link href="/community" className="block px-4 py-3 text-sm text-slate-400 hover:text-vault-amber hover:bg-white/5 rounded-xl transition-all font-bold">{t.ecoComm}</Link>
+                        <Link href="/partners" className="block px-4 py-3 text-sm text-slate-400 hover:text-vault-amber hover:bg-white/5 rounded-xl transition-all font-bold">{t.ecoPart}</Link>
+                        <Link href="/legal" className="block px-4 py-3 text-sm text-slate-400 hover:text-vault-amber hover:bg-white/5 rounded-xl transition-all font-bold">{t.ecoLegal}</Link>
+                        <Link href="/contact" className="block px-4 py-3 text-sm text-slate-400 hover:text-vault-amber hover:bg-white/5 rounded-xl transition-all font-bold">{t.ecoContact}</Link>
+                    </div>
                 </div>
             </div>
         </div>
