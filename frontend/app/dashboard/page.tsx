@@ -30,10 +30,25 @@ import { PUBLIC_ARCHIVE_ADDRESS } from "@/lib/access";
 import CivicBadge from "@/components/CivicBadge";
 import { calculateCivicScore } from "@/lib/gamification";
 
+import { Suspense } from "react";
+
 const client = createThirdwebClient({ clientId: process.env.NEXT_PUBLIC_THIRDWEB_CLIENT_ID || "" });
 const contract = getContract({ client, chain: baseSepolia, address: process.env.NEXT_PUBLIC_CONTRACT_ADDRESS || "" });
 
 export default function DashboardPage() {
+  return (
+    <Suspense fallback={
+      <div className="p-20 text-white flex flex-col items-center animate-in fade-in">
+        <LayoutGrid size={48} className="text-slate-700 mb-4 animate-pulse" />
+        <p className="text-slate-500 font-mono italic">Initializing secure citizen session...</p>
+      </div>
+    }>
+      <DashboardContent />
+    </Suspense>
+  );
+}
+
+function DashboardContent() {
   const account = useActiveAccount();
   const searchParams = useSearchParams();
   const router = useRouter();

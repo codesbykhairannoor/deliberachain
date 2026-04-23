@@ -79,9 +79,10 @@ export default function GovAnalytics() {
                     outerRadius={80}
                     paddingAngle={5}
                     dataKey="value"
+                    cornerRadius={8}
                   >
                     {CATEGORY_DATA.map((entry, index) => (
-                      <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} cornerRadius={8} />
+                      <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
                     ))}
                   </Pie>
                   <Tooltip 

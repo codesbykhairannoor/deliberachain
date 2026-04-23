@@ -32,7 +32,7 @@ export default function AdminPortal() {
     else alert("Invalid Authorization Key");
   };
 
-  const { data: blockNumber } = useBlockNumber({ client, chain: baseSepolia });
+  const blockNumber = useBlockNumber({ client, chain: baseSepolia });
   
   // Fetch all aspirations
   const { data: allAspirations, isLoading: isAspLoading, refetch } = useReadContract({
