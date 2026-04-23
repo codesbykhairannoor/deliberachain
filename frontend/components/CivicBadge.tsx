@@ -26,7 +26,11 @@ export default function CivicBadge({ score }: CivicBadgeProps) {
             <span className="text-3xl">{rank.icon}</span>
             <div>
                 <h4 className="text-xs font-black text-slate-500 uppercase tracking-widest leading-none">Civic Rank</h4>
-                <p className={`text-xl font-black text-${rank.color} uppercase tracking-tighter`}>{rank.name}</p>
+                <p className={`text-xl font-black uppercase tracking-tighter ${
+                  rank.name === 'Deliberator' ? 'text-vault-amber' : 
+                  rank.name === 'Digital Patriot' ? 'text-blue-400' :
+                  rank.name === 'Democracy Keeper' ? 'text-purple-400' : 'text-slate-400'
+                }`}>{rank.name}</p>
             </div>
         </div>
 

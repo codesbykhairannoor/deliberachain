@@ -1,7 +1,7 @@
 export const translations = {
   id: {
     // LAYOUT & NAV
-    brandName: "DeliberateChain",
+    brandName: "Dlibration",
     navHome: "Beranda",
     navGuide: "Panduan",
     navDashboard: "Suarakan",
@@ -73,7 +73,7 @@ export const translations = {
     viewOriginal: "Lihat Bukti Lampiran",
 
     // GUIDE PAGE
-    guideTitle: "Cara Berpartisipasi di DeliberateChain",
+    guideTitle: "Cara Berpartisipasi di Dlibration",
     guideSub: "Ikuti langkah ini untuk mulai mengirimkan aspirasimu secara on-chain.",
     guideCta: "Paham! Bawa Saya ke Dashboard",
     
@@ -92,10 +92,26 @@ export const translations = {
     labelTxHash: "Transaction Hash:",
     labelStatus: "Status:",
     statusSuccess: "Verifikasi Berhasil",
+
+    // NEW PAGES
+    aboutTitle: "Tentang Dlibration",
+    aboutSub: "Membangun jembatan kepercayaan antara rakyat dan pemerintah melalui teknologi.",
+    securityTitle: "Arsitektur & Keamanan",
+    securitySub: "Bagaimana kami melindungi integritas suara Anda dengan Blockchain & AI.",
+    transparencyTitle: "Laporan Transparansi",
+    transparencySub: "Audit terbuka atas kinerja platform dan dampak kebijakan.",
+    communityTitle: "Komunitas & DAO",
+    communitySub: "Bergerak bersama untuk demokrasi yang lebih sehat.",
+    partnersTitle: "Layanan Pemerintah",
+    partnersSub: "Integrasi birokrasi cerdas untuk efisiensi pelayanan publik.",
+    legalTitle: "Aspek Hukum & Privasi",
+    legalSub: "Kepatuhan regulasi dan perlindungan data pribadi Anda.",
+    contactTitle: "Hubungi Kami",
+    contactSub: "Kami siap mendengar masukan dan bantuan teknis Anda.",
   },
   en: {
     // LAYOUT & NAV
-    brandName: "DeliberateChain",
+    brandName: "Dlibration",
     navHome: "Home",
     navGuide: "Guide",
     navDashboard: "Voice Out",
@@ -167,7 +183,7 @@ export const translations = {
     viewOriginal: "View Attachment Proof",
 
     // GUIDE PAGE
-    guideTitle: "How to Participate in DeliberateChain",
+    guideTitle: "How to Participate in Dlibration",
     guideSub: "Follow these steps to start sending your aspirations on-chain.",
     guideCta: "Got it! Take me to Dashboard",
     

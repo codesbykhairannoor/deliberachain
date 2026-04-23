@@ -56,7 +56,7 @@ export default function UploadForm({ client, contract, onSuccess }: UploadFormPr
 
       const transaction = prepareContractCall({
         contract,
-        method: "function uploadAsset(string _cid, string _title, string _assetType)",
+        method: "function submitAspiration(string _cid, string _title, string _category)",
         params: [uri, title, compositeType],
       });
 
@@ -145,25 +145,41 @@ export default function UploadForm({ client, contract, onSuccess }: UploadFormPr
           </label>
         </div>
 
-        <button 
-          onClick={handleUpload}
-          disabled={isPending}
-          className="w-full bg-vault-amber hover:bg-yellow-500 text-black font-extrabold py-4 rounded-xl transition-all disabled:opacity-50 flex justify-center items-center gap-2 shadow-[0_0_20px_rgba(245,158,11,0.2)]"
-        >
-          {isAiProcessing ? (
-            <div className="flex items-center gap-2">
-                <Loader2 className="w-5 h-5 animate-spin" />
-                Dianalisis AI...
-            </div>
-          ) : isTxPending ? (
-            <div className="flex items-center gap-2">
-                <div className="w-5 h-5 border-2 border-black border-t-transparent rounded-full animate-spin"></div>
-                Mencatat di Blockchain...
-            </div>
-          ) : (
-            <><BrainCircuit size={20}/> Kirim ke Deliberation Room</>
-          )}
-        </button>
+        <div className="space-y-4">
+          <button 
+            onClick={handleUpload}
+            disabled={isPending}
+            className="w-full bg-vault-amber hover:bg-yellow-500 text-black font-extrabold py-5 rounded-2xl transition-all disabled:opacity-50 flex flex-col justify-center items-center gap-1 shadow-[0_0_20px_rgba(245,158,11,0.2)]"
+          >
+            {isAiProcessing ? (
+              <div className="flex items-center gap-2">
+                  <Loader2 className="w-5 h-5 animate-spin" />
+                  Dianalisis AI...
+              </div>
+            ) : isTxPending ? (
+              <div className="flex items-center gap-2">
+                  <div className="w-5 h-5 border-2 border-black border-t-transparent rounded-full animate-spin"></div>
+                  Finalisasi Audit Digital...
+              </div>
+            ) : (
+              <div className="flex flex-col items-center">
+                <div className="flex items-center gap-2 text-lg">
+                  <BrainCircuit size={22}/> Sign & Audit Aspirasi
+                </div>
+                <span className="text-[10px] font-black opacity-60 uppercase tracking-tighter">Zero Fee • Secured by Smart Account</span>
+              </div>
+            )}
+          </button>
+
+          <div className="flex items-center justify-center gap-4 py-2 opacity-60">
+             <div className="h-px flex-1 bg-white/5"></div>
+             <div className="flex items-center gap-2">
+                <ShieldCheck size={14} className="text-vault-amber" />
+                <span className="text-[9px] font-bold uppercase tracking-widest text-slate-400">Gas Sponsored by Protocol</span>
+             </div>
+             <div className="h-px flex-1 bg-white/5"></div>
+          </div>
+        </div>
         
         {txError && (
             <p className="text-red-400 text-xs text-center bg-red-950/30 p-3 rounded-xl border border-red-900/50">

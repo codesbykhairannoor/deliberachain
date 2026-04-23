@@ -3,44 +3,91 @@ pragma solidity ^0.8.0;
 
 contract ChainVault {
 
-    // 1. Struktur Data: Ini kayak 'blueprint' buat setiap file yang di-upload
-    struct Asset {
-        string cid;         // ID file dari IPFS (alamat file-nya)
-        string title;       // Judul file (Lagu/Essay/Gambar)
-        string assetType;   // Jenisnya: "music", "image", atau "essay"
-        address owner;      // Siapa yang upload (Wallet Address)
-        uint256 timestamp;  // Kapan di-upload
+    enum Status { Active, Hidden, Resolved }
+
+    struct Aspiration {
+        uint256 id;
+        string cid;         // IPFS CID containing description/evidence
+        string title;       // Title of aspiration
+        string category;    // Topic category
+        address owner;      // Submitter
+        uint256 timestamp;
+        Status status;
+        uint256 upvotes;
     }
 
-    // 2. Database Mapping: Setiap user (address) punya daftar aset sendiri
-    mapping(address => Asset[]) private userAssets;
+    address public admin;
+    uint256 public aspirationCount;
+    mapping(uint256 => Aspiration) public aspirations;
+    mapping(address => uint256[]) private userAspirations;
+    mapping(uint256 => mapping(address => bool)) public hasUpvoted;
 
-    // 3. Event: Buat ngasih tau blockchain kalau ada yang baru upload (semacam notifikasi)
-    event AssetUploaded(address indexed owner, string cid, string title, string assetType);
+    event AspirationSubmitted(uint256 indexed id, address indexed owner, string title, string category);
+    event AspirationStatusChanged(uint256 indexed id, Status newStatus);
+    event AspirationUpvoted(uint256 indexed id, address voter, uint256 totalUpvotes);
 
-    // 4. Fungsi Upload: Buat nyimpen data ke blockchain
-    function uploadAsset(string memory _cid, string memory _title, string memory _assetType) public {
-        // Cek dulu, CID (alamat file) gak boleh kosong
+    modifier onlyAdmin() {
+        require(msg.sender == admin, "Not authorized: Admin only");
+        _;
+    }
+
+    constructor() {
+        admin = msg.sender;
+    }
+
+    function submitAspiration(string memory _cid, string memory _title, string memory _category) public {
         require(bytes(_cid).length > 0, "CID cannot be empty");
 
-        // Masukin data baru ke memory
-        Asset memory newAsset = Asset({
+        uint256 newId = aspirationCount;
+        
+        aspirations[newId] = Aspiration({
+            id: newId,
             cid: _cid,
             title: _title,
-            assetType: _assetType,
-            owner: msg.sender, // msg.sender itu alamat wallet yang lagi connect
-            timestamp: block.timestamp
+            category: _category,
+            owner: msg.sender,
+            timestamp: block.timestamp,
+            status: Status.Active,
+            upvotes: 0
         });
 
-        // Simpan ke database user
-        userAssets[msg.sender].push(newAsset);
+        userAspirations[msg.sender].push(newId);
+        aspirationCount++;
 
-        // Kirim notifikasi
-        emit AssetUploaded(msg.sender, _cid, _title, _assetType);
+        emit AspirationSubmitted(newId, msg.sender, _title, _category);
     }
 
-    // 5. Fungsi Ambil Data: Buat nampilin semua file milik user di Website nanti
-    function getUserAssets(address _user) public view returns (Asset[] memory) {
-        return userAssets[_user];
+    function upvote(uint256 _id) public {
+        require(_id < aspirationCount, "Aspiration does not exist");
+        require(aspirations[_id].status == Status.Active, "Cannot upvote hidden or resolved aspirations");
+        require(!hasUpvoted[_id][msg.sender], "Already upvoted");
+
+        hasUpvoted[_id][msg.sender] = true;
+        aspirations[_id].upvotes++;
+
+        emit AspirationUpvoted(_id, msg.sender, aspirations[_id].upvotes);
+    }
+
+    function setStatus(uint256 _id, Status _status) public onlyAdmin {
+        require(_id < aspirationCount, "Aspiration does not exist");
+        aspirations[_id].status = _status;
+        emit AspirationStatusChanged(_id, _status);
+    }
+
+    function getAllAspirations() public view returns (Aspiration[] memory) {
+        Aspiration[] memory all = new Aspiration[](aspirationCount);
+        for (uint256 i = 0; i < aspirationCount; i++) {
+            all[i] = aspirations[i];
+        }
+        return all;
+    }
+    
+    function getUserAspirations(address _user) public view returns (Aspiration[] memory) {
+        uint256[] memory ids = userAspirations[_user];
+        Aspiration[] memory userAsp = new Aspiration[](ids.length);
+        for (uint256 i = 0; i < ids.length; i++) {
+            userAsp[i] = aspirations[ids[i]];
+        }
+        return userAsp;
     }
 }

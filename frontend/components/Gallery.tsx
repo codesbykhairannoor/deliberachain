@@ -18,9 +18,11 @@ export default function Gallery({ contract, address, client }: GalleryProps) {
   const { lang } = useLanguageStore();
   const t = translations[lang as keyof typeof translations];
 
+  const { mutate: sendTransaction, isPending: isVoting } = useSendTransaction();
+
   // Helper untuk parsing Composite Type (Category | Urgency | AreaTag | SECRET)
   const parseType = (typeStr: string) => {
-    const parts = typeStr.split(" | ").map(p => p.trim());
+    const parts = typeStr ? typeStr.split(" | ").map(p => p.trim()) : [];
     return {
       category: parts[0] || "Lainnya",
       urgency: parts[1] || "medium",
@@ -29,16 +31,35 @@ export default function Gallery({ contract, address, client }: GalleryProps) {
     };
   };
 
-  const handleVote = () => {
-    alert("Dukungan tercatat di Blockchain! (Gasless Protocol Active)");
+  const handleVote = (id: bigint) => {
+    import("thirdweb").then(({ prepareContractCall }) => {
+      const transaction = prepareContractCall({
+        contract,
+        method: "function upvote(uint256 _id)",
+        params: [id],
+      });
+
+      sendTransaction(transaction, {
+        onSuccess: () => {
+          alert("Dukungan tercatat di Blockchain! (Gasless Protocol Active)");
+          refetch();
+        },
+        onError: (err) => {
+          alert("Gagal memberikan dukungan: " + err.message);
+        }
+      });
+    });
   };
 
-  // Ambil data dari Smart Contract
-  const { data: assets, isPending, refetch } = useReadContract({
+  // Ambil data dari Smart Contract (V2)
+  const { data: rawAssets, isPending, refetch } = useReadContract({
     contract,
-    method: "function getUserAssets(address _user) view returns ((string cid, string title, string assetType, uint256 timestamp, address owner)[])",
-    params: [address],
+    method: "function getAllAspirations() view returns ((uint256 id, string cid, string title, string category, address owner, uint256 timestamp, uint8 status, uint256 upvotes)[])",
+    params: [],
   });
+
+  // Filter Active only
+  const assets = rawAssets ? rawAssets.filter(a => a.status === 0 || a.status === 2) : [];
 
   // Helper untuk generate URL IPFS
   const getSafeUrl = (ipfsUri: string) => {
@@ -78,7 +99,7 @@ export default function Gallery({ contract, address, client }: GalleryProps) {
       ) : (
         <div className="grid grid-cols-1 gap-12">
           {[...assets].reverse().map((asset, i) => {
-            const { category, urgency, areaTag, isSecret } = parseType(asset.assetType);
+            const { category, urgency, areaTag, isSecret } = parseType(asset.category);
             const publicUrl = getSafeUrl(asset.cid);
             const isTrending = i % 2 === 0;
 
@@ -109,7 +130,7 @@ export default function Gallery({ contract, address, client }: GalleryProps) {
                                     <p className="text-sm font-black text-white uppercase tracking-widest">Encypted Data</p>
                                     <p className="text-[10px] text-slate-500 mt-2">Only authorized authorities can decrypt and view this document.</p>
                                 </div>
-                            ) : asset.assetType.includes("image") ? (
+                            ) : asset.category.includes("image") ? (
                                 <MediaRenderer client={client} src={asset.cid} className="w-full h-full object-cover" />
                             ) : (
                                 <div className="flex flex-col items-center text-slate-700">
@@ -149,7 +170,7 @@ export default function Gallery({ contract, address, client }: GalleryProps) {
                             <div className="flex gap-6 mb-8">
                                 <div className="flex flex-col">
                                     <span className="text-[10px] text-slate-600 font-black uppercase">Supporters</span>
-                                    <span className="text-xl font-black text-white">{isSecret ? "PRIVATE" : "4.2k"}</span>
+                                    <span className="text-xl font-black text-white">{isSecret ? "PRIVATE" : asset.upvotes.toString()}</span>
                                 </div>
                                 <div className="flex flex-col">
                                     <span className="text-[10px] text-slate-600 font-black uppercase">Security Level</span>
@@ -168,8 +189,9 @@ export default function Gallery({ contract, address, client }: GalleryProps) {
                             {!isSecret ? (
                                 <>
                                     <button 
-                                        onClick={handleVote}
-                                        className="flex-1 bg-vault-amber hover:bg-yellow-400 text-black font-black py-4 rounded-2xl flex items-center justify-center gap-3 transition-all"
+                                        onClick={() => handleVote(asset.id)}
+                                        disabled={isVoting}
+                                        className="flex-1 bg-vault-amber hover:bg-yellow-400 text-black font-black py-4 rounded-2xl flex items-center justify-center gap-3 transition-all disabled:opacity-50"
                                     >
                                         <ThumbsUp size={20} /> Dukung Aspirasi
                                     </button>

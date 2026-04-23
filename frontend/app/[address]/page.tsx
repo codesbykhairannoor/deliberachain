@@ -1,7 +1,7 @@
 "use client";
 
 import { createThirdwebClient, getContract } from "thirdweb";
-import { sepolia } from "thirdweb/chains";
+import { baseSepolia } from "thirdweb/chains";
 import { useLanguageStore } from "@/lib/store";
 import { translations } from "@/lib/translations";
 import { useParams } from "next/navigation"; 
@@ -10,8 +10,8 @@ import { ShieldCheck, Share2, Copy } from "lucide-react"; // Nambah icon Copy bi
 import Link from "next/link";
 import { useState } from "react";
 
-const client = createThirdwebClient({ clientId: "d17d0b2cc4f3f5690026476c819e02e9" });
-const contract = getContract({ client, chain: sepolia, address: "0x801F15748D3a6dFc5A8D3a7Bc36821Cdb51d59bC" });
+const client = createThirdwebClient({ clientId: process.env.NEXT_PUBLIC_THIRDWEB_CLIENT_ID || "" });
+const contract = getContract({ client, chain: baseSepolia, address: process.env.NEXT_PUBLIC_CONTRACT_ADDRESS || "" });
 
 export default function PublicProfilePage() {
   const params = useParams();

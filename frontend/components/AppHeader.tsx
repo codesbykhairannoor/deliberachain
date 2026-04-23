@@ -3,6 +3,7 @@
 import { useLanguageStore } from "../lib/store";
 import { ConnectButton } from "thirdweb/react";
 import { createThirdwebClient } from "thirdweb";
+import { baseSepolia } from "thirdweb/chains";
 import { Search, Bell, Sparkles } from "lucide-react";
 
 const client = createThirdwebClient({ clientId: process.env.NEXT_PUBLIC_THIRDWEB_CLIENT_ID || "" });
@@ -51,6 +52,10 @@ export default function AppHeader() {
         <ConnectButton 
             client={client} 
             theme="dark"
+            accountAbstraction={{
+                chain: baseSepolia,
+                sponsorGas: true,
+            }}
             connectButton={{
                 className: "!bg-vault-amber !text-black !font-bold !px-6 !py-2.5 !rounded-xl !text-sm !shadow-[0_0_20px_rgba(245,158,11,0.2)] hover:!shadow-[0_0_30px_rgba(245,158,11,0.4)] transition-all"
             }}

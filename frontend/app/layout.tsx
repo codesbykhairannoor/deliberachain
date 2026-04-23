@@ -7,8 +7,8 @@ import ClientLayoutWrapper from "@/components/ClientLayoutWrapper";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "DeliberateChain - Aspirasi & Transparansi Masa Depan",
-  description: "Platform deliberasi demokrasi berbasis AI + Blockchain yang transparan dan inklusif.",
+  title: "Dlibration - Aspirasi & Transparansi Masa Depan",
+  description: "Platform deliberasi publik berbasis blockchain dan AI.",
 };
 
 export default function RootLayout({
