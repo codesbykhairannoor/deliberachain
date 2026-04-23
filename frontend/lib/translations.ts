@@ -208,5 +208,21 @@ export const translations = {
     publicTitle: "PUBLIC VAULT",
     publicDesc: "Eternal archives stored on the decentralized Base Sepolia network.",
     backHome: "Back to Home",
+
+    // NEW PAGES
+    aboutTitle: "About Dlibration",
+    aboutSub: "Building a bridge of trust between people and government through technology.",
+    securityTitle: "Architecture & Security",
+    securitySub: "How we protect the integrity of your voice with Blockchain & AI.",
+    transparencyTitle: "Transparency Report",
+    transparencySub: "Open audit of platform performance and policy impact.",
+    communityTitle: "Community & DAO",
+    communitySub: "Moving together for a healthier democracy.",
+    partnersTitle: "Government Services",
+    partnersSub: "Smart bureaucracy integration for public service efficiency.",
+    legalTitle: "Legal & Privacy",
+    legalSub: "Regulatory compliance and protection of your personal data.",
+    contactTitle: "Contact Us",
+    contactSub: "We are ready to hear your feedback and technical assistance.",
   }
 };
