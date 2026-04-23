@@ -1,54 +1,36 @@
-# 🏛️ Dlibration (V2.0)
-### Future-Proof Digital Democracy Infrastructure
+This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-**Dlibration** adalah platform deliberasi publik berbasis **AI + Blockchain** yang mengubah partisipasi publik dari sekadar pengaduan menjadi proses demokrasi yang transparan, inklusif, dan aman dari manipulasi.
+## Getting Started
 
----
+First, run the development server:
 
-## 🌟 Highlights
-- **AI-Powered Deliberation**: Ringkasan otomatis dan pengelompokan aspirasi menggunakan Gemini AI 1.5 Flash.
-- **Blockchain Transparency**: Catatan aspirasi dan voting on-chain yang immutable (Base Sepolia).
-- **Auto Policy Brief**: Ringkasan kebijakan instan untuk pemerintah dalam hitungan detik.
-- **Gasless Participation**: Masyarakat bisa berpartisipasi tanpa harus membayar Gas Fee (Sponsored by Protocol).
+```bash
+npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+# or
+bun dev
+```
 
----
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-## 📖 Dokumentasi Lengkap
-Untuk penjelasan mendalam mengenai latar belakang, arsitektur teknis, dan alur kerja masing-masing role (Citizen, Admin, Government), silakan baca:
-👉 **[DOCUMENTATION.md](./DOCUMENTATION.md)**
+You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
----
+This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
-## 🚀 Fitur Berdasarkan Role
+## Learn More
 
-| Role | Fitur Utama |
-|---------|--------------|
-| **👤 Public (Warga)** | Kirim Aspirasi, Upvote Aspirasi Lain, Gasless Transaction, Pelacakan Status Real-time. |
-| **🏛️ Government** | Analitik Isu, AI Policy Brief Generator, Verifikasi Tindak Lanjut (Resolved). |
-| **👑 Admin** | Moderasi Global, Takedown Konten Melanggar, Manajemen Keamanan Platform. |
+To learn more about Next.js, take a look at the following resources:
 
----
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-## 🛠️ Tech Stack
-- **Framework**: Next.js 15+ (App Router)
-- **AI Engine**: Google Gemini 1.5 Flash
-- **Blockchain**: Base Sepolia via Thirdweb SDK (Account Abstraction)
-- **Storage**: IPFS (Decentralized Storage)
-- **Styling**: Vanilla CSS + Tailwind (Custom Premium Aesthetic)
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 
----
+## Deploy on Vercel
 
-## 📂 Struktur Project
-- `frontend/`: Aplikasi web utama (Next.js).
-- `smart-contract/`: Smart contract Solidity dan skrip deployment Hardhat.
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
----
-
-## 🧪 Cara Menjalankan
-1. `cd frontend`
-2. `npm install`
-3. Masukkan API Key di `.env.local`
-4. `npm run dev`
-
----
-Built with ❤️ for the future of governance.
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
