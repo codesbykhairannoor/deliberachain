@@ -62,12 +62,12 @@ export async function moderateContent(text: string): Promise<{ isSafe: boolean; 
     const result = await model.generateContent(prompt);
     const textRes = (await result.response).text();
     return JSON.parse(textRes.replace(/```json|```/g, "").trim());
-  } catch (error) {
+  } catch (_error) {
     return { isSafe: true }; // Default to safe if error
   }
 }
 
-export async function generatePolicyBrief(aspirations: any[]): Promise<string> {
+export async function generatePolicyBrief(aspirations: unknown[]): Promise<string> {
   const dataStr = JSON.stringify(aspirations);
   const prompt = `
     Given the following list of public aspirations in JSON format:

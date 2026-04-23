@@ -22,7 +22,7 @@ export default function UploadForm({ client, contract, onSuccess }: UploadFormPr
   const [file, setFile] = useState<File | null>(null);
   
   const [isAiProcessing, setIsAiProcessing] = useState(false);
-  const [aiResult, setAiResult] = useState<any>(null);
+  const [_aiResult, setAiResult] = useState<any>(null);
   const [areaTag, setAreaTag] = useState("");
   const [isSecret, setIsSecret] = useState(false);
   
@@ -49,11 +49,6 @@ export default function UploadForm({ client, contract, onSuccess }: UploadFormPr
       const cleanTag = areaTag.trim().toUpperCase();
       const compositeType = `${aiData.category} | ${aiData.urgency} | ${cleanTag} ${isSecret ? "| SECRET" : ""}`;
       
-      // If Secret: Post to USER address. If Public: Post to GLOBAL ARCHIVE.
-      const targetAddress = isSecret 
-        ? (window as any).thirdwebAccountAddress // Fallback mechanism for demo
-        : "0x801F15748D3a6dFc5A8D3a7Bc36821Cdb51d59bC";
-
       const transaction = prepareContractCall({
         contract,
         method: "function submitAspiration(string _cid, string _title, string _category)",
@@ -61,7 +56,7 @@ export default function UploadForm({ client, contract, onSuccess }: UploadFormPr
       });
 
       sendTransaction(transaction, {
-        onSuccess: (txHash) => {
+        onSuccess: () => {
           alert("Aspirasi berhasil tercatat di Blockchain & dianalisis AI!");
           setTitle("");
           setFile(null);
@@ -73,8 +68,9 @@ export default function UploadForm({ client, contract, onSuccess }: UploadFormPr
         },
         onSettled: () => setIsAiProcessing(false)
       });
-    } catch (err: any) {
-      alert("System Error: " + (err.message || err));
+    } catch (err: unknown) {
+      const message = err instanceof Error ? err.message : String(err);
+      alert("System Error: " + message);
       setIsAiProcessing(false);
     }
   };

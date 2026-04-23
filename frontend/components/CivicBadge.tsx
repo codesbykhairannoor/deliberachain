@@ -1,7 +1,7 @@
 "use client";
 
 import { getRank } from "@/lib/gamification";
-import { Award, Star, Zap } from "lucide-react";
+import { Award, Zap } from "lucide-react";
 import { motion } from "framer-motion";
 
 interface CivicBadgeProps {

@@ -3,24 +3,18 @@
 import Link from "next/link";
 import { usePathname, useSearchParams } from "next/navigation";
 import { 
-  LayoutDashboard, 
   Globe, 
   User, 
   Settings, 
   ShieldCheck, 
   BookOpen, 
-  LogOut,
-  ChevronRight,
-  TrendingUp,
   LayoutGrid,
   PlusSquare,
-  MessageSquare,
   Flame,
   AlertCircle,
   History
 } from "lucide-react";
 import { useRole } from "@/hooks/useRole";
-import { motion } from "framer-motion";
 
 export default function Sidebar() {
   const pathname = usePathname();
@@ -54,7 +48,7 @@ export default function Sidebar() {
           <div className="w-8 h-8 bg-vault-amber rounded-lg flex items-center justify-center shadow-[0_0_15px_rgba(245,158,11,0.5)]">
              <LayoutGrid size={18} className="text-black" />
           </div>
-          <span className="text-lg font-black text-white tracking-tighter uppercase italic">Delib<span className="text-vault-amber">Chain</span></span>
+          <span className="text-lg font-black text-white tracking-tighter uppercase italic">Dlibra<span className="text-vault-amber">tion</span></span>
         </Link>
       </div>
 
