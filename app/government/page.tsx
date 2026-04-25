@@ -42,7 +42,7 @@ export default function GovernmentPage() {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.1 }}
-                    className="text-5xl md:text-6xl font-black tracking-[-0.03em] leading-[1.05] text-white mb-8"
+                    className="text-5xl md:text-6xl font-black tracking-[-0.03em] leading-[1.05] text-foreground mb-8"
                 >
                   {t.govHeroTitle}
                 </motion.h1>
@@ -50,7 +50,7 @@ export default function GovernmentPage() {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.2 }}
-                    className="text-lg md:text-xl text-slate-400 mb-12 opacity-80 leading-relaxed max-w-xl"
+                    className="text-lg md:text-xl text-muted-foreground mb-12 opacity-80 leading-relaxed max-w-xl"
                 >
                   {t.govHeroSub}
                 </motion.p>
@@ -63,7 +63,7 @@ export default function GovernmentPage() {
                     <Link href="/contact" className="bg-vault-amber hover:bg-yellow-500 text-black px-10 py-5 rounded-2xl font-black text-lg transition-all flex items-center justify-center gap-3 shadow-2xl">
                         {t.btnRequestDemo} <ArrowRight size={22} />
                     </Link>
-                    <Link href="/resources" className="px-10 py-5 rounded-2xl font-bold text-lg border border-white/10 hover:bg-white/5 transition-all text-white flex items-center justify-center">
+                    <Link href="/resources" className="px-10 py-5 rounded-2xl font-bold text-lg border border-white/10 hover:bg-white/5 transition-all text-foreground flex items-center justify-center">
                         Download Whitepaper
                     </Link>
                 </motion.div>
@@ -105,8 +105,8 @@ export default function GovernmentPage() {
                     <div className="w-16 h-16 bg-white/5 rounded-2xl flex items-center justify-center mb-10 border border-white/10 group-hover:border-vault-amber/30 transition-all">
                         {f.icon}
                     </div>
-                    <h3 className="text-2xl font-black text-white mb-6 tracking-tight leading-tight">{f.title}</h3>
-                    <p className="text-slate-500 font-medium leading-relaxed">{f.desc}</p>
+                    <h3 className="text-2xl font-black text-foreground mb-6 tracking-tight leading-tight">{f.title}</h3>
+                    <p className="text-muted-foreground font-medium leading-relaxed">{f.desc}</p>
                 </motion.div>
             ))}
         </div>
@@ -114,38 +114,38 @@ export default function GovernmentPage() {
         {/* 3. CASE STUDY PREVIEW - Wide Layout */}
         <div className="py-24 border-y border-white/5 grid lg:grid-cols-2 gap-24 items-center">
             <div className="space-y-12">
-                <h2 className="text-4xl md:text-6xl font-black text-white tracking-tighter leading-tight">
+                <h2 className="text-4xl md:text-6xl font-black text-foreground tracking-tighter leading-tight">
                     {lang === 'id' ? "Efisiensi yang Terukur" : "Measured Efficiency"}
                 </h2>
                 <div className="space-y-10">
                     <div className="flex gap-8 items-start relative">
                         <div className="absolute -top-4 -left-2 px-2 py-0.5 bg-vault-amber/10 text-[8px] font-black uppercase text-vault-amber rounded-full">Target Efisiensi</div>
                         <div className="text-6xl font-black text-vault-amber italic leading-none">70%</div>
-                        <p className="text-slate-400 font-medium text-lg leading-relaxed">
+                        <p className="text-muted-foreground font-medium text-lg leading-relaxed">
                             {lang === 'id' ? "Pengurangan waktu respons terhadap keluhan publik dibandingkan sistem manual." : "Reduction in response time to public complaints compared to manual systems."}
                         </p>
                     </div>
                     <div className="flex gap-8 items-start relative">
-                        <div className="absolute -top-4 -left-2 px-2 py-0.5 bg-white/10 text-[8px] font-black uppercase text-slate-400 rounded-full">Benchmark Industri</div>
+                        <div className="absolute -top-4 -left-2 px-2 py-0.5 bg-white/10 text-[8px] font-black uppercase text-muted-foreground rounded-full">Benchmark Industri</div>
                         <div className="text-6xl font-black text-vault-amber italic leading-none">100%</div>
-                        <p className="text-slate-400 font-medium text-lg leading-relaxed">
+                        <p className="text-muted-foreground font-medium text-lg leading-relaxed">
                             {lang === 'id' ? "Transparansi data historis yang dapat diaudit secara publik kapan saja." : "Transparency of historical data that can be audited publicly at any time."}
                         </p>
                     </div>
                 </div>
-                <Link href="/impact" className="inline-flex items-center gap-3 text-xs font-black uppercase tracking-[0.2em] text-white border-b-2 border-vault-amber pb-1 hover:gap-6 transition-all">
+                <Link href="/impact" className="inline-flex items-center gap-3 text-xs font-black uppercase tracking-[0.2em] text-foreground border-b-2 border-vault-amber pb-1 hover:gap-6 transition-all">
                     Explore Impact Stories <ArrowRight size={16} />
                 </Link>
             </div>
             
             <div className="grid grid-cols-2 gap-6">
                 <div className="p-12 bg-white/2 border border-white/5 rounded-[3rem] flex flex-col items-center justify-center text-center group hover:bg-white/5 transition-all">
-                    <Monitor size={48} className="text-slate-400 mb-6 group-hover:text-vault-amber transition-colors" />
-                    <div className="text-xl font-black text-white">Cloud Native</div>
+                    <Monitor size={48} className="text-muted-foreground mb-6 group-hover:text-vault-amber transition-colors" />
+                    <div className="text-xl font-black text-foreground">Cloud Native</div>
                 </div>
                 <div className="p-12 bg-white/2 border border-white/5 rounded-[3rem] flex flex-col items-center justify-center text-center translate-y-12 group hover:bg-white/5 transition-all">
-                    <Lock size={48} className="text-slate-400 mb-6 group-hover:text-vault-amber transition-colors" />
-                    <div className="text-xl font-black text-white">Secure API</div>
+                    <Lock size={48} className="text-muted-foreground mb-6 group-hover:text-vault-amber transition-colors" />
+                    <div className="text-xl font-black text-foreground">Secure API</div>
                 </div>
             </div>
         </div>
@@ -158,7 +158,7 @@ export default function GovernmentPage() {
                  <h2 className="text-4xl md:text-7xl font-black mb-12 tracking-tighter leading-tight">
                     {lang === 'id' ? "Jadikan Instansi Anda Pemimpin dalam Transparansi Digital." : "Make Your Agency a Leader in Digital Transparency."}
                  </h2>
-                 <Link href="/contact" className="bg-black text-white px-16 py-8 rounded-2xl font-black text-xl hover:scale-105 transition-all shadow-2xl inline-block">
+                 <Link href="/contact" className="bg-black text-foreground px-16 py-8 rounded-2xl font-black text-xl hover:scale-105 transition-all shadow-2xl inline-block">
                     {t.btnRequestDemo}
                  </Link>
              </div>

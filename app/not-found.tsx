@@ -23,7 +23,7 @@ export default function NotFound() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
-            className="text-5xl md:text-7xl font-black text-white mb-6 tracking-tighter"
+            className="text-5xl md:text-7xl font-black text-foreground mb-6 tracking-tighter"
         >
             404
         </motion.h1>
@@ -32,7 +32,7 @@ export default function NotFound() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-            className="text-xl text-slate-400 mb-12 font-medium leading-relaxed"
+            className="text-xl text-muted-foreground mb-12 font-medium leading-relaxed"
         >
             Sepertinya aspirasi Anda tersesat di luar jaringan blockchain kami. Halaman yang Anda cari tidak ditemukan.
         </motion.p>

@@ -26,10 +26,10 @@ export default function ExplorePage() {
               <Globe size={40} className="text-vault-amber" />
            </div>
 
-           <h1 className="text-5xl md:text-7xl font-black text-white mb-6 tracking-tighter">
+           <h1 className="text-5xl md:text-7xl font-black text-foreground mb-6 tracking-tighter">
              {t.exploreHero}
            </h1>
-           <p className="text-xl text-slate-400 max-w-2xl mx-auto leading-relaxed mb-10">
+           <p className="text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed mb-10">
              {t.exploreSub}
            </p>
 
@@ -37,12 +37,12 @@ export default function ExplorePage() {
            <div className="relative max-w-2xl mx-auto group">
               <div className="absolute inset-0 bg-vault-amber/20 blur-xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
               <div className="relative flex items-center bg-black/80 border border-white/20 rounded-full px-6 py-4 backdrop-blur-md focus-within:border-vault-amber/50 transition-colors">
-                 <Search className="text-slate-500 mr-4" />
+                 <Search className="text-muted-foreground mr-4" />
                  <input 
                    type="text" 
                    disabled
                    placeholder="0x71C... (Hash Search Coming Soon)" 
-                   className="bg-transparent border-none outline-none text-white w-full placeholder:text-slate-600 cursor-not-allowed"
+                   className="bg-transparent border-none outline-none text-foreground w-full placeholder:text-muted-foreground cursor-not-allowed"
                  />
                  <span className="text-xs font-mono text-vault-amber bg-vault-amber/10 px-2 py-1 rounded border border-vault-amber/20">
                     BETA
@@ -63,24 +63,24 @@ export default function ExplorePage() {
                <div className="flex items-center gap-4">
                   <div className="p-3 bg-blue-500/10 rounded-lg text-blue-500"><Box size={24}/></div>
                   <div>
-                     <h4 className="text-2xl font-black text-white font-mono">5,291,092</h4>
-                     <p className="text-xs text-slate-500 uppercase tracking-widest">{t.stat1}</p>
+                     <h4 className="text-2xl font-black text-foreground font-mono">5,291,092</h4>
+                     <p className="text-xs text-muted-foreground uppercase tracking-widest">{t.stat1}</p>
                   </div>
                </div>
                {/* Stat 2 */}
                <div className="flex items-center gap-4">
                   <div className="p-3 bg-green-500/10 rounded-lg text-green-500"><Cpu size={24}/></div>
                   <div>
-                     <h4 className="text-2xl font-black text-white font-mono">1,024+</h4>
-                     <p className="text-xs text-slate-500 uppercase tracking-widest">{t.stat2}</p>
+                     <h4 className="text-2xl font-black text-foreground font-mono">1,024+</h4>
+                     <p className="text-xs text-muted-foreground uppercase tracking-widest">{t.stat2}</p>
                   </div>
                </div>
                {/* Stat 3 */}
                <div className="flex items-center gap-4">
                   <div className="p-3 bg-vault-amber/10 rounded-lg text-vault-amber"><Database size={24}/></div>
                   <div>
-                     <h4 className="text-2xl font-black text-white font-mono">UNLIMITED</h4>
-                     <p className="text-xs text-slate-500 uppercase tracking-widest">{t.stat3}</p>
+                     <h4 className="text-2xl font-black text-foreground font-mono">UNLIMITED</h4>
+                     <p className="text-xs text-muted-foreground uppercase tracking-widest">{t.stat3}</p>
                   </div>
                </div>
             </div>
@@ -93,7 +93,7 @@ export default function ExplorePage() {
       ========================================= */}
       <section className="py-24 px-6 max-w-7xl mx-auto">
          <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold text-white mb-2">{t.catTitle}</h2>
+            <h2 className="text-3xl font-bold text-foreground mb-2">{t.catTitle}</h2>
             <div className="h-1 w-12 bg-vault-amber mx-auto rounded-full"></div>
          </div>
 
@@ -101,22 +101,22 @@ export default function ExplorePage() {
              {/* Card 1 */}
              <div className="bg-[#0a0a0a] border border-white/5 p-8 rounded-3xl hover:bg-white/5 transition-colors group">
                 <ScanLine size={32} className="text-purple-400 mb-6 group-hover:scale-110 transition-transform"/>
-                <h3 className="text-xl font-bold text-white mb-3">{t.cat1Title}</h3>
-                <p className="text-slate-400 text-sm leading-relaxed">{t.cat1Desc}</p>
+                <h3 className="text-xl font-bold text-foreground mb-3">{t.cat1Title}</h3>
+                <p className="text-muted-foreground text-sm leading-relaxed">{t.cat1Desc}</p>
              </div>
              
              {/* Card 2 */}
              <div className="bg-[#0a0a0a] border border-white/5 p-8 rounded-3xl hover:bg-white/5 transition-colors group">
                 <FileDigit size={32} className="text-blue-400 mb-6 group-hover:scale-110 transition-transform"/>
-                <h3 className="text-xl font-bold text-white mb-3">{t.cat2Title}</h3>
-                <p className="text-slate-400 text-sm leading-relaxed">{t.cat2Desc}</p>
+                <h3 className="text-xl font-bold text-foreground mb-3">{t.cat2Title}</h3>
+                <p className="text-muted-foreground text-sm leading-relaxed">{t.cat2Desc}</p>
              </div>
 
              {/* Card 3 */}
              <div className="bg-[#0a0a0a] border border-white/5 p-8 rounded-3xl hover:bg-white/5 transition-colors group">
                 <Database size={32} className="text-vault-amber mb-6 group-hover:scale-110 transition-transform"/>
-                <h3 className="text-xl font-bold text-white mb-3">{t.cat3Title}</h3>
-                <p className="text-slate-400 text-sm leading-relaxed">{t.cat3Desc}</p>
+                <h3 className="text-xl font-bold text-foreground mb-3">{t.cat3Title}</h3>
+                <p className="text-muted-foreground text-sm leading-relaxed">{t.cat3Desc}</p>
              </div>
          </div>
       </section>
@@ -131,8 +131,8 @@ export default function ExplorePage() {
             <div className="absolute top-0 right-0 w-64 h-64 bg-vault-amber/5 rounded-full blur-[80px]"></div>
             
             <div className="relative z-10">
-               <h2 className="text-3xl font-bold text-white mb-6">{t.visionTitle}</h2>
-               <p className="text-slate-400 text-lg mb-8 leading-relaxed">
+               <h2 className="text-3xl font-bold text-foreground mb-6">{t.visionTitle}</h2>
+               <p className="text-muted-foreground text-lg mb-8 leading-relaxed">
                   {t.visionDesc}
                </p>
                

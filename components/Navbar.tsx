@@ -89,9 +89,9 @@ export default function Navbar() {
   ];
 
   return (
-    <nav className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-500 ${scrolled ? "py-4" : "py-8"}`}>
+    <nav className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-300 border-b ${scrolled ? "bg-background/80 backdrop-blur-xl border-border py-4" : "bg-transparent border-transparent py-6"}`}>
       <div className="max-w-7xl mx-auto px-6">
-        <div className={`bg-background/90 backdrop-blur-3xl border border-border rounded-[2.5rem] px-8 py-5 flex items-center justify-between transition-all ${scrolled ? "shadow-[0_20px_50px_rgba(0,0,0,0.5)] border-vault-amber/20" : ""}`}>
+        <div className="flex items-center justify-between">
           
           {/* Logo */}
           <Link href="/" className="flex items-center gap-3 group">
@@ -99,8 +99,8 @@ export default function Navbar() {
               <Zap size={28} fill="currentColor" />
             </div>
             <div className="flex flex-col leading-none">
-              <span className="text-2xl font-black text-white tracking-tighter uppercase">Dlibration<span className="text-vault-amber">.</span></span>
-              <span className="text-[9px] font-black tracking-[0.4em] text-slate-500 uppercase mt-0.5">Immutable Gov</span>
+              <span className="text-2xl font-black text-foreground tracking-tighter uppercase">Dlibration<span className="text-vault-amber">.</span></span>
+              <span className="text-[9px] font-black tracking-[0.4em] text-muted-foreground uppercase mt-0.5">Immutable Gov</span>
             </div>
           </Link>
 
@@ -114,11 +114,11 @@ export default function Navbar() {
                 onMouseLeave={() => setActiveDropdown(null)}
               >
                 {link.dropdown ? (
-                  <button className={`flex items-center gap-1.5 px-4 py-2 text-sm font-bold transition-colors hover:text-vault-amber ${activeDropdown === link.id ? "text-vault-amber" : "text-slate-400"}`}>
+                  <button className={`flex items-center gap-1.5 px-4 py-2 text-sm font-bold transition-colors hover:text-vault-amber ${activeDropdown === link.id ? "text-vault-amber" : "text-muted-foreground"}`}>
                     {link.name} <ChevronDown size={14} className={`transition-transform duration-300 ${activeDropdown === link.id ? "rotate-180" : ""}`} />
                   </button>
                 ) : (
-                  <Link href={link.href!} className={`px-4 py-2 text-sm font-bold transition-colors hover:text-white ${pathname === link.href ? "text-white" : "text-slate-400"}`}>
+                  <Link href={link.href!} className={`px-4 py-2 text-sm font-bold transition-colors hover:text-vault-amber ${pathname === link.href ? "text-vault-amber" : "text-muted-foreground"}`}>
                     {link.name}
                   </Link>
                 )}
@@ -136,9 +136,9 @@ export default function Navbar() {
                         <div className="absolute inset-0 bg-vault-amber/5 blur-[100px] -z-10"></div>
                         
                         {/* Section Info */}
-                        <div className="mb-8 pb-6 border-b border-white/10">
-                            <h4 className="text-lg font-black text-white mb-1">{link.title}</h4>
-                            <p className="text-sm text-slate-500 font-medium">{link.description}</p>
+                        <div className="mb-8 pb-6 border-b border-border">
+                            <h4 className="text-lg font-black text-foreground mb-1">{link.title}</h4>
+                            <p className="text-sm text-muted-foreground font-medium">{link.description}</p>
                         </div>
 
                         <div className="grid grid-cols-2 gap-4">
@@ -148,12 +148,12 @@ export default function Navbar() {
                               href={item.href}
                               className="flex items-start gap-4 p-4 rounded-2xl hover:bg-white/5 transition-all group/item border border-transparent hover:border-white/10"
                             >
-                              <div className="mt-1 w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center text-slate-400 group-hover/item:text-vault-amber group-hover/item:bg-vault-amber/10 transition-all border border-white/5 group-hover/item:border-vault-amber/30">
+                              <div className="mt-1 w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center text-muted-foreground group-hover/item:text-vault-amber group-hover/item:bg-vault-amber/10 transition-all border border-white/5 group-hover/item:border-vault-amber/30">
                                 {item.icon}
                               </div>
                               <div className="flex-1">
-                                <div className="text-sm font-black text-white group-hover/item:text-vault-amber transition-colors">{item.name}</div>
-                                <div className="text-[11px] text-slate-500 font-bold leading-tight mt-1">{item.desc}</div>
+                                <div className="text-sm font-black text-foreground group-hover/item:text-vault-amber transition-colors">{item.name}</div>
+                                <div className="text-[11px] text-muted-foreground font-bold leading-tight mt-1">{item.desc}</div>
                               </div>
                             </Link>
                           ))}
@@ -169,8 +169,8 @@ export default function Navbar() {
           {/* Right Actions */}
           <div className="flex items-center gap-6">
             <div className="hidden sm:flex bg-vault-card border border-border rounded-xl p-1 gap-1">
-                <button onClick={() => setLang('id')} className={`px-4 py-1.5 text-xs rounded-lg font-black transition-all ${lang === 'id' ? 'bg-vault-amber text-black shadow-lg' : 'text-slate-500 hover:text-foreground'}`}>ID</button>
-                <button onClick={() => setLang('en')} className={`px-4 py-1.5 text-xs rounded-lg font-black transition-all ${lang === 'en' ? 'bg-vault-amber text-black shadow-lg' : 'text-slate-500 hover:text-foreground'}`}>EN</button>
+                <button onClick={() => setLang('id')} className={`px-4 py-1.5 text-xs rounded-lg font-black transition-all ${lang === 'id' ? 'bg-vault-amber text-black shadow-lg' : 'text-muted-foreground hover:text-foreground'}`}>ID</button>
+                <button onClick={() => setLang('en')} className={`px-4 py-1.5 text-xs rounded-lg font-black transition-all ${lang === 'en' ? 'bg-vault-amber text-black shadow-lg' : 'text-muted-foreground hover:text-foreground'}`}>EN</button>
             </div>
 
             {/* Theme Toggle */}
@@ -188,7 +188,7 @@ export default function Navbar() {
             </div>
 
             <button 
-              className="lg:hidden w-12 h-12 flex items-center justify-center text-white bg-white/5 rounded-xl border border-white/10"
+              className="lg:hidden w-12 h-12 flex items-center justify-center text-foreground bg-white/5 rounded-xl border border-white/10"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             >
               {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -208,8 +208,8 @@ export default function Navbar() {
             className="fixed inset-0 z-[110] bg-background lg:hidden p-8 flex flex-col"
           >
             <div className="flex items-center justify-between mb-12">
-               <span className="text-3xl font-black text-white uppercase tracking-tighter">Menu<span className="text-vault-amber">.</span></span>
-               <button onClick={() => setMobileMenuOpen(false)} className="w-14 h-14 bg-white/5 rounded-2xl flex items-center justify-center text-white border border-white/10"><X /></button>
+               <span className="text-3xl font-black text-foreground uppercase tracking-tighter">Menu<span className="text-vault-amber">.</span></span>
+               <button onClick={() => setMobileMenuOpen(false)} className="w-14 h-14 bg-white/5 rounded-2xl flex items-center justify-center text-foreground border border-white/10"><X /></button>
             </div>
             
             <div className="flex-1 space-y-10 overflow-y-auto pr-4">
@@ -218,19 +218,19 @@ export default function Navbar() {
                     {link.dropdown ? (
                       <>
                         <div className="flex flex-col">
-                            <div className="text-xs font-black uppercase tracking-[0.3em] text-slate-600 mb-2">{link.name}</div>
-                            <div className="text-[10px] text-slate-500 font-bold">{link.description}</div>
+                            <div className="text-xs font-black uppercase tracking-[0.3em] text-muted-foreground mb-2">{link.name}</div>
+                            <div className="text-[10px] text-muted-foreground font-bold">{link.description}</div>
                         </div>
                         <div className="grid gap-8 pl-4">
                            {link.dropdown.map(item => (
-                             <Link key={item.href} href={item.href} onClick={() => setMobileMenuOpen(false)} className="text-2xl font-black text-white flex items-center gap-5 group">
+                             <Link key={item.href} href={item.href} onClick={() => setMobileMenuOpen(false)} className="text-2xl font-black text-foreground flex items-center gap-5 group">
                                 <span className="text-vault-amber group-active:scale-110 transition-transform">{item.icon}</span> {item.name}
                              </Link>
                            ))}
                         </div>
                       </>
                     ) : (
-                      <Link href={link.href!} onClick={() => setMobileMenuOpen(false)} className="text-4xl font-black text-white block uppercase tracking-tighter">
+                      <Link href={link.href!} onClick={() => setMobileMenuOpen(false)} className="text-4xl font-black text-foreground block uppercase tracking-tighter">
                         {link.name}
                       </Link>
                     )}
@@ -243,8 +243,8 @@ export default function Navbar() {
                   {t.btnGetStarted}
                </Link>
                <div className="flex justify-center gap-4 pt-6">
-                  <button onClick={() => { setLang('id'); setMobileMenuOpen(false); }} className={`flex-1 py-4 rounded-2xl font-black transition-all ${lang === 'id' ? 'bg-white text-black' : 'bg-white/5 text-slate-500 border border-white/10'}`}>ID</button>
-                  <button onClick={() => { setLang('en'); setMobileMenuOpen(false); }} className={`flex-1 py-4 rounded-2xl font-black transition-all ${lang === 'en' ? 'bg-white text-black' : 'bg-white/5 text-slate-500 border border-white/10'}`}>EN</button>
+                  <button onClick={() => { setLang('id'); setMobileMenuOpen(false); }} className={`flex-1 py-4 rounded-2xl font-black transition-all ${lang === 'id' ? 'bg-white text-black' : 'bg-white/5 text-muted-foreground border border-white/10'}`}>ID</button>
+                  <button onClick={() => { setLang('en'); setMobileMenuOpen(false); }} className={`flex-1 py-4 rounded-2xl font-black transition-all ${lang === 'en' ? 'bg-white text-black' : 'bg-white/5 text-muted-foreground border border-white/10'}`}>EN</button>
                </div>
             </div>
           </motion.div>

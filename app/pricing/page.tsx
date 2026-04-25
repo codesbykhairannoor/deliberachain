@@ -60,11 +60,11 @@ export default function PricingPage() {
             <motion.h1 
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                className="text-5xl md:text-6xl font-black text-white mb-8 tracking-tighter"
+                className="text-5xl md:text-6xl font-black text-foreground mb-8 tracking-tighter"
             >
               Plans for <br/> Every <span className="text-vault-amber">Impact.</span>
             </motion.h1>
-            <p className="text-slate-400 text-lg max-w-2xl mx-auto leading-relaxed">
+            <p className="text-muted-foreground text-lg max-w-2xl mx-auto leading-relaxed">
               {lang === 'id' ? "Pilih paket yang sesuai dengan skala partisipasi Anda. Kami memastikan setiap rupiah yang Anda investasikan kembali dalam bentuk transparansi total." : "Choose the plan that suits your scale of participation. We ensure every dollar you invest returns in the form of total transparency."}
             </p>
         </div>
@@ -78,10 +78,10 @@ export default function PricingPage() {
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ delay: idx * 0.1 }}
                     viewport={{ once: true }}
-                    className={`p-12 rounded-[3.5rem] border ${plan.popular ? 'bg-vault-amber text-black border-vault-amber' : 'bg-vault-card text-white border-white/5'} relative flex flex-col justify-between group overflow-hidden`}
+                    className={`p-12 rounded-[3.5rem] border ${plan.popular ? 'bg-vault-amber text-black border-vault-amber' : 'bg-vault-card text-foreground border-white/5'} relative flex flex-col justify-between group overflow-hidden`}
                 >
                     {plan.popular && (
-                         <div className="absolute top-10 right-10 bg-black text-white text-[9px] font-black uppercase tracking-widest px-4 py-2 rounded-full">
+                         <div className="absolute top-10 right-10 bg-black text-foreground text-[9px] font-black uppercase tracking-widest px-4 py-2 rounded-full">
                             Most Popular
                          </div>
                     )}
@@ -93,9 +93,9 @@ export default function PricingPage() {
                         <h3 className="text-2xl font-black mb-4 tracking-tight">{plan.name}</h3>
                         <div className="flex items-baseline gap-2 mb-8">
                             <span className="text-5xl font-black italic">{plan.price === 'Custom' ? 'Custom' : `$${plan.price}`}</span>
-                            {plan.price !== 'Custom' && <span className={`text-sm font-bold ${plan.popular ? 'text-black/60' : 'text-slate-500'}`}>/{t.priceAnnual}</span>}
+                            {plan.price !== 'Custom' && <span className={`text-sm font-bold ${plan.popular ? 'text-black/60' : 'text-muted-foreground'}`}>/{t.priceAnnual}</span>}
                         </div>
-                        <p className={`text-sm font-medium leading-relaxed mb-10 ${plan.popular ? 'text-black/70' : 'text-slate-500'}`}>
+                        <p className={`text-sm font-medium leading-relaxed mb-10 ${plan.popular ? 'text-black/70' : 'text-muted-foreground'}`}>
                             {plan.desc}
                         </p>
                         
@@ -113,7 +113,7 @@ export default function PricingPage() {
 
                     <Link 
                         href="/dashboard" 
-                        className={`w-full py-5 rounded-2xl font-black text-center transition-all flex items-center justify-center gap-3 group/btn ${plan.popular ? 'bg-black text-white hover:bg-zinc-800' : 'bg-white/5 border border-white/10 hover:bg-vault-amber hover:text-black hover:border-vault-amber'}`}
+                        className={`w-full py-5 rounded-2xl font-black text-center transition-all flex items-center justify-center gap-3 group/btn ${plan.popular ? 'bg-black text-foreground hover:bg-zinc-800' : 'bg-white/5 border border-white/10 hover:bg-vault-amber hover:text-black hover:border-vault-amber'}`}
                     >
                         {plan.cta} <ArrowRight size={20} className="group-hover/btn:translate-x-2 transition-transform" />
                     </Link>
@@ -125,19 +125,19 @@ export default function PricingPage() {
         <div className="py-24 border-t border-white/5">
              <div className="max-w-4xl mx-auto bg-white/2 border border-white/5 rounded-[3rem] p-12 overflow-hidden relative">
                   <div className="bg-pattern-diagonal absolute inset-0 opacity-5"></div>
-                  <h3 className="text-2xl font-black text-white mb-12 text-center">Detail Perbandingan Fitur</h3>
+                  <h3 className="text-2xl font-black text-foreground mb-12 text-center">Detail Perbandingan Fitur</h3>
                   <div className="space-y-4 font-bold text-sm">
                        <div className="flex justify-between py-4 border-b border-white/5">
-                           <span className="text-slate-500">Uptime Guarantee</span>
-                           <span className="text-white">99.9% SLA</span>
+                           <span className="text-muted-foreground">Uptime Guarantee</span>
+                           <span className="text-foreground">99.9% SLA</span>
                        </div>
                        <div className="flex justify-between py-4 border-b border-white/5">
-                           <span className="text-slate-500">Security Audit</span>
-                           <span className="text-white">Real-time On-chain</span>
+                           <span className="text-muted-foreground">Security Audit</span>
+                           <span className="text-foreground">Real-time On-chain</span>
                        </div>
                        <div className="flex justify-between py-4 border-b border-white/5">
-                           <span className="text-slate-500">AI Model</span>
-                           <span className="text-white">Gemini 1.5 Pro</span>
+                           <span className="text-muted-foreground">AI Model</span>
+                           <span className="text-foreground">Gemini 1.5 Pro</span>
                        </div>
                   </div>
              </div>

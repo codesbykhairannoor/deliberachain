@@ -24,10 +24,10 @@ export default function AiFeaturePage() {
                 >
                     Advanced AI Deliberation
                 </motion.div>
-                <h1 className="text-5xl md:text-6xl font-black text-white mb-8 tracking-tighter leading-tight">
+                <h1 className="text-5xl md:text-6xl font-black text-foreground mb-8 tracking-tighter leading-tight">
                     {lang === 'id' ? "Analisis Kebijakan Berbasis" : "Policy Analysis Powered by"} <span className="text-vault-amber">Gemini 1.5 Pro.</span>
                 </h1>
-                <p className="text-lg text-slate-400 mb-12 leading-relaxed max-w-xl">
+                <p className="text-lg text-muted-foreground mb-12 leading-relaxed max-w-xl">
                     {lang === 'id' 
                       ? "Gunakan kekuatan AI tercanggih untuk meringkas ribuan aspirasi menjadi poin-poin strategis dalam hitungan detik. Validasi otomatis untuk mencegah spam dan ujaran kebencian."
                       : "Harness the power of cutting-edge AI to summarize thousands of aspirations into strategic points in seconds. Automatic validation to prevent spam and hate speech."}
@@ -60,18 +60,18 @@ export default function AiFeaturePage() {
         <div className="grid md:grid-cols-3 gap-8">
             <div className="p-10 bg-white/2 border border-white/5 rounded-[2.5rem]">
                 <Cpu className="text-vault-amber mb-6" size={32} />
-                <h3 className="text-xl font-black text-white mb-4">Context Window</h3>
-                <p className="text-sm text-slate-500 font-medium">Mampu menganalisis hingga 1 juta token data aspirasi secara simultan.</p>
+                <h3 className="text-xl font-black text-foreground mb-4">Context Window</h3>
+                <p className="text-sm text-muted-foreground font-medium">Mampu menganalisis hingga 1 juta token data aspirasi secara simultan.</p>
             </div>
             <div className="p-10 bg-white/2 border border-white/5 rounded-[2.5rem]">
                 <Shield className="text-vault-amber mb-6" size={32} />
-                <h3 className="text-xl font-black text-white mb-4">Spam Filter</h3>
-                <p className="text-sm text-slate-500 font-medium">Algoritma moderasi otomatis untuk menjaga kualitas diskusi publik.</p>
+                <h3 className="text-xl font-black text-foreground mb-4">Spam Filter</h3>
+                <p className="text-sm text-muted-foreground font-medium">Algoritma moderasi otomatis untuk menjaga kualitas diskusi publik.</p>
             </div>
             <div className="p-10 bg-white/2 border border-white/5 rounded-[2.5rem]">
                 <Zap className="text-vault-amber mb-6" size={32} />
-                <h3 className="text-xl font-black text-white mb-4">Clustering</h3>
-                <p className="text-sm text-slate-500 font-medium">Pengelompokkan otomatis isu-isu serupa untuk efisiensi birokrasi.</p>
+                <h3 className="text-xl font-black text-foreground mb-4">Clustering</h3>
+                <p className="text-sm text-muted-foreground font-medium">Pengelompokkan otomatis isu-isu serupa untuk efisiensi birokrasi.</p>
             </div>
         </div>
       </div>

@@ -24,10 +24,10 @@ export default function BlockchainFeaturePage() {
                 >
                     Immutable Trust Ledger
                 </motion.div>
-                <h1 className="text-5xl md:text-6xl font-black text-white mb-8 tracking-tighter leading-tight">
+                <h1 className="text-5xl md:text-6xl font-black text-foreground mb-8 tracking-tighter leading-tight">
                     {lang === 'id' ? "Aspirasi Abadi di" : "Eternal Aspirations on"} <span className="text-vault-amber">Base Blockchain.</span>
                 </h1>
-                <p className="text-lg text-slate-400 mb-12 leading-relaxed max-w-xl">
+                <p className="text-lg text-muted-foreground mb-12 leading-relaxed max-w-xl">
                     {lang === 'id' 
                       ? "Setiap kata yang Anda suarakan dicatat secara permanen di ledger blockchain. Tidak ada yang bisa menghapus, mengubah, atau menyembunyikan kebenaran publik."
                       : "Every word you voice is permanently recorded on the blockchain ledger. No one can delete, alter, or hide the public truth."}
@@ -45,12 +45,12 @@ export default function BlockchainFeaturePage() {
                     <Database size={120} className="text-vault-amber/20 mb-8 animate-float" />
                     <div className="grid grid-cols-2 gap-4">
                         <div className="p-4 bg-white/5 rounded-2xl border border-white/10">
-                            <div className="text-[8px] font-black uppercase text-slate-500 mb-1">Block Height</div>
-                            <div className="text-sm font-black text-white">#12,402,192</div>
+                            <div className="text-[8px] font-black uppercase text-muted-foreground mb-1">Block Height</div>
+                            <div className="text-sm font-black text-foreground">#12,402,192</div>
                         </div>
                         <div className="p-4 bg-white/5 rounded-2xl border border-white/10">
-                            <div className="text-[8px] font-black uppercase text-slate-500 mb-1">Network</div>
-                            <div className="text-sm font-black text-white italic">Base Sepolia</div>
+                            <div className="text-[8px] font-black uppercase text-muted-foreground mb-1">Network</div>
+                            <div className="text-sm font-black text-foreground italic">Base Sepolia</div>
                         </div>
                     </div>
                 </div>
@@ -60,18 +60,18 @@ export default function BlockchainFeaturePage() {
         <div className="grid md:grid-cols-3 gap-8">
             <div className="p-10 bg-white/2 border border-white/5 rounded-[2.5rem]">
                 <Lock className="text-vault-amber mb-6" size={32} />
-                <h3 className="text-xl font-black text-white mb-4">Anti-Censorship</h3>
-                <p className="text-sm text-slate-500 font-medium">Data yang sudah masuk ke blockchain tidak dapat dihapus oleh otoritas manapun.</p>
+                <h3 className="text-xl font-black text-foreground mb-4">Anti-Censorship</h3>
+                <p className="text-sm text-muted-foreground font-medium">Data yang sudah masuk ke blockchain tidak dapat dihapus oleh otoritas manapun.</p>
             </div>
             <div className="p-10 bg-white/2 border border-white/5 rounded-[2.5rem]">
                 <Shield className="text-vault-amber mb-6" size={32} />
-                <h3 className="text-xl font-black text-white mb-4">Verifiability</h3>
-                <p className="text-sm text-slate-500 font-medium">Setiap warga dapat memverifikasi keaslian laporan melalui Hash ID unik.</p>
+                <h3 className="text-xl font-black text-foreground mb-4">Verifiability</h3>
+                <p className="text-sm text-muted-foreground font-medium">Setiap warga dapat memverifikasi keaslian laporan melalui Hash ID unik.</p>
             </div>
             <div className="p-10 bg-white/2 border border-white/5 rounded-[2.5rem]">
                 <Globe className="text-vault-amber mb-6" size={32} />
-                <h3 className="text-xl font-black text-white mb-4">Decentralized</h3>
-                <p className="text-sm text-slate-500 font-medium">Infrastruktur yang tersebar di ribuan node untuk menjamin ketersediaan data 24/7.</p>
+                <h3 className="text-xl font-black text-foreground mb-4">Decentralized</h3>
+                <p className="text-sm text-muted-foreground font-medium">Infrastruktur yang tersebar di ribuan node untuk menjamin ketersediaan data 24/7.</p>
             </div>
         </div>
       </div>

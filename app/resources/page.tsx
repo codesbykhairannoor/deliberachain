@@ -40,7 +40,7 @@ export default function ResourcesPage() {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.1 }}
-                    className="text-5xl md:text-6xl font-black text-white mb-8 tracking-tighter leading-none"
+                    className="text-5xl md:text-6xl font-black text-foreground mb-8 tracking-tighter leading-none"
                 >
                   {t.resHeroTitle} <br/> <span className="text-vault-amber">{t.resHeroTitleGold}</span>
                 </motion.h1>
@@ -48,7 +48,7 @@ export default function ResourcesPage() {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.2 }}
-                    className="text-lg md:text-xl text-slate-400 opacity-80 leading-relaxed mb-12 max-w-xl"
+                    className="text-lg md:text-xl text-muted-foreground opacity-80 leading-relaxed mb-12 max-w-xl"
                 >
                   {t.resHeroSub}
                 </motion.p>
@@ -60,11 +60,11 @@ export default function ResourcesPage() {
                     transition={{ delay: 0.3 }}
                     className="relative group max-w-xl"
                 >
-                    <Search className="absolute left-6 top-1/2 -translate-y-1/2 text-slate-500 group-hover:text-vault-amber transition-colors" size={24} />
+                    <Search className="absolute left-6 top-1/2 -translate-y-1/2 text-muted-foreground group-hover:text-vault-amber transition-colors" size={24} />
                     <input 
                         type="text" 
                         placeholder={t.resSearchPlaceholder} 
-                        className="w-full bg-white/5 border border-white/10 p-6 pl-16 rounded-[2rem] text-white focus:border-vault-amber outline-none transition-all shadow-2xl" 
+                        className="w-full bg-white/5 border border-white/10 p-6 pl-16 rounded-[2rem] text-foreground focus:border-vault-amber outline-none transition-all shadow-2xl" 
                     />
                 </motion.div>
             </div>
@@ -75,21 +75,21 @@ export default function ResourcesPage() {
                     <div className="space-y-6">
                         <div className="bg-vault-card border border-white/10 rounded-[2.5rem] p-10 flex flex-col items-center text-center group hover:bg-white/5 transition-all">
                             <BookOpen size={48} className="text-vault-amber mb-4" />
-                            <div className="text-sm font-black text-white">Guides</div>
+                            <div className="text-sm font-black text-foreground">Guides</div>
                         </div>
                         <div className="bg-vault-card border border-white/10 rounded-[2.5rem] p-10 flex flex-col items-center text-center group hover:bg-white/5 transition-all">
                             <Video size={48} className="text-blue-500 mb-4" />
-                            <div className="text-sm font-black text-white">Tutorials</div>
+                            <div className="text-sm font-black text-foreground">Tutorials</div>
                         </div>
                     </div>
                     <div className="space-y-6 pt-12">
                         <div className="bg-vault-card border border-white/10 rounded-[2.5rem] p-10 flex flex-col items-center text-center group hover:bg-white/5 transition-all">
                             <FileText size={48} className="text-yellow-400 mb-4" />
-                            <div className="text-sm font-black text-white">API Docs</div>
+                            <div className="text-sm font-black text-foreground">API Docs</div>
                         </div>
                         <div className="bg-vault-card border border-white/10 rounded-[2.5rem] p-10 flex flex-col items-center text-center group hover:bg-white/5 transition-all">
                             <Terminal size={48} className="text-green-500 mb-4" />
-                            <div className="text-sm font-black text-white">SDKs</div>
+                            <div className="text-sm font-black text-foreground">SDKs</div>
                         </div>
                     </div>
                 </div>
@@ -110,17 +110,17 @@ export default function ResourcesPage() {
                 
                 <div className="relative z-10 max-w-3xl">
                     <div className="text-[10px] font-black uppercase tracking-[0.5em] text-vault-amber mb-8">{t.resLatestWhitepaper}</div>
-                    <h2 className="text-4xl md:text-6xl font-black text-white mb-8 leading-tight tracking-tighter">
+                    <h2 className="text-4xl md:text-6xl font-black text-foreground mb-8 leading-tight tracking-tighter">
                         {t.resWhitepaperTitle}
                     </h2>
-                    <p className="text-xl text-slate-500 mb-12 leading-relaxed">
+                    <p className="text-xl text-muted-foreground mb-12 leading-relaxed">
                         {t.resWhitepaperDesc}
                     </p>
                     <div className="flex flex-wrap gap-4">
                         <button className="bg-vault-amber text-black px-10 py-5 rounded-2xl font-black text-lg flex items-center gap-3 hover:scale-105 transition-all shadow-2xl">
                            <Download size={24} /> Download PDF
                         </button>
-                        <button className="border border-white/10 text-white px-10 py-5 rounded-2xl font-black text-lg flex items-center gap-3 hover:bg-white/5 transition-all">
+                        <button className="border border-white/10 text-foreground px-10 py-5 rounded-2xl font-black text-lg flex items-center gap-3 hover:bg-white/5 transition-all">
                            Read Online <ExternalLink size={24} />
                         </button>
                     </div>
@@ -143,11 +143,11 @@ export default function ResourcesPage() {
                     transition={{ delay: idx * 0.1 }}
                     className="p-10 bg-white/2 border border-white/5 rounded-[2.5rem] hover:border-vault-amber/20 transition-all"
                 >
-                    <h4 className="text-xl font-black text-white mb-8 tracking-tight">{cat.title}</h4>
+                    <h4 className="text-xl font-black text-foreground mb-8 tracking-tight">{cat.title}</h4>
                     <ul className="space-y-4">
                         {cat.items.map(item => (
                             <li key={item}>
-                                <Link href="#" className="flex items-center justify-between group/link text-slate-500 hover:text-white transition-colors">
+                                <Link href="#" className="flex items-center justify-between group/link text-muted-foreground hover:text-foreground transition-colors">
                                     <span className="text-sm font-bold">{item}</span>
                                     <ChevronRight size={14} className="text-vault-amber group-hover/link:translate-x-1 transition-transform" />
                                 </Link>

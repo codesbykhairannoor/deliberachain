@@ -38,10 +38,10 @@ export default function GovAnalytics() {
         <div className="bg-vault-card border border-white/5 p-6 rounded-3xl shadow-2xl relative overflow-hidden group">
            <div className="flex justify-between items-center mb-6">
               <div>
-                <h3 className="text-xl font-bold text-white flex items-center gap-2">
+                <h3 className="text-xl font-bold text-foreground flex items-center gap-2">
                    <TrendingUp className="text-vault-amber" size={20} /> Aktivitas Partisipasi
                 </h3>
-                <p className="text-xs text-slate-500">Volume aspirasi dalam 7 hari terakhir</p>
+                <p className="text-xs text-muted-foreground">Volume aspirasi dalam 7 hari terakhir</p>
               </div>
            </div>
            
@@ -69,7 +69,7 @@ export default function GovAnalytics() {
 
         {/* Category Distribution (Pie) */}
         <div className="bg-vault-card border border-white/5 p-6 rounded-3xl shadow-2xl">
-           <h3 className="text-xl font-bold text-white mb-6">Distribusi Kategori Isu</h3>
+           <h3 className="text-xl font-bold text-foreground mb-6">Distribusi Kategori Isu</h3>
            <div className="h-[250px] w-full flex items-center">
               <ResponsiveContainer width="100%" height="100%">
                 <PieChart>
@@ -94,7 +94,7 @@ export default function GovAnalytics() {
                   {CATEGORY_DATA.map((cat, i) => (
                       <div key={cat.name} className="flex items-center gap-2">
                           <div className="w-2 h-2 rounded-full" style={{ backgroundColor: COLORS[i % COLORS.length] }}></div>
-                          <span className="text-[10px] font-bold text-slate-400 uppercase tracking-tighter">{cat.name}</span>
+                          <span className="text-[10px] font-bold text-muted-foreground uppercase tracking-tighter">{cat.name}</span>
                       </div>
                   ))}
               </div>
@@ -105,17 +105,17 @@ export default function GovAnalytics() {
 
       {/* SECTION 2: INTENSITY HEATMAP (BETA) */}
       <div className="bg-vault-card border border-white/5 p-8 rounded-3xl relative">
-          <div className="flex items-center gap-2 text-white mb-4">
+          <div className="flex items-center gap-2 text-foreground mb-4">
               <AlertCircle className="text-red-500" size={20} />
               <h3 className="text-xl font-bold">Analisis Urgensi Real-time</h3>
           </div>
-          <p className="text-slate-400 text-sm mb-8">AI mengidentifikasi peningkatan ketegangan isu keamanan di wilayah pusat.</p>
+          <p className="text-muted-foreground text-sm mb-8">AI mengidentifikasi peningkatan ketegangan isu keamanan di wilayah pusat.</p>
           
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
               {['Pusat', 'Utara', 'Selatan', 'Barat'].map((loc) => (
                   <div key={loc} className="bg-black/40 border border-white/5 p-4 rounded-2xl flex flex-col items-center justify-center">
-                      <span className="text-xs text-slate-500 uppercase font-black">{loc}</span>
-                      <span className="text-2xl font-black text-white mt-1">
+                      <span className="text-xs text-muted-foreground uppercase font-black">{loc}</span>
+                      <span className="text-2xl font-black text-foreground mt-1">
                           {Math.floor(Math.random() * 20) + 80}%
                       </span>
                       <div className="w-full h-1 bg-white/5 rounded-full mt-2">

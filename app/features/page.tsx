@@ -83,7 +83,7 @@ export default function FeaturesPage() {
                         className="aspect-square bg-vault-card border border-white/10 rounded-[2.5rem] flex flex-col items-center justify-center p-8 text-center group hover:border-vault-amber/30 transition-all"
                     >
                         <ShieldCheck size={48} className="text-vault-amber mb-4 group-hover:scale-110 transition-transform" />
-                        <div className="text-sm font-black text-white">Security</div>
+                        <div className="text-sm font-black text-foreground">Security</div>
                     </motion.div>
                     <motion.div 
                         initial={{ opacity: 0, scale: 0.8 }}
@@ -92,7 +92,7 @@ export default function FeaturesPage() {
                         className="aspect-square bg-vault-card border border-white/10 rounded-[2.5rem] flex flex-col items-center justify-center p-8 text-center group hover:border-blue-500/30 transition-all translate-y-12"
                     >
                         <Database size={48} className="text-blue-500 mb-4 group-hover:scale-110 transition-transform" />
-                        <div className="text-sm font-black text-white">Transparency</div>
+                        <div className="text-sm font-black text-foreground">Transparency</div>
                     </motion.div>
                     <motion.div 
                         initial={{ opacity: 0, scale: 0.8 }}
@@ -101,7 +101,7 @@ export default function FeaturesPage() {
                         className="aspect-square bg-vault-card border border-white/10 rounded-[2.5rem] flex flex-col items-center justify-center p-8 text-center group hover:border-yellow-400/30 transition-all -translate-y-12"
                     >
                         <Sparkles size={48} className="text-yellow-400 mb-4 group-hover:scale-110 transition-transform" />
-                        <div className="text-sm font-black text-white">Intelligence</div>
+                        <div className="text-sm font-black text-foreground">Intelligence</div>
                     </motion.div>
                     <motion.div 
                         initial={{ opacity: 0, scale: 0.8 }}
@@ -110,7 +110,7 @@ export default function FeaturesPage() {
                         className="aspect-square bg-vault-card border border-white/10 rounded-[2.5rem] flex flex-col items-center justify-center p-8 text-center group hover:border-green-500/30 transition-all"
                     >
                         <BarChart3 size={48} className="text-green-500 mb-4 group-hover:scale-110 transition-transform" />
-                        <div className="text-sm font-black text-white">Auditable</div>
+                        <div className="text-sm font-black text-foreground">Auditable</div>
                     </motion.div>
                 </div>
             </div>
@@ -127,7 +127,7 @@ export default function FeaturesPage() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.1 }}
-                  className="text-5xl md:text-6xl font-black tracking-[-0.03em] leading-[1.05] text-white mb-8"
+                  className="text-5xl md:text-6xl font-black tracking-[-0.03em] leading-[1.05] text-foreground mb-8"
                 >
                   {t.featHeroTitle} <br/> <span className="text-vault-amber">{t.featHeroTitleGold}</span>
                 </motion.h1>
@@ -135,7 +135,7 @@ export default function FeaturesPage() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.2 }}
-                  className="text-lg md:text-xl text-slate-400 opacity-80 leading-relaxed mb-12"
+                  className="text-lg md:text-xl text-muted-foreground opacity-80 leading-relaxed mb-12"
                 >
                   {lang === 'id' ? "Dlibration menggabungkan kecanggihan kecerdasan buatan dengan keamanan teknologi blockchain untuk menciptakan ekosistem demokrasi yang tak tertandingi." : "Dlibration combines sophisticated artificial intelligence with the security of blockchain technology to create an unparalleled democratic ecosystem."}
                 </motion.p>
@@ -170,12 +170,12 @@ export default function FeaturesPage() {
                   {feat.icon}
                 </div>
                 
-                <div className="inline-block px-3 py-1 rounded-full bg-white/5 border border-white/10 text-[9px] font-black uppercase tracking-widest text-slate-500 mb-4 group-hover:text-vault-amber group-hover:border-vault-amber/30 transition-all">
+                <div className="inline-block px-3 py-1 rounded-full bg-white/5 border border-white/10 text-[9px] font-black uppercase tracking-widest text-muted-foreground mb-4 group-hover:text-vault-amber group-hover:border-vault-amber/30 transition-all">
                   {feat.badge}
                 </div>
                 
-                <h3 className="text-2xl font-bold text-white mb-4">{feat.title}</h3>
-                <p className="text-slate-500 font-medium leading-relaxed mb-8">{feat.desc}</p>
+                <h3 className="text-2xl font-bold text-foreground mb-4">{feat.title}</h3>
+                <p className="text-muted-foreground font-medium leading-relaxed mb-8">{feat.desc}</p>
                 
                 <Link href={feat.href} className="inline-flex items-center gap-2 text-xs font-black uppercase tracking-widest text-vault-amber group-hover:gap-4 transition-all">
                     Explore Feature <ArrowRight size={14} />
@@ -188,7 +188,7 @@ export default function FeaturesPage() {
         <div className="mt-48 space-y-32">
             <div className="grid lg:grid-cols-2 gap-20 items-center">
                 <div>
-                    <h2 className="text-3xl md:text-5xl font-black text-white mb-8 tracking-tighter leading-none">
+                    <h2 className="text-3xl md:text-5xl font-black text-foreground mb-8 tracking-tighter leading-none">
                       Arsitektur Keamanan <br/> Berlapis
                     </h2>
                     <div className="space-y-8">
@@ -197,8 +197,8 @@ export default function FeaturesPage() {
                                 <Lock size={24} />
                             </div>
                             <div>
-                                <h4 className="font-bold text-white text-lg mb-2">Advanced Cryptography</h4>
-                                <p className="text-slate-500 leading-relaxed">Setiap laporan dienkripsi sebelum masuk ke IPFS untuk melindungi privasi sensitif pengguna.</p>
+                                <h4 className="font-bold text-foreground text-lg mb-2">Advanced Cryptography</h4>
+                                <p className="text-muted-foreground leading-relaxed">Setiap laporan dienkripsi sebelum masuk ke IPFS untuk melindungi privasi sensitif pengguna.</p>
                             </div>
                         </div>
                         <div className="flex gap-6">
@@ -206,8 +206,8 @@ export default function FeaturesPage() {
                                 <Cpu size={24} />
                             </div>
                             <div>
-                                <h4 className="font-bold text-white text-lg mb-2">AI Content Guard</h4>
-                                <p className="text-slate-500 leading-relaxed">Mendeteksi spam dan upaya manipulasi opini secara real-time dengan akurasi tinggi menggunakan Gemini 1.5.</p>
+                                <h4 className="font-bold text-foreground text-lg mb-2">AI Content Guard</h4>
+                                <p className="text-muted-foreground leading-relaxed">Mendeteksi spam dan upaya manipulasi opini secara real-time dengan akurasi tinggi menggunakan Gemini 1.5.</p>
                             </div>
                         </div>
                     </div>

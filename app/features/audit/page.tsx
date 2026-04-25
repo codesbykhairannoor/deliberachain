@@ -19,10 +19,10 @@ export default function AuditFeaturePage() {
                 <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-vault-amber/30 bg-vault-amber/5 text-vault-amber font-black text-[10px] tracking-[0.2em] uppercase mb-8">
                     Public Auditability
                 </motion.div>
-                <h1 className="text-5xl md:text-6xl font-black text-white mb-8 tracking-tighter leading-tight">
+                <h1 className="text-5xl md:text-6xl font-black text-foreground mb-8 tracking-tighter leading-tight">
                     {lang === 'id' ? "Audit Transparan" : "Transparent Audit"} <span className="text-vault-amber">Tanpa Batas.</span>
                 </h1>
-                <p className="text-lg text-slate-400 mb-12 leading-relaxed max-w-xl">
+                <p className="text-lg text-muted-foreground mb-12 leading-relaxed max-w-xl">
                     {lang === 'id' 
                       ? "Setiap langkah proses birokrasi dapat diaudit secara real-time. Kami memberikan transparansi total untuk membangun kembali kepercayaan publik."
                       : "Every step of the bureaucratic process can be audited in real-time. We provide total transparency to rebuild public trust."}
@@ -35,11 +35,11 @@ export default function AuditFeaturePage() {
                 <Search size={100} className="text-vault-amber/20 mb-8" />
                 <div className="space-y-4">
                     <div className="p-4 bg-black/40 rounded-xl border border-white/10 flex justify-between">
-                        <span className="text-xs text-slate-500 font-black">Audit Hash</span>
+                        <span className="text-xs text-muted-foreground font-black">Audit Hash</span>
                         <span className="text-xs text-vault-amber font-mono">0x4a...f2e1</span>
                     </div>
                     <div className="p-4 bg-black/40 rounded-xl border border-white/10 flex justify-between">
-                        <span className="text-xs text-slate-500 font-black">Status</span>
+                        <span className="text-xs text-muted-foreground font-black">Status</span>
                         <span className="text-xs text-green-500 font-black uppercase tracking-widest">Verified</span>
                     </div>
                 </div>

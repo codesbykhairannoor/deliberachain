@@ -31,14 +31,14 @@ export default function ShareButton({ title, url }: ShareButtonProps) {
         <div className="flex gap-2">
             <button 
                 onClick={handleWebShare}
-                className="p-3 bg-white/5 border border-white/10 rounded-xl hover:bg-vault-amber/10 hover:border-vault-amber/30 text-slate-400 hover:text-vault-amber transition-all group"
+                className="p-3 bg-white/5 border border-white/10 rounded-xl hover:bg-vault-amber/10 hover:border-vault-amber/30 text-muted-foreground hover:text-vault-amber transition-all group"
                 title="Share to Twitter/X"
             >
                 <Twitter size={18} />
             </button>
             <button 
                 onClick={handleWhatsApp}
-                className="p-3 bg-white/5 border border-white/10 rounded-xl hover:bg-green-500/10 hover:border-green-500/30 text-slate-400 hover:text-green-500 transition-all"
+                className="p-3 bg-white/5 border border-white/10 rounded-xl hover:bg-green-500/10 hover:border-green-500/30 text-muted-foreground hover:text-green-500 transition-all"
                 title="Share to WhatsApp"
             >
                 <MessageCircle size={18} />

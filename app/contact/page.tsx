@@ -37,7 +37,7 @@ export default function ContactPage() {
             <motion.h1 
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                className="text-5xl md:text-6xl font-black tracking-[-0.03em] leading-[1.05] text-white mb-8"
+                className="text-5xl md:text-6xl font-black tracking-[-0.03em] leading-[1.05] text-foreground mb-8"
             >
               {t.contactHeroTitle} <br/> <span className="text-vault-amber">{t.contactHeroTitleGold}</span>
             </motion.h1>
@@ -45,7 +45,7 @@ export default function ContactPage() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.1 }}
-                className="text-lg md:text-xl text-slate-400 max-w-2xl opacity-80 leading-relaxed"
+                className="text-lg md:text-xl text-muted-foreground max-w-2xl opacity-80 leading-relaxed"
             >
               {t.contactSub}
             </motion.p>
@@ -58,21 +58,21 @@ export default function ContactPage() {
                 <div className="grid sm:grid-cols-2 gap-8">
                     <motion.div initial={{ opacity: 0, scale: 0.95 }} whileInView={{ opacity: 1, scale: 1 }} className="p-10 bg-white/2 border border-white/5 rounded-[2.5rem] group hover:bg-white/5 transition-all">
                         <Mail className="text-vault-amber mb-6 group-hover:scale-110 transition-transform" size={32} />
-                        <h4 className="text-white font-black mb-2 tracking-tight">{t.contactGeneralInquiry}</h4>
-                        <p className="text-slate-500 text-sm font-bold">hello@deliberatechain.com</p>
+                        <h4 className="text-foreground font-black mb-2 tracking-tight">{t.contactGeneralInquiry}</h4>
+                        <p className="text-muted-foreground text-sm font-bold">hello@deliberatechain.com</p>
                     </motion.div>
                     <motion.div initial={{ opacity: 0, scale: 0.95 }} whileInView={{ opacity: 1, scale: 1 }} transition={{ delay: 0.1 }} className="p-10 bg-white/2 border border-white/5 rounded-[2.5rem] group hover:bg-white/5 transition-all">
                         <Phone className="text-vault-amber mb-6 group-hover:scale-110 transition-transform" size={32} />
-                        <h4 className="text-white font-black mb-2 tracking-tight">{t.contactGovSupport}</h4>
-                        <p className="text-slate-500 text-sm font-bold">+62 (21) 500-1234</p>
+                        <h4 className="text-foreground font-black mb-2 tracking-tight">{t.contactGovSupport}</h4>
+                        <p className="text-muted-foreground text-sm font-bold">+62 (21) 500-1234</p>
                     </motion.div>
                 </div>
                 
                 <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} className="p-12 bg-white/2 border border-white/5 rounded-[3.5rem] relative overflow-hidden group">
                     <div className="bg-pattern-diagonal absolute inset-0 opacity-5"></div>
                     <MapPin className="text-vault-amber mb-8 group-hover:scale-110 transition-transform" size={48} />
-                    <h3 className="text-3xl font-black text-white mb-6 tracking-tighter">{t.contactOurBase}</h3>
-                    <p className="text-slate-500 mb-12 leading-relaxed text-lg font-medium">
+                    <h3 className="text-3xl font-black text-foreground mb-6 tracking-tighter">{t.contactOurBase}</h3>
+                    <p className="text-muted-foreground mb-12 leading-relaxed text-lg font-medium">
                         Digital Democracy Hub, 10th Floor <br/>
                         Sudirman Central Business District <br/>
                         Jakarta, Indonesia 12190
@@ -87,7 +87,7 @@ export default function ContactPage() {
                             <div className="w-16 h-16 bg-vault-amber rounded-full flex items-center justify-center text-black shadow-[0_0_40px_rgba(245,158,11,0.5)] animate-bounce">
                                 <MapPin size={32} />
                             </div>
-                            <span className="text-[10px] font-black uppercase tracking-[0.5em] text-white mt-6 bg-black/80 px-6 py-2 rounded-full border border-white/10">Base Hub</span>
+                            <span className="text-[10px] font-black uppercase tracking-[0.5em] text-foreground mt-6 bg-black/80 px-6 py-2 rounded-full border border-white/10">Base Hub</span>
                         </div>
                     </div>
                 </motion.div>
@@ -103,27 +103,27 @@ export default function ContactPage() {
                     <Send size={150} />
                 </div>
                 <div className="relative z-10">
-                    <h2 className="text-4xl font-black text-white mb-12 tracking-tighter">{t.contactSendMessage}</h2>
+                    <h2 className="text-4xl font-black text-foreground mb-12 tracking-tighter">{t.contactSendMessage}</h2>
                     <form className="space-y-10">
                         <div className="space-y-3">
-                            <label className="text-[10px] font-black uppercase tracking-[0.3em] text-slate-500 ml-4">{t.contactFullName}</label>
-                            <input type="text" placeholder="Your Name" className="w-full bg-white/5 border border-white/10 p-6 rounded-2xl text-white focus:border-vault-amber outline-none transition-all font-bold" />
+                            <label className="text-[10px] font-black uppercase tracking-[0.3em] text-muted-foreground ml-4">{t.contactFullName}</label>
+                            <input type="text" placeholder="Your Name" className="w-full bg-white/5 border border-white/10 p-6 rounded-2xl text-foreground focus:border-vault-amber outline-none transition-all font-bold" />
                         </div>
                         <div className="space-y-3">
-                            <label className="text-[10px] font-black uppercase tracking-[0.3em] text-slate-500 ml-4">{t.contactEmail}</label>
-                            <input type="email" placeholder="email@example.com" className="w-full bg-white/5 border border-white/10 p-6 rounded-2xl text-white focus:border-vault-amber outline-none transition-all font-bold" />
+                            <label className="text-[10px] font-black uppercase tracking-[0.3em] text-muted-foreground ml-4">{t.contactEmail}</label>
+                            <input type="email" placeholder="email@example.com" className="w-full bg-white/5 border border-white/10 p-6 rounded-2xl text-foreground focus:border-vault-amber outline-none transition-all font-bold" />
                         </div>
                         <div className="space-y-3">
-                            <label className="text-[10px] font-black uppercase tracking-[0.3em] text-slate-500 ml-4">{t.contactSubject}</label>
-                            <select className="w-full bg-white/5 border border-white/10 p-6 rounded-2xl text-white focus:border-vault-amber outline-none transition-all font-bold appearance-none">
+                            <label className="text-[10px] font-black uppercase tracking-[0.3em] text-muted-foreground ml-4">{t.contactSubject}</label>
+                            <select className="w-full bg-white/5 border border-white/10 p-6 rounded-2xl text-foreground focus:border-vault-amber outline-none transition-all font-bold appearance-none">
                                 <option>General Inquiry</option>
                                 <option>Government Demo</option>
                                 <option>Technical Support</option>
                             </select>
                         </div>
                         <div className="space-y-3">
-                            <label className="text-[10px] font-black uppercase tracking-[0.3em] text-slate-500 ml-4">{t.contactMessage}</label>
-                            <textarea placeholder="Tell us how we can help..." rows={4} className="w-full bg-white/5 border border-white/10 p-6 rounded-2xl text-white focus:border-vault-amber outline-none transition-all font-bold resize-none"></textarea>
+                            <label className="text-[10px] font-black uppercase tracking-[0.3em] text-muted-foreground ml-4">{t.contactMessage}</label>
+                            <textarea placeholder="Tell us how we can help..." rows={4} className="w-full bg-white/5 border border-white/10 p-6 rounded-2xl text-foreground focus:border-vault-amber outline-none transition-all font-bold resize-none"></textarea>
                         </div>
                         <button className="w-full bg-vault-amber hover:bg-yellow-500 text-black py-6 rounded-2xl font-black text-xl transition-all shadow-[0_20px_40px_rgba(245,158,11,0.2)] flex items-center justify-center gap-4 group">
                             {t.contactSendBtn} <ArrowRight size={24} className="group-hover:translate-x-2 transition-transform" />
@@ -137,18 +137,18 @@ export default function ContactPage() {
         <div className="mt-48 pt-32 border-t border-white/5 grid md:grid-cols-3 gap-12 text-center">
             <div>
                 <Globe size={40} className="mx-auto text-vault-amber mb-6" />
-                <h4 className="text-white font-black mb-2 uppercase tracking-widest text-sm">{t.contactGlobalReach}</h4>
-                <p className="text-slate-500 text-sm font-medium">100% Digital & Distributed</p>
+                <h4 className="text-foreground font-black mb-2 uppercase tracking-widest text-sm">{t.contactGlobalReach}</h4>
+                <p className="text-muted-foreground text-sm font-medium">100% Digital & Distributed</p>
             </div>
             <div>
                 <ShieldCheck size={40} className="mx-auto text-vault-amber mb-6" />
-                <h4 className="text-white font-black mb-2 uppercase tracking-widest text-sm">Security First</h4>
-                <p className="text-slate-500 text-sm font-medium">End-to-End Encryption</p>
+                <h4 className="text-foreground font-black mb-2 uppercase tracking-widest text-sm">Security First</h4>
+                <p className="text-muted-foreground text-sm font-medium">End-to-End Encryption</p>
             </div>
             <div>
                 <MessageSquare size={40} className="mx-auto text-vault-amber mb-6" />
-                <h4 className="text-white font-black mb-2 uppercase tracking-widest text-sm">24/7 Support</h4>
-                <p className="text-slate-500 text-sm font-medium">Fast Human Response</p>
+                <h4 className="text-foreground font-black mb-2 uppercase tracking-widest text-sm">24/7 Support</h4>
+                <p className="text-muted-foreground text-sm font-medium">Fast Human Response</p>
             </div>
         </div>
 

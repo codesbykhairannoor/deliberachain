@@ -50,7 +50,7 @@ export default function AboutPage() {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.1 }}
-                    className="text-5xl md:text-6xl font-black text-white mb-8 tracking-tighter leading-[1.05]"
+                    className="text-5xl md:text-6xl font-black text-foreground mb-8 tracking-tighter leading-[1.05]"
                 >
                   {t.aboutHeroTitle} <br/> <span className="text-vault-amber">{t.aboutHeroTitleGold}</span>
                 </motion.h1>
@@ -58,7 +58,7 @@ export default function AboutPage() {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.2 }}
-                    className="text-lg md:text-xl text-slate-400 opacity-80 leading-relaxed mb-12"
+                    className="text-lg md:text-xl text-muted-foreground opacity-80 leading-relaxed mb-12"
                 >
                   {t.aboutSub}
                 </motion.p>
@@ -81,14 +81,14 @@ export default function AboutPage() {
                     <div className="bg-pattern-diagonal absolute inset-0 opacity-5"></div>
                     <div className="relative z-10">
                         <div className="text-[10px] font-black uppercase tracking-[0.5em] text-vault-amber mb-8">{t.aboutVisionary}</div>
-                        <p className="text-2xl md:text-4xl font-black text-white leading-tight mb-12 italic">
+                        <p className="text-2xl md:text-4xl font-black text-foreground leading-tight mb-12 italic">
                            "{t.aboutFounderVision}"
                         </p>
                         <div className="flex items-center gap-4">
                             <div className="w-12 h-12 bg-vault-amber rounded-full"></div>
                             <div>
-                                <div className="font-black text-white">Khairan Noor</div>
-                                <div className="text-[10px] font-bold text-slate-500 uppercase tracking-widest">Architect & Founder</div>
+                                <div className="font-black text-foreground">Khairan Noor</div>
+                                <div className="text-[10px] font-bold text-muted-foreground uppercase tracking-widest">Architect & Founder</div>
                             </div>
                         </div>
                     </div>
@@ -96,13 +96,13 @@ export default function AboutPage() {
                 <div className="lg:col-span-4 grid gap-12">
                     <div className="p-10 bg-vault-amber/10 border border-vault-amber/20 rounded-[3rem] text-center flex flex-col items-center justify-center">
                         <Target size={48} className="text-vault-amber mb-6" />
-                        <h3 className="text-xl font-black text-white mb-4">{t.visiTitle}</h3>
-                        <p className="text-sm text-slate-400 font-medium">{t.visiDesc}</p>
+                        <h3 className="text-xl font-black text-foreground mb-4">{t.visiTitle}</h3>
+                        <p className="text-sm text-muted-foreground font-medium">{t.visiDesc}</p>
                     </div>
                     <div className="p-10 bg-white/5 border border-white/10 rounded-[3rem] text-center flex flex-col items-center justify-center">
                         <Sparkles size={48} className="text-vault-amber mb-6" />
-                        <h3 className="text-xl font-black text-white mb-4">{t.misiTitle}</h3>
-                        <p className="text-sm text-slate-400 font-medium">{t.misiDesc}</p>
+                        <h3 className="text-xl font-black text-foreground mb-4">{t.misiTitle}</h3>
+                        <p className="text-sm text-muted-foreground font-medium">{t.misiDesc}</p>
                     </div>
                 </div>
             </div>
@@ -110,7 +110,7 @@ export default function AboutPage() {
 
         {/* 3. VALUES - Grid / Icon Layout */}
         <div className="py-24 border-t border-white/5">
-            <h2 className="text-center text-4xl md:text-6xl font-black text-white mb-24 tracking-tighter">{t.valuesTitle}</h2>
+            <h2 className="text-center text-4xl md:text-6xl font-black text-foreground mb-24 tracking-tighter">{t.valuesTitle}</h2>
             <div className="grid md:grid-cols-3 gap-8">
                 {[
                   { title: t.val1Title, desc: t.val1Desc, icon: <Database size={32} /> },
@@ -127,8 +127,8 @@ export default function AboutPage() {
                         <div className="w-16 h-16 bg-white/5 rounded-2xl flex items-center justify-center mx-auto mb-8 border border-white/10">
                             <div className="text-vault-amber">{val.icon}</div>
                         </div>
-                        <h3 className="text-2xl font-bold text-white mb-4">{val.title}</h3>
-                        <p className="text-slate-500 font-medium leading-relaxed">{val.desc}</p>
+                        <h3 className="text-2xl font-bold text-foreground mb-4">{val.title}</h3>
+                        <p className="text-muted-foreground font-medium leading-relaxed">{val.desc}</p>
                     </motion.div>
                 ))}
             </div>

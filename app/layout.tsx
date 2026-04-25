@@ -12,6 +12,9 @@ const pjs = Plus_Jakarta_Sans({
 export const metadata: Metadata = {
   title: "Dlibration - Transparent Democracy & Immutable Governance",
   description: "Advanced AI + Blockchain platform for public deliberation and secure governance.",
+  icons: {
+    icon: "/favicon.png",
+  },
 };
 
 import { ThemeProvider } from "@/components/ThemeProvider";

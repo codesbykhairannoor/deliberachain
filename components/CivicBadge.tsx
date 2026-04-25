@@ -25,11 +25,11 @@ export default function CivicBadge({ score }: CivicBadgeProps) {
         <div className="flex items-center gap-3 mb-4">
             <span className="text-3xl">{rank.icon}</span>
             <div>
-                <h4 className="text-xs font-black text-slate-500 uppercase tracking-widest leading-none">Civic Rank</h4>
+                <h4 className="text-xs font-black text-muted-foreground uppercase tracking-widest leading-none">Civic Rank</h4>
                 <p className={`text-xl font-black uppercase tracking-tighter ${
                   rank.name === 'Deliberator' ? 'text-vault-amber' : 
                   rank.name === 'Digital Patriot' ? 'text-blue-400' :
-                  rank.name === 'Democracy Keeper' ? 'text-purple-400' : 'text-slate-400'
+                  rank.name === 'Democracy Keeper' ? 'text-purple-400' : 'text-muted-foreground'
                 }`}>{rank.name}</p>
             </div>
         </div>
@@ -38,10 +38,10 @@ export default function CivicBadge({ score }: CivicBadgeProps) {
             <div className="flex justify-between items-end">
                 <div className="flex items-center gap-1.5">
                     <Zap size={16} className="text-vault-amber" />
-                    <span className="text-2xl font-black text-white">{score}</span>
-                    <span className="text-xs text-slate-500 font-bold uppercase ml-1">Credits</span>
+                    <span className="text-2xl font-black text-foreground">{score}</span>
+                    <span className="text-xs text-muted-foreground font-bold uppercase ml-1">Credits</span>
                 </div>
-                <div className="text-[10px] font-bold text-slate-500">
+                <div className="text-[10px] font-bold text-muted-foreground">
                     {score}/1000 XP
                 </div>
             </div>
@@ -54,7 +54,7 @@ export default function CivicBadge({ score }: CivicBadgeProps) {
                 />
             </div>
             
-            <p className="text-[10px] text-slate-500 italic">
+            <p className="text-[10px] text-muted-foreground italic">
                 *Raih lebih banyak partisipasi untuk membuka lencana Demokrasi berikutnya.
             </p>
         </div>

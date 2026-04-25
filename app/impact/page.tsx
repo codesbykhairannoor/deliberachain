@@ -54,7 +54,7 @@ export default function ImpactPage() {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.1 }}
-                    className="text-5xl md:text-6xl font-black tracking-[-0.03em] leading-[1.05] text-white mb-8"
+                    className="text-5xl md:text-6xl font-black tracking-[-0.03em] leading-[1.05] text-foreground mb-8"
                 >
                     {t.impactHeroTitle} <br/> <span className="text-vault-amber">{t.impactHeroTitleGold}</span>
                 </motion.h1>
@@ -62,7 +62,7 @@ export default function ImpactPage() {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.2 }}
-                    className="text-lg md:text-xl text-slate-400 opacity-80 leading-relaxed mb-12 max-w-xl"
+                    className="text-lg md:text-xl text-muted-foreground opacity-80 leading-relaxed mb-12 max-w-xl"
                 >
                     {lang === 'id' ? "Kami tidak hanya membangun platform, kami membangun standar baru untuk transparansi publik yang dapat diukur dan diverifikasi." : "We don't just build a platform; we build a new standard for measurable and verifiable public transparency."}
                 </motion.p>
@@ -73,24 +73,24 @@ export default function ImpactPage() {
                     <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} className="p-10 bg-vault-card border border-white/10 rounded-[2.5rem] text-center relative overflow-hidden">
                         <div className="absolute top-2 left-2 px-2 py-0.5 bg-vault-amber/10 text-[8px] font-black uppercase text-vault-amber rounded-full">Target 2026</div>
                         <div className="text-4xl font-black text-vault-amber mb-2 italic">12k+</div>
-                        <div className="text-[10px] font-black uppercase tracking-widest text-slate-500">{t.impactStat1}</div>
+                        <div className="text-[10px] font-black uppercase tracking-widest text-muted-foreground">{t.impactStat1}</div>
                     </motion.div>
                     <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }} className="p-10 bg-white/5 border border-white/10 rounded-[2.5rem] text-center relative overflow-hidden">
-                        <div className="absolute top-2 left-2 px-2 py-0.5 bg-white/10 text-[8px] font-black uppercase text-slate-400 rounded-full">Benchmark</div>
-                        <div className="text-4xl font-black text-white mb-2 italic">2.4s</div>
-                        <div className="text-[10px] font-black uppercase tracking-widest text-slate-500">{t.impactStat2}</div>
+                        <div className="absolute top-2 left-2 px-2 py-0.5 bg-white/10 text-[8px] font-black uppercase text-muted-foreground rounded-full">Benchmark</div>
+                        <div className="text-4xl font-black text-foreground mb-2 italic">2.4s</div>
+                        <div className="text-[10px] font-black uppercase tracking-widest text-muted-foreground">{t.impactStat2}</div>
                     </motion.div>
                 </div>
                 <div className="space-y-6 pt-12">
                     <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }} className="p-10 bg-white/5 border border-white/10 rounded-[2.5rem] text-center relative overflow-hidden">
-                        <div className="absolute top-2 left-2 px-2 py-0.5 bg-white/10 text-[8px] font-black uppercase text-slate-400 rounded-full">Proyeksi</div>
-                        <div className="text-4xl font-black text-white mb-2 italic">450k+</div>
-                        <div className="text-[10px] font-black uppercase tracking-widest text-slate-500">{t.impactStat3}</div>
+                        <div className="absolute top-2 left-2 px-2 py-0.5 bg-white/10 text-[8px] font-black uppercase text-muted-foreground rounded-full">Proyeksi</div>
+                        <div className="text-4xl font-black text-foreground mb-2 italic">450k+</div>
+                        <div className="text-[10px] font-black uppercase tracking-widest text-muted-foreground">{t.impactStat3}</div>
                     </motion.div>
                     <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ delay: 0.3 }} className="p-10 bg-vault-card border border-white/10 rounded-[2.5rem] text-center relative overflow-hidden">
                         <div className="absolute top-2 left-2 px-2 py-0.5 bg-vault-amber/10 text-[8px] font-black uppercase text-vault-amber rounded-full">Protokol</div>
                         <div className="text-4xl font-black text-vault-amber mb-2 italic">100%</div>
-                        <div className="text-[10px] font-black uppercase tracking-widest text-slate-500">Immutable</div>
+                        <div className="text-[10px] font-black uppercase tracking-widest text-muted-foreground">Immutable</div>
                     </motion.div>
                 </div>
             </div>
@@ -98,7 +98,7 @@ export default function ImpactPage() {
 
         {/* 2. IMPACT PROJECTIONS (Replacing Fake Stories) */}
         <div className="mb-48">
-            <h2 className="text-4xl md:text-6xl font-black text-white mb-24 tracking-tighter text-center">{t.impactProjectionTitle}</h2>
+            <h2 className="text-4xl md:text-6xl font-black text-foreground mb-24 tracking-tighter text-center">{t.impactProjectionTitle}</h2>
             <div className="grid lg:grid-cols-2 gap-12">
                 {projections.map((proj, idx) => (
                     <motion.div 
@@ -114,8 +114,8 @@ export default function ImpactPage() {
                         </div>
                         <div>
                             <div className="text-vault-amber font-black text-sm mb-2 italic">{proj.metric}</div>
-                            <h3 className="text-2xl font-bold text-white mb-4">{proj.title}</h3>
-                            <p className="text-slate-500 leading-relaxed">{proj.desc}</p>
+                            <h3 className="text-2xl font-bold text-foreground mb-4">{proj.title}</h3>
+                            <p className="text-muted-foreground leading-relaxed">{proj.desc}</p>
                         </div>
                     </motion.div>
                 ))}
@@ -127,10 +127,10 @@ export default function ImpactPage() {
              <div className="bg-pattern-diagonal absolute inset-0 opacity-10"></div>
              <div className="relative z-10 max-w-4xl mx-auto">
                 <Globe size={80} className="text-vault-amber mx-auto mb-12 animate-float" />
-                <h2 className="text-4xl md:text-6xl font-black text-white mb-8 tracking-tighter">
+                <h2 className="text-4xl md:text-6xl font-black text-foreground mb-8 tracking-tighter">
                    {lang === 'id' ? "Standar Baru untuk Tata Kelola Masa Depan." : "The New Standard for Future Governance."}
                 </h2>
-                <p className="text-xl text-slate-400 mb-12 leading-relaxed">
+                <p className="text-xl text-muted-foreground mb-12 leading-relaxed">
                    {lang === 'id' ? "Kami berkomitmen untuk terus berinovasi, memastikan setiap bit data aspirasi yang Anda berikan menjadi fondasi bagi kebijakan yang lebih adil." : "We are committed to continuous innovation, ensuring that every bit of aspiration data you provide becomes the foundation for fairer policies."}
                 </p>
                 <Link href="/dashboard" className="bg-vault-amber hover:bg-yellow-500 text-black px-12 py-6 rounded-2xl font-black text-xl transition-all shadow-2xl inline-flex items-center gap-3">

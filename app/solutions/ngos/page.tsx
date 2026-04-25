@@ -19,10 +19,10 @@ export default function NgosSolutionPage() {
                 <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-vault-amber/30 bg-vault-amber/5 text-vault-amber font-black text-[10px] tracking-[0.2em] uppercase mb-8">
                     Social Impact & NGOs
                 </motion.div>
-                <h1 className="text-5xl md:text-6xl font-black text-white mb-8 tracking-tighter leading-tight">
+                <h1 className="text-5xl md:text-6xl font-black text-foreground mb-8 tracking-tighter leading-tight">
                     {lang === 'id' ? "Perkuat Advokasi" : "Strengthen Advocacy"} <span className="text-vault-amber">Berbasis Data.</span>
                 </h1>
-                <p className="text-lg text-slate-400 mb-12 leading-relaxed max-w-xl">
+                <p className="text-lg text-muted-foreground mb-12 leading-relaxed max-w-xl">
                     {lang === 'id' 
                       ? "Gunakan bukti digital yang sah untuk memperkuat kampanye advokasi Anda. Kumpulkan data aspirasi yang terverifikasi on-chain untuk dampak yang lebih nyata."
                       : "Use valid digital evidence to strengthen your advocacy campaigns. Collect on-chain verified aspiration data for more tangible impact."}
@@ -33,8 +33,8 @@ export default function NgosSolutionPage() {
             </div>
             <div className="bg-vault-card border border-white/10 p-12 rounded-[4rem] text-center shadow-2xl relative overflow-hidden group">
                 <Heart size={120} className="text-vault-amber mx-auto mb-10 group-hover:scale-110 transition-transform" />
-                <div className="text-2xl font-black text-white">Humanity First</div>
-                <div className="text-sm text-slate-500 mt-2 font-bold uppercase tracking-widest italic">Advocacy Engine</div>
+                <div className="text-2xl font-black text-foreground">Humanity First</div>
+                <div className="text-sm text-muted-foreground mt-2 font-bold uppercase tracking-widest italic">Advocacy Engine</div>
             </div>
         </div>
       </div>

@@ -19,10 +19,10 @@ export default function GovFeaturePage() {
                 <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-vault-amber/30 bg-vault-amber/5 text-vault-amber font-black text-[10px] tracking-[0.2em] uppercase mb-8">
                     Agency Empowerment
                 </motion.div>
-                <h1 className="text-5xl md:text-6xl font-black text-white mb-8 tracking-tighter leading-tight">
+                <h1 className="text-5xl md:text-6xl font-black text-foreground mb-8 tracking-tighter leading-tight">
                     {lang === 'id' ? "Dashboard Khusus untuk" : "Dedicated Dashboard for"} <span className="text-vault-amber">Instansi Pemerintah.</span>
                 </h1>
-                <p className="text-lg text-slate-400 mb-12 leading-relaxed max-w-xl">
+                <p className="text-lg text-muted-foreground mb-12 leading-relaxed max-w-xl">
                     {lang === 'id' 
                       ? "Kelola aspirasi publik dengan efisien melalui dashboard analitik yang komprehensif. Pantau sentimen, kategorisasi otomatis, dan respon cepat."
                       : "Manage public aspirations efficiently through a comprehensive analytical dashboard. Monitor sentiment, automatic categorization, and rapid response."}

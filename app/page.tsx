@@ -46,7 +46,7 @@ export default function HomePage() {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.1 }}
-                    className="text-5xl md:text-6xl font-black tracking-[-0.03em] leading-[1.05] text-white mb-8"
+                    className="text-5xl md:text-6xl font-black tracking-[-0.03em] leading-[1.05] text-foreground mb-8"
                   >
                     {t.homeHeroTitle}
                   </motion.h1>
@@ -55,7 +55,7 @@ export default function HomePage() {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.2 }}
-                    className="text-lg md:text-xl text-slate-400 font-medium leading-relaxed opacity-80 max-w-xl mb-12"
+                    className="text-lg md:text-xl text-muted-foreground font-medium leading-relaxed opacity-80 max-w-xl mb-12"
                   >
                     {t.homeHeroSub}
                   </motion.p>
@@ -69,7 +69,7 @@ export default function HomePage() {
                       <Link href="/dashboard" className="w-full sm:w-auto bg-vault-amber hover:bg-yellow-500 text-black px-10 py-5 rounded-2xl font-black text-lg transition-all flex items-center justify-center gap-3 shadow-[0_20px_50px_rgba(245,158,11,0.2)] group">
                         {t.btnGetStarted} <ArrowRight size={22} className="group-hover:translate-x-1 transition-transform" />
                       </Link>
-                      <Link href="/contact" className="w-full sm:w-auto px-10 py-5 rounded-2xl font-bold text-lg border border-white/10 hover:bg-white/5 transition-all text-white flex items-center justify-center gap-3">
+                      <Link href="/contact" className="w-full sm:w-auto px-10 py-5 rounded-2xl font-bold text-lg border border-white/10 hover:bg-white/5 transition-all text-foreground flex items-center justify-center gap-3">
                         {t.btnRequestDemo}
                       </Link>
                   </motion.div>
@@ -91,17 +91,17 @@ export default function HomePage() {
                              </div>
                           </motion.div>
                           <div className="text-center">
-                              <div className="text-3xl font-black text-white mb-2">Immutable Proof</div>
+                              <div className="text-3xl font-black text-foreground mb-2">Immutable Proof</div>
                               <div className="text-xs font-black uppercase tracking-[0.5em] text-vault-amber">Verification active</div>
                           </div>
                           <div className="w-full grid grid-cols-2 gap-4">
                               <div className="bg-white/5 p-4 rounded-2xl border border-white/10 text-center">
-                                  <div className="text-xl font-bold text-white">0x...7a2</div>
-                                  <div className="text-[10px] text-slate-500 font-bold uppercase">Latest Commit</div>
+                                  <div className="text-xl font-bold text-foreground">0x...7a2</div>
+                                  <div className="text-[10px] text-muted-foreground font-bold uppercase">Latest Commit</div>
                               </div>
                               <div className="bg-white/5 p-4 rounded-2xl border border-white/10 text-center">
-                                  <div className="text-xl font-bold text-white">2.4s</div>
-                                  <div className="text-[10px] text-slate-500 font-bold uppercase">Avg Response</div>
+                                  <div className="text-xl font-bold text-foreground">2.4s</div>
+                                  <div className="text-[10px] text-muted-foreground font-bold uppercase">Avg Response</div>
                               </div>
                           </div>
                       </div>
@@ -116,12 +116,12 @@ export default function HomePage() {
       {/* 2. TRUST BAR - Clean Grid */}
       <section className="py-20 border-b border-white/5 bg-white/2">
           <div className="max-w-7xl mx-auto px-6">
-              <p className="text-center text-[10px] font-black uppercase tracking-[0.3em] text-slate-600 mb-12">{lang === 'id' ? "Segmen Pengguna Potensial" : "Potential User Segments"}</p>
+              <p className="text-center text-[10px] font-black uppercase tracking-[0.3em] text-muted-foreground mb-12">{lang === 'id' ? "Segmen Pengguna Potensial" : "Potential User Segments"}</p>
               <div className="flex flex-wrap items-center justify-center gap-12 md:gap-24 opacity-20 grayscale group hover:opacity-100 transition-all duration-700">
-                  <div className="text-2xl font-black text-white flex items-center gap-2 italic">INSTITUSI <span className="text-vault-amber">PENDIDIKAN</span></div>
-                  <div className="text-2xl font-black text-white flex items-center gap-2 italic">PEMERINTAH <span className="text-vault-amber">DAERAH</span></div>
-                  <div className="text-2xl font-black text-white flex items-center gap-2 italic">ORGANISASI <span className="text-vault-amber">SOSIAL</span></div>
-                  <div className="text-2xl font-black text-white flex items-center gap-2 italic">KOMUNITAS <span className="text-vault-amber">WARGA</span></div>
+                  <div className="text-2xl font-black text-foreground flex items-center gap-2 italic">INSTITUSI <span className="text-vault-amber">PENDIDIKAN</span></div>
+                  <div className="text-2xl font-black text-foreground flex items-center gap-2 italic">PEMERINTAH <span className="text-vault-amber">DAERAH</span></div>
+                  <div className="text-2xl font-black text-foreground flex items-center gap-2 italic">ORGANISASI <span className="text-vault-amber">SOSIAL</span></div>
+                  <div className="text-2xl font-black text-foreground flex items-center gap-2 italic">KOMUNITAS <span className="text-vault-amber">WARGA</span></div>
               </div>
           </div>
       </section>
@@ -130,8 +130,8 @@ export default function HomePage() {
       <section className="py-40 relative">
           <div className="max-w-7xl mx-auto px-6">
               <div className="text-center mb-32">
-                  <h2 className="text-4xl md:text-6xl font-black text-white mb-6 tracking-tighter">{t.homeProblemTitle}</h2>
-                  <p className="text-slate-500 font-medium max-w-2xl mx-auto">{t.homeProblemSub}</p>
+                  <h2 className="text-4xl md:text-6xl font-black text-foreground mb-6 tracking-tighter">{t.homeProblemTitle}</h2>
+                  <p className="text-muted-foreground font-medium max-w-2xl mx-auto">{t.homeProblemSub}</p>
               </div>
 
               <div className="grid lg:grid-cols-2 gap-12">
@@ -139,11 +139,11 @@ export default function HomePage() {
                       <div className="absolute top-0 right-0 p-8 text-red-500/20 group-hover:scale-110 transition-transform">
                           <Lock size={120} />
                       </div>
-                      <h3 className="text-2xl font-bold text-white mb-6 flex items-center gap-4">
+                      <h3 className="text-2xl font-bold text-foreground mb-6 flex items-center gap-4">
                           <span className="w-8 h-8 rounded-full bg-red-500/20 flex items-center justify-center text-red-500 text-xs">01</span>
                           Sistem Konvensional
                       </h3>
-                      <ul className="space-y-6 text-slate-400">
+                      <ul className="space-y-6 text-muted-foreground">
                           <li className="flex gap-4">
                               <div className="mt-1.5 w-1.5 h-1.5 rounded-full bg-red-500 shrink-0"></div>
                               <span>Data aspirasi mudah dimanipulasi atau dihapus oleh oknum.</span>
@@ -163,7 +163,7 @@ export default function HomePage() {
                       <div className="absolute top-0 right-0 p-8 text-vault-amber/20 group-hover:scale-110 transition-transform">
                           <Zap size={120} />
                       </div>
-                      <h3 className="text-2xl font-bold text-white mb-6 flex items-center gap-4">
+                      <h3 className="text-2xl font-bold text-foreground mb-6 flex items-center gap-4">
                           <span className="w-8 h-8 rounded-full bg-vault-amber/20 flex items-center justify-center text-vault-amber text-xs">02</span>
                           Protokol Dlibration
                       </h3>
@@ -189,7 +189,7 @@ export default function HomePage() {
       {/* 4. HOW IT WORKS - Loop / Steps Layout */}
       <section className="py-40 bg-white/2 border-y border-white/5">
           <div className="max-w-7xl mx-auto px-6">
-              <h2 className="text-4xl md:text-6xl font-black text-white mb-32 tracking-tighter text-center">{t.homeHowTitle}</h2>
+              <h2 className="text-4xl md:text-6xl font-black text-foreground mb-32 tracking-tighter text-center">{t.homeHowTitle}</h2>
               
               <div className="relative">
                   <div className="absolute top-0 bottom-0 left-[50%] w-px bg-white/10 hidden lg:block"></div>
@@ -205,8 +205,8 @@ export default function HomePage() {
                                 <div className={`inline-flex items-center justify-center w-16 h-16 bg-white/5 border border-white/10 rounded-2xl text-vault-amber mb-8 ${step.side === 'left' ? 'lg:ml-auto' : ''}`}>
                                     {step.icon}
                                 </div>
-                                <h3 className="text-3xl font-bold text-white mb-4">{step.title}</h3>
-                                <p className="text-slate-500 text-lg leading-relaxed">{step.desc}</p>
+                                <h3 className="text-3xl font-bold text-foreground mb-4">{step.title}</h3>
+                                <p className="text-muted-foreground text-lg leading-relaxed">{step.desc}</p>
                             </div>
                             <div className="w-20 h-20 bg-background border-4 border-vault-amber rounded-full flex items-center justify-center text-vault-amber font-black text-2xl relative z-10 shrink-0 shadow-[0_0_30px_rgba(245,158,11,0.3)]">
                                 {idx + 1}
@@ -224,25 +224,25 @@ export default function HomePage() {
           <div className="max-w-7xl mx-auto px-6">
               <div className="bg-vault-card border border-white/10 rounded-[4rem] p-12 lg:p-24 relative overflow-hidden text-center">
                   <div className="absolute inset-0 bg-vault-amber/5 -z-10 blur-3xl"></div>
-                  <h2 className="text-4xl md:text-6xl font-black text-white mb-8 tracking-tighter">{t.impactProjectionTitle}</h2>
-                  <p className="text-slate-500 font-medium max-w-2xl mx-auto mb-20">{lang === 'id' ? "Protokol kami dirancang untuk mencapai skala dampak berikut pada tahun pertama implementasi." : "Our protocol is designed to achieve the following impact scale in its first year of implementation."}</p>
+                  <h2 className="text-4xl md:text-6xl font-black text-foreground mb-8 tracking-tighter">{t.impactProjectionTitle}</h2>
+                  <p className="text-muted-foreground font-medium max-w-2xl mx-auto mb-20">{lang === 'id' ? "Protokol kami dirancang untuk mencapai skala dampak berikut pada tahun pertama implementasi." : "Our protocol is designed to achieve the following impact scale in its first year of implementation."}</p>
                   
                   <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
                       <div className="p-8">
                           <div className="text-5xl font-black text-vault-amber mb-4 italic">1M+</div>
-                          <p className="text-slate-500 text-xs font-black uppercase tracking-widest">{t.impactMetric1}</p>
+                          <p className="text-muted-foreground text-xs font-black uppercase tracking-widest">{t.impactMetric1}</p>
                       </div>
                       <div className="p-8">
                           <div className="text-5xl font-black text-vault-amber mb-4 italic">50+</div>
-                          <p className="text-slate-500 text-xs font-black uppercase tracking-widest">{t.impactMetric2}</p>
+                          <p className="text-muted-foreground text-xs font-black uppercase tracking-widest">{t.impactMetric2}</p>
                       </div>
                       <div className="p-8">
                           <div className="text-5xl font-black text-vault-amber mb-4 italic">85%</div>
-                          <p className="text-slate-500 text-xs font-black uppercase tracking-widest">{t.impactMetric3}</p>
+                          <p className="text-muted-foreground text-xs font-black uppercase tracking-widest">{t.impactMetric3}</p>
                       </div>
                       <div className="p-8">
                           <div className="text-5xl font-black text-vault-amber mb-4 italic">99%</div>
-                          <p className="text-slate-500 text-xs font-black uppercase tracking-widest">{t.impactMetric4}</p>
+                          <p className="text-muted-foreground text-xs font-black uppercase tracking-widest">{t.impactMetric4}</p>
                       </div>
                   </div>
               </div>
@@ -252,7 +252,7 @@ export default function HomePage() {
       {/* 6. FINAL CTA */}
       <section className="py-40 border-t border-white/5">
           <div className="max-w-5xl mx-auto px-6 text-center">
-              <h2 className="text-4xl md:text-7xl font-black text-white mb-12 tracking-tighter leading-tight">
+              <h2 className="text-4xl md:text-7xl font-black text-foreground mb-12 tracking-tighter leading-tight">
                   {lang === 'id' ? "Siap Membangun Masa Depan" : "Ready to Build the Future"} <br/> <span className="text-vault-amber">Demokrasi Digital?</span>
               </h2>
               <Link href="/dashboard" className="inline-flex items-center gap-4 bg-vault-amber text-black px-12 py-6 rounded-2xl font-black text-xl hover:scale-105 transition-all shadow-2xl">

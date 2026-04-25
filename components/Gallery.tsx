@@ -83,14 +83,14 @@ export default function Gallery({ contract, address, client }: GalleryProps) {
       
       <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 mb-10 px-2">
         <div>
-              <h2 className="text-2xl md:text-3xl font-black text-white flex items-center gap-3">
+              <h2 className="text-2xl md:text-3xl font-black text-foreground flex items-center gap-3">
                  Deliberation <span className="text-vault-amber">Room</span>
               </h2>
-              <p className="text-slate-400 text-xs md:text-sm mt-1">Aspirasi publik yang sedang diaudit secara transparan.</p>
+              <p className="text-muted-foreground text-xs md:text-sm mt-1">Aspirasi publik yang sedang diaudit secara transparan.</p>
         </div>
         
         <button onClick={() => refetch()} className="p-3 bg-white/5 border border-white/10 rounded-xl hover:border-vault-amber/50 hover:bg-vault-amber/10 transition-all group self-end md:self-auto">
-          <RefreshCw size={18} className="text-slate-400 group-hover:text-vault-amber transition-transform duration-500" />
+          <RefreshCw size={18} className="text-muted-foreground group-hover:text-vault-amber transition-transform duration-500" />
         </button>
       </div>
 
@@ -100,8 +100,8 @@ export default function Gallery({ contract, address, client }: GalleryProps) {
             animate={{ opacity: 1, y: 0 }}
             className="flex flex-col items-center justify-center py-32 border-2 border-dashed border-white/5 rounded-[2rem]"
         >
-          <FolderOpen size={32} className="text-slate-600 mb-4" />
-          <p className="text-slate-500 text-sm">{t.noAssets}</p>
+          <FolderOpen size={32} className="text-muted-foreground mb-4" />
+          <p className="text-muted-foreground text-sm">{t.noAssets}</p>
         </motion.div>
       ) : (
         <div className="grid grid-cols-1 gap-8 md:gap-12">
@@ -125,8 +125,8 @@ export default function Gallery({ contract, address, client }: GalleryProps) {
                     
                     {isSecret ? (
                         <div className="absolute top-6 right-6 px-3 py-1 bg-red-600 border border-red-500 rounded-full flex items-center gap-2 shadow-[0_0_15px_rgba(239,68,68,0.4)] z-20">
-                            <ShieldCheck size={12} className="text-white" />
-                            <span className="text-[10px] font-black text-white uppercase tracking-tighter">SECURE REPORT</span>
+                            <ShieldCheck size={12} className="text-foreground" />
+                            <span className="text-[10px] font-black text-foreground uppercase tracking-tighter">SECURE REPORT</span>
                         </div>
                     ) : isTrending && (
                         <div className="absolute top-6 right-6 px-3 py-1 bg-red-600/20 border border-red-600/30 rounded-full flex items-center gap-2 animate-pulse">
@@ -144,8 +144,8 @@ export default function Gallery({ contract, address, client }: GalleryProps) {
                                         <div className="w-16 h-16 md:w-20 md:h-20 bg-red-500/10 rounded-full flex items-center justify-center mb-4 border border-red-500/30">
                                             <Lock size={32} className="text-red-500" />
                                         </div>
-                                        <p className="text-xs font-black text-white uppercase tracking-widest">Encypted Data</p>
-                                        <p className="text-[10px] text-slate-500 mt-2">Only authorized authorities can decrypt and view this document.</p>
+                                        <p className="text-xs font-black text-foreground uppercase tracking-widest">Encypted Data</p>
+                                        <p className="text-[10px] text-muted-foreground mt-2">Only authorized authorities can decrypt and view this document.</p>
                                     </div>
                                 ) : (
                                     <MediaRenderer 
@@ -158,7 +158,7 @@ export default function Gallery({ contract, address, client }: GalleryProps) {
                                 
                                 {!isSecret && (
                                     <div className="absolute bottom-4 left-4 right-4 p-3 bg-black/80 backdrop-blur rounded-xl border border-white/5 flex flex-col">
-                                        <span className="text-[10px] text-slate-500 uppercase font-black tracking-widest">Metadata Hash</span>
+                                        <span className="text-[10px] text-muted-foreground uppercase font-black tracking-widest">Metadata Hash</span>
                                         <span className="text-[10px] text-vault-amber font-mono truncate">{asset.cid}</span>
                                     </div>
                                 )}
@@ -176,28 +176,28 @@ export default function Gallery({ contract, address, client }: GalleryProps) {
                                         {areaTag}
                                     </span>
                                     <span className="hidden md:inline text-slate-700">/</span>
-                                    <span className="text-[10px] md:text-xs text-slate-500 font-mono italic">
+                                    <span className="text-[10px] md:text-xs text-muted-foreground font-mono italic">
                                         Authored by {asset.owner.substring(0, 6)}...{asset.owner.substring(38)}
                                     </span>
                                 </div>
                                 
-                                <h3 className="text-2xl md:text-4xl font-black text-white mb-6 tracking-tighter uppercase leading-tight">
+                                <h3 className="text-2xl md:text-4xl font-black text-foreground mb-6 tracking-tighter uppercase leading-tight">
                                     {isSecret ? "CLASSIFIED REPORT" : asset.title}
                                 </h3>
                                 
                                 <div className="flex gap-4 md:gap-8 mb-8">
                                     <div className="flex flex-col">
-                                        <span className="text-[10px] text-slate-600 font-black uppercase">Supporters</span>
-                                        <span className="text-lg md:text-2xl font-black text-white">{isSecret ? "PRIVATE" : asset.upvotes.toString()}</span>
+                                        <span className="text-[10px] text-muted-foreground font-black uppercase">Supporters</span>
+                                        <span className="text-lg md:text-2xl font-black text-foreground">{isSecret ? "PRIVATE" : asset.upvotes.toString()}</span>
                                     </div>
                                     <div className="flex flex-col">
-                                        <span className="text-[10px] text-slate-600 font-black uppercase">Security Level</span>
+                                        <span className="text-[10px] text-muted-foreground font-black uppercase">Security Level</span>
                                         <span className={`text-lg md:text-2xl font-black ${isSecret ? 'text-red-500' : 'text-green-500'}`}>
                                             {isSecret ? 'HIGH' : 'Public'}
                                         </span>
                                     </div>
                                     <div className="flex flex-col">
-                                        <span className="text-[10px] text-slate-600 font-black uppercase">Verified ID</span>
+                                        <span className="text-[10px] text-muted-foreground font-black uppercase">Verified ID</span>
                                         <Fingerprint size={24} className="text-blue-500 mt-1" />
                                     </div>
                                 </div>
@@ -216,7 +216,7 @@ export default function Gallery({ contract, address, client }: GalleryProps) {
                                         
                                         <button 
                                             onClick={() => setDislikedIds(prev => isDisliked ? prev.filter(id => id !== Number(asset.id)) : [...prev, Number(asset.id)])}
-                                            className={`px-6 py-4 md:py-5 rounded-2xl border transition-all active:scale-95 flex items-center justify-center gap-2 ${isDisliked ? 'bg-red-500/10 border-red-500 text-red-500' : 'bg-white/5 border-white/10 text-slate-500 hover:border-red-500/50 hover:text-red-400'}`}
+                                            className={`px-6 py-4 md:py-5 rounded-2xl border transition-all active:scale-95 flex items-center justify-center gap-2 ${isDisliked ? 'bg-red-500/10 border-red-500 text-red-500' : 'bg-white/5 border-white/10 text-muted-foreground hover:border-red-500/50 hover:text-red-400'}`}
                                         >
                                             <ThumbsDown size={20} />
                                         </button>
@@ -230,8 +230,8 @@ export default function Gallery({ contract, address, client }: GalleryProps) {
                                                 className="px-4 py-4 md:py-5 bg-white/5 hover:bg-white/10 border border-white/10 flex items-center justify-center rounded-2xl transition-all group"
                                                 title="Verify Metadata on IPFS"
                                             >
-                                                <ShieldCheck size={20} className="text-slate-400 group-hover:text-vault-amber" />
-                                                <span className="ml-2 text-[10px] font-black uppercase text-slate-500 group-hover:text-white hidden lg:inline">Verify Hash</span>
+                                                <ShieldCheck size={20} className="text-muted-foreground group-hover:text-vault-amber" />
+                                                <span className="ml-2 text-[10px] font-black uppercase text-muted-foreground group-hover:text-foreground hidden lg:inline">Verify Hash</span>
                                             </a>
                                             
                                             <a 
@@ -240,7 +240,7 @@ export default function Gallery({ contract, address, client }: GalleryProps) {
                                                 className="px-6 bg-white/5 hover:bg-white/10 border border-white/10 flex items-center justify-center rounded-2xl transition-all group"
                                                 title="View Contract on Explorer"
                                             >
-                                                <ExternalLink size={20} className="text-slate-400 group-hover:text-blue-400" />
+                                                <ExternalLink size={20} className="text-muted-foreground group-hover:text-blue-400" />
                                             </a>
                                         </div>
                                     </>

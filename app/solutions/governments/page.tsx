@@ -19,10 +19,10 @@ export default function GovernmentsSolutionPage() {
                 <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-vault-amber/30 bg-vault-amber/5 text-vault-amber font-black text-[10px] tracking-[0.2em] uppercase mb-8">
                     Smart City & Governance
                 </motion.div>
-                <h1 className="text-5xl md:text-6xl font-black text-white mb-8 tracking-tighter leading-tight">
+                <h1 className="text-5xl md:text-6xl font-black text-foreground mb-8 tracking-tighter leading-tight">
                     {lang === 'id' ? "Integrasi Birokrasi" : "Bureaucratic Integration"} <span className="text-vault-amber">Masa Depan.</span>
                 </h1>
-                <p className="text-lg text-slate-400 mb-12 leading-relaxed max-w-xl">
+                <p className="text-lg text-muted-foreground mb-12 leading-relaxed max-w-xl">
                     {lang === 'id' 
                       ? "Bantu instansi Anda merespon aspirasi warga dengan lebih cerdas. Dapatkan analisis data berbasis bukti untuk pengambilan keputusan yang lebih tepat sasaran."
                       : "Help your agency respond to citizen aspirations more intelligently. Get evidence-based data analysis for more targeted decision-making."}
@@ -37,11 +37,11 @@ export default function GovernmentsSolutionPage() {
                 <div className="space-y-4 max-w-xs mx-auto">
                     <div className="flex items-center gap-4 p-4 bg-white/5 rounded-2xl border border-white/10">
                         <ShieldCheck size={20} className="text-vault-amber" />
-                        <span className="text-xs font-black text-white uppercase tracking-widest">ISO 27001 Ready</span>
+                        <span className="text-xs font-black text-foreground uppercase tracking-widest">ISO 27001 Ready</span>
                     </div>
                     <div className="flex items-center gap-4 p-4 bg-white/5 rounded-2xl border border-white/10">
                         <BarChart3 size={20} className="text-vault-amber" />
-                        <span className="text-xs font-black text-white uppercase tracking-widest">API First Access</span>
+                        <span className="text-xs font-black text-foreground uppercase tracking-widest">API First Access</span>
                     </div>
                 </div>
             </div>

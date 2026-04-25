@@ -3,29 +3,38 @@
 :root {
   /* Light Mode Variables */
   --background: #FFFFFF;
-  --foreground: #0F172A;
+  --foreground: #020617;
+  --muted: #F8FAFC;
+  --muted-foreground: #64748B;
   --vault-black: #FFFFFF;
-  --vault-card: #F1F5F9;
+  --vault-card: #F8FAFC;
   --vault-amber: #F59E0B;
   --vault-gold: #B45309;
   --border: #E2E8F0;
+  --accent: #F1F5F9;
 }
 
 .dark {
   /* Dark Mode Variables (Original Vault) */
   --background: #050505;
-  --foreground: #E2E8F0;
+  --foreground: #F8FAFC;
+  --muted: #111111;
+  --muted-foreground: #94A3B8;
   --vault-black: #050505;
   --vault-card: #111111;
   --vault-amber: #F59E0B;
   --vault-gold: #B45309;
   --border: #1E293B;
+  --accent: #1E293B;
 }
 
 @theme inline {
   /* Daftarkan variabel ke Tailwind v4 agar bisa dipakai di class */
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
   
   --color-vault-black: var(--vault-black);
   --color-vault-card: var(--vault-card);

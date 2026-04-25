@@ -67,7 +67,7 @@ export default function CommentSection({ aspirationId }: { aspirationId: string 
 
     return (
         <div className="mt-8 border-t border-white/5 pt-8">
-            <h4 className="text-sm font-bold text-white mb-6 flex items-center gap-2">
+            <h4 className="text-sm font-bold text-foreground mb-6 flex items-center gap-2">
                 <MessageSquare size={16} className="text-vault-amber" /> 
                 Diskusi Deliberasi ({comments.length})
             </h4>
@@ -76,14 +76,14 @@ export default function CommentSection({ aspirationId }: { aspirationId: string 
                 {comments.map((c) => (
                     <div key={c.id} className="flex gap-4 group">
                         <div className="w-8 h-8 rounded-full bg-white/5 border border-white/10 flex items-center justify-center shrink-0">
-                            <User size={14} className="text-slate-500" />
+                            <User size={14} className="text-muted-foreground" />
                         </div>
                         <div className="space-y-1">
                             <div className="flex items-center gap-3">
-                                <span className="text-xs font-bold text-white">{c.user}</span>
-                                <span className="text-[10px] text-slate-600 uppercase font-mono">{c.timestamp}</span>
+                                <span className="text-xs font-bold text-foreground">{c.user}</span>
+                                <span className="text-[10px] text-muted-foreground uppercase font-mono">{c.timestamp}</span>
                             </div>
-                            <p className="text-sm text-slate-400 leading-relaxed bg-white/5 px-4 py-3 rounded-2xl rounded-tl-none border border-white/5">
+                            <p className="text-sm text-muted-foreground leading-relaxed bg-white/5 px-4 py-3 rounded-2xl rounded-tl-none border border-white/5">
                                 {c.text}
                             </p>
                         </div>
@@ -96,7 +96,7 @@ export default function CommentSection({ aspirationId }: { aspirationId: string 
                     value={newComment}
                     onChange={(e) => setNewComment(e.target.value)}
                     placeholder="Tulis opini deliberasi Anda..."
-                    className="w-full bg-black/60 border border-white/10 rounded-2xl p-4 text-sm text-white focus:ring-1 focus:ring-vault-amber outline-none min-h-[100px] transition-all"
+                    className="w-full bg-black/60 border border-white/10 rounded-2xl p-4 text-sm text-foreground focus:ring-1 focus:ring-vault-amber outline-none min-h-[100px] transition-all"
                 />
                 
                 {error && (

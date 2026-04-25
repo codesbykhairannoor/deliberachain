@@ -11,10 +11,10 @@ export default function LegalPage() {
   return (
     <div className="animate-in fade-in duration-700">
       <section className="py-24 px-6 text-center max-w-5xl mx-auto">
-        <h1 className="text-5xl md:text-7xl font-black text-white mb-6 tracking-tighter uppercase">
+        <h1 className="text-5xl md:text-7xl font-black text-foreground mb-6 tracking-tighter uppercase">
           {t.legalTitle}
         </h1>
-        <p className="text-xl text-slate-400 leading-relaxed">
+        <p className="text-xl text-muted-foreground leading-relaxed">
           {t.legalSub}
         </p>
       </section>
@@ -41,7 +41,7 @@ export default function LegalPage() {
       <section className="py-24 border-t border-white/5 bg-white/[0.02]">
           <div className="max-w-4xl mx-auto px-6 text-center">
               <Lock size={32} className="text-slate-700 mx-auto mb-6" />
-              <p className="text-slate-500 text-sm leading-relaxed">
+              <p className="text-muted-foreground text-sm leading-relaxed">
                   {lang === 'id' 
                     ? "Terakhir diperbarui: 23 April 2026. Protokol ini bersifat open-source dan didistribusikan di bawah Lisensi MIT. Segala bentuk pelanggaran hukum tetap menjadi tanggung jawab pengguna sesuai dengan regulasi negara masing-masing."
                     : "Last updated: April 23, 2026. This protocol is open-source and distributed under the MIT License. Any legal violations remain the responsibility of the user in accordance with their respective country's regulations."}
@@ -59,8 +59,8 @@ function LegalItem({ icon: Icon, title, desc }: any) {
                 <Icon size={32} className="text-vault-amber" />
             </div>
             <div>
-                <h3 className="text-2xl font-bold text-white mb-4">{title}</h3>
-                <p className="text-slate-400 leading-relaxed text-lg">{desc}</p>
+                <h3 className="text-2xl font-bold text-foreground mb-4">{title}</h3>
+                <p className="text-muted-foreground leading-relaxed text-lg">{desc}</p>
             </div>
         </div>
     );

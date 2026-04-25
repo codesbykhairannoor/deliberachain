@@ -60,15 +60,15 @@ export default function BlogPage() {
             <motion.h1 
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                className="text-5xl md:text-6xl font-black tracking-[-0.03em] leading-[1.05] text-white mb-12"
+                className="text-5xl md:text-6xl font-black tracking-[-0.03em] leading-[1.05] text-foreground mb-12"
             >
               {t.blogHeroTitle} <br/> <span className="text-vault-amber">{t.blogHeroTitleGold}</span>
             </motion.h1>
             <div className="flex flex-wrap items-center justify-center gap-4 pt-12 border-t border-white/5">
                 <button className="px-6 py-2 rounded-full bg-vault-amber text-black font-black text-xs uppercase tracking-widest">{t.blogAllArticles}</button>
-                <button className="px-6 py-2 rounded-full bg-white/5 text-slate-400 hover:text-white transition-all font-black text-xs uppercase tracking-widest">Technology</button>
-                <button className="px-6 py-2 rounded-full bg-white/5 text-slate-400 hover:text-white transition-all font-black text-xs uppercase tracking-widest">Governance</button>
-                <button className="px-6 py-2 rounded-full bg-white/5 text-slate-400 hover:text-white transition-all font-black text-xs uppercase tracking-widest">Community</button>
+                <button className="px-6 py-2 rounded-full bg-white/5 text-muted-foreground hover:text-foreground transition-all font-black text-xs uppercase tracking-widest">Technology</button>
+                <button className="px-6 py-2 rounded-full bg-white/5 text-muted-foreground hover:text-foreground transition-all font-black text-xs uppercase tracking-widest">Governance</button>
+                <button className="px-6 py-2 rounded-full bg-white/5 text-muted-foreground hover:text-foreground transition-all font-black text-xs uppercase tracking-widest">Community</button>
             </div>
         </div>
 
@@ -90,8 +90,8 @@ export default function BlogPage() {
                 <div className="flex items-center gap-4 text-vault-amber font-black uppercase tracking-[0.3em] text-[10px] mb-8">
                     <Tag size={16} /> {t.blogFeatured}
                 </div>
-                <h2 className="text-4xl md:text-7xl font-black text-white mb-8 leading-tight tracking-tighter group-hover:text-vault-amber transition-colors">Menuju Indonesia Emas 2045 dengan Infrastruktur Demokrasi Web3</h2>
-                <div className="flex flex-wrap items-center gap-10 text-slate-400 text-xs font-bold uppercase tracking-widest mb-12">
+                <h2 className="text-4xl md:text-7xl font-black text-foreground mb-8 leading-tight tracking-tighter group-hover:text-vault-amber transition-colors">Menuju Indonesia Emas 2045 dengan Infrastruktur Demokrasi Web3</h2>
+                <div className="flex flex-wrap items-center gap-10 text-muted-foreground text-xs font-bold uppercase tracking-widest mb-12">
                     <span className="flex items-center gap-3"><Calendar size={16}/> Oct 25, 2026</span>
                     <span className="flex items-center gap-3"><Clock size={16}/> 12 min read</span>
                 </div>
@@ -119,11 +119,11 @@ export default function BlogPage() {
                         </div>
                     </div>
                     <div className="p-12">
-                        <h3 className="text-2xl font-black text-white mb-6 leading-tight group-hover:text-vault-amber transition-colors line-clamp-2 tracking-tight">{post.title}</h3>
-                        <p className="text-slate-500 font-medium text-sm mb-10 line-clamp-3 leading-relaxed">{post.desc}</p>
+                        <h3 className="text-2xl font-black text-foreground mb-6 leading-tight group-hover:text-vault-amber transition-colors line-clamp-2 tracking-tight">{post.title}</h3>
+                        <p className="text-muted-foreground font-medium text-sm mb-10 line-clamp-3 leading-relaxed">{post.desc}</p>
                         <div className="flex items-center justify-between pt-8 border-t border-white/5">
-                            <span className="text-[10px] font-black text-slate-600 uppercase tracking-[0.2em]">{post.date}</span>
-                            <Link href="#" className="w-12 h-12 rounded-2xl border border-white/10 flex items-center justify-center text-white hover:bg-vault-amber hover:text-black hover:border-vault-amber transition-all shadow-xl">
+                            <span className="text-[10px] font-black text-muted-foreground uppercase tracking-[0.2em]">{post.date}</span>
+                            <Link href="#" className="w-12 h-12 rounded-2xl border border-white/10 flex items-center justify-center text-foreground hover:bg-vault-amber hover:text-black hover:border-vault-amber transition-all shadow-xl">
                                 <ArrowRight size={20} />
                             </Link>
                         </div>
@@ -134,10 +134,10 @@ export default function BlogPage() {
 
         {/* 4. PAGINATION - Loop style icons */}
         <div className="mt-32 flex items-center justify-center gap-4">
-             <button className="w-14 h-14 rounded-2xl border border-white/10 flex items-center justify-center text-slate-500 hover:text-white hover:bg-white/5 transition-all"><ChevronLeft size={24} /></button>
+             <button className="w-14 h-14 rounded-2xl border border-white/10 flex items-center justify-center text-muted-foreground hover:text-foreground hover:bg-white/5 transition-all"><ChevronLeft size={24} /></button>
              <button className="w-14 h-14 rounded-2xl bg-vault-amber text-black font-black shadow-2xl">1</button>
-             <button className="w-14 h-14 rounded-2xl border border-white/10 flex items-center justify-center text-slate-400 hover:text-white hover:bg-white/5 transition-all font-black text-sm">2</button>
-             <button className="w-14 h-14 rounded-2xl border border-white/10 flex items-center justify-center text-slate-500 hover:text-white hover:bg-white/5 transition-all"><ChevronRight size={24} /></button>
+             <button className="w-14 h-14 rounded-2xl border border-white/10 flex items-center justify-center text-muted-foreground hover:text-foreground hover:bg-white/5 transition-all font-black text-sm">2</button>
+             <button className="w-14 h-14 rounded-2xl border border-white/10 flex items-center justify-center text-muted-foreground hover:text-foreground hover:bg-white/5 transition-all"><ChevronRight size={24} /></button>
         </div>
 
       </div>

@@ -93,8 +93,8 @@ export default function UploadForm({ client, contract, onSuccess }: UploadFormPr
               <div className="w-20 h-20 bg-green-500/20 rounded-full flex items-center justify-center mb-6 border border-green-500/50">
                   <CheckCircle2 size={40} className="text-green-500" />
               </div>
-              <h3 className="text-2xl font-black text-white mb-2">{t.successMsg}</h3>
-              <p className="text-slate-400 max-w-xs">{t.msgSuccess}</p>
+              <h3 className="text-2xl font-black text-foreground mb-2">{t.successMsg}</h3>
+              <p className="text-muted-foreground max-w-xs">{t.msgSuccess}</p>
               
               <div className="mt-8 flex items-center gap-2 text-[10px] font-mono text-green-500 uppercase tracking-widest animate-pulse">
                   <Loader2 size={12} className="animate-spin" /> Synchronizing Ledger...
@@ -105,7 +105,7 @@ export default function UploadForm({ client, contract, onSuccess }: UploadFormPr
 
   return (
     <div className="bg-vault-card border border-white/10 p-6 md:p-10 rounded-[2.5rem] shadow-2xl backdrop-blur-xl">
-      <h3 className="text-xl font-bold text-white mb-8 flex items-center gap-3">
+      <h3 className="text-xl font-bold text-foreground mb-8 flex items-center gap-3">
         <div className="p-2 bg-vault-amber/10 rounded-lg">
             <Upload size={20} className="text-vault-amber" />
         </div>
@@ -114,9 +114,9 @@ export default function UploadForm({ client, contract, onSuccess }: UploadFormPr
       
       <div className="space-y-6">
         <div className="space-y-2">
-            <label className="text-[10px] font-black uppercase tracking-widest text-slate-500 ml-1">Judul Aspirasi</label>
+            <label className="text-[10px] font-black uppercase tracking-widest text-muted-foreground ml-1">Judul Aspirasi</label>
             <input 
-              className="w-full bg-black/40 border border-white/10 rounded-2xl p-4 text-white focus:ring-2 focus:ring-vault-amber outline-none transition-all placeholder:text-slate-700"
+              className="w-full bg-black/40 border border-white/10 rounded-2xl p-4 text-foreground focus:ring-2 focus:ring-vault-amber outline-none transition-all placeholder:text-slate-700"
               placeholder={t.inputPlaceholder}
               value={title}
               onChange={(e) => setTitle(e.target.value)}
@@ -125,13 +125,13 @@ export default function UploadForm({ client, contract, onSuccess }: UploadFormPr
 
         <div className="flex flex-col md:flex-row gap-6">
             <div className="space-y-2 flex-1">
-                <label className="text-[10px] font-black uppercase tracking-widest text-slate-500 ml-1">Instansi / Wilayah</label>
+                <label className="text-[10px] font-black uppercase tracking-widest text-muted-foreground ml-1">Instansi / Wilayah</label>
                 <div className="relative group">
-                    <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-slate-500 group-focus-within:text-vault-amber transition-colors">
+                    <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-muted-foreground group-focus-within:text-vault-amber transition-colors">
                         <ShieldCheck size={20} />
                     </div>
                     <input 
-                    className="w-full bg-black/40 border border-white/10 rounded-2xl p-4 pl-12 text-white focus:ring-2 focus:ring-vault-amber outline-none transition-all placeholder:text-slate-700"
+                    className="w-full bg-black/40 border border-white/10 rounded-2xl p-4 pl-12 text-foreground focus:ring-2 focus:ring-vault-amber outline-none transition-all placeholder:text-slate-700"
                     placeholder="Contoh: KEMENKES, BALI, UNPAD"
                     value={areaTag}
                     onChange={(e) => setAreaTag(e.target.value)}
@@ -140,14 +140,14 @@ export default function UploadForm({ client, contract, onSuccess }: UploadFormPr
             </div>
 
             <div className="space-y-2">
-                <label className="text-[10px] font-black uppercase tracking-widest text-slate-500 ml-1">Visibilitas</label>
+                <label className="text-[10px] font-black uppercase tracking-widest text-muted-foreground ml-1">Visibilitas</label>
                 <button 
                     type="button"
                     onClick={() => setIsSecret(!isSecret)}
                     className={`w-full md:w-auto flex items-center justify-center gap-3 px-6 py-4 rounded-2xl border transition-all active:scale-95 ${
                     isSecret 
                     ? 'bg-red-500/10 border-red-500 text-red-500 shadow-[0_0_20px_rgba(239,68,68,0.2)]' 
-                    : 'bg-black/40 border-white/10 text-slate-500'
+                    : 'bg-black/40 border-white/10 text-muted-foreground'
                     }`}
                 >
                     {isSecret ? <ShieldCheck size={20} className="fill-red-500/20" /> : <Upload size={20} />}
@@ -158,9 +158,9 @@ export default function UploadForm({ client, contract, onSuccess }: UploadFormPr
         
         <div className="flex flex-col md:flex-row gap-6">
             <div className="space-y-2 flex-1">
-                <label className="text-[10px] font-black uppercase tracking-widest text-slate-500 ml-1">Jenis Laporan</label>
+                <label className="text-[10px] font-black uppercase tracking-widest text-muted-foreground ml-1">Jenis Laporan</label>
                 <select 
-                    className="w-full bg-black/40 border border-white/10 rounded-2xl p-4 text-white outline-none focus:border-vault-amber cursor-pointer appearance-none"
+                    className="w-full bg-black/40 border border-white/10 rounded-2xl p-4 text-foreground outline-none focus:border-vault-amber cursor-pointer appearance-none"
                     value={assetType}
                     onChange={(e) => setAssetType(e.target.value)}
                 >
@@ -171,7 +171,7 @@ export default function UploadForm({ client, contract, onSuccess }: UploadFormPr
             </div>
 
             <div className="space-y-2 flex-1">
-                <label className="text-[10px] font-black uppercase tracking-widest text-slate-500 ml-1">Bukti / Dokumen</label>
+                <label className="text-[10px] font-black uppercase tracking-widest text-muted-foreground ml-1">Bukti / Dokumen</label>
                 <label className="flex items-center justify-between bg-black/40 border border-dashed border-white/20 rounded-2xl p-4 cursor-pointer hover:border-vault-amber transition-all group overflow-hidden">
                     <span className="text-sm text-zinc-400 truncate w-32">
                     {file ? file.name : "Pilih File..."}
@@ -222,7 +222,7 @@ export default function UploadForm({ client, contract, onSuccess }: UploadFormPr
                     }
                 }}
                 disabled={isPending}
-                className="flex-1 px-6 py-5 border border-white/10 text-white hover:bg-white/5 rounded-2xl font-bold text-sm transition-all flex items-center justify-center gap-2 active:scale-95"
+                className="flex-1 px-6 py-5 border border-white/10 text-foreground hover:bg-white/5 rounded-2xl font-bold text-sm transition-all flex items-center justify-center gap-2 active:scale-95"
               >
                  <ShieldCheck size={20} className="text-vault-amber" /> Cek AI (Tes Audit)
               </button>
@@ -257,7 +257,7 @@ export default function UploadForm({ client, contract, onSuccess }: UploadFormPr
              <div className="h-px flex-1 bg-white/5"></div>
              <div className="flex items-center gap-2">
                 <ShieldCheck size={14} className="text-vault-amber" />
-                <span className="text-[9px] font-bold uppercase tracking-widest text-slate-400">Gas Sponsored by Protocol</span>
+                <span className="text-[9px] font-bold uppercase tracking-widest text-muted-foreground">Gas Sponsored by Protocol</span>
              </div>
              <div className="h-px flex-1 bg-white/5"></div>
           </div>

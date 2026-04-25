@@ -78,7 +78,7 @@ export default function SolutionsPage() {
             <motion.h1 
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              className="text-5xl md:text-6xl font-black tracking-[-0.03em] leading-[1.05] text-white mb-8"
+              className="text-5xl md:text-6xl font-black tracking-[-0.03em] leading-[1.05] text-foreground mb-8"
             >
               {t.solHeroTitle} <br/> <span className="text-vault-amber">{t.solHeroTitleGold}</span>
             </motion.h1>
@@ -86,7 +86,7 @@ export default function SolutionsPage() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1 }}
-              className="text-lg md:text-xl text-slate-400 max-w-3xl mx-auto opacity-80 mb-12"
+              className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto opacity-80 mb-12"
             >
               {t.solSub}
             </motion.p>
@@ -109,13 +109,13 @@ export default function SolutionsPage() {
                     <div className="w-20 h-20 bg-white/5 rounded-[1.5rem] flex items-center justify-center border border-white/10 mb-10 group-hover:scale-110 transition-transform">
                       {seg.icon}
                     </div>
-                    <h2 className="text-3xl font-black text-white mb-6 tracking-tight">{seg.title}</h2>
-                    <p className="text-lg text-slate-400 mb-10 leading-relaxed">
+                    <h2 className="text-3xl font-black text-foreground mb-6 tracking-tight">{seg.title}</h2>
+                    <p className="text-lg text-muted-foreground mb-10 leading-relaxed">
                       {seg.desc}
                     </p>
                     <div className="flex flex-wrap gap-2 mb-12">
                         {seg.features.map(f => (
-                           <span key={f} className="px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-[10px] font-black uppercase tracking-widest text-slate-500 group-hover:text-white transition-colors">{f}</span>
+                           <span key={f} className="px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-[10px] font-black uppercase tracking-widest text-muted-foreground group-hover:text-foreground transition-colors">{f}</span>
                         ))}
                     </div>
                 </div>
@@ -129,7 +129,7 @@ export default function SolutionsPage() {
 
         {/* 3. FINAL CTA - Loop/Flow style */}
         <div className="py-24 border-t border-white/5 text-center">
-            <h2 className="text-3xl font-black text-white mb-12">{lang === 'id' ? "Belum menemukan yang Anda cari?" : "Didn't find what you were looking for?"}</h2>
+            <h2 className="text-3xl font-black text-foreground mb-12">{lang === 'id' ? "Belum menemukan yang Anda cari?" : "Didn't find what you were looking for?"}</h2>
             <Link href="/contact" className="inline-flex items-center gap-3 bg-white text-black px-10 py-5 rounded-2xl font-black text-lg hover:bg-vault-amber transition-all">
                Hubungi Tim Ahli Kami <ArrowUpRight size={22} />
             </Link>

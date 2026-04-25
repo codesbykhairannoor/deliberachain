@@ -19,10 +19,10 @@ export default function CitizensSolutionPage() {
                 <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-vault-amber/30 bg-vault-amber/5 text-vault-amber font-black text-[10px] tracking-[0.2em] uppercase mb-8">
                     Empowering the People
                 </motion.div>
-                <h1 className="text-5xl md:text-6xl font-black text-white mb-8 tracking-tighter leading-tight">
+                <h1 className="text-5xl md:text-6xl font-black text-foreground mb-8 tracking-tighter leading-tight">
                     {lang === 'id' ? "Suara Anda Adalah" : "Your Voice is"} <span className="text-vault-amber">Kekuatan Kami.</span>
                 </h1>
-                <p className="text-lg text-slate-400 mb-12 leading-relaxed max-w-xl">
+                <p className="text-lg text-muted-foreground mb-12 leading-relaxed max-w-xl">
                     {lang === 'id' 
                       ? "Kami memberikan platform yang aman, anonim, dan transparan bagi setiap warga untuk berpartisipasi dalam pembentukan kebijakan publik tanpa rasa takut."
                       : "We provide a safe, anonymous, and transparent platform for every citizen to participate in shaping public policy without fear."}
@@ -35,8 +35,8 @@ export default function CitizensSolutionPage() {
                 <div className="absolute -inset-10 bg-vault-amber/10 blur-[120px] rounded-full -z-10 animate-pulse"></div>
                 <div className="p-12 bg-vault-card border border-white/10 rounded-[4rem] text-center">
                     <Users size={120} className="text-vault-amber mx-auto mb-8" />
-                    <div className="text-3xl font-black text-white mb-4 italic">100% Digital</div>
-                    <div className="text-sm text-slate-500 uppercase tracking-widest font-black">Citizen Sovereignty</div>
+                    <div className="text-3xl font-black text-foreground mb-4 italic">100% Digital</div>
+                    <div className="text-sm text-muted-foreground uppercase tracking-widest font-black">Citizen Sovereignty</div>
                 </div>
             </div>
         </div>

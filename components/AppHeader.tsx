@@ -17,11 +17,11 @@ export default function AppHeader() {
       
       {/* Search Bar */}
       <div className="relative w-96 flex items-center">
-         <Search className="absolute left-4 text-slate-500" size={18} />
+         <Search className="absolute left-4 text-muted-foreground" size={18} />
          <input 
             type="text"
             placeholder="Cari aspirasi atau kebijakan..."
-            className="w-full bg-white/5 border border-white/10 rounded-xl py-2.5 pl-12 pr-4 text-sm text-white focus:outline-none focus:border-vault-amber/50 transition-all"
+            className="w-full bg-white/5 border border-white/10 rounded-xl py-2.5 pl-12 pr-4 text-sm text-foreground focus:outline-none focus:border-vault-amber/50 transition-all"
          />
       </div>
 
@@ -31,20 +31,20 @@ export default function AppHeader() {
         <div className="flex bg-black border border-white/10 rounded-lg p-1">
             <button 
                 onClick={() => setLang('id')} 
-                className={`px-3 py-1 text-xs rounded-md font-bold transition-all ${lang === 'id' ? 'bg-vault-amber text-black' : 'text-slate-500 hover:text-white'}`}
+                className={`px-3 py-1 text-xs rounded-md font-bold transition-all ${lang === 'id' ? 'bg-vault-amber text-black' : 'text-muted-foreground hover:text-foreground'}`}
             >
                 ID
             </button>
             <button 
                 onClick={() => setLang('en')} 
-                className={`px-3 py-1 text-xs rounded-md font-bold transition-all ${lang === 'en' ? 'bg-vault-amber text-black' : 'text-slate-500 hover:text-white'}`}
+                className={`px-3 py-1 text-xs rounded-md font-bold transition-all ${lang === 'en' ? 'bg-vault-amber text-black' : 'text-muted-foreground hover:text-foreground'}`}
             >
                 EN
             </button>
         </div>
 
         {/* Notifications */}
-        <button className="relative p-2 text-slate-400 hover:text-white transition-colors">
+        <button className="relative p-2 text-muted-foreground hover:text-foreground transition-colors">
             <Bell size={20} />
             <span className="absolute top-2 right-2 w-2 h-2 bg-red-500 rounded-full animate-pulse border-2 border-black"></span>
         </button>

@@ -30,10 +30,10 @@ export default function GuidePage() {
         
         {/* Header */}
         <div className="text-center mb-16">
-          <h1 className="text-3xl md:text-5xl font-black text-white mb-4">
+          <h1 className="text-3xl md:text-5xl font-black text-foreground mb-4">
             {t.guideTitle}
           </h1>
-          <p className="text-slate-400">
+          <p className="text-muted-foreground">
             {t.guideSub}
           </p>
         </div>
@@ -50,14 +50,14 @@ export default function GuidePage() {
              <div className="w-full md:w-2/3">
                 <div className="flex items-center gap-3 mb-3 md:hidden">
                     <div className="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center font-bold text-black">1</div>
-                    <h3 className="text-xl font-bold text-white">{t.step11Title}</h3>
+                    <h3 className="text-xl font-bold text-foreground">{t.step11Title}</h3>
                 </div>
-                <h3 className="hidden md:block text-2xl font-bold text-white mb-3">{t.step11Title}</h3>
-                <p className="text-slate-400 mb-4">{t.step11Desc}</p>
+                <h3 className="hidden md:block text-2xl font-bold text-foreground mb-3">{t.step11Title}</h3>
+                <p className="text-muted-foreground mb-4">{t.step11Desc}</p>
                 
                 {/* Visual Aid: Simulasi Tombol Copy */}
                 <div className="bg-[#111] p-4 rounded-xl border border-slate-800">
-                    <div className="text-xs text-slate-500 mb-1">{t.simulasip}</div>
+                    <div className="text-xs text-muted-foreground mb-1">{t.simulasip}</div>
                     <div className="flex items-center justify-between bg-black p-3 rounded border border-slate-700">
                         <span className="font-mono text-sm text-slate-300">0x71C...9A2</span>
                         <Copy size={16} className="text-blue-500 animate-pulse" />
@@ -75,16 +75,16 @@ export default function GuidePage() {
              <div className="w-full md:w-2/3">
                 <div className="flex items-center gap-3 mb-3 md:hidden">
                     <div className="w-8 h-8 bg-green-500 rounded-full flex items-center justify-center font-bold text-black">2</div>
-                    <h3 className="text-xl font-bold text-white">{t.isiSaldo3}</h3>
+                    <h3 className="text-xl font-bold text-foreground">{t.isiSaldo3}</h3>
                 </div>
-                <h3 className="hidden md:block text-2xl font-bold text-white mb-3">{t.step22Title}</h3>
-                <p className="text-slate-400 mb-4">{t.step22Desc}</p>
-                <p className="text-slate-400 mb-4">{t.step33Desc}</p>
+                <h3 className="hidden md:block text-2xl font-bold text-foreground mb-3">{t.step22Title}</h3>
+                <p className="text-muted-foreground mb-4">{t.step22Desc}</p>
+                <p className="text-muted-foreground mb-4">{t.step33Desc}</p>
 
                 <a 
                   href="https://cloud.google.com/application/web3/faucet/ethereum/sepolia" 
                   target="_blank"
-                  className="inline-flex items-center gap-2 bg-green-600 hover:bg-green-500 text-white font-bold py-3 px-6 rounded-lg transition-all"
+                  className="inline-flex items-center gap-2 bg-green-600 hover:bg-green-500 text-foreground font-bold py-3 px-6 rounded-lg transition-all"
                 >
                   {t.step22Btn} <ExternalLink size={18} />
                 </a>
@@ -100,10 +100,10 @@ export default function GuidePage() {
              <div className="w-full md:w-2/3">
                 <div className="flex items-center gap-3 mb-3 md:hidden">
                     <div className="w-8 h-8 bg-amber-500 rounded-full flex items-center justify-center font-bold text-black">4</div>
-                    <h3 className="text-xl font-bold text-white">{t.step4Title}</h3>
+                    <h3 className="text-xl font-bold text-foreground">{t.step4Title}</h3>
                 </div>
-                <h3 className="hidden md:block text-2xl font-bold text-white mb-3">{t.step4Title}</h3>
-                <p className="text-slate-400 mb-4">{t.step4Desc}</p>
+                <h3 className="hidden md:block text-2xl font-bold text-foreground mb-3">{t.step4Title}</h3>
+                <p className="text-muted-foreground mb-4">{t.step4Desc}</p>
                 <div className="flex items-center gap-2 text-amber-500 text-sm font-mono bg-amber-500/10 p-2 rounded w-fit">
                     <DownloadCloud size={16} />
                     <span>{t.statusReady}</span>
@@ -120,28 +120,28 @@ export default function GuidePage() {
              <div className="w-full md:w-2/3">
                 <div className="flex items-center gap-3 mb-3 md:hidden">
                     <div className="w-8 h-8 bg-purple-500 rounded-full flex items-center justify-center font-bold text-black">5</div>
-                    <h3 className="text-xl font-bold text-white">{t.step5Title}</h3>
+                    <h3 className="text-xl font-bold text-foreground">{t.step5Title}</h3>
                 </div>
-                <h3 className="hidden md:block text-2xl font-bold text-white mb-3">{t.step5Title}</h3>
-                <p className="text-slate-400 mb-4 leading-relaxed">
+                <h3 className="hidden md:block text-2xl font-bold text-foreground mb-3">{t.step5Title}</h3>
+                <p className="text-muted-foreground mb-4 leading-relaxed">
                     {t.step5Desc}
                 </p>
 
                 {/* Visual Aid: Simulasi Link Transaksi */}
                 <div className="bg-[#151515] p-5 rounded-xl border border-purple-500/30">
-                    <div className="text-xs text-slate-500 mb-2 font-bold uppercase tracking-wider">{t.simulasip}</div>
+                    <div className="text-xs text-muted-foreground mb-2 font-bold uppercase tracking-wider">{t.simulasip}</div>
                     
                     <div className="space-y-3">
                         <div className="flex justify-between items-center text-sm border-b border-white/5 pb-2">
-                            <span className="text-slate-400">Transaction Hash:</span>
+                            <span className="text-muted-foreground">Transaction Hash:</span>
                             <span className="text-blue-400 font-mono">0x39a...8b2</span>
                         </div>
                         <div className="flex justify-between items-center text-sm border-b border-white/5 pb-2">
-                            <span className="text-slate-400">Status:</span>
+                            <span className="text-muted-foreground">Status:</span>
                             <span className="text-green-500 flex items-center gap-1"><FileCheck size={14}/> Success</span>
                         </div>
                         <div className="flex justify-between items-center text-sm">
-                            <span className="text-slate-400">View on Explorer:</span>
+                            <span className="text-muted-foreground">View on Explorer:</span>
                             <div className="flex items-center gap-1 text-purple-400 cursor-pointer hover:text-purple-300">
                                 <Eye size={14} /> <span>Etherscan</span>
                             </div>
@@ -171,31 +171,31 @@ export default function GuidePage() {
              <div className="w-full md:w-2/3">
                 <div className="flex items-center gap-3 mb-3 md:hidden">
                     <div className="w-8 h-8 bg-cyan-400 rounded-full flex items-center justify-center font-bold text-black">6</div>
-                    <h3 className="text-xl font-bold text-white">{t.step6Title}</h3>
+                    <h3 className="text-xl font-bold text-foreground">{t.step6Title}</h3>
                 </div>
-                <h3 className="hidden md:block text-2xl font-bold text-white mb-3">{t.step6Title}</h3>
-                <p className="text-slate-400 mb-4 leading-relaxed">
+                <h3 className="hidden md:block text-2xl font-bold text-foreground mb-3">{t.step6Title}</h3>
+                <p className="text-muted-foreground mb-4 leading-relaxed">
                     {t.step6Desc}
                 </p>
 
                 {/* Visual Aid: Simulasi URL Bar */}
                 <div className="bg-[#0f172a] p-4 rounded-xl border border-cyan-500/30 relative overflow-hidden group-hover:border-cyan-400/60 transition-colors">
-                    <div className="flex items-center gap-2 text-xs text-slate-500 mb-2 font-bold uppercase tracking-wider">
+                    <div className="flex items-center gap-2 text-xs text-muted-foreground mb-2 font-bold uppercase tracking-wider">
                         <FolderOpen size={14} className="text-cyan-400" />
                         {t.rumusLink}
                     </div>
                     
                     {/* Kotak URL Simulasi */}
                     <div className="bg-black p-3 rounded-lg border border-slate-700 font-mono text-sm md:text-base break-all flex flex-wrap items-center">
-                        <span className="text-slate-500 select-none">https://karsa-chain.vercel.app/</span>
+                        <span className="text-muted-foreground select-none">https://karsa-chain.vercel.app/</span>
                         <span className="bg-cyan-500/20 text-cyan-300 px-1 rounded border border-cyan-500/30 mx-1">
                              {t.alamatKamu}
                         </span>
                     </div>
 
                     {/* Contoh Hasil */}
-                    <div className="mt-3 text-xs text-slate-400 italic">
-                        karsa-chain.vercel.app/<span className="text-white">0x71C...9A2</span>
+                    <div className="mt-3 text-xs text-muted-foreground italic">
+                        karsa-chain.vercel.app/<span className="text-foreground">0x71C...9A2</span>
                     </div>
                 </div>
              </div>
@@ -204,7 +204,7 @@ export default function GuidePage() {
         {/* CTA BUTTON */}
         <div className="mt-20 text-center">
             <Link href="/dashboard">
-                <button className="group relative inline-flex items-center justify-center px-8 py-4 font-bold text-white transition-all duration-200 bg-blue-600 font-lg rounded-full hover:bg-blue-500 hover:shadow-[0_0_30px_rgba(37,99,235,0.5)]">
+                <button className="group relative inline-flex items-center justify-center px-8 py-4 font-bold text-foreground transition-all duration-200 bg-blue-600 font-lg rounded-full hover:bg-blue-500 hover:shadow-[0_0_30px_rgba(37,99,235,0.5)]">
                     <span>{t.guideCta}</span>
                     <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                 </button>

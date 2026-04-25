@@ -50,11 +50,11 @@ export default function PublicProfilePage() {
                 </span>
               </div>
               
-              <h1 className="text-2xl md:text-4xl font-mono font-bold text-white break-all tracking-tight">
+              <h1 className="text-2xl md:text-4xl font-mono font-bold text-foreground break-all tracking-tight">
                 {address}
               </h1>
               
-              <p className="text-slate-400 mt-3 text-sm max-w-xl leading-relaxed">
+              <p className="text-muted-foreground mt-3 text-sm max-w-xl leading-relaxed">
                 {t.publicDesc || "Arsip abadi yang tersimpan di jaringan terdesentralisasi Dlibration."}
               </p>
             </div>
@@ -63,7 +63,7 @@ export default function PublicProfilePage() {
             <div className="flex flex-row gap-3 w-full lg:w-auto mt-4 lg:mt-0">
                <button 
                 onClick={handleCopy}
-                className="flex-1 lg:flex-none bg-white/5 hover:bg-white/10 border border-white/10 active:scale-95 text-slate-300 hover:text-white px-6 py-4 rounded-2xl transition-all flex items-center justify-center gap-2 font-bold group/btn"
+                className="flex-1 lg:flex-none bg-white/5 hover:bg-white/10 border border-white/10 active:scale-95 text-slate-300 hover:text-foreground px-6 py-4 rounded-2xl transition-all flex items-center justify-center gap-2 font-bold group/btn"
                >
                  {copied ? <ShieldCheck size={18} className="text-green-500"/> : <Share2 size={18} className="group-hover/btn:text-vault-amber transition-colors"/>}
                  <span>{copied ? "Tersalin!" : "Share Link"}</span>
