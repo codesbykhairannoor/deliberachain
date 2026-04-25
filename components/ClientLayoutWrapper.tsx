@@ -9,6 +9,7 @@ import AppHeader from "@/components/AppHeader";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Menu } from "lucide-react";
+import { useRole } from "@/hooks/useRole";
 
 const client = createThirdwebClient({ clientId: process.env.NEXT_PUBLIC_THIRDWEB_CLIENT_ID || "" });
 
@@ -27,8 +28,20 @@ export default function ClientLayoutWrapper({ children }: { children: React.Reac
     "/community",
     "/government"
   ];
+  const { role, isLoading: roleLoading } = useRole();
 
   const isAppPath = appPaths.some(path => pathname === path || pathname.startsWith(path + "/"));
+
+  // Redirect on Login
+  useEffect(() => {
+    if (account && !isAppPath && !roleLoading) {
+      if (role === "ADMIN") {
+        router.push("/admin");
+      } else {
+        router.push("/dashboard");
+      }
+    }
+  }, [account, isAppPath, role, roleLoading, router]);
 
   // 1. App Layout (Logged In + App Path)
   if (account && isAppPath) {
