@@ -11,7 +11,8 @@ import {
   Zap,
   ArrowRight,
   Sparkles,
-  Cpu
+  Cpu,
+  Database
 } from "lucide-react";
 import Link from "next/link";
 
