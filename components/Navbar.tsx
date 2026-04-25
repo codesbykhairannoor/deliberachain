@@ -129,37 +129,31 @@ export default function Navbar() {
                   </Link>
                 )}
 
-                {/* Mega Dropdown Menu */}
+                {/* Vertical Dropdown Menu */}
                 <AnimatePresence>
                   {link.dropdown && activeDropdown === link.id && (
                     <motion.div 
-                      initial={{ opacity: 0, y: 15, scale: 0.98 }}
+                      initial={{ opacity: 0, y: 10, scale: 0.98 }}
                       animate={{ opacity: 1, y: 0, scale: 1 }}
-                      exit={{ opacity: 0, y: 15, scale: 0.98 }}
-                      className="absolute top-full left-1/2 -translate-x-1/2 pt-6 w-[520px]"
+                      exit={{ opacity: 0, y: 10, scale: 0.98 }}
+                      className="absolute top-full left-0 pt-4 w-[340px]"
                     >
-                      <div className="bg-vault-card border border-white/20 rounded-[3rem] p-10 shadow-[0_40px_120px_rgba(0,0,0,0.9)] overflow-hidden relative">
-                        <div className="absolute inset-0 bg-vault-amber/5 blur-[120px] -z-10"></div>
+                      <div className="bg-vault-card border border-white/20 rounded-[2.5rem] p-4 shadow-[0_40px_120px_rgba(0,0,0,0.9)] overflow-hidden relative">
+                        <div className="absolute inset-0 bg-vault-amber/5 blur-[80px] -z-10"></div>
                         
-                        {/* Section Info */}
-                        <div className="mb-10 pb-8 border-b border-border">
-                            <h4 className="text-xl font-black text-foreground mb-2">{link.title}</h4>
-                            <p className="text-[13px] text-muted-foreground font-medium leading-relaxed">{link.description}</p>
-                        </div>
-
-                        <div className="grid grid-cols-2 gap-6">
+                        <div className="flex flex-col gap-1">
                           {link.dropdown.map((item) => (
                             <Link 
                               key={item.href} 
                               href={item.href}
-                              className="flex items-start gap-5 p-5 rounded-[2rem] hover:bg-white/5 transition-all group/item border border-transparent hover:border-white/10"
+                              className="flex items-center gap-5 p-4 rounded-2xl hover:bg-white/5 transition-all group/item border border-transparent hover:border-white/10"
                             >
-                              <div className="mt-1 w-12 h-12 rounded-2xl bg-white/5 flex items-center justify-center text-muted-foreground group-hover/item:text-vault-amber group-hover/item:bg-vault-amber/10 transition-all border border-white/5 group-hover/item:border-vault-amber/30 shadow-inner">
+                              <div className="w-11 h-11 rounded-xl bg-white/5 flex items-center justify-center text-muted-foreground group-hover/item:text-vault-amber group-hover/item:bg-vault-amber/10 transition-all border border-white/5 group-hover/item:border-vault-amber/30 shadow-inner">
                                 {item.icon}
                               </div>
                               <div className="flex-1">
-                                <div className="text-[15px] font-black text-foreground group-hover/item:text-vault-amber transition-colors">{item.name}</div>
-                                <div className="text-[12px] text-muted-foreground font-bold leading-snug mt-1.5">{item.desc}</div>
+                                <div className="text-[16px] font-black text-foreground group-hover/item:text-vault-amber transition-colors">{item.name}</div>
+                                <div className="text-[11px] text-muted-foreground font-bold uppercase tracking-widest mt-1 opacity-60 group-hover/item:opacity-100 transition-opacity">{item.desc}</div>
                               </div>
                             </Link>
                           ))}
@@ -196,6 +190,7 @@ export default function Navbar() {
                           chain: baseSepolia,
                           sponsorGas: true,
                       }}
+                      connectModal={{ size: "wide" }}
                       connectButton={{
                           className: "!bg-vault-amber !text-black !font-black !px-10 !py-4 !rounded-2xl !text-sm !shadow-[0_15px_30px_rgba(245,158,11,0.25)] hover:!scale-105 transition-transform uppercase !tracking-widest"
                       }}
@@ -234,8 +229,7 @@ export default function Navbar() {
                     {link.dropdown ? (
                       <>
                         <div className="flex flex-col">
-                            <div className="text-xs font-black uppercase tracking-[0.4em] text-muted-foreground mb-3">{link.name}</div>
-                            <div className="text-[12px] text-muted-foreground font-bold max-w-[280px] leading-relaxed">{link.description}</div>
+                            <div className="text-2xl font-black uppercase tracking-tight text-foreground mb-1">{link.name}</div>
                         </div>
                         <div className="grid gap-10 pl-6 border-l border-white/5">
                            {link.dropdown.map(item => (
@@ -270,6 +264,7 @@ export default function Navbar() {
                             chain: baseSepolia,
                             sponsorGas: true,
                         }}
+                        connectModal={{ size: "wide" }}
                         connectButton={{
                             className: "!bg-vault-amber !text-black !font-black !px-12 !py-6 !rounded-[2rem] !text-xl !shadow-2xl !w-full"
                         }}

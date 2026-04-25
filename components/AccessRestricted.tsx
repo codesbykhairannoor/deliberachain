@@ -33,7 +33,7 @@ export default function AccessRestricted() {
   const lt = localT[lang as keyof typeof localT];
 
   return (
-    <div className="min-h-[70vh] flex items-center justify-center p-6 text-center relative overflow-hidden">
+    <div className="min-h-screen bg-background pt-48 pb-40 flex items-center justify-center p-6 text-center relative overflow-hidden text-foreground">
       <div className="bg-pattern-grid absolute inset-0 opacity-5 -z-10"></div>
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-vault-amber/5 rounded-full blur-[150px] -z-10 animate-pulse"></div>
       
@@ -71,6 +71,7 @@ export default function AccessRestricted() {
                             chain: baseSepolia,
                             sponsorGas: true,
                         }}
+                        connectModal={{ size: "wide" }}
                         connectButton={{
                             className: "!bg-vault-amber !text-black !font-black !px-12 !py-5 !rounded-2xl !text-lg !shadow-2xl hover:!scale-105 transition-transform uppercase !tracking-widest"
                         }}
