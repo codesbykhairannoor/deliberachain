@@ -18,27 +18,6 @@ export default function PolicyBulletins() {
 
   return (
     <div className="space-y-12 pb-20">
-      <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 border-b border-border pb-10">
-        <div className="space-y-2">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-vault-amber/10 border border-vault-amber/20 text-vault-amber text-[10px] font-black uppercase tracking-widest mb-2">
-                <Sparkles size={12} /> Institutional Intelligence
-            </div>
-            <h2 className="text-4xl md:text-6xl font-black text-foreground uppercase tracking-tighter leading-none italic">
-                {t.bulletinTitle.split(' & ')[0]}<br/>
-                <span className="text-vault-amber">& {t.bulletinTitle.split(' & ')[1]}</span>
-            </h2>
-            <p className="text-muted-foreground font-medium italic opacity-70 max-w-xl">{t.bulletinSub}</p>
-        </div>
-        <div className="flex items-center gap-4">
-            <div className="flex flex-col items-end">
-                <span className="text-[10px] font-black text-muted-foreground uppercase tracking-[0.2em] mb-1">{t.bulletinTrending}</span>
-                <div className="flex items-center gap-2 px-4 py-2 bg-muted rounded-xl border border-border shadow-inner">
-                    <TrendingUp size={16} className="text-green-500 animate-pulse" />
-                    <span className="text-xs font-bold text-foreground">Live Network</span>
-                </div>
-            </div>
-        </div>
-      </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         <AnimatePresence mode="popLayout">
