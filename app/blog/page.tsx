@@ -3,13 +3,15 @@
 import { motion } from "framer-motion";
 import { useLanguageStore } from "@/lib/store";
 import { translations } from "@/lib/translations";
+import { blogPosts } from "@/lib/blogData";
 import { 
+  ArrowRight, 
   Calendar, 
   Clock, 
-  ArrowRight, 
+  User, 
+  Sparkles,
   Tag,
-  ChevronLeft,
-  ChevronRight
+  Search
 } from "lucide-react";
 import Link from "next/link";
 
@@ -17,128 +19,145 @@ export default function BlogPage() {
   const { lang } = useLanguageStore();
   const t = translations[lang as keyof typeof translations];
 
-  const posts = [
-    {
-      title: lang === 'id' ? "Masa Depan Demokrasi Digital di Indonesia" : "The Future of Digital Democracy in Indonesia",
-      desc: lang === 'id' ? "Bagaimana teknologi blockchain dapat menyelesaikan masalah klasik manipulasi data dalam sistem aspirasi publik." : "How blockchain technology can solve classic data manipulation problems in public aspiration systems.",
-      date: "Oct 24, 2026",
-      readTime: "5 min read",
-      tag: "Technology",
-      img: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=2070&auto=format&fit=crop"
-    },
-    {
-      title: lang === 'id' ? "Integrasi AI Generative AI Pro untuk Analisis Kebijakan" : "Generative AI Pro AI Integration for Policy Analysis",
-      desc: lang === 'id' ? "Mempelajari bagaimana sistem kami meringkas ribuan suara rakyat menjadi poin-poin strategis bagi pemerintah." : "Learn how our system summarizes thousands of citizen voices into strategic points for the government.",
-      date: "Oct 22, 2026",
-      readTime: "8 min read",
-      tag: "Artificial Intelligence",
-      img: "https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=2070&auto=format&fit=crop"
-    },
-    {
-      title: lang === 'id' ? "Transparansi Dana Desa melalui Ledger Publik" : "Village Fund Transparency through Public Ledgers",
-      desc: lang === 'id' ? "Studi kasus implementasi Dlibration di wilayah percontohan Jawa Barat." : "Case study of Dlibration implementation in West Java pilot regions.",
-      date: "Oct 20, 2026",
-      readTime: "6 min read",
-      tag: "Case Study",
-      img: "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=2070&auto=format&fit=crop"
-    }
-  ];
-
   return (
-    <div className="bg-background min-h-screen pt-48 pb-40">
+    <div className="bg-background min-h-screen pt-48 pb-40 relative overflow-hidden">
+      {/* Background Decor */}
+      <div className="bg-pattern-grid absolute inset-0 opacity-10 -z-10"></div>
+      <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-vault-amber/5 rounded-full blur-[150px] -z-10"></div>
+      
       <div className="max-w-7xl mx-auto px-6">
         
-        {/* 1. BLOG HERO - Centered Editorial Style */}
-        <div className="mb-32 text-center max-w-4xl mx-auto">
+        {/* 1. BLOG HERO */}
+        <div className="max-w-3xl mb-32">
             <motion.div 
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-white/10 bg-white/5 text-vault-amber font-black text-[10px] tracking-[0.2em] uppercase mb-8"
+                className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-vault-amber/30 bg-vault-amber/5 text-vault-amber font-black text-[10px] tracking-[0.2em] uppercase mb-8"
             >
-                Updates & Insights
+                <Sparkles size={14} /> Insights & Updates
             </motion.div>
             <motion.h1 
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                className="text-5xl md:text-6xl font-black tracking-[-0.03em] leading-[1.05] text-foreground mb-12"
+                transition={{ delay: 0.1 }}
+                className="text-6xl md:text-8xl font-black text-foreground mb-8 tracking-tighter leading-[0.9] uppercase"
             >
-              {t.blogHeroTitle} <br/> <span className="text-vault-amber">{t.blogHeroTitleGold}</span>
+              The <span className="text-vault-amber">Dlibration</span> <br/> Chronicle.
             </motion.h1>
-            <div className="flex flex-wrap items-center justify-center gap-4 pt-12 border-t border-white/5">
-                <button className="px-6 py-2 rounded-full bg-vault-amber text-black font-black text-xs uppercase tracking-widest">{t.blogAllArticles}</button>
-                <button className="px-6 py-2 rounded-full bg-white/5 text-muted-foreground hover:text-foreground transition-all font-black text-xs uppercase tracking-widest">Technology</button>
-                <button className="px-6 py-2 rounded-full bg-white/5 text-muted-foreground hover:text-foreground transition-all font-black text-xs uppercase tracking-widest">Governance</button>
-                <button className="px-6 py-2 rounded-full bg-white/5 text-muted-foreground hover:text-foreground transition-all font-black text-xs uppercase tracking-widest">Community</button>
-            </div>
+            <motion.p 
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.2 }}
+                className="text-xl text-muted-foreground font-medium leading-relaxed"
+            >
+              Explore our latest thoughts on democracy, technology, and the future of public participation.
+            </motion.p>
         </div>
 
-        {/* 2. FEATURED POST - Wide Horizontal Layout */}
-        <motion.div 
-            initial={{ opacity: 0, scale: 0.98 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            className="group mb-32 relative rounded-[4rem] overflow-hidden border border-white/10 h-[600px] flex items-end"
-        >
-            <img 
-                src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2072&auto=format&fit=crop" 
-                alt="Featured Post" 
-                className="absolute inset-0 w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-110 transition-all duration-1000"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent"></div>
-            
-            <div className="relative z-10 p-12 lg:p-24 w-full max-w-5xl">
-                <div className="flex items-center gap-4 text-vault-amber font-black uppercase tracking-[0.3em] text-[10px] mb-8">
-                    <Tag size={16} /> {t.blogFeatured}
-                </div>
-                <h2 className="text-4xl md:text-7xl font-black text-foreground mb-8 leading-tight tracking-tighter group-hover:text-vault-amber transition-colors">Menuju Indonesia Emas 2045 dengan Infrastruktur Demokrasi Web3</h2>
-                <div className="flex flex-wrap items-center gap-10 text-muted-foreground text-xs font-bold uppercase tracking-widest mb-12">
-                    <span className="flex items-center gap-3"><Calendar size={16}/> Oct 25, 2026</span>
-                    <span className="flex items-center gap-3"><Clock size={16}/> 12 min read</span>
-                </div>
-                <Link href="#" className="inline-flex items-center gap-4 bg-vault-amber text-black px-12 py-6 rounded-2xl font-black text-lg transition-all hover:gap-8 shadow-2xl">
-                    {t.blogReadMore} <ArrowRight size={24} />
+        {/* 2. FEATURED POST (First one) */}
+        {blogPosts.length > 0 && (
+            <motion.div
+                initial={{ opacity: 0, scale: 0.95 }}
+                animate={{ opacity: 1, scale: 1 }}
+                className="mb-32 relative group"
+            >
+                <Link href={`/blog/${blogPosts[0].slug}`}>
+                    <div className="p-12 lg:p-20 bg-vault-card border border-white/10 rounded-[4rem] flex flex-col lg:flex-row gap-16 items-center hover:border-vault-amber/30 transition-all shadow-2xl relative overflow-hidden">
+                        <div className="bg-pattern-diagonal absolute inset-0 opacity-5"></div>
+                        <div className="lg:w-1/2 relative">
+                            <div className="aspect-[16/9] bg-gradient-to-br from-vault-amber/20 to-blue-500/20 rounded-[3rem] flex items-center justify-center border border-white/5 group-hover:scale-105 transition-transform duration-700">
+                                <Sparkles size={120} className="text-vault-amber/30 animate-pulse" />
+                            </div>
+                        </div>
+                        <div className="lg:w-1/2 relative z-10">
+                            <div className="flex items-center gap-4 text-xs font-black text-vault-amber uppercase tracking-widest mb-8">
+                                <Tag size={14} /> Featured Story
+                            </div>
+                            <h2 className="text-4xl md:text-5xl font-black text-foreground mb-8 tracking-tighter leading-tight uppercase">
+                                {blogPosts[0].title[lang as "en" | "id"]}
+                            </h2>
+                            <p className="text-lg text-muted-foreground mb-10 leading-relaxed font-medium line-clamp-2">
+                                {blogPosts[0].excerpt[lang as "en" | "id"]}
+                            </p>
+                            <div className="flex items-center gap-6 text-[10px] font-black text-muted-foreground uppercase tracking-widest mb-12">
+                                <div className="flex items-center gap-2"><Calendar size={12} /> {blogPosts[0].date}</div>
+                                <div className="flex items-center gap-2"><Clock size={12} /> {blogPosts[0].readTime}</div>
+                            </div>
+                            <div className="inline-flex items-center gap-3 text-vault-amber font-black text-lg group-hover:gap-5 transition-all">
+                                Read Insight <ArrowRight size={22} />
+                            </div>
+                        </div>
+                    </div>
                 </Link>
-            </div>
-        </motion.div>
+            </motion.div>
+        )}
 
-        {/* 3. BLOG GRID - Grid Layout */}
+        {/* 3. BLOG GRID */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {posts.map((post, idx) => (
+            {blogPosts.slice(1).map((post, idx) => (
                 <motion.div 
-                    key={idx}
+                    key={post.slug}
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ delay: idx * 0.1 }}
                     viewport={{ once: true }}
-                    className="group bg-vault-card border border-white/5 rounded-[3rem] overflow-hidden hover:bg-white/[0.02] hover:border-white/20 transition-all"
                 >
-                    <div className="h-72 overflow-hidden relative">
-                        <img src={post.img} alt={post.title} className="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-110 transition-all duration-700" />
-                        <div className="absolute top-6 left-6 px-4 py-1.5 bg-black/60 backdrop-blur-md rounded-full text-[9px] font-black uppercase tracking-widest text-vault-amber border border-vault-amber/20">
-                           {post.tag}
+                    <Link href={`/blog/${post.slug}`} className="group block h-full">
+                        <div className="p-10 bg-white/2 border border-white/5 rounded-[3rem] hover:bg-white/[0.04] hover:border-vault-amber/20 transition-all flex flex-col h-full">
+                            <div className="flex items-center justify-between mb-8">
+                                <div className="px-4 py-1.5 bg-vault-amber/10 text-vault-amber text-[9px] font-black uppercase tracking-widest rounded-full">
+                                    {post.category}
+                                </div>
+                                <div className="text-[10px] font-black text-muted-foreground uppercase tracking-widest">
+                                    {post.date}
+                                </div>
+                            </div>
+                            
+                            <h3 className="text-2xl font-black text-foreground mb-6 uppercase tracking-tight leading-none group-hover:text-vault-amber transition-colors">
+                                {post.title[lang as "en" | "id"]}
+                            </h3>
+                            
+                            <p className="text-sm text-muted-foreground mb-12 font-medium leading-relaxed line-clamp-3">
+                                {post.excerpt[lang as "en" | "id"]}
+                            </p>
+                            
+                            <div className="mt-auto pt-8 border-t border-white/5 flex items-center justify-between">
+                                <div className="flex items-center gap-2 text-[9px] font-black text-muted-foreground uppercase tracking-widest">
+                                    <User size={10} /> {post.author}
+                                </div>
+                                <div className="w-10 h-10 bg-white/5 rounded-xl flex items-center justify-center text-muted-foreground group-hover:bg-vault-amber group-hover:text-black transition-all">
+                                    <ArrowRight size={18} />
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                    <div className="p-12">
-                        <h3 className="text-2xl font-black text-foreground mb-6 leading-tight group-hover:text-vault-amber transition-colors line-clamp-2 tracking-tight">{post.title}</h3>
-                        <p className="text-muted-foreground font-medium text-sm mb-10 line-clamp-3 leading-relaxed">{post.desc}</p>
-                        <div className="flex items-center justify-between pt-8 border-t border-white/5">
-                            <span className="text-[10px] font-black text-muted-foreground uppercase tracking-[0.2em]">{post.date}</span>
-                            <Link href="#" className="w-12 h-12 rounded-2xl border border-white/10 flex items-center justify-center text-foreground hover:bg-vault-amber hover:text-black hover:border-vault-amber transition-all shadow-xl">
-                                <ArrowRight size={20} />
-                            </Link>
-                        </div>
-                    </div>
+                    </Link>
                 </motion.div>
             ))}
         </div>
 
-        {/* 4. PAGINATION - Loop style icons */}
-        <div className="mt-32 flex items-center justify-center gap-4">
-             <button className="w-14 h-14 rounded-2xl border border-white/10 flex items-center justify-center text-muted-foreground hover:text-foreground hover:bg-white/5 transition-all"><ChevronLeft size={24} /></button>
-             <button className="w-14 h-14 rounded-2xl bg-vault-amber text-black font-black shadow-2xl">1</button>
-             <button className="w-14 h-14 rounded-2xl border border-white/10 flex items-center justify-center text-muted-foreground hover:text-foreground hover:bg-white/5 transition-all font-black text-sm">2</button>
-             <button className="w-14 h-14 rounded-2xl border border-white/10 flex items-center justify-center text-muted-foreground hover:text-foreground hover:bg-white/5 transition-all"><ChevronRight size={24} /></button>
-        </div>
+        {/* 4. NEWSLETTER CTA (Simplified) */}
+        <section className="mt-48 p-12 lg:p-24 bg-vault-amber border border-white/10 rounded-[4rem] text-center relative overflow-hidden group">
+             <div className="bg-pattern-diagonal absolute inset-0 opacity-10"></div>
+             <div className="relative z-10 max-w-4xl mx-auto">
+                <Search size={64} className="text-black mx-auto mb-10 opacity-30" />
+                <h2 className="text-4xl md:text-7xl font-black text-black mb-8 tracking-tighter leading-[0.9] uppercase">
+                    Don't miss <br/> a single bit.
+                </h2>
+                <p className="text-xl text-black/70 mb-12 font-bold leading-relaxed">
+                    Subscribe to our weekly digest for the latest on digital democracy and on-chain governance.
+                </p>
+                <div className="flex flex-col md:flex-row gap-4 justify-center">
+                    <input 
+                        type="email" 
+                        placeholder="your@email.com" 
+                        className="px-8 py-5 bg-black/10 border-2 border-black/20 rounded-2xl font-bold placeholder:text-black/40 focus:outline-none focus:border-black/40 text-black md:w-96"
+                    />
+                    <button className="bg-black text-white px-10 py-5 rounded-2xl font-black text-lg hover:scale-105 transition-all">
+                        Subscribe
+                    </button>
+                </div>
+             </div>
+        </section>
 
       </div>
     </div>
