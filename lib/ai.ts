@@ -21,23 +21,27 @@ export interface AspirationSummary {
 
 export async function processAspiration(description: string): Promise<AspirationSummary> {
   const prompt = `
-    ROLE: Strict Content Moderator & Public Policy Analyst.
+    ROLE: Objective Public Policy Analyst & Content Moderator.
     TASK: Analyze the following text submitted to a Government Aspiration Platform.
     
     SYSTEM RULES:
-    1. If the text contains VULGARITY, INSULTS (e.g. "anjing", "tolol", "babi"), or LEETSPEAK, you MUST mark it as "Spam/Irrelevant".
-    2. If the text is PERSONAL CHATTER, OFF-TOPIC, or RANDOM (e.g. "malas pacaran", "makan enak", "curhat"), you MUST mark it as "Spam/Irrelevant".
-    3. Proper aspirations must be about: Infrastructure, Education, Health, Security, Environment, Economy, Social, or Govt Services.
+    1. VALID ASPIRATIONS: Infrastructure (roads, bridges), Education, Health, Security, Environment, Economy, Social issues, or Govt Services. 
+    2. CONSTRUCTIVE CRITICISM: "Pemerintah harus benahi jalan", "Kenapa harga beras naik", "Guru kurang" are VALID. Categorize as "Infrastruktur", "Ekonomi", "Pendidikan", or "Kritik".
+    3. SPAM/IRRELEVANT: Mark as "Spam/Irrelevant" ONLY if it is:
+       - Vulgar/Insulting (e.g. "anjing", "tolol").
+       - Personal chatter (e.g. "aku lapar", "mau pacaran").
+       - Completely random/Gibberish.
+    4. SENTIMENT: Use "negative" for complaints/criticism, but do NOT mark as "REJECTED" unless it is true spam.
     
     Text: "${description}"
     
     Response format (JSON):
     {
-      "summary": "Brief summary",
-      "category": "Spam/Irrelevant | Infrastruktur | Pendidikan | Kesehatan | Keamanan | Lingkungan | Ekonomi | Sosial | Kritik | Pelayanan Publik",
+      "summary": "Brief objective summary",
+      "category": "Infrastruktur | Pendidikan | Kesehatan | Keamanan | Lingkungan | Ekonomi | Sosial | Kritik | Pelayanan Publik | Spam/Irrelevant",
       "urgency": "low | medium | high",
       "sentiment": "positive | neutral | negative | REJECTED",
-      "suggestedAction": "Reason for rejection if spam, or govt recommendation"
+      "suggestedAction": "Govt recommendation or reason for rejection if spam"
     }
     Return ONLY JSON.
   `;
@@ -62,19 +66,19 @@ export async function processAspiration(description: string): Promise<Aspiration
 
 export async function moderateContent(text: string): Promise<{ isSafe: boolean; reason?: string }> {
   const prompt = `
-    Analyze the following text for hate speech, harassment, vulgarity, SARA, or RELEVANCY.
+    Analyze the following text for hate speech, harassment, vulgarity, or RELEVANCY.
     
     CRITICAL: 
-    1. Detect leetspeak/obfuscation (T0LoL, 4njing, etc.).
-    2. Detect IRRELEVANT random chatter or personal status (e.g., "aku lagi makan", "panas ya hari ini", "OOT"). 
-    This platform is ONLY for discussing public aspirations and social issues.
+    1. Detect vulgarity/insults (e.g. "anjing", "babi", "tolol").
+    2. IRRELEVANT random chatter or personal status (e.g., "aku lagi makan", "panas ya hari ini"). 
+    3. IMPORTANT: Constructive criticism or complaints about government services/infrastructure (e.g., "jalan rusak", "pelayanan lama") are SAFE and RELEVANT. Do NOT mark them as false.
     
     Text: "${text}"
     
     Response format (valid JSON only):
     {
       "isSafe": true | false,
-      "reason": "Brief reason in Indonesian (e.g., 'Konten tidak relevan' or 'Bahasa tidak sopan')"
+      "reason": "Brief reason in Indonesian (e.g., 'Bahasa tidak sopan')"
     }
   `;
   try {
