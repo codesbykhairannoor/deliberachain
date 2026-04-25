@@ -11,7 +11,11 @@ import {
   Zap,
   ArrowRight,
   ShieldCheck,
-  Cpu
+  Cpu,
+  MapPin,
+  Heart,
+  Briefcase,
+  Layers
 } from "lucide-react";
 import Link from "next/link";
 
@@ -19,127 +23,187 @@ export default function ImpactPage() {
   const { lang } = useLanguageStore();
   const t = translations[lang as keyof typeof translations];
 
-  const projections = [
-    {
-      title: t.impactStoryTitle1,
-      desc: t.impactStoryDesc1,
-      icon: <ShieldCheck className="text-vault-amber" size={32} />,
-      metric: t.impactMetric1
+  const pageTranslations = {
+    id: {
+        networkTitle: "Jangkauan Dampak Global",
+        networkSub: "Dlibration sedang bertransformasi menjadi tulang punggung demokrasi di berbagai wilayah.",
+        storyTitle: "Kisah Perubahan Nyata",
+        story1Title: "Kecamatan Cerdas",
+        story1Desc: "Integrasi 100% aspirasi warga ke dalam alokasi dana pembangunan desa.",
+        story2Title: "Kampus Inklusif",
+        story2Desc: "Pemilihan raya mahasiswa pertama yang diaudit sepenuhnya secara on-chain.",
+        story3Title: "Audit Publik Mandiri",
+        story3Desc: "Masyarakat sipil dapat memverifikasi setiap rupiah yang dijanjikan pemerintah.",
+        milestoneTitle: "Pencapaian Komunitas",
+        mile1: "450k+ Suara Terverifikasi",
+        mile2: "120+ Instansi Terhubung",
+        mile3: "100% Keamanan Data",
+        futureTitle: "Masa Depan Tanpa Batas",
+        futureSub: "Kami percaya bahwa setiap bit data adalah langkah menuju dunia yang lebih adil."
     },
-    {
-      title: t.impactStoryTitle2,
-      desc: t.impactStoryDesc2,
-      icon: <Zap className="text-blue-500" size={32} />,
-      metric: t.impactMetric2
+    en: {
+        networkTitle: "Global Impact Reach",
+        networkSub: "Dlibration is transforming into the backbone of democracy across various regions.",
+        storyTitle: "Real Stories of Change",
+        story1Title: "Smart Districts",
+        story1Desc: "100% integration of citizen aspirations into village development fund allocation.",
+        story2Title: "Inclusive Campus",
+        story2Desc: "The first student general election fully audited on-chain.",
+        story3Title: "Independent Public Audit",
+        story3Desc: "Civil society can verify every dollar promised by the government.",
+        milestoneTitle: "Community Milestones",
+        mile1: "450k+ Verified Voices",
+        mile2: "120+ Connected Agencies",
+        mile3: "100% Data Security",
+        futureTitle: "Limitless Future",
+        futureSub: "We believe every bit of data is a step towards a fairer world."
     }
-  ];
+  };
+
+  const pt = pageTranslations[lang as keyof typeof pageTranslations];
 
   return (
-    <div className="bg-background min-h-screen pt-48 pb-40">
+    <div className="bg-background min-h-screen pt-48 pb-40 relative overflow-hidden">
       <div className="bg-pattern-grid absolute inset-0 opacity-10 -z-10"></div>
       
       <div className="max-w-7xl mx-auto px-6">
         
-        {/* 1. IMPACT HERO - Grid / Alternating */}
-        <div className="flex flex-col lg:flex-row items-center gap-20 mb-48">
-            <div className="flex-1">
-                <motion.div 
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-vault-amber/30 bg-vault-amber/5 text-vault-amber font-black text-[10px] tracking-[0.2em] uppercase mb-8"
-                >
-                    Vision & Impact
-                </motion.div>
-                <motion.h1 
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.1 }}
-                    className="text-5xl md:text-6xl font-black tracking-[-0.03em] leading-[1.05] text-foreground mb-8"
-                >
-                    {t.impactHeroTitle} <br/> <span className="text-vault-amber">{t.impactHeroTitleGold}</span>
-                </motion.h1>
-                <motion.p 
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.2 }}
-                    className="text-lg md:text-xl text-muted-foreground opacity-80 leading-relaxed mb-12 max-w-xl"
-                >
-                    {lang === 'id' ? "Kami tidak hanya membangun platform, kami membangun standar baru untuk transparansi publik yang dapat diukur dan diverifikasi." : "We don't just build a platform; we build a new standard for measurable and verifiable public transparency."}
-                </motion.p>
-            </div>
-            
-            <div className="flex-1 grid grid-cols-2 gap-6 w-full">
-                <div className="space-y-6">
-                    <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} className="p-10 bg-vault-card border border-white/10 rounded-[2.5rem] text-center relative overflow-hidden">
-                        <div className="absolute top-2 left-2 px-2 py-0.5 bg-vault-amber/10 text-[8px] font-black uppercase text-vault-amber rounded-full">{lang === 'id' ? 'Target 2026' : '2026 Target'}</div>
-                        <div className="text-4xl font-black text-vault-amber mb-2 italic">12k+</div>
-                        <div className="text-[10px] font-black uppercase tracking-widest text-muted-foreground">{t.impactStat1}</div>
-                    </motion.div>
-                    <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }} className="p-10 bg-white/5 border border-white/10 rounded-[2.5rem] text-center relative overflow-hidden">
-                        <div className="absolute top-2 left-2 px-2 py-0.5 bg-white/10 text-[8px] font-black uppercase text-muted-foreground rounded-full">Benchmark</div>
-                        <div className="text-4xl font-black text-foreground mb-2 italic">2.4s</div>
-                        <div className="text-[10px] font-black uppercase tracking-widest text-muted-foreground">{t.impactStat2}</div>
-                    </motion.div>
+        {/* 1. HERO - IMPACT VISUAL */}
+        <div className="grid lg:grid-cols-2 gap-24 items-center mb-48">
+            <motion.div
+                initial={{ opacity: 0, x: -30 }}
+                animate={{ opacity: 1, x: 0 }}
+            >
+                <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-vault-amber/30 bg-vault-amber/5 text-vault-amber font-black text-[10px] tracking-[0.2em] uppercase mb-8">
+                    <TrendingUp size={14} /> Measurable Progress
                 </div>
-                <div className="space-y-6 pt-12">
-                    <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }} className="p-10 bg-white/5 border border-white/10 rounded-[2.5rem] text-center relative overflow-hidden">
-                        <div className="absolute top-2 left-2 px-2 py-0.5 bg-white/10 text-[8px] font-black uppercase text-muted-foreground rounded-full">{lang === 'id' ? 'Proyeksi' : 'Projection'}</div>
-                        <div className="text-4xl font-black text-foreground mb-2 italic">450k+</div>
-                        <div className="text-[10px] font-black uppercase tracking-widest text-muted-foreground">{t.impactStat3}</div>
-                    </motion.div>
-                    <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ delay: 0.3 }} className="p-10 bg-vault-card border border-white/10 rounded-[2.5rem] text-center relative overflow-hidden">
-                        <div className="absolute top-2 left-2 px-2 py-0.5 bg-vault-amber/10 text-[8px] font-black uppercase text-vault-amber rounded-full">{lang === 'id' ? 'Protokol' : 'Protocol'}</div>
-                        <div className="text-4xl font-black text-vault-amber mb-2 italic">100%</div>
-                        <div className="text-[10px] font-black uppercase tracking-widest text-muted-foreground">Immutable</div>
-                    </motion.div>
+                <h1 className="text-6xl md:text-8xl font-black text-foreground mb-8 tracking-tighter leading-[0.9] uppercase">
+                    Data for <br/> 
+                    <span className="text-vault-amber">Humanity.</span>
+                </h1>
+                <p className="text-xl text-muted-foreground mb-12 leading-relaxed max-w-xl font-medium">
+                    {lang === 'id' 
+                      ? "Kami tidak hanya menghitung angka. Kami menghitung harapan yang terealisasi. Dlibration mentransformasi suara yang hilang menjadi kebijakan publik yang berdampak nyata."
+                      : "We don't just count numbers. We count realized hopes. Dlibration transforms lost voices into impactful public policies."}
+                </p>
+                <div className="flex flex-wrap gap-6">
+                    <Link href="/dashboard" className="bg-white text-black px-10 py-5 rounded-2xl font-black flex items-center gap-3 hover:bg-vault-amber transition-all shadow-2xl">
+                        {t.btnGetStarted} <ArrowRight size={22} />
+                    </Link>
+                </div>
+            </motion.div>
+
+            <div className="relative">
+                <div className="bg-vault-card border border-white/10 p-2 rounded-[4rem] shadow-2xl relative overflow-hidden group">
+                    <div className="bg-[#050505] rounded-[3.5rem] p-16 relative overflow-hidden flex flex-col items-center">
+                        <div className="bg-pattern-diagonal absolute inset-0 opacity-5"></div>
+                        <div className="relative z-10 text-center">
+                            <div className="grid grid-cols-2 gap-8">
+                                <div className="space-y-8">
+                                    <div className="p-6 bg-white/5 border border-white/10 rounded-2xl">
+                                        <div className="text-3xl font-black text-vault-amber mb-1">92%</div>
+                                        <div className="text-[8px] font-black uppercase text-muted-foreground tracking-widest">Resolution Rate</div>
+                                    </div>
+                                    <div className="p-6 bg-blue-500/10 border border-blue-500/20 rounded-2xl">
+                                        <div className="text-3xl font-black text-blue-400 mb-1">24h</div>
+                                        <div className="text-[8px] font-black uppercase text-muted-foreground tracking-widest">Avg Response</div>
+                                    </div>
+                                </div>
+                                <div className="pt-12">
+                                    <div className="p-10 bg-green-500/10 border border-green-500/20 rounded-3xl h-full flex flex-col justify-center">
+                                        <div className="text-4xl font-black text-green-400 mb-2">100%</div>
+                                        <div className="text-[8px] font-black uppercase text-muted-foreground tracking-widest italic">Immutable Proof</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
 
-        {/* 2. IMPACT PROJECTIONS (Replacing Fake Stories) */}
-        <div className="mb-48">
-            <h2 className="text-4xl md:text-6xl font-black text-foreground mb-24 tracking-tighter text-center">{t.impactProjectionTitle}</h2>
-            <div className="grid lg:grid-cols-2 gap-12">
-                {projections.map((proj, idx) => (
+        {/* 2. SUCCESS STORIES GRID */}
+        <section className="mb-48">
+            <h2 className="text-4xl md:text-6xl font-black text-foreground mb-24 tracking-tighter text-center uppercase">{pt.storyTitle}</h2>
+            <div className="grid md:grid-cols-3 gap-8">
+                {[
+                    { title: pt.story1Title, desc: pt.story1Desc, icon: <MapPin />, color: "text-red-400" },
+                    { title: pt.story2Title, desc: pt.story2Desc, icon: <Briefcase />, color: "text-vault-amber" },
+                    { title: pt.story3Title, desc: pt.story3Desc, icon: <ShieldCheck />, color: "text-blue-400" }
+                ].map((item, i) => (
                     <motion.div 
-                        key={idx}
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        transition={{ delay: idx * 0.1 }}
-                        viewport={{ once: true }}
-                        className="group p-12 bg-vault-card border border-white/5 rounded-[3rem] hover:border-vault-amber/30 transition-all flex flex-col md:flex-row gap-12 items-center"
+                        key={i}
+                        whileHover={{ scale: 1.05 }}
+                        className="p-12 bg-white/2 border border-white/10 rounded-[3rem] group text-center"
                     >
-                        <div className="w-24 h-24 bg-white/5 rounded-[2rem] flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
-                            {proj.icon}
+                        <div className={`${item.color} mb-8 transition-transform group-hover:rotate-12 flex justify-center`}>
+                            {cloneElement(item.icon, { size: 48 })}
                         </div>
-                        <div>
-                            <div className="text-vault-amber font-black text-sm mb-2 italic">{proj.metric}</div>
-                            <h3 className="text-2xl font-bold text-foreground mb-4">{proj.title}</h3>
-                            <p className="text-muted-foreground leading-relaxed">{proj.desc}</p>
-                        </div>
+                        <h3 className="text-2xl font-black text-foreground mb-6 uppercase tracking-tight leading-none">{item.title}</h3>
+                        <p className="text-muted-foreground font-medium leading-relaxed">{item.desc}</p>
                     </motion.div>
                 ))}
             </div>
-        </div>
+        </section>
 
-        {/* 3. FUTURE VISION - Wide Layout */}
-        <div className="p-12 lg:p-24 bg-white/2 border border-white/10 rounded-[4rem] text-center relative overflow-hidden">
+        {/* 3. MILESTONES SECTION */}
+        <section className="mb-48 text-center">
+            <h2 className="text-2xl font-black text-muted-foreground mb-16 uppercase tracking-[0.5em] opacity-40">{pt.milestoneTitle}</h2>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+                {[pt.mile1, pt.mile2, pt.mile3].map((mile, i) => (
+                    <div key={i} className="p-12 bg-vault-card border border-white/5 rounded-[4rem] relative overflow-hidden">
+                        <div className="absolute top-0 right-0 w-20 h-20 bg-vault-amber/10 blur-[40px]"></div>
+                        <div className="text-3xl font-black text-foreground uppercase tracking-tighter">{mile.split(' ')[0]}</div>
+                        <div className="text-xs font-black text-muted-foreground uppercase mt-2 tracking-widest">{mile.split(' ').slice(1).join(' ')}</div>
+                    </div>
+                ))}
+            </div>
+        </section>
+
+        {/* 4. NETWORK VISUALIZATION SECTION */}
+        <section className="mb-48 bg-white/[0.02] border border-white/10 rounded-[5rem] p-16 lg:p-24 overflow-hidden relative">
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-blue-500/5 rounded-full blur-[150px] -z-10"></div>
+            <div className="grid lg:grid-cols-2 gap-24 items-center">
+                <div className="relative">
+                    <Globe size={300} className="text-white/10 animate-spin-slow mx-auto" />
+                    <div className="absolute inset-0 flex items-center justify-center">
+                        <Layers size={80} className="text-vault-amber animate-pulse" />
+                    </div>
+                </div>
+                <div>
+                    <h2 className="text-4xl md:text-6xl font-black text-foreground mb-12 tracking-tighter leading-none uppercase">{pt.networkTitle}</h2>
+                    <p className="text-xl text-muted-foreground mb-12 font-medium leading-relaxed">{pt.networkSub}</p>
+                    <div className="flex flex-wrap gap-4">
+                        {['SEA Region', 'LATAM Pilot', 'EU Standards', 'Global Node Network'].map(tag => (
+                            <span key={tag} className="px-6 py-2 bg-white/5 border border-white/10 rounded-full text-[10px] font-black uppercase tracking-widest text-muted-foreground">
+                                {tag}
+                            </span>
+                        ))}
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        {/* 5. FINAL CTA */}
+        <section className="p-20 bg-gradient-to-br from-blue-600 to-vault-amber border border-white/10 rounded-[5rem] text-center relative overflow-hidden group">
              <div className="bg-pattern-diagonal absolute inset-0 opacity-10"></div>
              <div className="relative z-10 max-w-4xl mx-auto">
-                <Globe size={80} className="text-vault-amber mx-auto mb-12 animate-float" />
-                <h2 className="text-4xl md:text-6xl font-black text-foreground mb-8 tracking-tighter">
-                   {lang === 'id' ? "Standar Baru untuk Tata Kelola Masa Depan." : "The New Standard for Future Governance."}
+                <Heart size={80} className="text-white mx-auto mb-12 animate-float" />
+                <h2 className="text-4xl md:text-7xl font-black text-white mb-8 tracking-tighter leading-[0.9] uppercase">
+                    Shape the <br/> future with us.
                 </h2>
-                <p className="text-xl text-muted-foreground mb-12 leading-relaxed">
-                   {lang === 'id' ? "Kami berkomitmen untuk terus berinovasi, memastikan setiap bit data aspirasi yang Anda berikan menjadi fondasi bagi kebijakan yang lebih adil." : "We are committed to continuous innovation, ensuring that every bit of aspiration data you provide becomes the foundation for fairer policies."}
+                <p className="text-xl text-white/80 mb-12 font-bold leading-relaxed">
+                    {pt.futureSub}
                 </p>
-                <Link href="/dashboard" className="bg-vault-amber hover:bg-yellow-500 text-black px-12 py-6 rounded-2xl font-black text-xl transition-all shadow-2xl inline-flex items-center gap-3">
-                   {t.btnGetStarted} <ArrowRight size={24} />
+                <Link href="/dashboard" className="bg-white text-black px-16 py-8 rounded-[2.5rem] font-black text-2xl transition-all hover:scale-105 shadow-2xl inline-flex items-center gap-4">
+                   Join the Movement <ArrowRight size={28} />
                 </Link>
              </div>
-        </div>
+        </section>
 
       </div>
     </div>
   );
 }
+
+import { cloneElement } from "react";
