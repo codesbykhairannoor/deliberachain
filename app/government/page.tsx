@@ -1,207 +1,170 @@
 "use client";
 
-import { useState, useEffect, useMemo } from "react";
-import { createThirdwebClient, getContract, readContract } from "thirdweb";
-import { baseSepolia } from "thirdweb/chains";
-import { useActiveAccount } from "thirdweb/react";
-import { LayoutDashboard, FileText, BarChart3, Users, MessageSquare, Loader2, Sparkles, Download } from "lucide-react";
-import Navbar from "@/components/Navbar";
-import { generatePolicyBrief } from "@/lib/ai"; // Not a server action yet, let's fix that
-import GovAnalytics from "@/components/GovAnalytics";
+import { motion } from "framer-motion";
+import { useLanguageStore } from "@/lib/store";
+import { translations } from "@/lib/translations";
+import { 
+  ShieldCheck, 
+  BarChart3, 
+  FileText, 
+  Clock, 
+  UserCheck, 
+  Search,
+  ChevronRight,
+  Monitor,
+  Layout,
+  Lock,
+  ArrowRight
+} from "lucide-react";
+import Link from "next/link";
 
-const client = createThirdwebClient({ clientId: process.env.NEXT_PUBLIC_THIRDWEB_CLIENT_ID || "" });
-const contract = getContract({ client, chain: baseSepolia, address: process.env.NEXT_PUBLIC_CONTRACT_ADDRESS || "" });
-
-import { useRole } from "@/hooks/useRole";
-import { useRouter } from "next/navigation";
-import { generatePolicyBriefAction } from "@/app/actions/policy";
-
-export default function GovernmentDashboard() {
-  const { role, jurisdiction, isLoading } = useRole();
-  const router = useRouter();
-  const [aspirations, setAspirations] = useState<any[]>([]);
-  const [isGenerating, setIsGenerating] = useState(false);
-  const [policyBrief, setPolicyBrief] = useState<string | null>(null);
-
-  useEffect(() => {
-    if (!isLoading && role !== "GOVERNMENT" && role !== "ADMIN") {
-        router.push("/dashboard");
-    }
-  }, [role, isLoading]);
-
-  // Simulation of fetching all aspirations with Regional Filtering
-  useEffect(() => {
-    async function fetchData() {
-        if (role === "CITIZEN" || isLoading) return;
-        try {
-            const data = await readContract({
-                contract,
-                method: "function getAllAspirations() view returns ((uint256 id, string cid, string title, string category, address owner, uint256 timestamp, uint8 status, uint256 upvotes)[])",
-                params: [], 
-            });
-
-            // Filtering Logic:
-            const filteredData = data.filter((item: any) => {
-                if (item.status === 1) return false; // Filter out Hidden items
-                
-                if (jurisdiction === "GLOBAL") return true; // Super Admin sees all
-                const parts = item.category.split("|").map((p: string) => p.trim());
-                const itemArea = parts[2]; // areaTag
-                return itemArea === jurisdiction;
-            });
-
-            setAspirations(filteredData);
-        } catch (e) {
-            console.error(e);
-        }
-    }
-    fetchData();
-  }, [role, isLoading, jurisdiction]);
-
-  // LIVE AGGREGATION LOGIC
-  const stats = useMemo(() => {
-    if (aspirations.length === 0) return { participants: 0, sentiment: "0%", categories: {} };
-    
-    const uniqueOwners = new Set(aspirations.map(a => a.owner)).size;
-    
-    // Simple dynamic sentiment: Ratio of non-secret reports to total context
-    const sentiment = Math.min(95, 60 + (aspirations.length * 2)).toString() + "%";
-    
-    // Category distribution
-    const counts: Record<string, number> = {};
-    aspirations.forEach(a => {
-        const cat = a.category.split("|")[0]?.trim() || "Lainnya";
-        counts[cat] = (counts[cat] || 0) + 1;
-    });
-
-    const categories: Record<string, number> = {};
-    Object.keys(counts).forEach(cat => {
-        categories[cat] = Math.round((counts[cat] / aspirations.length) * 100);
-    });
-
-    return { participants: uniqueOwners, sentiment, categories };
-  }, [aspirations]);
-
-  const handleGenerateBrief = async () => {
-    if (aspirations.length === 0) {
-        alert("Belum ada data aspirasi untuk dianalisis.");
-        return;
-    }
-    setIsGenerating(true);
-    try {
-        const result = await generatePolicyBriefAction(aspirations);
-        if (result.success) {
-            setPolicyBrief(result.brief || "");
-        } else {
-            alert(result.error);
-        }
-    } finally {
-        setIsGenerating(false);
-    }
-  };
-
-  if (isLoading) return <div className="p-20 text-white">Verifying Authority...</div>;
+export default function GovernmentPage() {
+  const { lang } = useLanguageStore();
+  const t = translations[lang as keyof typeof translations];
 
   return (
-    <div className="animate-in fade-in duration-500">
-        <header className="mb-12 flex flex-col md:flex-row justify-between items-end border-b border-white/5 pb-8">
+    <div className="bg-background min-h-screen pt-48 pb-40">
+      <div className="bg-pattern-grid absolute inset-0 opacity-10 -z-10"></div>
+      
+      <div className="max-w-7xl mx-auto px-6">
+        
+        {/* 1. GOVERNMENT HERO - Text on Left, Dashboard on Right */}
+        <div className="grid lg:grid-cols-2 gap-20 items-center mb-48">
             <div>
-                <h1 className="text-4xl font-black text-white mb-2 tracking-tight uppercase">Gov<span className="text-vault-amber">Portal</span></h1>
-                <p className="text-slate-500 font-mono text-sm">
-                    Jurisdiction Identifier: <span className="text-vault-amber font-bold">{jurisdiction || "UNAUTHORIZED"}</span>
-                </p>
+                <motion.div 
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-vault-amber/30 bg-vault-amber/5 text-vault-amber font-black text-[10px] tracking-[0.2em] uppercase mb-8"
+                >
+                    Government Solutions (B2G)
+                </motion.div>
+                <motion.h1 
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.1 }}
+                    className="text-5xl md:text-6xl font-black tracking-[-0.03em] leading-[1.05] text-white mb-8"
+                >
+                  {t.govHeroTitle}
+                </motion.h1>
+                <motion.p 
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.2 }}
+                    className="text-lg md:text-xl text-slate-400 mb-12 opacity-80 leading-relaxed max-w-xl"
+                >
+                  {t.govHeroSub}
+                </motion.p>
+                <motion.div 
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.3 }}
+                    className="flex flex-col sm:flex-row gap-4"
+                >
+                    <Link href="/contact" className="bg-vault-amber hover:bg-yellow-500 text-black px-10 py-5 rounded-2xl font-black text-lg transition-all flex items-center justify-center gap-3 shadow-2xl">
+                        {t.btnRequestDemo} <ArrowRight size={22} />
+                    </Link>
+                    <Link href="/resources" className="px-10 py-5 rounded-2xl font-bold text-lg border border-white/10 hover:bg-white/5 transition-all text-white flex items-center justify-center">
+                        Download Whitepaper
+                    </Link>
+                </motion.div>
             </div>
-            <div className="mt-4 md:mt-0 bg-vault-amber/10 border border-vault-amber/30 px-6 py-2 rounded-xl">
-                <span className="text-xs font-bold text-vault-amber uppercase tracking-widest animate-pulse">Monitoring Active</span>
-            </div>
-        </header>
-
-        <div className="grid grid-cols-1 lg:grid-cols-4 gap-6 mb-12">
-            <StatsCard icon={MessageSquare} label="Total Aspirasi" value={aspirations.length} color="amber" />
-            <StatsCard icon={BarChart3} label="Sentiment Positif" value={stats.sentiment} color="blue" />
-            <StatsCard icon={Users} label="Partisipasi Aktif" value={stats.participants} color="green" />
-            <StatsCard icon={FileText} label="Policy Briefs" value={Math.floor(aspirations.length / 3)} color="purple" />
-        </div>
-
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
-            <div className="lg:col-span-8">
-                <div className="flex justify-between items-center mb-8">
-                    <h2 className="text-xl font-bold text-white flex items-center gap-2">
-                        <Sparkles size={20} className="text-vault-amber" /> System Analytics
-                    </h2>
-                    <button 
-                        onClick={handleGenerateBrief}
-                        disabled={isGenerating}
-                        className="bg-vault-amber text-black px-6 py-2 rounded-full font-bold text-sm flex items-center gap-2 hover:bg-yellow-400 transition-all"
-                    >
-                        {isGenerating ? <Loader2 className="animate-spin" /> : <Sparkles size={16} />} 
-                        Generate Policy Brief
-                    </button>
-                </div>
-
-                <GovAnalytics />
-
-                {policyBrief && (
-                    <div className="mt-8 prose prose-invert max-w-none bg-black/40 p-6 rounded-2xl border border-white/10 animate-in fade-in">
-                        <pre className="whitespace-pre-wrap font-sans text-slate-300 leading-relaxed">
-                            {policyBrief}
-                        </pre>
-                        <button className="mt-6 flex items-center gap-2 text-vault-amber font-bold text-sm">
-                            <Download size={16} /> Export as PDF
-                        </button>
-                    </div>
-                )}
-            </div>
-
-            <div className="lg:col-span-4 space-y-6">
-                <div className="bg-vault-card border border-white/5 rounded-3xl p-6">
-                    <h3 className="font-bold text-white mb-4">Trending Categories</h3>
-                    <div className="space-y-4">
-                        {Object.entries(stats.categories).length > 0 ? (
-                            Object.entries(stats.categories).map(([cat, val]) => (
-                                <CategoryProgress key={cat} label={cat} value={val} color={cat === "Infrastruktur" ? "amber" : "blue"} />
-                            ))
-                        ) : (
-                            <p className="text-xs text-slate-500 italic">No category data yet.</p>
-                        )}
+            
+            <div className="relative">
+                <div className="absolute -inset-10 bg-vault-amber/10 blur-[120px] rounded-full -z-10"></div>
+                <div className="bg-vault-card border border-white/10 p-4 rounded-[4rem] shadow-2xl transform lg:rotate-3 hover:rotate-0 transition-transform duration-700">
+                    <div className="bg-[#050505] rounded-[3rem] overflow-hidden border border-white/5 p-4">
+                        <div className="flex items-center gap-2 mb-4 px-6 py-4 border-b border-white/5">
+                            <div className="w-3 h-3 rounded-full bg-red-500/50"></div>
+                            <div className="w-3 h-3 rounded-full bg-yellow-500/50"></div>
+                            <div className="w-3 h-3 rounded-full bg-green-500/50"></div>
+                        </div>
+                        <img 
+                            src="https://images.unsplash.com/photo-1551288049-bbbda546697a?q=80&w=2070&auto=format&fit=crop" 
+                            alt="Dashboard Preview" 
+                            className="w-full h-[400px] object-cover rounded-[2rem] grayscale group-hover:grayscale-0 transition-all duration-1000"
+                        />
                     </div>
                 </div>
             </div>
         </div>
+
+        {/* 2. GOVERNMENT FEATURES - Horizontal Grid */}
+        <div className="grid md:grid-cols-3 gap-8 mb-48">
+            {[
+              { title: t.govFeature1, icon: <Layout className="text-vault-amber" size={40} />, desc: lang === 'id' ? "Analisis data real-time untuk memantau sentimen publik dan isu kritis di setiap wilayah administratif." : "Real-time data analysis to monitor public sentiment and critical issues in each administrative region." },
+              { title: t.govFeature2, icon: <UserCheck className="text-vault-amber" size={40} />, desc: lang === 'id' ? "Sistem verifikasi identitas yang aman namun menjaga anonimitas pelapor, mencegah spam dan manipulasi." : "Secure identity verification system that maintains reporter anonymity, preventing spam and manipulation." },
+              { title: t.govFeature3, icon: <FileText className="text-vault-amber" size={40} />, desc: lang === 'id' ? "Otomasi penyusunan laporan kebijakan yang merangkum ribuan aspirasi menjadi poin-poin strategis." : "Automation of policy report preparation that summarizes thousands of aspirations into strategic points." }
+            ].map((f, i) => (
+                <motion.div 
+                    key={i}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ delay: i * 0.1 }}
+                    className="p-12 bg-vault-card border border-white/5 rounded-[3rem] hover:border-vault-amber/30 transition-all group"
+                >
+                    <div className="w-16 h-16 bg-white/5 rounded-2xl flex items-center justify-center mb-10 border border-white/10 group-hover:border-vault-amber/30 transition-all">
+                        {f.icon}
+                    </div>
+                    <h3 className="text-2xl font-black text-white mb-6 tracking-tight leading-tight">{f.title}</h3>
+                    <p className="text-slate-500 font-medium leading-relaxed">{f.desc}</p>
+                </motion.div>
+            ))}
+        </div>
+
+        {/* 3. CASE STUDY PREVIEW - Wide Layout */}
+        <div className="py-24 border-y border-white/5 grid lg:grid-cols-2 gap-24 items-center">
+            <div className="space-y-12">
+                <h2 className="text-4xl md:text-6xl font-black text-white tracking-tighter leading-tight">
+                    {lang === 'id' ? "Efisiensi yang Terukur" : "Measured Efficiency"}
+                </h2>
+                <div className="space-y-10">
+                    <div className="flex gap-8 items-start relative">
+                        <div className="absolute -top-4 -left-2 px-2 py-0.5 bg-vault-amber/10 text-[8px] font-black uppercase text-vault-amber rounded-full">Target Efisiensi</div>
+                        <div className="text-6xl font-black text-vault-amber italic leading-none">70%</div>
+                        <p className="text-slate-400 font-medium text-lg leading-relaxed">
+                            {lang === 'id' ? "Pengurangan waktu respons terhadap keluhan publik dibandingkan sistem manual." : "Reduction in response time to public complaints compared to manual systems."}
+                        </p>
+                    </div>
+                    <div className="flex gap-8 items-start relative">
+                        <div className="absolute -top-4 -left-2 px-2 py-0.5 bg-white/10 text-[8px] font-black uppercase text-slate-400 rounded-full">Benchmark Industri</div>
+                        <div className="text-6xl font-black text-vault-amber italic leading-none">100%</div>
+                        <p className="text-slate-400 font-medium text-lg leading-relaxed">
+                            {lang === 'id' ? "Transparansi data historis yang dapat diaudit secara publik kapan saja." : "Transparency of historical data that can be audited publicly at any time."}
+                        </p>
+                    </div>
+                </div>
+                <Link href="/impact" className="inline-flex items-center gap-3 text-xs font-black uppercase tracking-[0.2em] text-white border-b-2 border-vault-amber pb-1 hover:gap-6 transition-all">
+                    Explore Impact Stories <ArrowRight size={16} />
+                </Link>
+            </div>
+            
+            <div className="grid grid-cols-2 gap-6">
+                <div className="p-12 bg-white/2 border border-white/5 rounded-[3rem] flex flex-col items-center justify-center text-center group hover:bg-white/5 transition-all">
+                    <Monitor size={48} className="text-slate-400 mb-6 group-hover:text-vault-amber transition-colors" />
+                    <div className="text-xl font-black text-white">Cloud Native</div>
+                </div>
+                <div className="p-12 bg-white/2 border border-white/5 rounded-[3rem] flex flex-col items-center justify-center text-center translate-y-12 group hover:bg-white/5 transition-all">
+                    <Lock size={48} className="text-slate-400 mb-6 group-hover:text-vault-amber transition-colors" />
+                    <div className="text-xl font-black text-white">Secure API</div>
+                </div>
+            </div>
+        </div>
+
+        {/* 4. FINAL GOVERNMENT CTA */}
+        <div className="mt-48 p-12 lg:p-24 bg-vault-amber rounded-[4rem] text-black relative overflow-hidden group">
+             <div className="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity animate-pulse"></div>
+             <div className="bg-pattern-diagonal absolute inset-0 opacity-10"></div>
+             <div className="relative z-10 text-center max-w-4xl mx-auto">
+                 <h2 className="text-4xl md:text-7xl font-black mb-12 tracking-tighter leading-tight">
+                    {lang === 'id' ? "Jadikan Instansi Anda Pemimpin dalam Transparansi Digital." : "Make Your Agency a Leader in Digital Transparency."}
+                 </h2>
+                 <Link href="/contact" className="bg-black text-white px-16 py-8 rounded-2xl font-black text-xl hover:scale-105 transition-all shadow-2xl inline-block">
+                    {t.btnRequestDemo}
+                 </Link>
+             </div>
+        </div>
+
+      </div>
     </div>
   );
-}
-
-function StatsCard({ icon: Icon, label, value, color }: any) {
-    return (
-        <div className="bg-vault-card border border-white/5 p-6 rounded-2xl hover:border-white/20 transition-all group">
-            <div className={`p-3 rounded-xl bg-${color}-950/30 text-${color}-400 mb-4 w-fit group-hover:scale-110 transition-transform`}>
-                <Icon size={24} />
-            </div>
-            <p className="text-slate-500 text-sm font-bold uppercase tracking-wider">{label}</p>
-            <p className="text-3xl font-black text-white mt-1">{value}</p>
-        </div>
-    );
-}
-
-function CategoryProgress({ label, value, color }: any) {
-    const colorClasses = {
-        amber: 'bg-vault-amber',
-        blue: 'bg-blue-500',
-        red: 'bg-red-500'
-    };
-    return (
-        <div>
-            <div className="flex justify-between text-xs font-bold text-slate-400 mb-1.5 uppercase">
-                <span>{label}</span>
-                <span>{value}%</span>
-            </div>
-            <div className="h-2 bg-white/5 rounded-full overflow-hidden">
-                <div 
-                    className={`h-full transition-all duration-1000 ${colorClasses[color as keyof typeof colorClasses]}`} 
-                    style={{ width: `${value}%` }}
-                ></div>
-            </div>
-        </div>
-    );
 }

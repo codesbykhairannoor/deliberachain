@@ -87,7 +87,7 @@ export const translations = {
     step22Btn: "Buka Google Cloud Faucet",
 
     step5Label: "Langkah 05",
-    step5Title: "Verifikasi On-Chain",
+    step5Title: "On-Chain Verification",
     step5Desc: "Setiap aspirasi akan menghasilkan 'Transaction Hash'. Ini adalah bukti sah bahwa suaramu sudah masuk ke dalam sejarah blockchain.",
     labelTxHash: "Transaction Hash:",
     labelStatus: "Status:",
@@ -131,7 +131,7 @@ export const translations = {
     secAITitle: "Moderasi Cerdas",
     secAIDesc: "Sistem AI Gemini 1.5 Pro melakukan pemindaian otomatis terhadap spam, ujaran kebencian, dan konten tidak relevan.",
     secPrivacyTitle: "Privasi Terenkripsi",
-    secPrivacyDesc: "Laporan sensitol dilindungi dengan enkripsi tingkat tinggi yang hanya dapat dibuka oleh pihak berwenang.",
+    secPrivacyDesc: "Laporan sensitif dilindungi dengan enkripsi tingkat tinggi yang hanya dapat dibuka oleh pihak berwenang.",
 
     // TRANSPARENCY DETAILS
     transAuditTitle: "Audit On-Chain",
@@ -194,32 +194,115 @@ export const translations = {
     faq3Q: "Apakah identitas saya aman?",
     faq3A: "Jika memilih opsi Secret Report, data Anda dienkripsi dan hanya dapat dibuka oleh instansi terkait yang berwenang.",
 
-    sec1desc: "Platform ini dirancang untuk memastikan setiap aspirasi warga memiliki jejak digital yang permanen dan dapat diverifikasi, menciptakan transparansi total dalam tata kelola publik.",
-    step111Title: "Koneksi Identitas",
-    simulasip: "Simulasi Tampilan:",
-    step222Title: "Bahan Bakar Partisipasi",
-    isiSaldo3: "Ambil Saldo Testnet",
-    step33Desc: "Tanpa saldo ETH Sepolia, aspirasi Anda tidak bisa dikirim ke blockchain. Faucet ini gratis.",
-    step444Title: "Suarakan Isu",
-    step4Title: "Sampaikan Aspirasi",
-    step4Desc: "Isi formulir aspirasi, lampirkan bukti pendukung, dan kirim ke Deliberation Room.",
-    statusReady: "Siap untuk On-Chain",
-    step555Title: "Verifikasi Abadi",
-    step6Label: "Langkah 06",
-    step6Title: "Link Portofolio Publik",
-    step6Desc: "Anda bisa membagikan seluruh jejak partisipasi Anda kepada dunia melalui URL unik profil Anda.",
-    rumusLink: "Link Profil Kamu:",
-    alamatKamu: "Alamat-Wallet-Kamu",
-    catTitle: "Kategori Eksplorasi",
-    cat1Title: "Infrastruktur",
-    cat1Desc: "Pembangunan jalan, jembatan, dan fasilitas publik lainnya.",
-    cat2Title: "Kesehatan & Sosial",
-    cat2Desc: "Layanan rumah sakit, jaminan sosial, dan kesejahteraan warga.",
-    cat3Title: "Ekonomi & Digital",
-    cat3Desc: "Pemberdayaan UMKM, ekonomi kreatif, dan literasi digital.",
-    visionTitle: "Misi Masa Depan",
-    visionDesc: "Membangun masa depan di mana transparansi bukan lagi pilihan, melainkan standar baku dalam tata kelola publik.",
-    visionStatus: "FASE PENGEMBANGAN: TESTNET",
+    // NAVBAR REVAMP
+    navFeatures: "Features",
+    navSolutions: "Solutions",
+    navResources: "Resources",
+    navImpact: "Impact",
+    navPricing: "Pricing",
+    navBlog: "Blog",
+    btnRequestDemo: "Request Demo",
+    btnGetStarted: "Get Started Free",
+
+    // HOME PAGE
+    homeHeroTitle: "Demokrasi yang Transparan & Aman",
+    homeHeroSub: "Platform deliberasi publik pertama yang menggabungkan AI Gemini 1.5 Pro dan Blockchain Base untuk memastikan setiap suara rakyat abadi dan berimpact.",
+    homeProblemTitle: "Masalah vs Solusi",
+    homeProblemSub: "Mengapa sistem aspirasi konvensional seringkali gagal?",
+    homeHowTitle: "Bagaimana Dlibration Bekerja?",
+
+    // FEATURES PAGE
+    featHeroTitle: "Teknologi di Balik",
+    featHeroTitleGold: "Transparansi.",
+    featAiTitle: "AI Summarizer & Clustering",
+    featAiDesc: "Mengelompokkan ribuan aspirasi serupa secara otomatis untuk analisis kebijakan yang cepat.",
+    featChainTitle: "On-Chain Immutable Records",
+    featChainDesc: "Data tidak bisa dihapus atau diubah, menjamin integritas informasi selamanya.",
+    featGovTitle: "Policy Brief Generator",
+    featGovDesc: "Menghasilkan draf kebijakan berdasarkan tren aspirasi rakyat secara cerdas.",
+
+    // SOLUTIONS PAGE
+    solHeroTitle: "Solusi untuk Setiap",
+    solHeroTitleGold: "Lapisan Masyarakat",
+    solForCitizens: "Untuk Masyarakat",
+    solForGov: "Untuk Pemerintah Daerah",
+    solForUni: "Untuk Universitas",
+    solForNgo: "Untuk Organisasi Sosial",
+
+    // GOVT PAGE (B2G)
+    govHeroTitle: "Transformasi Digital untuk Instansi Pemerintah",
+    govHeroSub: "Tingkatkan kepercayaan publik dan efisiensi birokrasi dengan sistem aspirasi berbasis bukti digital.",
+    govFeature1: "Dashboard Analitik Real-time",
+    govFeature2: "Verifikasi Identitas On-chain",
+    govFeature3: "Otomasi Laporan Mingguan",
+
+    // PRICING PAGE
+    priceFree: "Gratis",
+    pricePro: "Pro / Kampus",
+    priceGov: "Pemerintah / Enterprise",
+    priceContact: "Hubungi Sales",
+    priceAnnual: "per tahun",
+    priceCustom: "Kustom",
+    priceStartFree: "Mulai Gratis Sekarang",
+    priceOrderCampus: "Pesan Paket Kampus",
+
+    // ABOUT PAGE
+    aboutHeroTitle: "Membangun Kepercayaan di Atas",
+    aboutHeroTitleGold: "Teknologi.",
+    aboutVisionary: "Visi Founder",
+    aboutFounderVision: "Dlibration bukan sekadar software, ini adalah perlawanan terhadap ketidakpastian informasi dalam birokrasi. Kami ingin setiap warga bisa tidur nyenyak mengetahui suara mereka telah tercatat abadi di blockchain.",
+
+    // IMPACT PAGE
+    impactHeroTitle: "Setiap Suara Meninggalkan",
+    impactHeroTitleGold: "Jejak Nyata.",
+    impactStat1: "Aspirasi Selesai",
+    impactStat2: "Waktu Analisis AI",
+    impactStat3: "Partisipan Aktif",
+    impactStoryTitle1: "Transparansi Dana Desa Terbuka",
+    impactStoryDesc1: "Proyeksi kami adalah meningkatkan kepercayaan masyarakat hingga 90% melalui publikasi laporan anggaran secara on-chain.",
+    impactStoryTitle2: "Perbaikan Infrastruktur Terukur",
+    impactStoryDesc2: "Membangun jembatan komunikasi antara warga dan pemda untuk respon perbaikan yang 70% lebih cepat.",
+    impactProjectionTitle: "Proyeksi Dampak 2026",
+
+    // RESOURCES PAGE
+    resHeroTitle: "Resources &",
+    resHeroTitleGold: "Insights",
+    resHeroSub: "Temukan panduan, riset teknis, dan dokumentasi mendalam tentang bagaimana Dlibration mentransformasi tata kelola publik.",
+    resSearchPlaceholder: "Cari dokumentasi, whitepaper, atau panduan...",
+    resLatestWhitepaper: "Whitepaper Terbaru",
+    resWhitepaperTitle: "Blockchain untuk Kepercayaan Publik: Analisis Teknis",
+    resWhitepaperDesc: "Pelajari arsitektur teknis di balik protokol DeliberateChain dan bagaimana kami menjamin integritas data 100%.",
+
+    // BLOG PAGE
+    blogHeroTitle: "Terbaru dari",
+    blogHeroTitleGold: "Frontline",
+    blogAllArticles: "Semua Artikel",
+    blogFeatured: "Artikel Unggulan",
+    blogReadMore: "Baca Selengkapnya",
+
+    // CONTACT PAGE
+    contactHeroTitle: "Mari Mulai sebuah",
+    contactHeroTitleGold: "Percakapan.",
+    contactGeneralInquiry: "Pertanyaan Umum",
+    contactGovSupport: "Dukungan Pemerintah",
+    contactOurBase: "Pusat Operasi Kami",
+    contactSendMessage: "Kirim Pesan",
+    contactFullName: "Nama Lengkap",
+    contactEmail: "Alamat Email",
+    contactSubject: "Subjek",
+    contactMessage: "Pesan",
+    contactSendBtn: "Kirim Pesan",
+    contactGlobalReach: "Koneksi Global",
+
+    // DROPDOWNS
+    featAiTitleShort: "AI Analysis",
+    featChainTitleShort: "Blockchain Ledger",
+    featGovTitleShort: "Gov Dashboard",
+    featAuditTitleShort: "Real-time Audit",
+    solCitizensTitle: "Masyarakat",
+    solGovTitle: "Pemerintah",
+    solUniTitle: "Universitas",
+    solNgoTitle: "NGO/LSM",
   },
   en: {
     // LAYOUT & NAV
@@ -242,9 +325,9 @@ export const translations = {
     uploadBtn: "Send to Deliberation Room",
     btnSave: "Post to Blockchain",
     btnProcess: "AI Analyzing...",
-    successMsg: "Your aspiration is successfully immortalized on Sepolia Blockchain!",
+    successMsg: "Your aspiration was successfully immortalized on Sepolia Blockchain!",
     errorFill: "Please fill in the title and document attachment first!",
-    gasTip: "Every participation step requires blockchain confirmation. Ensure gas balance is available.",
+    gasTip: "Every participation step requires blockchain confirmation. Ensure your gas balance is available.",
 
     // HOME - HERO
     heroTitle: "Future Deliberative Democracy",
@@ -316,7 +399,6 @@ export const translations = {
     statusSuccess: "Verification Success",
     publicTitle: "PUBLIC VAULT",
     publicDesc: "Eternal archives stored on the decentralized Base Sepolia network.",
-    backHome: "Back to Home",
 
     // NEW PAGES
     aboutTitle: "About Dlibration",
@@ -333,6 +415,7 @@ export const translations = {
     legalSub: "Regulatory compliance and protection of your personal data.",
     contactTitle: "Contact Us",
     contactSub: "We are ready to hear your feedback and technical assistance.",
+    backHome: "Back to Home",
     
     // ABOUT DETAILS
     visiTitle: "Our Vision",
@@ -394,7 +477,7 @@ export const translations = {
     ecoPart: "Agencies",
     ecoLegal: "Legal & Privacy",
     ecoContact: "Contact Us",
- 
+
     // SOLUTIONS SECTION
     solTitle: "One Platform, Two Solutions",
     solSub: "Dlibration is built to bridge the gap between citizen voices and policymaking tables.",
@@ -416,31 +499,114 @@ export const translations = {
     faq3Q: "Is my identity safe?",
     faq3A: "If you choose the Secret Report option, your data is encrypted and can only be opened by authorized relevant agencies.",
 
-    sec1desc: "This platform is designed to ensure every citizen's aspiration has a permanent and verifiable digital footprint, creating total transparency in public governance.",
-    step111Title: "Identity Connection",
-    simulasip: "UI Simulation:",
-    step222Title: "Participation Fuel",
-    isiSaldo3: "Get Testnet Balance",
-    step33Desc: "Without Sepolia ETH balance, your aspiration cannot be sent to the blockchain. This faucet is free.",
-    step444Title: "Voice the Issue",
-    step4Title: "Submit Aspiration",
-    step4Desc: "Fill out the aspiration form, attach supporting evidence, and send it to the Deliberation Room.",
-    statusReady: "Ready for On-Chain",
-    step555Title: "Eternal Verification",
-    step6Label: "Step 06",
-    step6Title: "Public Portfolio Link",
-    step6Desc: "You can share your entire participation footprint with the world through your unique profile URL.",
-    rumusLink: "Your Profile Link:",
-    alamatKamu: "Your-Wallet-Address",
-    catTitle: "Exploration Categories",
-    cat1Title: "Infrastructure",
-    cat1Desc: "Construction of roads, bridges, and other public facilities.",
-    cat2Title: "Health & Social",
-    cat2Desc: "Hospital services, social security, and citizen welfare.",
-    cat3Title: "Economy & Digital",
-    cat3Desc: "MSME empowerment, creative economy, and digital literacy.",
-    visionTitle: "Future Mission",
-    visionDesc: "Building a future where transparency is no longer an option, but a standard in public governance.",
-    visionStatus: "DEVELOPMENT PHASE: TESTNET",
+    // NAVBAR REVAMP
+    navFeatures: "Features",
+    navSolutions: "Solutions",
+    navResources: "Resources",
+    navImpact: "Impact",
+    navPricing: "Pricing",
+    navBlog: "Blog",
+    btnRequestDemo: "Request Demo",
+    btnGetStarted: "Get Started Free",
+
+    // HOME PAGE
+    homeHeroTitle: "Transparent & Secure Democracy",
+    homeHeroSub: "The first public deliberation platform combining Gemini 1.5 Pro AI and Base Blockchain to ensure every citizen's voice is eternal and impactful.",
+    homeProblemTitle: "Problem vs Solution",
+    homeProblemSub: "Why do conventional aspiration systems often fail?",
+    homeHowTitle: "How Dlibration Works?",
+
+    // FEATURES PAGE
+    featHeroTitle: "Technology Behind",
+    featHeroTitleGold: "Transparency.",
+    featAiTitle: "AI Summarizer & Clustering",
+    featAiDesc: "Automatically groups thousands of similar aspirations for fast policy analysis.",
+    featChainTitle: "On-Chain Immutable Records",
+    featChainDesc: "Data cannot be deleted or changed, guaranteeing information integrity forever.",
+    featGovTitle: "Policy Brief Generator",
+    featGovDesc: "Intelligently generates policy drafts based on citizen aspiration trends.",
+
+    // SOLUTIONS PAGE
+    solHeroTitle: "Solutions for Every",
+    solHeroTitleGold: "Layer of Society",
+    solForCitizens: "For Citizens",
+    solForGov: "For Local Governments",
+    solForUni: "For Universities",
+    solForNgo: "For NGOs",
+
+    // GOVT PAGE (B2G)
+    govHeroTitle: "Digital Transformation for Government Agencies",
+    govHeroSub: "Increase public trust and bureaucratic efficiency with a digital evidence-based aspiration system.",
+    govFeature1: "Real-time Analytics Dashboard",
+    govFeature2: "On-chain Identity Verification",
+    govFeature3: "Automated Weekly Reporting",
+
+    // PRICING PAGE
+    priceFree: "Free",
+    pricePro: "Pro / Campus",
+    priceGov: "Government / Enterprise",
+    priceContact: "Contact Sales",
+    priceAnnual: "per year",
+    priceCustom: "Custom",
+    priceStartFree: "Start Free Now",
+    priceOrderCampus: "Order Campus Pack",
+
+    // ABOUT PAGE
+    aboutHeroTitle: "Building Trust on Top of",
+    aboutHeroTitleGold: "Technology.",
+    aboutVisionary: "Founder's Vision",
+    aboutFounderVision: "Dlibration is not just software, it is a resistance against information uncertainty in bureaucracy. We want every citizen to sleep soundly knowing their voice is permanently recorded on the blockchain.",
+
+    // IMPACT PAGE
+    impactHeroTitle: "Every Voice Leaves a",
+    impactHeroTitleGold: "Real Footprint.",
+    impactStat1: "Aspirations Completed",
+    impactStat2: "AI Analysis Time",
+    impactStat3: "Active Participants",
+    impactStoryTitle1: "Open Village Fund Transparency",
+    impactStoryDesc1: "Our projection is to increase public trust up to 90% through on-chain publication of budget reports.",
+    impactStoryTitle2: "Measured Infrastructure Improvement",
+    impactStoryDesc2: "Building a communication bridge between citizens and local government for 70% faster response times.",
+    impactProjectionTitle: "2026 Impact Projection",
+
+    // RESOURCES PAGE
+    resHeroTitle: "Resources &",
+    resHeroTitleGold: "Insights",
+    resHeroSub: "Find guides, technical research, and in-depth documentation on how Dlibration is transforming public governance.",
+    resSearchPlaceholder: "Search documentation, whitepapers, or guides...",
+    resLatestWhitepaper: "Latest Whitepaper",
+    resWhitepaperTitle: "Blockchain for Public Trust: Technical Analysis",
+    resWhitepaperDesc: "Learn the technical architecture behind the DeliberateChain protocol and how we guarantee 100% data integrity.",
+
+    // BLOG PAGE
+    blogHeroTitle: "Latest from the",
+    blogHeroTitleGold: "Frontline",
+    blogAllArticles: "All Articles",
+    blogFeatured: "Featured Article",
+    blogReadMore: "Read More",
+
+    // CONTACT PAGE
+    contactHeroTitle: "Let's Start a",
+    contactHeroTitleGold: "Conversation.",
+    contactGeneralInquiry: "General Inquiry",
+    contactGovSupport: "Government Support",
+    contactOurBase: "Our Base Operations",
+    contactSendMessage: "Send Message",
+    contactFullName: "Full Name",
+    contactEmail: "Email Address",
+    contactSubject: "Subject",
+    contactMessage: "Message",
+    contactSendBtn: "Send Message",
+    contactGlobalReach: "Global Connection",
+
+    // DROPDOWNS
+    featAiTitleShort: "AI Analysis",
+    featChainTitleShort: "Blockchain Ledger",
+    featGovTitleShort: "Gov Dashboard",
+    featAuditTitleShort: "Real-time Audit",
+    solCitizensTitle: "Citizens",
+    solGovTitle: "Governments",
+    solUniTitle: "Universities",
+    solNgoTitle: "NGOs",
   }
 };

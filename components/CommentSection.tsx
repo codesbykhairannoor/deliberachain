@@ -13,12 +13,24 @@ interface Comment {
 }
 
 export default function CommentSection({ aspirationId }: { aspirationId: string }) {
-    const [comments, setComments] = useState<Comment[]>([
-        { id: 1, user: "Citizen_A", text: "Sangat setuju, perbaikan jalan di area ini memang mendesak.", timestamp: "2h ago" },
-    ]);
+    const [comments, setComments] = useState<Comment[]>([]);
     const [newComment, setNewComment] = useState("");
     const [isPosting, setIsPosting] = useState(false);
     const [error, setError] = useState<string | null>(null);
+
+    // PERSISTENCE (Temporary fallback without DB)
+    useState(() => {
+        if (typeof window !== "undefined") {
+            const saved = localStorage.getItem(`comments-${aspirationId}`);
+            if (saved) {
+                try {
+                    setComments(JSON.parse(saved));
+                } catch (e) {
+                    console.error("Failed to load comments");
+                }
+            }
+        }
+    });
 
     const handlePost = async () => {
         if (!newComment.trim()) return;
@@ -27,7 +39,6 @@ export default function CommentSection({ aspirationId }: { aspirationId: string 
         setError(null);
         
         try {
-            // AI MODERATION
             const moderation = await moderateCommentAction(newComment);
             
             if (!moderation.isSafe) {
@@ -40,10 +51,12 @@ export default function CommentSection({ aspirationId }: { aspirationId: string 
                 id: Date.now(),
                 user: "Anda",
                 text: newComment,
-                timestamp: "Just now"
+                timestamp: "Baru saja"
             };
             
-            setComments([...comments, comment]);
+            const updatedComments = [...comments, comment];
+            setComments(updatedComments);
+            localStorage.setItem(`comments-${aspirationId}`, JSON.stringify(updatedComments));
             setNewComment("");
         } catch (e) {
             setError("Gagal memproses komentar.");

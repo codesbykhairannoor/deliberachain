@@ -16,45 +16,22 @@ export default function ClientLayoutWrapper({ children }: { children: React.Reac
   const account = useActiveAccount();
   const router = useRouter();
 
-  // Redirect & State Persistence Logic
-  useEffect(() => {
-    if (account) {
-      // Simpan status di cache browser agar saat refresh tidak "kedip"
-      localStorage.setItem("delib_login_status", "true");
-      
-      if (pathname === "/") {
-        router.push("/dashboard");
-      }
-    } else {
-      // Jika logout, hapus cache-nya
-      localStorage.removeItem("delib_login_status");
-    }
-  }, [account, pathname, router]);
+  // Paths that should use the Dashboard/App layout
+  const appPaths = [
+    "/dashboard",
+    "/profile",
+    "/explore",
+    "/admin",
+    "/view",
+    "/community", // If community is internal
+  ];
 
-  // Cek apakah sebelumnya pernah login (untuk UX yang lebih mulus)
-  const [hasPreviousSession, setHasPreviousSession] = useState(false);
-  useEffect(() => {
-    const status = localStorage.getItem("delib_login_status");
-    if (status === "true") setHasPreviousSession(true);
-  }, []);
-  
-  // 1. Jika SEDANG LOADING (Pernah login tapi data wallet belum dapet)
-  // Menghindari Landing Page muncul sekilas saat refresh
-  if (!account && hasPreviousSession && pathname === "/") {
-    return (
-        <div className="min-h-screen bg-[#050505] flex items-center justify-center">
-            <div className="flex flex-col items-center gap-4 text-vault-amber animate-pulse">
-                <div className="w-12 h-12 border-4 border-vault-amber/30 border-t-vault-amber rounded-full animate-spin"></div>
-                <p className="text-xs font-black uppercase tracking-widest">Reconnecting Session...</p>
-            </div>
-        </div>
-    );
-  }
+  const isAppPath = appPaths.some(path => pathname === path || pathname.startsWith(path + "/"));
 
-  // 2. Logged in ...
-  if (account) {
+  // 1. App Layout (Logged In + App Path)
+  if (account && isAppPath) {
     return (
-      <div className="min-h-screen bg-[#050505] flex">
+      <div className="min-h-screen bg-background flex">
         <Sidebar />
         <div className="flex-1 ml-64 min-h-screen relative">
           <AppHeader />
@@ -66,11 +43,11 @@ export default function ClientLayoutWrapper({ children }: { children: React.Reac
     );
   }
 
-  // 3. Landing experience
+  // 2. Marketing / Pre-login Layout
   return (
-    <div className="min-h-screen bg-[#050505]">
+    <div className="min-h-screen bg-background">
        <Navbar client={client} />
-       <main>{children}</main>
+       <main className="min-h-screen">{children}</main>
        <Footer />
     </div>
   );

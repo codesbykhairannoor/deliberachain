@@ -6,6 +6,7 @@ import { baseSepolia } from "thirdweb/chains";
 import { useState, useMemo } from "react";
 import { useLanguageStore } from "@/lib/store";
 import { translations } from "@/lib/translations";
+import ClientOnly from "@/components/ClientOnly";
 import { 
   PlusSquare, 
   MessageSquare, 
@@ -89,42 +90,44 @@ function DashboardContent() {
     <div className="p-20 text-white flex flex-col items-center animate-in fade-in">
         <LayoutGrid size={48} className="text-slate-700 mb-4" />
         <p className="text-slate-500 mb-8">{t.lockedMsg}</p>
-        <ConnectButton 
-          client={client} 
-          theme="dark" 
-          accountAbstraction={{
-            chain: baseSepolia,
-            sponsorGas: true,
-          }}
-        />
+        <ClientOnly>
+            <ConnectButton 
+            client={client} 
+            theme="dark" 
+            accountAbstraction={{
+                chain: baseSepolia,
+                sponsorGas: true,
+            }}
+            />
+        </ClientOnly>
     </div>
   );
 
   return (
-    <div className="animate-in slide-in-from-bottom-4 duration-500">
-      {/* HEADER SECTION - NO TABS HERE ANYMORE */}
-      <div className="flex flex-col md:flex-row justify-between items-end mb-12 border-b border-white/5 pb-8 font-sans">
+    <div className="animate-in slide-in-from-bottom-4 duration-500 max-w-7xl mx-auto px-4 md:px-0">
+      {/* HEADER SECTION */}
+      <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-8 md:mb-12 border-b border-white/5 pb-6 md:pb-8 font-sans gap-4">
           <div>
               <div className="flex items-center gap-2 mb-2">
                  <span className="w-2 h-2 bg-vault-amber rounded-full animate-pulse shadow-[0_0_10px_rgba(245,158,11,0.5)]"></span>
-                 <span className="text-xs font-mono text-vault-amber uppercase tracking-widest font-black">Citizen Portal</span>
+                 <span className="text-[10px] md:text-xs font-mono text-vault-amber uppercase tracking-widest font-black">Citizen Portal</span>
               </div>
-              <h1 className="text-4xl font-black text-white flex items-center gap-3">
-                 {activeTab.toUpperCase()} <Sparkles size={24} className="text-vault-amber" />
+              <h1 className="text-3xl md:text-5xl font-black text-white flex items-center gap-3 tracking-tighter uppercase">
+                 {activeTab} <Sparkles size={28} className="text-vault-amber" />
               </h1>
-              <p className="text-slate-500 font-mono mt-1 text-sm">
-                 Security Context: <span className="text-vault-amber">{account.address.substring(0, 10)}...{account.address.substring(account.address.length - 4)}</span>
+              <p className="text-slate-500 font-mono mt-1 text-[10px] md:text-sm">
+                 Context: <span className="text-vault-amber">{account.address.substring(0, 8)}...{account.address.substring(account.address.length - 4)}</span>
               </p>
           </div>
       </div>
 
       {/* DYNAMIC CONTENT AREA */}
-      <div className="min-h-[60vh]">
+      <div className="min-h-[50vh]">
           {activeTab === "discovery" && (
              <div className="animate-in fade-in slide-in-from-left-4 duration-500">
                 <div className="flex items-center gap-3 mb-8">
-                   <div className="h-1 w-12 bg-vault-amber rounded-full"></div>
-                   <h3 className="text-xl font-bold text-white uppercase tracking-tighter">Global Deliberation Feed</h3>
+                   <div className="h-1 w-8 md:w-12 bg-vault-amber rounded-full"></div>
+                   <h3 className="text-lg md:text-xl font-bold text-white uppercase tracking-tighter">Global Deliberation Feed</h3>
                 </div>
                 <Gallery 
                    key={`discovery-${refreshTrigger}`} 
@@ -137,18 +140,18 @@ function DashboardContent() {
 
           {activeTab === "feed" && (
              <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 animate-in fade-in slide-in-from-left-4 duration-500">
-                <div className="lg:col-span-8">
+                <div className="lg:col-span-8 order-2 lg:order-1">
                    <h3 className="text-xl font-bold text-white mb-6">Aspirasi Saya</h3>
                    <Gallery key={`myfeed-${refreshTrigger}`} contract={contract} address={account.address} client={client} />
                 </div>
-                <div className="lg:col-span-4 space-y-6">
+                <div className="lg:col-span-4 space-y-6 order-1 lg:order-2">
                    <CivicBadge score={calculateCivicScore(stats.count, 0, 0)} />
                    
                    <div className="bg-vault-card border border-white/5 p-6 rounded-3xl">
-                      <h4 className="font-bold text-white mb-4 flex items-center gap-2 uppercase text-xs tracking-widest">
+                      <h4 className="font-bold text-white mb-4 flex items-center gap-2 uppercase text-[10px] tracking-widest">
                         <Trophy size={16} className="text-vault-amber" /> Real-time Civic Power
                       </h4>
-                      <div className="space-y-4">
+                      <div className="space-y-3">
                          <StatRow icon={Target} label="Misi Selesai" value={stats.count} />
                          <StatRow icon={Zap} label="Impact Score" value={stats.impact} />
                          <StatRow icon={Trophy} label="Level Civic" value={stats.level} specialColor={stats.color} />
@@ -173,8 +176,8 @@ function DashboardContent() {
           {activeTab === "form" && (
              <div className="max-w-2xl mx-auto animate-in zoom-in-95 duration-500">
                 <div className="text-center mb-10">
-                   <h2 className="text-3xl font-black text-white mb-2 uppercase tracking-tighter">Voice of the <span className="text-vault-amber">People</span></h2>
-                   <p className="text-slate-500 italic">Sampaikan aspirasimu langsung ke Ledger Blockchain.</p>
+                   <h2 className="text-3xl md:text-5xl font-black text-white mb-2 uppercase tracking-tighter leading-none">Voice of the <span className="text-vault-amber">People</span></h2>
+                   <p className="text-slate-500 italic text-sm">Sampaikan aspirasimu langsung ke Ledger Blockchain.</p>
                 </div>
                 <UploadForm client={client} contract={contract} onSuccess={() => {
                    router.push("/dashboard?tab=feed");

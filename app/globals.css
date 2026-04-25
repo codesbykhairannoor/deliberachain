@@ -1,15 +1,25 @@
 @import "tailwindcss";
 
 :root {
-  /* Warna Background & Foreground Utama */
-  --background: #050505; /* Hitam Pekat Vault */
+  /* Light Mode Variables */
+  --background: #FFFFFF;
+  --foreground: #0F172A;
+  --vault-black: #FFFFFF;
+  --vault-card: #F1F5F9;
+  --vault-amber: #F59E0B;
+  --vault-gold: #B45309;
+  --border: #E2E8F0;
+}
+
+.dark {
+  /* Dark Mode Variables (Original Vault) */
+  --background: #050505;
   --foreground: #E2E8F0;
-  
-  /* Definisi Warna Vault (Biar class bg-vault-amber dkk jalan) */
   --vault-black: #050505;
   --vault-card: #111111;
   --vault-amber: #F59E0B;
   --vault-gold: #B45309;
+  --border: #1E293B;
 }
 
 @theme inline {
@@ -21,31 +31,58 @@
   --color-vault-card: var(--vault-card);
   --color-vault-amber: var(--vault-amber);
   --color-vault-gold: var(--vault-gold);
+  --color-border: var(--border);
 
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-/* Override default dark mode browser agar tetap pakai warna Vault kita */
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #050505;
-    --foreground: #ededed;
-  }
+  --font-sans: var(--font-plus-jakarta-sans);
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
   min-height: 100vh;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* Fix tambahan: Pastikan input & card terlihat rapi tanpa Tailwind config terpisah */
+/* Animations from Blueprint */
+@keyframes float {
+    0%, 100% { transform: translateY(0) rotate(3deg); }
+    50% { transform: translateY(15px) rotate(3deg); }
+}
+
+@keyframes bounce-slow {
+    0%, 100% { transform: translateY(0) rotate(-1deg); }
+    50% { transform: translateY(-10px) rotate(-1deg); }
+}
+
+@keyframes skel-loading {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(400%); }
+}
+
+.animate-float { animation: float 6s ease-in-out infinite; }
+.animate-bounce-slow { animation: bounce-slow 5s ease-in-out infinite; }
+
+/* Custom Textures */
+.bg-pattern-grid {
+    background-image: radial-gradient(rgba(245, 158, 11, 0.08) 1px, transparent 0);
+    background-size: 40px 40px;
+}
+
+.bg-pattern-diagonal {
+    background: repeating-linear-gradient(45deg, rgba(245, 158, 11, 0.03) 0px, rgba(245, 158, 11, 0.03) 1px, transparent 1px, transparent 10px);
+}
+
+/* Fix tambahan: Pastikan input & card terlihat rapi */
 @layer base {
   input, select, textarea {
-    background-color: #1A1A1A !important;
-    border: 1px solid rgba(255, 255, 255, 0.1) !important;
-    color: white !important;
+    background-color: var(--vault-card) !important;
+    border: 1px solid var(--border) !important;
+    color: var(--foreground) !important;
+    border-radius: 12px !important;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+      letter-spacing: -0.02em;
+      text-transform: none !important;
   }
 }
