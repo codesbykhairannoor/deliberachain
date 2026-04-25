@@ -39,7 +39,7 @@ export default function HomePage() {
                     className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-vault-amber/30 bg-vault-amber/5 text-vault-amber font-black text-[10px] tracking-[0.2em] uppercase mb-8"
                   >
                       <span className="flex h-1.5 w-1.5 rounded-full bg-vault-amber animate-pulse"></span>
-                      Next-Gen Digital Governance
+                      {t.homeBadge}
                   </motion.div>
 
                   <motion.h1 
@@ -116,7 +116,7 @@ export default function HomePage() {
       {/* 2. TRUST BAR - Clean Grid */}
       <section className="py-20 border-b border-white/5 bg-white/2">
           <div className="max-w-7xl mx-auto px-6">
-              <p className="text-center text-[10px] font-black uppercase tracking-[0.3em] text-muted-foreground mb-12">{lang === 'id' ? "Segmen Pengguna Potensial" : "Potential User Segments"}</p>
+              <p className="text-center text-[10px] font-black uppercase tracking-[0.3em] text-muted-foreground mb-12">{t.homeTrustBarTitle}</p>
               <div className="flex flex-wrap items-center justify-center gap-12 md:gap-24 opacity-20 grayscale group hover:opacity-100 transition-all duration-700">
                   <div className="text-2xl font-black text-foreground flex items-center gap-2 italic">INSTITUSI <span className="text-vault-amber">PENDIDIKAN</span></div>
                   <div className="text-2xl font-black text-foreground flex items-center gap-2 italic">PEMERINTAH <span className="text-vault-amber">DAERAH</span></div>
@@ -141,20 +141,20 @@ export default function HomePage() {
                       </div>
                       <h3 className="text-2xl font-bold text-foreground mb-6 flex items-center gap-4">
                           <span className="w-8 h-8 rounded-full bg-red-500/20 flex items-center justify-center text-red-500 text-xs">01</span>
-                          Sistem Konvensional
+                          {t.homeConvTitle}
                       </h3>
                       <ul className="space-y-6 text-muted-foreground">
                           <li className="flex gap-4">
                               <div className="mt-1.5 w-1.5 h-1.5 rounded-full bg-red-500 shrink-0"></div>
-                              <span>Data aspirasi mudah dimanipulasi atau dihapus oleh oknum.</span>
+                              <span>{t.homeConv1}</span>
                           </li>
                           <li className="flex gap-4">
                               <div className="mt-1.5 w-1.5 h-1.5 rounded-full bg-red-500 shrink-0"></div>
-                              <span>Kurangnya transparansi tindak lanjut kebijakan.</span>
+                              <span>{t.homeConv2}</span>
                           </li>
                           <li className="flex gap-4">
                               <div className="mt-1.5 w-1.5 h-1.5 rounded-full bg-red-500 shrink-0"></div>
-                              <span>Birokrasi yang lambat merespon ribuan suara rakyat.</span>
+                              <span>{t.homeConv3}</span>
                           </li>
                       </ul>
                   </div>
@@ -165,20 +165,20 @@ export default function HomePage() {
                       </div>
                       <h3 className="text-2xl font-bold text-foreground mb-6 flex items-center gap-4">
                           <span className="w-8 h-8 rounded-full bg-vault-amber/20 flex items-center justify-center text-vault-amber text-xs">02</span>
-                          Protokol Dlibration
+                          {t.homeProtTitle}
                       </h3>
                       <ul className="space-y-6 text-slate-200">
                           <li className="flex gap-4">
                               <div className="mt-1.5 w-1.5 h-1.5 rounded-full bg-vault-amber shrink-0"></div>
-                              <span>Immutable Blockchain Records: Data abadi & transparan.</span>
+                              <span>{t.homeProt1}</span>
                           </li>
                           <li className="flex gap-4">
                               <div className="mt-1.5 w-1.5 h-1.5 rounded-full bg-vault-amber shrink-0"></div>
-                              <span>AI-Driven Analysis: Ringkasan kebijakan otomatis dalam hitungan detik.</span>
+                              <span>{t.homeProt2}</span>
                           </li>
                           <li className="flex gap-4">
                               <div className="mt-1.5 w-1.5 h-1.5 rounded-full bg-vault-amber shrink-0"></div>
-                              <span>Real-time Public Audit: Setiap tindakan pemerintah terpantau.</span>
+                              <span>{t.homeProt3}</span>
                           </li>
                       </ul>
                   </div>
@@ -225,7 +225,7 @@ export default function HomePage() {
               <div className="bg-vault-card border border-white/10 rounded-[4rem] p-12 lg:p-24 relative overflow-hidden text-center">
                   <div className="absolute inset-0 bg-vault-amber/5 -z-10 blur-3xl"></div>
                   <h2 className="text-4xl md:text-6xl font-black text-foreground mb-8 tracking-tighter">{t.impactProjectionTitle}</h2>
-                  <p className="text-muted-foreground font-medium max-w-2xl mx-auto mb-20">{lang === 'id' ? "Protokol kami dirancang untuk mencapai skala dampak berikut pada tahun pertama implementasi." : "Our protocol is designed to achieve the following impact scale in its first year of implementation."}</p>
+                  <p className="text-muted-foreground font-medium max-w-2xl mx-auto mb-20">{t.homeImpactSub}</p>
                   
                   <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
                       <div className="p-8">
@@ -253,7 +253,7 @@ export default function HomePage() {
       <section className="py-40 border-t border-white/5">
           <div className="max-w-5xl mx-auto px-6 text-center">
               <h2 className="text-4xl md:text-7xl font-black text-foreground mb-12 tracking-tighter leading-tight">
-                  {lang === 'id' ? "Siap Membangun Masa Depan" : "Ready to Build the Future"} <br/> <span className="text-vault-amber">Demokrasi Digital?</span>
+                  {t.homeFinalCTATitle.split(' Demokrasi')[0]} <br/> <span className="text-vault-amber">{lang === 'id' ? 'Demokrasi Digital?' : 'Digital Democracy?'}</span>
               </h2>
               <Link href="/dashboard" className="inline-flex items-center gap-4 bg-vault-amber text-black px-12 py-6 rounded-2xl font-black text-xl hover:scale-105 transition-all shadow-2xl">
                   {t.btnGetStarted} <ArrowRight size={24} />

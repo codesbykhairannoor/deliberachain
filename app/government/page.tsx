@@ -17,15 +17,51 @@ import {
   ArrowRight,
   Sparkles,
   Database,
-  Cpu
+  Cpu,
+  Loader2
 } from "lucide-react";
 import Link from "next/link";
+import { useRole } from "@/hooks/useRole";
+import GovernmentPostForm from "@/components/GovernmentPostForm";
+import AccessRestricted from "@/components/AccessRestricted";
 
 export default function GovernmentPage() {
   const { lang } = useLanguageStore();
   const t = translations[lang as keyof typeof translations];
+  const { role, jurisdiction, isLoading } = useRole();
 
-  return (
+  if (isLoading) return (
+    <div className="min-h-screen bg-background flex flex-col items-center justify-center text-foreground p-6">
+        <Loader2 className="animate-spin text-vault-amber mb-6" size={48} />
+        <p className="text-[10px] font-black uppercase tracking-[0.4em] opacity-60 italic">{t.verifyingInstitutional}</p>
+    </div>
+  );
+
+  // If the user is logged in as GOVERNMENT or ADMIN, show the actual POSTING DASHBOARD
+  if (role === "GOVERNMENT" || role === "ADMIN") {
+      return (
+        <div className="bg-background min-h-screen pt-40 pb-40 relative overflow-hidden text-foreground">
+            <div className="bg-pattern-grid absolute inset-0 opacity-5 -z-10"></div>
+            <div className="max-w-4xl mx-auto px-6">
+                <div className="mb-16">
+                    <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-vault-amber/30 bg-vault-amber/5 text-vault-amber font-black text-[10px] tracking-[0.2em] uppercase mb-8 shadow-sm">
+                        <ShieldCheck size={14} /> {t.authorityDashboard}
+                    </div>
+                    <h1 className="text-5xl md:text-7xl font-black text-foreground tracking-tighter uppercase leading-none italic mb-4">
+                        Policy <span className="text-vault-amber">{lang === 'id' ? 'Kontrol.' : 'Control.'}</span>
+                    </h1>
+                    <p className="text-muted-foreground font-medium text-lg italic opacity-80">
+                        {t.broadcastSub} <span className="text-foreground font-black underline">{jurisdiction || t.globalTerritory}</span>.
+                    </p>
+                </div>
+
+                <GovernmentPostForm jurisdiction={jurisdiction || "GLOBAL"} author={role} />
+            </div>
+        </div>
+      );
+  }
+
+  // ELSE: SHOW THE LANDING PAGE CONTENT (B2G MARKETING)
     <div className="bg-background min-h-screen pt-48 pb-40 relative overflow-hidden text-foreground">
       <div className="bg-pattern-grid absolute inset-0 opacity-10 -z-10"></div>
       

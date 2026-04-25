@@ -20,7 +20,9 @@ import {
   ArrowRight,
   Shield,
   TrendingUp,
-  Activity
+  Activity,
+  Megaphone,
+  BookOpen
 } from "lucide-react";
 
 import { useSearchParams, useRouter } from "next/navigation";
@@ -33,6 +35,8 @@ import CivicBadge from "@/components/CivicBadge";
 import { calculateCivicScore } from "@/lib/gamification";
 import { useTheme } from "next-themes";
 import AccessRestricted from "@/components/AccessRestricted";
+import PolicyBulletins from "@/components/PolicyBulletins";
+import GuidePage from "@/app/guide/page";
 
 const client = createThirdwebClient({ clientId: process.env.NEXT_PUBLIC_THIRDWEB_CLIENT_ID || "" });
 const contract = getContract({ client, chain: baseSepolia, address: process.env.NEXT_PUBLIC_CONTRACT_ADDRESS || "" });
@@ -50,6 +54,8 @@ export default function DashboardPage() {
         roomTitle: "Debate Hub",
         kritikTitle: "Civic Reports",
         formTitle: "Suara Rakyat",
+        updatesTitle: "Kebijakan Terbaru",
+        guideTitle: "Panduan Penggunaan",
         globalFeed: "Global Public Feed",
         impactScore: "Skor Dampak",
         civicLevel: "Level Civic",
@@ -68,6 +74,8 @@ export default function DashboardPage() {
         roomTitle: "Debate Hub",
         kritikTitle: "Civic Reports",
         formTitle: "Voice of the People",
+        updatesTitle: "Policy Updates",
+        guideTitle: "Platform Guide",
         globalFeed: "Global Public Feed",
         impactScore: "Impact Score",
         civicLevel: "Civic Level",
@@ -149,11 +157,13 @@ function DashboardContent({ dt }: { dt: any }) {
                  {activeTab === "room" && dt.roomTitle}
                  {activeTab === "kritik" && dt.kritikTitle}
                  {activeTab === "form" && dt.formTitle}
+                 {activeTab === "updates" && dt.updatesTitle}
+                 {activeTab === "guide" && dt.guideTitle}
               </h1>
           </div>
           <div className="flex lg:justify-end gap-3">
               <div className="bg-muted px-6 py-3 rounded-2xl border border-border flex flex-col">
-                  <span className="text-[10px] font-black text-muted-foreground uppercase tracking-widest mb-1">Citizen Hash</span>
+                  <span className="text-[10px] font-black text-muted-foreground uppercase tracking-widest mb-1">{t.citizenHash}</span>
                   <span className="text-sm font-mono font-bold text-vault-amber">{account.address.substring(0, 10)}...</span>
               </div>
           </div>
@@ -169,7 +179,7 @@ function DashboardContent({ dt }: { dt: any }) {
                         <h3 className="text-2xl font-black text-foreground uppercase tracking-tighter">{dt.globalFeed}</h3>
                     </div>
                     <div className="flex items-center gap-2 text-xs font-black text-muted-foreground uppercase tracking-widest bg-muted px-4 py-2 rounded-xl border border-border">
-                        <TrendingUp size={14} className="text-green-500" /> Live Updates
+                        <TrendingUp size={14} className="text-green-500" /> {t.liveUpdates}
                     </div>
                 </div>
                 <Gallery 
@@ -218,13 +228,13 @@ function DashboardContent({ dt }: { dt: any }) {
                         <Sparkles size={32} className="mb-6" />
                         <h4 className="text-2xl font-black tracking-tighter uppercase mb-4 leading-none">{dt.readyToLead}</h4>
                         <p className="text-sm font-bold opacity-80 mb-8 leading-relaxed">
-                            {lang === 'id' ? 'Tingkatkan level patriotmu dengan berpartisipasi dalam setiap debat publik.' : 'Increase your patriot level by participating in every public debate.'}
+                            {t.patriotLevelTip}
                         </p>
                         <button 
                             onClick={() => router.push("/dashboard?tab=form")}
                             className="w-full bg-black text-white py-4 rounded-2xl font-black flex items-center justify-center gap-3 hover:scale-105 transition-transform"
                         >
-                            Sampaikan Aspirasi <ArrowRight size={20} />
+                            {t.navDashboard} <ArrowRight size={20} />
                         </button>
                    </div>
                 </div>
@@ -249,13 +259,27 @@ function DashboardContent({ dt }: { dt: any }) {
                    <div className="w-20 h-20 bg-vault-amber rounded-3xl flex items-center justify-center mx-auto mb-8 shadow-2xl text-black">
                         <MessageSquare size={40} />
                    </div>
-                   <h2 className="text-4xl md:text-6xl font-black text-foreground mb-4 uppercase tracking-tighter leading-none">Voice of the <span className="text-vault-amber">People.</span></h2>
+                   <h2 className="text-4xl md:text-6xl font-black text-foreground mb-4 uppercase tracking-tighter leading-none">{t.voiceOfThePeople.split(' People.')[0]} People<span className="text-vault-amber">.</span></h2>
                    <p className="text-muted-foreground font-medium text-lg max-w-md mx-auto leading-relaxed">{dt.uploadSub}</p>
                 </div>
                 <UploadForm client={client} contract={contract} onSuccess={() => {
                    router.push("/dashboard?tab=feed");
                    setRefreshTrigger(p => p + 1);
                 }} />
+             </div>
+          )}
+
+          {activeTab === "updates" && (
+             <div className="max-w-4xl mx-auto animate-in fade-in slide-in-from-right-4 duration-500">
+                <PolicyBulletins />
+             </div>
+          )}
+
+          {activeTab === "guide" && (
+             <div className="max-w-5xl mx-auto animate-in fade-in slide-in-from-bottom-4 duration-500 bg-background border border-border rounded-[3.5rem] overflow-hidden">
+                <div className="p-8 md:p-12">
+                   <GuidePage />
+                </div>
              </div>
           )}
       </div>

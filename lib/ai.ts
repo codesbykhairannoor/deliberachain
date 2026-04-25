@@ -66,19 +66,18 @@ export async function processAspiration(description: string): Promise<Aspiration
 
 export async function moderateContent(text: string): Promise<{ isSafe: boolean; reason?: string }> {
   const prompt = `
-    Analyze the following text for hate speech, harassment, vulgarity, or RELEVANCY.
+    Analyze the following text ONLY for hate speech, harassment, vulgarity, or dangerous content.
     
-    CRITICAL: 
-    1. Detect vulgarity/insults (e.g. "anjing", "babi", "tolol").
-    2. IRRELEVANT random chatter or personal status (e.g., "aku lagi makan", "panas ya hari ini"). 
-    3. IMPORTANT: Constructive criticism or complaints about government services/infrastructure (e.g., "jalan rusak", "pelayanan lama") are SAFE and RELEVANT. Do NOT mark them as false.
+    RULES:
+    1. REJECT (isSafe: false) ONLY if the text contains explicit insults, hate speech, or dangerous instructions.
+    2. ACCEPT (isSafe: true) all other content, even if it is a complaint or criticism about the government or public services.
     
     Text: "${text}"
     
     Response format (valid JSON only):
     {
       "isSafe": true | false,
-      "reason": "Brief reason in Indonesian (e.g., 'Bahasa tidak sopan')"
+      "reason": "Brief reason in Indonesian if unsafe"
     }
   `;
   try {

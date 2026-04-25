@@ -13,10 +13,13 @@ import {
   Flame,
   AlertCircle,
   History,
-  X
+  X,
+  Megaphone
 } from "lucide-react";
 import { useRole } from "@/hooks/useRole";
 import { motion, AnimatePresence } from "framer-motion";
+import { useLanguageStore } from "@/lib/store";
+import { translations } from "@/lib/translations";
 
 interface SidebarProps {
   isOpen?: boolean;
@@ -28,23 +31,26 @@ export default function Sidebar({ isOpen, onClose }: SidebarProps) {
   const searchParams = useSearchParams();
   const activeTab = searchParams.get("tab") || "discovery";
   const { role } = useRole();
+  const { lang } = useLanguageStore();
+  const t = translations[lang as keyof typeof translations];
 
   const mainItems = [
-    { name: "Profil Saya", href: "/profile", icon: User, roles: ["CITIZEN", "ADMIN", "GOVERNMENT"] },
-    { name: "Explore Room", href: "/explore", icon: Globe, roles: ["CITIZEN", "ADMIN", "GOVERNMENT"] },
-    { name: "Panduan", href: "/guide", icon: BookOpen, roles: ["CITIZEN", "ADMIN", "GOVERNMENT"] },
+    { name: t.navProfile, href: "/profile", icon: User, roles: ["CITIZEN", "ADMIN", "GOVERNMENT"] },
+    { name: t.navGlobal, href: "/explore", icon: Globe, roles: ["CITIZEN", "ADMIN", "GOVERNMENT"] },
+    { name: t.navGuide, href: "/dashboard?tab=guide", icon: BookOpen, roles: ["CITIZEN", "ADMIN", "GOVERNMENT"] },
   ];
 
   const civicHeroItems = [
-    { name: "Public Feed", tab: "discovery", icon: Globe, roles: ["CITIZEN", "ADMIN", "GOVERNMENT"] },
-    { name: "My Activity", tab: "feed", icon: History, roles: ["CITIZEN", "ADMIN", "GOVERNMENT"] },
-    { name: "Debate Hub", tab: "room", icon: Flame, roles: ["CITIZEN", "ADMIN", "GOVERNMENT"] },
-    { name: "Civic Reports", tab: "kritik", icon: AlertCircle, roles: ["CITIZEN", "ADMIN", "GOVERNMENT"] },
+    { name: t.navPublicFeed, tab: "discovery", icon: Globe, roles: ["CITIZEN", "ADMIN", "GOVERNMENT"] },
+    { name: t.navMyActivity, tab: "feed", icon: History, roles: ["CITIZEN", "ADMIN", "GOVERNMENT"] },
+    { name: t.navDebateHub, tab: "room", icon: Flame, roles: ["CITIZEN", "ADMIN", "GOVERNMENT"] },
+    { name: t.navCivicReports, tab: "kritik", icon: AlertCircle, roles: ["CITIZEN", "ADMIN", "GOVERNMENT"] },
+    { name: t.navPolicyUpdates, tab: "updates", icon: Megaphone, roles: ["CITIZEN", "ADMIN", "GOVERNMENT"] },
   ];
 
   const authItems = [
-    { name: "Gov Analytics", href: "/government", icon: ShieldCheck, roles: ["ADMIN", "GOVERNMENT"] },
-    { name: "System Admin", href: "/admin", icon: Settings, roles: ["ADMIN"] },
+    { name: t.navGovAnalytics, href: "/government", icon: ShieldCheck, roles: ["ADMIN", "GOVERNMENT"] },
+    { name: t.navSystemAdmin, href: "/admin", icon: Settings, roles: ["ADMIN"] },
   ];
 
   const sidebarContent = (
@@ -77,13 +83,13 @@ export default function Sidebar({ isOpen, onClose }: SidebarProps) {
              }`}
            >
               <PlusSquare size={18} />
-              <span>Sampaikan Aspirasi</span>
+              <span>{t.uploadTitle}</span>
            </Link>
         )}
 
         {/* SECTION: CIVIC HUB */}
         <div className="space-y-1">
-           <p className="px-4 text-[10px] font-black text-muted-foreground uppercase tracking-[0.2em] mb-2">Civic Hub</p>
+           <p className="px-4 text-[10px] font-black text-muted-foreground uppercase tracking-[0.2em] mb-2">{lang === 'id' ? 'Pusat Warga' : 'Civic Hub'}</p>
            {civicHeroItems.map((item) => {
               const isActive = pathname === "/dashboard" && activeTab === item.tab;
               return (
@@ -108,7 +114,7 @@ export default function Sidebar({ isOpen, onClose }: SidebarProps) {
 
         {/* SECTION: GENERAL */}
         <div className="space-y-1">
-           <p className="px-4 text-[10px] font-black text-muted-foreground uppercase tracking-[0.2em] mb-2">General</p>
+           <p className="px-4 text-[10px] font-black text-muted-foreground uppercase tracking-[0.2em] mb-2">{lang === 'id' ? 'Umum' : 'General'}</p>
            {mainItems.map((item) => {
               const isActive = pathname === item.href;
               return (
@@ -134,7 +140,7 @@ export default function Sidebar({ isOpen, onClose }: SidebarProps) {
         {/* SECTION: AUTHORITY */}
         {(role === "ADMIN" || role === "GOVERNMENT") && (
            <div className="space-y-1">
-              <p className="px-4 text-[10px] font-black text-muted-foreground uppercase tracking-[0.2em] mb-2">Authority</p>
+              <p className="px-4 text-[10px] font-black text-muted-foreground uppercase tracking-[0.2em] mb-2">{lang === 'id' ? 'Otoritas' : 'Authority'}</p>
               {authItems.map((item) => {
                  const isActive = pathname === item.href;
                  return (
@@ -162,7 +168,7 @@ export default function Sidebar({ isOpen, onClose }: SidebarProps) {
       {/* Role Badge Footer */}
       <div className="p-6 border-t border-border mt-auto">
         <div className="bg-muted p-4 rounded-2xl border border-border">
-           <p className="text-[10px] text-muted-foreground uppercase font-black mb-1">Authenticated As</p>
+           <p className="text-[10px] text-muted-foreground uppercase font-black mb-1">{t.navAuthenticatedAs}</p>
            <div className="flex items-center justify-between">
               <span className="text-xs font-bold text-foreground tracking-wide">{role}</span>
               <ShieldCheck size={14} className={role === "ADMIN" ? "text-red-500" : role === "GOVERNMENT" ? "text-vault-amber" : "text-blue-500"} />
