@@ -62,6 +62,7 @@ export default function GovernmentPage() {
   }
 
   // ELSE: SHOW THE LANDING PAGE CONTENT (B2G MARKETING)
+  return (
     <div className="bg-background min-h-screen pt-48 pb-40 relative overflow-hidden text-foreground">
       <div className="bg-pattern-grid absolute inset-0 opacity-10 -z-10"></div>
       
