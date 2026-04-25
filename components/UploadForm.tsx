@@ -286,7 +286,6 @@ export default function UploadForm({ client, contract, onSuccess }: UploadFormPr
             </div>
         </div>
       </div>
-      </div>
     </div>
   );
 }
