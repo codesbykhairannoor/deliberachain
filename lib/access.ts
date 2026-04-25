@@ -17,6 +17,7 @@ export const GOV_EMAILS: Record<string, string> = {
   "dinas_kesehatan@gmail.com": "KESEHATAN-KOTA",
   "admin@unpad.ac.id": "UNPAD",
   "gov@jakarta.go.id": "JAKARTA",
+  "khairking6@gmail.com": "UNIVERSITAS-KHAIRAN",
 };
 
 export const ADMIN_WALLETS = [

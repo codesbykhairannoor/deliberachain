@@ -2,7 +2,7 @@
 
 import { useReadContract, MediaRenderer, useSendTransaction } from "thirdweb/react";
 import { ThirdwebContract, ThirdwebClient } from "thirdweb";
-import { ExternalLink, FileText, RefreshCw, FolderOpen, ThumbsUp, ThumbsDown, Sparkles, Fingerprint, Lock, ShieldCheck, Share2 } from "lucide-react";
+import { ExternalLink, FileText, RefreshCw, FolderOpen, ThumbsUp, ThumbsDown, Sparkles, Fingerprint, Lock, ShieldCheck, Share2, Copy, Check } from "lucide-react";
 import { useLanguageStore } from "@/lib/store";
 import { translations } from "@/lib/translations";
 import CommentSection from "./CommentSection";
@@ -159,7 +159,18 @@ export default function Gallery({ contract, address, client }: GalleryProps) {
                                 
                                 {!isSecret && (
                                     <div className="absolute bottom-6 left-6 right-6 p-4 bg-background/90 backdrop-blur-md rounded-2xl border border-border flex flex-col shadow-lg transform translate-y-2 group-hover/media:translate-y-0 transition-transform">
-                                        <span className="text-[10px] text-muted-foreground uppercase font-black tracking-widest mb-1">{t.metadataHash}</span>
+                                        <div className="flex justify-between items-center mb-1">
+                                            <span className="text-[10px] text-muted-foreground uppercase font-black tracking-widest">{t.metadataHash}</span>
+                                            <button 
+                                                onClick={() => {
+                                                    navigator.clipboard.writeText(asset.cid);
+                                                    alert("CID Copied to Clipboard!");
+                                                }}
+                                                className="text-vault-amber hover:text-white transition-colors"
+                                            >
+                                                <Copy size={12} />
+                                            </button>
+                                        </div>
                                         <span className="text-[10px] text-vault-amber font-mono font-bold truncate">{asset.cid}</span>
                                     </div>
                                 )}
@@ -230,9 +241,12 @@ export default function Gallery({ contract, address, client }: GalleryProps) {
                                                 href={`https://sepolia.basescan.org/address/${contract.address}`} 
                                                 target="_blank" rel="noopener noreferrer"
                                                 className="flex-1 bg-background hover:bg-muted border border-border flex items-center justify-center rounded-[1.5rem] transition-all group"
-                                                title="Blockchain Audit Trail"
+                                                title={lang === 'id' ? "Verifikasi Blockchain" : "Verify on Blockchain"}
                                             >
-                                                <ExternalLink size={24} className="text-muted-foreground group-hover:text-vault-amber" />
+                                                <div className="flex flex-col items-center gap-1">
+                                                    <ShieldCheck size={24} className="text-muted-foreground group-hover:text-vault-amber" />
+                                                    <span className="text-[8px] font-black uppercase text-muted-foreground group-hover:text-vault-amber">{lang === 'id' ? "AUDIT" : "VERIFY"}</span>
+                                                </div>
                                             </a>
                                         </div>
                                     </>
