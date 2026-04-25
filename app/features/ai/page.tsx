@@ -97,8 +97,8 @@ export default function AiFeaturePage() {
                 </h1>
                 <p className="text-xl text-muted-foreground mb-12 leading-relaxed max-w-xl font-medium">
                     {lang === 'id' 
-                      ? "Dlibration menggunakan Generative AI Pro untuk mentransformasi tumpukan data menjadi kebijakan nyata. Tidak ada lagi aspirasi yang terabaikan karena keterbatasan birokrasi."
-                      : "Dlibration utilizes Generative AI Pro to transform piles of data into real policies. No more ignored aspirations due to bureaucratic limitations."}
+                      ? "Dlibration menggunakan Gemini 2.0 Flash untuk mentransformasi tumpukan data menjadi kebijakan nyata. Tidak ada lagi aspirasi yang terabaikan karena keterbatasan birokrasi."
+                      : "Dlibration utilizes Gemini 2.0 Flash to transform piles of data into real policies. No more ignored aspirations due to bureaucratic limitations."}
                 </p>
                 <div className="flex flex-wrap gap-6">
                     <Link href="/dashboard" className="bg-white text-black px-10 py-5 rounded-2xl font-black flex items-center gap-3 hover:bg-vault-amber transition-all shadow-2xl">

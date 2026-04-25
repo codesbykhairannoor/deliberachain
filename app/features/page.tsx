@@ -26,7 +26,7 @@ export default function FeaturesPage() {
       title: t.featAiTitle,
       desc: t.featAiDesc,
       icon: <Search className="text-vault-amber" size={32} />,
-      badge: "Generative AI Pro",
+      badge: "Gemini 2.0 Flash",
       href: "/features/ai"
     },
     {

@@ -3,13 +3,13 @@
 import { useState } from "react";
 import { prepareContractCall, ThirdwebClient, ThirdwebContract } from "thirdweb";
 import { useSendTransaction } from "thirdweb/react";
-import { Upload, FileUp, ShieldCheck, CheckCircle2, AlertCircle } from "lucide-react";
+import { Upload, FileUp, ShieldCheck, CheckCircle2, AlertCircle, Sparkles, BrainCircuit, Loader2, Fingerprint, Lock } from "lucide-react";
 import { upload } from "thirdweb/storage";
 import { useLanguageStore } from "@/lib/store";
 import { translations } from "@/lib/translations";
 import { processAspirationAction } from "@/app/actions/aspiration";
-import { BrainCircuit, Loader2 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import { useTheme } from "next-themes";
 
 interface UploadFormProps {
   client: ThirdwebClient;
@@ -19,8 +19,9 @@ interface UploadFormProps {
 
 export default function UploadForm({ client, contract, onSuccess }: UploadFormProps) {
   const [title, setTitle] = useState("");
-  const [assetType, setAssetType] = useState("image");
+  const [assetType, setAssetType] = useState("Aspirasi");
   const [file, setFile] = useState<File | null>(null);
+  const { theme } = useTheme();
   
   const [isAiProcessing, setIsAiProcessing] = useState(false);
   const [status, setStatus] = useState<"idle" | "success" | "error">("idle");
@@ -31,7 +32,7 @@ export default function UploadForm({ client, contract, onSuccess }: UploadFormPr
   const { lang } = useLanguageStore();
   const t = translations[lang as keyof typeof translations];
 
-  const { mutate: sendTransaction, isPending: isTxPending, error: txError } = useSendTransaction();
+  const { mutate: sendTransaction, isPending: isTxPending } = useSendTransaction();
 
   const isPending = isAiProcessing || isTxPending;
 
@@ -64,7 +65,6 @@ export default function UploadForm({ client, contract, onSuccess }: UploadFormPr
           setTitle("");
           setFile(null);
           setAreaTag("");
-          // Delay redirect to show success state
           setTimeout(() => {
             onSuccess();
           }, 3000);
@@ -88,95 +88,102 @@ export default function UploadForm({ client, contract, onSuccess }: UploadFormPr
           <motion.div 
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
-            className="bg-vault-card border border-green-500/30 p-12 rounded-[2.5rem] flex flex-col items-center text-center shadow-[0_0_50px_rgba(34,197,94,0.1)]"
+            className="bg-background border border-green-500/30 p-12 md:p-20 rounded-[3rem] flex flex-col items-center text-center shadow-2xl"
           >
-              <div className="w-20 h-20 bg-green-500/20 rounded-full flex items-center justify-center mb-6 border border-green-500/50">
-                  <CheckCircle2 size={40} className="text-green-500" />
+              <div className="w-24 h-24 bg-green-500/10 rounded-full flex items-center justify-center mb-8 border border-green-500/30 shadow-inner">
+                  <CheckCircle2 size={48} className="text-green-500" />
               </div>
-              <h3 className="text-2xl font-black text-foreground mb-2">{t.successMsg}</h3>
-              <p className="text-muted-foreground max-w-xs">{t.msgSuccess}</p>
+              <h3 className="text-3xl font-black text-foreground mb-4 uppercase tracking-tighter">{t.successMsg}</h3>
+              <p className="text-muted-foreground max-w-sm font-medium leading-relaxed">{t.msgSuccess}</p>
               
-              <div className="mt-8 flex items-center gap-2 text-[10px] font-mono text-green-500 uppercase tracking-widest animate-pulse">
-                  <Loader2 size={12} className="animate-spin" /> Synchronizing Ledger...
+              <div className="mt-12 flex items-center gap-3 text-[10px] font-black text-green-500 uppercase tracking-[0.3em] animate-pulse">
+                  <Loader2 size={16} className="animate-spin" /> Synchronizing Digital Ledger...
               </div>
           </motion.div>
       );
   }
 
   return (
-    <div className="bg-vault-card border border-white/10 p-6 md:p-10 rounded-[2.5rem] shadow-2xl backdrop-blur-xl">
-      <h3 className="text-xl font-bold text-foreground mb-8 flex items-center gap-3">
-        <div className="p-2 bg-vault-amber/10 rounded-lg">
-            <Upload size={20} className="text-vault-amber" />
+    <div className="bg-background border border-border p-6 md:p-12 rounded-[3.5rem] shadow-2xl relative overflow-hidden">
+      <div className="absolute top-0 right-0 p-10 opacity-5 -z-10">
+          <BrainCircuit size={120} className="text-vault-amber" />
+      </div>
+
+      <div className="flex items-center gap-4 mb-12">
+        <div className="p-3 bg-vault-amber/10 rounded-2xl border border-vault-amber/20 shadow-inner">
+            <Sparkles size={24} className="text-vault-amber" />
         </div>
-        {t.uploadTitle}
-      </h3>
+        <div>
+            <h3 className="text-2xl font-black text-foreground uppercase tracking-tighter leading-none">{t.uploadTitle}</h3>
+            <p className="text-[10px] font-black text-muted-foreground uppercase tracking-[0.2em] mt-1 italic">Secured by AES-256 & Blockchain</p>
+        </div>
+      </div>
       
-      <div className="space-y-6">
-        <div className="space-y-2">
-            <label className="text-[10px] font-black uppercase tracking-widest text-muted-foreground ml-1">Judul Aspirasi</label>
+      <div className="space-y-8">
+        <div className="space-y-3">
+            <label className="text-[10px] font-black uppercase tracking-widest text-muted-foreground ml-2">Judul Aspirasi / Isu</label>
             <input 
-              className="w-full bg-black/40 border border-white/10 rounded-2xl p-4 text-foreground focus:ring-2 focus:ring-vault-amber outline-none transition-all placeholder:text-slate-700"
+              className="w-full bg-muted border border-border rounded-2xl p-5 text-foreground font-medium focus:ring-2 focus:ring-vault-amber/50 outline-none transition-all placeholder:text-muted-foreground/40 shadow-inner"
               placeholder={t.inputPlaceholder}
               value={title}
               onChange={(e) => setTitle(e.target.value)}
             />
         </div>
 
-        <div className="flex flex-col md:flex-row gap-6">
-            <div className="space-y-2 flex-1">
-                <label className="text-[10px] font-black uppercase tracking-widest text-muted-foreground ml-1">Instansi / Wilayah</label>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div className="space-y-3">
+                <label className="text-[10px] font-black uppercase tracking-widest text-muted-foreground ml-2">Target Instansi / Wilayah</label>
                 <div className="relative group">
-                    <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-muted-foreground group-focus-within:text-vault-amber transition-colors">
-                        <ShieldCheck size={20} />
+                    <div className="absolute inset-y-0 left-0 pl-5 flex items-center pointer-events-none text-muted-foreground group-focus-within:text-vault-amber transition-colors">
+                        <Fingerprint size={22} />
                     </div>
                     <input 
-                    className="w-full bg-black/40 border border-white/10 rounded-2xl p-4 pl-12 text-foreground focus:ring-2 focus:ring-vault-amber outline-none transition-all placeholder:text-slate-700"
-                    placeholder="Contoh: KEMENKES, BALI, UNPAD"
+                    className="w-full bg-muted border border-border rounded-2xl p-5 pl-14 text-foreground font-medium focus:ring-2 focus:ring-vault-amber/50 outline-none transition-all placeholder:text-muted-foreground/40 shadow-inner"
+                    placeholder="Contoh: KEMENKES, BALI"
                     value={areaTag}
                     onChange={(e) => setAreaTag(e.target.value)}
                     />
                 </div>
             </div>
 
-            <div className="space-y-2">
-                <label className="text-[10px] font-black uppercase tracking-widest text-muted-foreground ml-1">Visibilitas</label>
+            <div className="space-y-3">
+                <label className="text-[10px] font-black uppercase tracking-widest text-muted-foreground ml-2">Level Privasi</label>
                 <button 
                     type="button"
                     onClick={() => setIsSecret(!isSecret)}
-                    className={`w-full md:w-auto flex items-center justify-center gap-3 px-6 py-4 rounded-2xl border transition-all active:scale-95 ${
+                    className={`w-full flex items-center justify-center gap-4 px-8 py-5 rounded-2xl border transition-all active:scale-95 font-black uppercase text-xs tracking-widest ${
                     isSecret 
-                    ? 'bg-red-500/10 border-red-500 text-red-500 shadow-[0_0_20px_rgba(239,68,68,0.2)]' 
-                    : 'bg-black/40 border-white/10 text-muted-foreground'
+                    ? 'bg-red-500 text-white border-red-500 shadow-xl' 
+                    : 'bg-muted border-border text-muted-foreground hover:border-vault-amber/30'
                     }`}
                 >
-                    {isSecret ? <ShieldCheck size={20} className="fill-red-500/20" /> : <Upload size={20} />}
-                    <span className="text-[10px] font-black uppercase tracking-widest">{isSecret ? "Secret Report" : "Public Post"}</span>
+                    {isSecret ? <Lock size={20} /> : <ShieldCheck size={20} />}
+                    <span>{isSecret ? "Secret Report" : "Public Post"}</span>
                 </button>
             </div>
         </div>
         
-        <div className="flex flex-col md:flex-row gap-6">
-            <div className="space-y-2 flex-1">
-                <label className="text-[10px] font-black uppercase tracking-widest text-muted-foreground ml-1">Jenis Laporan</label>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div className="space-y-3">
+                <label className="text-[10px] font-black uppercase tracking-widest text-muted-foreground ml-2">Kategori Laporan</label>
                 <select 
-                    className="w-full bg-black/40 border border-white/10 rounded-2xl p-4 text-foreground outline-none focus:border-vault-amber cursor-pointer appearance-none"
+                    className="w-full bg-muted border border-border rounded-2xl p-5 text-foreground font-bold outline-none focus:ring-2 focus:ring-vault-amber/50 cursor-pointer appearance-none shadow-inner"
                     value={assetType}
                     onChange={(e) => setAssetType(e.target.value)}
                 >
-                    <option value="Aspirasi" className="bg-zinc-900">Aspirasi Publik</option>
-                    <option value="Kritik" className="bg-zinc-900 text-red-400">Kritik & Keluhan</option>
-                    <option value="Informasi" className="bg-zinc-900">Permohonan Informasi</option>
+                    <option value="Aspirasi">Aspirasi Publik</option>
+                    <option value="Kritik">Kritik & Keluhan</option>
+                    <option value="Informasi">Permohonan Informasi</option>
                 </select>
             </div>
 
-            <div className="space-y-2 flex-1">
-                <label className="text-[10px] font-black uppercase tracking-widest text-muted-foreground ml-1">Bukti / Dokumen</label>
-                <label className="flex items-center justify-between bg-black/40 border border-dashed border-white/20 rounded-2xl p-4 cursor-pointer hover:border-vault-amber transition-all group overflow-hidden">
-                    <span className="text-sm text-zinc-400 truncate w-32">
-                    {file ? file.name : "Pilih File..."}
+            <div className="space-y-3">
+                <label className="text-[10px] font-black uppercase tracking-widest text-muted-foreground ml-2">Bukti Pendukung</label>
+                <label className="flex items-center justify-between bg-muted border border-dashed border-border rounded-2xl p-5 cursor-pointer hover:border-vault-amber transition-all group overflow-hidden shadow-inner">
+                    <span className="text-sm text-muted-foreground/60 font-bold truncate max-w-[150px]">
+                    {file ? file.name : "Pilih Dokumen..."}
                     </span>
-                    <FileUp size={18} className="text-zinc-500 group-hover:text-vault-amber shrink-0" />
+                    <FileUp size={22} className="text-muted-foreground group-hover:text-vault-amber shrink-0 transition-transform group-hover:-translate-y-1" />
                     <input 
                     type="file" 
                     onChange={(e) => setFile(e.target.files?.[0] || null)}
@@ -186,22 +193,22 @@ export default function UploadForm({ client, contract, onSuccess }: UploadFormPr
             </div>
         </div>
 
-        <div className="pt-4 space-y-4">
+        <div className="pt-6 space-y-6">
           <AnimatePresence>
             {status === "error" && (
                 <motion.div 
-                    initial={{ opacity: 0, height: 0 }}
-                    animate={{ opacity: 1, height: "auto" }}
-                    exit={{ opacity: 0, height: 0 }}
-                    className="bg-red-500/10 border border-red-500/30 p-4 rounded-xl flex items-start gap-3 text-red-500 text-xs"
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -10 }}
+                    className="bg-red-500/10 border border-red-500/30 p-5 rounded-2xl flex items-start gap-4 text-red-500 text-sm font-bold shadow-sm"
                 >
-                    <AlertCircle size={16} className="shrink-0" />
+                    <AlertCircle size={20} className="shrink-0" />
                     <p>{errorMessage}</p>
                 </motion.div>
             )}
           </AnimatePresence>
 
-          <div className="flex flex-col md:flex-row gap-4">
+          <div className="flex flex-col sm:flex-row gap-6">
               <button 
                 type="button"
                 onClick={async () => {
@@ -222,44 +229,46 @@ export default function UploadForm({ client, contract, onSuccess }: UploadFormPr
                     }
                 }}
                 disabled={isPending}
-                className="flex-1 px-6 py-5 border border-white/10 text-foreground hover:bg-white/5 rounded-2xl font-bold text-sm transition-all flex items-center justify-center gap-2 active:scale-95"
+                className="flex-1 px-8 py-6 bg-background border border-border text-foreground hover:bg-muted rounded-2xl font-black text-xs uppercase tracking-widest transition-all flex items-center justify-center gap-3 active:scale-95 shadow-sm"
               >
-                 <ShieldCheck size={20} className="text-vault-amber" /> Cek AI (Tes Audit)
+                 <BrainCircuit size={20} className="text-vault-amber" /> Cek AI (Tes Audit)
               </button>
 
               <button 
                 onClick={handleUpload}
                 disabled={isPending}
-                className="flex-[2] bg-vault-amber hover:bg-yellow-500 text-black font-black py-5 rounded-2xl transition-all disabled:opacity-50 flex flex-col justify-center items-center gap-1 shadow-[0_0_30px_rgba(245,158,11,0.2)] active:scale-95"
+                className="flex-[2] bg-vault-amber hover:bg-yellow-500 text-black font-black py-6 rounded-2xl transition-all disabled:opacity-50 flex flex-col justify-center items-center gap-1 shadow-xl shadow-vault-amber/10 active:scale-95 overflow-hidden relative group/btn"
               >
+                <div className="absolute inset-0 bg-white/20 translate-y-full group-hover/btn:translate-y-0 transition-transform duration-500"></div>
+                
                 {isAiProcessing ? (
-                  <div className="flex items-center gap-2">
-                      <Loader2 className="w-5 h-5 animate-spin" />
-                      Dianalisis AI...
+                  <div className="flex items-center gap-3 relative z-10">
+                      <Loader2 className="w-6 h-6 animate-spin" />
+                      <span className="text-lg uppercase tracking-tighter">Analisis AI...</span>
                   </div>
                 ) : isTxPending ? (
-                  <div className="flex items-center gap-2">
-                      <div className="w-5 h-5 border-2 border-black border-t-transparent rounded-full animate-spin"></div>
-                      Finalisasi Audit Digital...
+                  <div className="flex items-center gap-3 relative z-10">
+                      <div className="w-6 h-6 border-4 border-black border-t-transparent rounded-full animate-spin"></div>
+                      <span className="text-lg uppercase tracking-tighter">Finalisasi Audit...</span>
                   </div>
                 ) : (
-                  <div className="flex flex-col items-center">
-                    <div className="flex items-center gap-2 text-lg">
-                      <BrainCircuit size={22}/> Sign & Audit Aspirasi
+                  <div className="flex flex-col items-center relative z-10">
+                    <div className="flex items-center gap-3 text-xl uppercase tracking-tighter">
+                      <ShieldCheck size={24}/> Sign & Audit Aspirasi
                     </div>
-                    <span className="text-[10px] font-black opacity-60 uppercase tracking-tighter">Zero Fee • Secured by Smart Account</span>
+                    <span className="text-[10px] font-black opacity-60 uppercase tracking-widest mt-1">Immutable Transaction • 0.00 GAS</span>
                   </div>
                 )}
               </button>
           </div>
 
-          <div className="flex items-center justify-center gap-4 py-2 opacity-40">
-             <div className="h-px flex-1 bg-white/5"></div>
-             <div className="flex items-center gap-2">
-                <ShieldCheck size={14} className="text-vault-amber" />
-                <span className="text-[9px] font-bold uppercase tracking-widest text-muted-foreground">Gas Sponsored by Protocol</span>
+          <div className="flex items-center justify-center gap-6 py-4 opacity-30">
+             <div className="h-px flex-1 bg-border"></div>
+             <div className="flex items-center gap-3">
+                <ShieldCheck size={16} className="text-vault-amber" />
+                <span className="text-[10px] font-black uppercase tracking-[0.3em] text-muted-foreground">Certified Digital Patriot Platform</span>
              </div>
-             <div className="h-px flex-1 bg-white/5"></div>
+             <div className="h-px flex-1 bg-border"></div>
           </div>
         </div>
       </div>

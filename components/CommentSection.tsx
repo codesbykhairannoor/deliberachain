@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { MessageSquare, Send, ShieldAlert, User, Loader2 } from "lucide-react";
 import { moderateCommentAction } from "@/app/actions/moderation";
+import { motion, AnimatePresence } from "framer-motion";
 
 interface Comment {
     id: number;
@@ -66,28 +67,33 @@ export default function CommentSection({ aspirationId }: { aspirationId: string 
     };
 
     return (
-        <div className="mt-8 border-t border-white/5 pt-8">
-            <h4 className="text-sm font-bold text-foreground mb-6 flex items-center gap-2">
+        <div className="mt-12 border-t border-border pt-10">
+            <h4 className="text-xs font-black text-muted-foreground mb-8 flex items-center gap-3 uppercase tracking-[0.2em]">
                 <MessageSquare size={16} className="text-vault-amber" /> 
-                Diskusi Deliberasi ({comments.length})
+                Discussion Hub ({comments.length})
             </h4>
 
-            <div className="space-y-6 mb-8">
+            <div className="space-y-8 mb-10">
                 {comments.map((c) => (
-                    <div key={c.id} className="flex gap-4 group">
-                        <div className="w-8 h-8 rounded-full bg-white/5 border border-white/10 flex items-center justify-center shrink-0">
-                            <User size={14} className="text-muted-foreground" />
+                    <motion.div 
+                        initial={{ opacity: 0, x: -10 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        key={c.id} 
+                        className="flex gap-5 group"
+                    >
+                        <div className="w-10 h-10 rounded-2xl bg-muted border border-border flex items-center justify-center shrink-0 shadow-inner">
+                            <User size={18} className="text-muted-foreground" />
                         </div>
-                        <div className="space-y-1">
+                        <div className="space-y-2 flex-1">
                             <div className="flex items-center gap-3">
-                                <span className="text-xs font-bold text-foreground">{c.user}</span>
-                                <span className="text-[10px] text-muted-foreground uppercase font-mono">{c.timestamp}</span>
+                                <span className="text-sm font-black text-foreground">{c.user}</span>
+                                <span className="text-[10px] text-muted-foreground uppercase font-black tracking-widest">{c.timestamp}</span>
                             </div>
-                            <p className="text-sm text-muted-foreground leading-relaxed bg-white/5 px-4 py-3 rounded-2xl rounded-tl-none border border-white/5">
+                            <p className="text-sm text-foreground/80 leading-relaxed bg-muted/50 px-5 py-4 rounded-3xl rounded-tl-none border border-border shadow-sm">
                                 {c.text}
                             </p>
                         </div>
-                    </div>
+                    </motion.div>
                 ))}
             </div>
 
@@ -96,20 +102,27 @@ export default function CommentSection({ aspirationId }: { aspirationId: string 
                     value={newComment}
                     onChange={(e) => setNewComment(e.target.value)}
                     placeholder="Tulis opini deliberasi Anda..."
-                    className="w-full bg-black/60 border border-white/10 rounded-2xl p-4 text-sm text-foreground focus:ring-1 focus:ring-vault-amber outline-none min-h-[100px] transition-all"
+                    className="w-full bg-muted border border-border rounded-[2rem] p-6 text-sm text-foreground focus:ring-2 focus:ring-vault-amber/30 outline-none min-h-[120px] transition-all shadow-inner placeholder:text-muted-foreground/40"
                 />
                 
-                {error && (
-                    <div className="mt-2 flex items-center gap-2 text-red-500 text-xs bg-red-950/20 p-2 rounded-lg border border-red-900/30">
-                        <ShieldAlert size={14} /> {error}
-                    </div>
-                )}
+                <AnimatePresence>
+                    {error && (
+                        <motion.div 
+                            initial={{ opacity: 0, height: 0 }}
+                            animate={{ opacity: 1, height: "auto" }}
+                            exit={{ opacity: 0, height: 0 }}
+                            className="mt-4 flex items-center gap-3 text-red-500 text-xs font-bold bg-red-500/10 p-4 rounded-2xl border border-red-500/20"
+                        >
+                            <ShieldAlert size={16} className="shrink-0" /> {error}
+                        </motion.div>
+                    )}
+                </AnimatePresence>
 
-                <div className="mt-4 flex justify-end">
+                <div className="mt-6 flex justify-end">
                     <button 
                         onClick={handlePost}
                         disabled={isPosting || !newComment}
-                        className="bg-vault-amber hover:bg-yellow-400 text-black px-6 py-2 rounded-xl font-bold text-sm flex items-center gap-2 transition-all disabled:opacity-30"
+                        className="bg-vault-amber hover:bg-yellow-500 text-black px-8 py-3 rounded-2xl font-black text-xs uppercase tracking-widest flex items-center gap-3 transition-all disabled:opacity-30 active:scale-95 shadow-lg shadow-vault-amber/10"
                     >
                         {isPosting ? <Loader2 size={16} className="animate-spin" /> : <Send size={16} />} 
                         Kirim Opini
