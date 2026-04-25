@@ -15,6 +15,7 @@ const client = createThirdwebClient({ clientId: process.env.NEXT_PUBLIC_THIRDWEB
 
 export default function ClientLayoutWrapper({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
+  const router = useRouter();
   const account = useActiveAccount();
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
