@@ -2,7 +2,8 @@
 
 import { useState, useEffect } from "react";
 import { createThirdwebClient, getContract, prepareContractCall } from "thirdweb";
-import { useReadContract, useSendTransaction, useBlockNumber } from "thirdweb/react";
+import { useReadContract, useSendTransaction, useBlockNumber, useActiveAccount } from "thirdweb/react";
+import AccessRestricted from "@/components/AccessRestricted";
 import { baseSepolia } from "thirdweb/chains";
 import { useRole } from "@/hooks/useRole";
 import { useRouter } from "next/navigation";
@@ -14,6 +15,7 @@ const contract = getContract({ client, chain: baseSepolia, address: process.env.
 
 export default function AdminPortal() {
   const { role, isLoading: roleLoading } = useRole();
+  const account = useActiveAccount();
   const router = useRouter();
   const [isAdmin, setIsAdmin] = useState(false);
   const [password, setPassword] = useState("");
@@ -64,6 +66,8 @@ export default function AdminPortal() {
       console.error(err);
     }
   };
+
+  if (!account) return <AccessRestricted />;
 
   if (roleLoading) return (
     <div className="min-h-screen bg-background flex flex-col items-center justify-center text-foreground p-6">

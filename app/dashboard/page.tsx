@@ -32,6 +32,7 @@ import { PUBLIC_ARCHIVE_ADDRESS } from "@/lib/access";
 import CivicBadge from "@/components/CivicBadge";
 import { calculateCivicScore } from "@/lib/gamification";
 import { useTheme } from "next-themes";
+import AccessRestricted from "@/components/AccessRestricted";
 
 const client = createThirdwebClient({ clientId: process.env.NEXT_PUBLIC_THIRDWEB_CLIENT_ID || "" });
 const contract = getContract({ client, chain: baseSepolia, address: process.env.NEXT_PUBLIC_CONTRACT_ADDRESS || "" });
@@ -130,28 +131,7 @@ function DashboardContent({ dt }: { dt: any }) {
     return { count, level, color, impact: count * 125 };
   }, [myAssets]);
 
-  if (!account) return (
-    <div className="p-10 md:p-20 text-foreground flex flex-col items-center animate-in fade-in text-center">
-        <div className="w-20 h-20 bg-muted rounded-3xl flex items-center justify-center mb-8 border border-border shadow-inner">
-            <Shield size={40} className="text-vault-amber" />
-        </div>
-        <h2 className="text-2xl font-black mb-4 uppercase tracking-tighter">Access Restricted</h2>
-        <p className="text-muted-foreground mb-12 max-w-sm">{t.lockedMsg}</p>
-        <ClientOnly>
-            <ConnectButton 
-            client={client} 
-            theme={theme === "dark" ? "dark" : "light"}
-            accountAbstraction={{
-                chain: baseSepolia,
-                sponsorGas: true,
-            }}
-            connectButton={{
-                className: "!bg-vault-amber !text-black !font-black !px-10 !py-4 !rounded-2xl !shadow-xl"
-            }}
-            />
-        </ClientOnly>
-    </div>
-  );
+  if (!account) return <AccessRestricted />;
 
   return (
     <div className="animate-in slide-in-from-bottom-4 duration-500">
