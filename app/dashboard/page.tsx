@@ -37,11 +37,12 @@ const client = createThirdwebClient({ clientId: process.env.NEXT_PUBLIC_THIRDWEB
 const contract = getContract({ client, chain: baseSepolia, address: process.env.NEXT_PUBLIC_CONTRACT_ADDRESS || "" });
 
 export default function DashboardPage() {
+  const { lang } = useLanguageStore();
   return (
     <Suspense fallback={
       <div className="p-20 text-foreground flex flex-col items-center animate-in fade-in">
         <LayoutGrid size={48} className="text-slate-700 mb-4 animate-pulse" />
-        <p className="text-muted-foreground font-mono italic">Initializing secure citizen session...</p>
+        <p className="text-muted-foreground font-mono italic">{lang === 'id' ? 'Menginisialisasi sesi patriot digital...' : 'Initializing secure citizen session...'}</p>
       </div>
     }>
       <DashboardContent />
@@ -110,7 +111,7 @@ function DashboardContent() {
           <div>
               <div className="flex items-center gap-2 mb-2">
                  <span className="w-2 h-2 bg-vault-amber rounded-full animate-pulse shadow-[0_0_10px_rgba(245,158,11,0.5)]"></span>
-                 <span className="text-[10px] md:text-xs font-mono text-vault-amber uppercase tracking-widest font-black">Citizen Portal</span>
+                 <span className="text-[10px] md:text-xs font-mono text-vault-amber uppercase tracking-widest font-black">{lang === 'id' ? 'Portal Patriot' : 'Citizen Portal'}</span>
               </div>
               <h1 className="text-3xl md:text-5xl font-black text-foreground flex items-center gap-3 tracking-tighter uppercase">
                  {activeTab} <Sparkles size={28} className="text-vault-amber" />
@@ -127,7 +128,7 @@ function DashboardContent() {
              <div className="animate-in fade-in slide-in-from-left-4 duration-500">
                 <div className="flex items-center gap-3 mb-8">
                    <div className="h-1 w-8 md:w-12 bg-vault-amber rounded-full"></div>
-                   <h3 className="text-lg md:text-xl font-bold text-foreground uppercase tracking-tighter">Global Deliberation Feed</h3>
+                   <h3 className="text-lg md:text-xl font-bold text-foreground uppercase tracking-tighter">{lang === 'id' ? 'Feed Deliberasi Global' : 'Global Deliberation Feed'}</h3>
                 </div>
                 <Gallery 
                    key={`discovery-${refreshTrigger}`} 
@@ -141,7 +142,7 @@ function DashboardContent() {
           {activeTab === "feed" && (
              <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 animate-in fade-in slide-in-from-left-4 duration-500">
                 <div className="lg:col-span-8 order-2 lg:order-1">
-                   <h3 className="text-xl font-bold text-foreground mb-6">Aspirasi Saya</h3>
+                   <h3 className="text-xl font-bold text-foreground mb-6">{t.galleryTitle}</h3>
                    <Gallery key={`myfeed-${refreshTrigger}`} contract={contract} address={account.address} client={client} />
                 </div>
                 <div className="lg:col-span-4 space-y-6 order-1 lg:order-2">
@@ -149,12 +150,12 @@ function DashboardContent() {
                    
                    <div className="bg-vault-card border border-white/5 p-6 rounded-3xl">
                       <h4 className="font-bold text-foreground mb-4 flex items-center gap-2 uppercase text-[10px] tracking-widest">
-                        <Trophy size={16} className="text-vault-amber" /> Real-time Civic Power
+                        <Trophy size={16} className="text-vault-amber" /> {lang === 'id' ? 'Kekuatan Civic Real-time' : 'Real-time Civic Power'}
                       </h4>
                       <div className="space-y-3">
-                         <StatRow icon={Target} label="Misi Selesai" value={stats.count} />
+                         <StatRow icon={Target} label={lang === 'id' ? 'Misi Selesai' : 'Missions Completed'} value={stats.count} />
                          <StatRow icon={Zap} label="Impact Score" value={stats.impact} />
-                         <StatRow icon={Trophy} label="Level Civic" value={stats.level} specialColor={stats.color} />
+                         <StatRow icon={Trophy} label={lang === 'id' ? 'Level Civic' : 'Civic Level'} value={stats.level} specialColor={stats.color} />
                       </div>
                    </div>
                 </div>
@@ -177,7 +178,7 @@ function DashboardContent() {
              <div className="max-w-2xl mx-auto animate-in zoom-in-95 duration-500">
                 <div className="text-center mb-10">
                    <h2 className="text-3xl md:text-5xl font-black text-foreground mb-2 uppercase tracking-tighter leading-none">Voice of the <span className="text-vault-amber">People</span></h2>
-                   <p className="text-muted-foreground italic text-sm">Sampaikan aspirasimu langsung ke Ledger Blockchain.</p>
+                   <p className="text-muted-foreground italic text-sm">{lang === 'id' ? 'Sampaikan aspirasimu langsung ke Ledger Blockchain.' : 'Speak your aspiration directly to the Blockchain Ledger.'}</p>
                 </div>
                 <UploadForm client={client} contract={contract} onSuccess={() => {
                    router.push("/dashboard?tab=feed");

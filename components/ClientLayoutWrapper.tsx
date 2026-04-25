@@ -46,7 +46,7 @@ export default function ClientLayoutWrapper({ children }: { children: React.Reac
   // 2. Marketing / Pre-login Layout
   return (
     <div className="min-h-screen bg-background">
-       <Navbar client={client} />
+       <Navbar />
        <main className="min-h-screen">{children}</main>
        <Footer />
     </div>

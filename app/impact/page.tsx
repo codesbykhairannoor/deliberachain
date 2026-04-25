@@ -24,13 +24,13 @@ export default function ImpactPage() {
       title: t.impactStoryTitle1,
       desc: t.impactStoryDesc1,
       icon: <ShieldCheck className="text-vault-amber" size={32} />,
-      metric: "90% Trust Index"
+      metric: t.impactMetric1
     },
     {
       title: t.impactStoryTitle2,
       desc: t.impactStoryDesc2,
       icon: <Zap className="text-blue-500" size={32} />,
-      metric: "70% Faster Response"
+      metric: t.impactMetric2
     }
   ];
 
@@ -71,7 +71,7 @@ export default function ImpactPage() {
             <div className="flex-1 grid grid-cols-2 gap-6 w-full">
                 <div className="space-y-6">
                     <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} className="p-10 bg-vault-card border border-white/10 rounded-[2.5rem] text-center relative overflow-hidden">
-                        <div className="absolute top-2 left-2 px-2 py-0.5 bg-vault-amber/10 text-[8px] font-black uppercase text-vault-amber rounded-full">Target 2026</div>
+                        <div className="absolute top-2 left-2 px-2 py-0.5 bg-vault-amber/10 text-[8px] font-black uppercase text-vault-amber rounded-full">{lang === 'id' ? 'Target 2026' : '2026 Target'}</div>
                         <div className="text-4xl font-black text-vault-amber mb-2 italic">12k+</div>
                         <div className="text-[10px] font-black uppercase tracking-widest text-muted-foreground">{t.impactStat1}</div>
                     </motion.div>
@@ -83,12 +83,12 @@ export default function ImpactPage() {
                 </div>
                 <div className="space-y-6 pt-12">
                     <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }} className="p-10 bg-white/5 border border-white/10 rounded-[2.5rem] text-center relative overflow-hidden">
-                        <div className="absolute top-2 left-2 px-2 py-0.5 bg-white/10 text-[8px] font-black uppercase text-muted-foreground rounded-full">Proyeksi</div>
+                        <div className="absolute top-2 left-2 px-2 py-0.5 bg-white/10 text-[8px] font-black uppercase text-muted-foreground rounded-full">{lang === 'id' ? 'Proyeksi' : 'Projection'}</div>
                         <div className="text-4xl font-black text-foreground mb-2 italic">450k+</div>
                         <div className="text-[10px] font-black uppercase tracking-widest text-muted-foreground">{t.impactStat3}</div>
                     </motion.div>
                     <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ delay: 0.3 }} className="p-10 bg-vault-card border border-white/10 rounded-[2.5rem] text-center relative overflow-hidden">
-                        <div className="absolute top-2 left-2 px-2 py-0.5 bg-vault-amber/10 text-[8px] font-black uppercase text-vault-amber rounded-full">Protokol</div>
+                        <div className="absolute top-2 left-2 px-2 py-0.5 bg-vault-amber/10 text-[8px] font-black uppercase text-vault-amber rounded-full">{lang === 'id' ? 'Protokol' : 'Protocol'}</div>
                         <div className="text-4xl font-black text-vault-amber mb-2 italic">100%</div>
                         <div className="text-[10px] font-black uppercase tracking-widest text-muted-foreground">Immutable</div>
                     </motion.div>

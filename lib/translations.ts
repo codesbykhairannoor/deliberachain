@@ -21,6 +21,7 @@ export const translations = {
     btnSave: "Posting ke Blockchain",
     btnProcess: "Dianalisis AI...",
     successMsg: "Aspirasi Anda berhasil diabadikan di Blockchain Sepolia!",
+    msgSuccess: "Berhasil!",
     errorFill: "Isi judul dan lampiran dokumen dulu, Bos!",
     gasTip: "Setiap langkah partisipasi memerlukan konfirmasi blockchain. Pastikan saldo gas Anda tersedia.",
 
@@ -104,6 +105,23 @@ export const translations = {
     statusSuccess: "Verifikasi Berhasil",
     publicTitle: "PUBLIK VAULT",
     publicDesc: "Arsip abadi yang tersimpan di jaringan terdesentralisasi Base Sepolia.",
+    
+    // GUIDE DETAILS
+    step111Title: "Ambil Wallet",
+    step222Title: "Isi Bensin",
+    step444Title: "Kirim Suara",
+    step555Title: "Cek Bukti",
+    isiSaldo3: "Ambil ETH Gratis",
+    step33Desc: "Login ke Google Cloud Faucet, masukkan alamat wallet Anda, dan klaim saldo Sepolia ETH.",
+    step4Title: "Kirim Suara",
+    step4Desc: "Masuk ke Dashboard 'Suarakan', isi formulir aspirasi, dan lampirkan dokumen jika ada.",
+    step6Label: "Portofolio",
+    step6Title: "Link Publik",
+    step6Desc: "Bagikan link profil Anda kepada publik untuk menunjukkan kontribusi nyata Anda dalam pembangunan daerah.",
+    rumusLink: "Format URL Profil",
+    alamatKamu: "ALAMAT_WALLET_ANDA",
+    simulasip: "Simulasi Visual",
+    statusReady: "Status: Siap",
 
     // NEW PAGES
     aboutTitle: "Tentang Dlibration",
@@ -185,7 +203,7 @@ export const translations = {
 
     // SOLUTIONS SECTION
     solTitle: "Satu Platform, Dua Solusi",
-    solSub: "Dlibration dibangun untuk menjembatani kesenjangan antara suara rakyat dan meja pembuat kebijakan.",
+    solSub: "Dlibration dibangun untuk menjembatani kesenjangan antara suara rakyat and meja pembuat kebijakan.",
     citizenTitle: "Untuk Warga",
     citizen1: "Aman & Anonim: Laporan sensitif dienkripsi, identitas Anda terlindungi.",
     citizen2: "Tanpa Sensor: Aspirasi yang sesuai aturan dicatat abadi di Blockchain.",
@@ -224,6 +242,10 @@ export const translations = {
     // FEATURES PAGE
     featHeroTitle: "Teknologi di Balik",
     featHeroTitleGold: "Transparansi.",
+    featAiTitleShort: "Analisis AI",
+    featChainTitleShort: "Ledger Blockchain",
+    featGovTitleShort: "Dashboard Instansi",
+    featAuditTitleShort: "Audit Real-time",
     featAiTitle: "AI Summarizer & Clustering",
     featAiDesc: "Mengelompokkan ribuan aspirasi serupa secara otomatis untuk analisis kebijakan yang cepat.",
     featChainTitle: "On-Chain Immutable Records",
@@ -238,6 +260,10 @@ export const translations = {
     solForGov: "Untuk Pemerintah Daerah",
     solForUni: "Untuk Universitas",
     solForNgo: "Untuk Organisasi Sosial",
+    solCitizensTitle: "Masyarakat",
+    solGovTitle: "Pemerintah",
+    solUniTitle: "Universitas",
+    solNgoTitle: "NGO/LSM",
 
     // GOVT PAGE (B2G)
     govHeroTitle: "Transformasi Digital untuk Instansi Pemerintah",
@@ -255,6 +281,7 @@ export const translations = {
     priceCustom: "Kustom",
     priceStartFree: "Mulai Gratis Sekarang",
     priceOrderCampus: "Pesan Paket Kampus",
+    sec1desc: "Kepatuhan terhadap UU Perlindungan Data Pribadi dan standar keamanan siber internasional.",
 
     // ABOUT PAGE
     aboutHeroTitle: "Membangun Kepercayaan di Atas",
@@ -273,6 +300,10 @@ export const translations = {
     impactStoryTitle2: "Perbaikan Infrastruktur Terukur",
     impactStoryDesc2: "Membangun jembatan komunikasi antara warga dan pemda untuk respon perbaikan yang 70% lebih cepat.",
     impactProjectionTitle: "Proyeksi Dampak 2026",
+    impactMetric1: "90% Kepercayaan",
+    impactMetric2: "70% Respon Cepat",
+    impactMetric3: "100% On-Chain",
+    impactMetric4: "0% Manipulasi",
 
     // RESOURCES PAGE
     resHeroTitle: "Resources &",
@@ -302,17 +333,24 @@ export const translations = {
     contactSubject: "Subjek",
     contactMessage: "Pesan",
     contactSendBtn: "Kirim Pesan",
-    contactGlobalReach: "Koneksi Global",
+    contactGlobalReach: "Jangkauan Global",
 
-    // DROPDOWNS
-    featAiTitleShort: "AI Analysis",
-    featChainTitleShort: "Blockchain Ledger",
-    featGovTitleShort: "Gov Dashboard",
-    featAuditTitleShort: "Real-time Audit",
-    solCitizensTitle: "Masyarakat",
-    solGovTitle: "Pemerintah",
-    solUniTitle: "Universitas",
-    solNgoTitle: "NGO/LSM",
+    // GALLERY & ROOM
+    roomTitle: "Deliberation Room",
+    roomSub: "Aspirasi publik yang sedang diaudit secara transparan.",
+    secureReport: "SECURE REPORT",
+    trendingNow: "Trending Now",
+    encryptedData: "Data Terenkripsi",
+    encryptedSub: "Hanya instansi berwenang yang dapat mendekripsi dan melihat dokumen ini.",
+    metadataHash: "Metadata Hash",
+    authoredBy: "Ditulis oleh",
+    classifiedReport: "LAPORAN RAHASIA",
+    supporters: "Pendukung",
+    securityLevel: "Level Keamanan",
+    verifiedId: "ID Terverifikasi",
+    dukungAspirasi: "Dukung Aspirasi",
+    verifyHash: "Verifikasi Hash",
+    fetchingDelib: "Memanggil Aspirasi...",
   },
   en: {
     // LAYOUT & NAV
@@ -336,6 +374,7 @@ export const translations = {
     btnSave: "Post to Blockchain",
     btnProcess: "AI Analyzing...",
     successMsg: "Your aspiration was successfully immortalized on Sepolia Blockchain!",
+    msgSuccess: "Success!",
     errorFill: "Please fill in the title and document attachment first!",
     gasTip: "Every participation step requires blockchain confirmation. Ensure your gas balance is available.",
 
@@ -419,6 +458,23 @@ export const translations = {
     statusSuccess: "Verification Success",
     publicTitle: "PUBLIC VAULT",
     publicDesc: "Eternal archives stored on the decentralized Base Sepolia network.",
+    
+    // GUIDE DETAILS
+    step111Title: "Get Wallet",
+    step222Title: "Get Gas",
+    step444Title: "Send Voice",
+    step555Title: "Verify Proof",
+    isiSaldo3: "Get Free ETH",
+    step33Desc: "Login to Google Cloud Faucet, enter your wallet address, and claim your Sepolia ETH balance.",
+    step4Title: "Send Voice",
+    step4Desc: "Go to 'Voice Out' Dashboard, fill the aspiration form, and attach documents if any.",
+    step6Label: "Portfolio",
+    step6Title: "Public Link",
+    step6Desc: "Share your profile link with the public to show your real contribution to regional development.",
+    rumusLink: "Profile URL Format",
+    alamatKamu: "YOUR_WALLET_ADDRESS",
+    simulasip: "Visual Simulation",
+    statusReady: "Status: Ready",
 
     // NEW PAGES
     aboutTitle: "About Dlibration",
@@ -538,7 +594,11 @@ export const translations = {
 
     // FEATURES PAGE
     featHeroTitle: "Technology Behind",
+    featHeroTitleGold: "Transparency.",
     featAiTitleShort: "AI Analysis",
+    featChainTitleShort: "Blockchain Ledger",
+    featGovTitleShort: "Gov Dashboard",
+    featAuditTitleShort: "Real-time Audit",
     featAiTitle: "AI Policy Analysis",
     featAiDesc: "Use Generative AI to analyze public sentiment and group similar aspirations for fast policy analysis.",
     featChainTitle: "On-Chain Immutable Records",
@@ -553,6 +613,10 @@ export const translations = {
     solForGov: "For Local Governments",
     solForUni: "For Universities",
     solForNgo: "For NGOs",
+    solCitizensTitle: "Citizens",
+    solGovTitle: "Governments",
+    solUniTitle: "Universities",
+    solNgoTitle: "NGOs",
 
     // GOVT PAGE (B2G)
     govHeroTitle: "Digital Transformation for Government Agencies",
@@ -570,6 +634,7 @@ export const translations = {
     priceCustom: "Custom",
     priceStartFree: "Start Free Now",
     priceOrderCampus: "Order Campus Pack",
+    sec1desc: "Compliance with Personal Data Protection laws and international cybersecurity standards.",
 
     // ABOUT PAGE
     aboutHeroTitle: "Building Trust on Top of",
@@ -588,6 +653,10 @@ export const translations = {
     impactStoryTitle2: "Measured Infrastructure Improvement",
     impactStoryDesc2: "Building a communication bridge between citizens and local government for 70% faster response times.",
     impactProjectionTitle: "2026 Impact Projection",
+    impactMetric1: "90% Trust",
+    impactMetric2: "70% Fast Response",
+    impactMetric3: "100% On-Chain",
+    impactMetric4: "0% Manipulation",
 
     // RESOURCES PAGE
     resHeroTitle: "Resources &",
@@ -611,22 +680,29 @@ export const translations = {
     contactGeneralInquiry: "General Inquiry",
     contactGovSupport: "Government Support",
     contactOurBase: "Our Base Operations",
+    contactGlobalReach: "Global Reach",
     contactSendMessage: "Send Message",
     contactFullName: "Full Name",
     contactEmail: "Email Address",
     contactSubject: "Subject",
     contactMessage: "Message",
     contactSendBtn: "Send Message",
-    contactGlobalReach: "Global Connection",
 
-    // DROPDOWNS
-    featAiTitleShort: "AI Analysis",
-    featChainTitleShort: "Blockchain Ledger",
-    featGovTitleShort: "Gov Dashboard",
-    featAuditTitleShort: "Real-time Audit",
-    solCitizensTitle: "Citizens",
-    solGovTitle: "Governments",
-    solUniTitle: "Universities",
-    solNgoTitle: "NGOs",
+    // GALLERY & ROOM
+    roomTitle: "Deliberation Room",
+    roomSub: "Public aspirations being transparently audited.",
+    secureReport: "SECURE REPORT",
+    trendingNow: "Trending Now",
+    encryptedData: "Encrypted Data",
+    encryptedSub: "Only authorized authorities can decrypt and view this document.",
+    metadataHash: "Metadata Hash",
+    authoredBy: "Authored by",
+    classifiedReport: "CLASSIFIED REPORT",
+    supporters: "Supporters",
+    securityLevel: "Security Level",
+    verifiedId: "Verified ID",
+    dukungAspirasi: "Support Aspiration",
+    verifyHash: "Verify Hash",
+    fetchingDelib: "Fetching Deliberations...",
   }
 };
