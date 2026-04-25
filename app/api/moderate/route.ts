@@ -1,7 +1,7 @@
 import { GoogleGenerativeAI } from "@google/generative-ai";
 import { NextResponse } from "next/server";
 
-const genAI = new GoogleGenerativeAI(process.env.Generative AI_API_KEY || "");
+const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY || "");
 
 export async function POST(req: Request) {
   try {
@@ -15,12 +15,12 @@ export async function POST(req: Request) {
       );
     }
 
-    if (!process.env.Generative AI_API_KEY) {
-      console.warn("Generative AI_API_KEY is not set. Skipping moderation.");
+    if (!process.env.GEMINI_API_KEY) {
+      console.warn("GEMINI_API_KEY is not set. Skipping moderation.");
       return NextResponse.json({ status: "SAFE", reason: "AI Moderation disabled" });
     }
 
-    const model = genAI.getGenerativeModel({ model: "Generative AI-3.5-flash" });
+    const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
 
     const prompt = `
       You are an AI moderator for a civic aspiration platform.
