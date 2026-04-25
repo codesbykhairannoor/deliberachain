@@ -30,7 +30,7 @@ export default function Footer() {
                     <LinkIcon size={14} className="text-vault-amber absolute -translate-x-0.5 -translate-y-0.5" />
                     <Sparkles size={12} className="text-foreground absolute translate-x-0.5 translate-y-0.5" />
                 </div>
-                <span className="text-xl font-black tracking-tight text-foreground">Deliberate<span className="text-vault-amber">Chain</span></span>
+                <span className="text-xl font-black tracking-tight text-foreground">Dlibration<span className="text-vault-amber">.</span></span>
             </Link>
             <p className="text-muted-foreground text-sm leading-relaxed mb-8">
               Membangun infrastruktur demokrasi digital yang transparan, aman, dan tak bisa dimanipulasi dengan kekuatan AI & Blockchain.
@@ -79,7 +79,7 @@ export default function Footer() {
 
         <div className="pt-12 border-t border-border flex flex-col md:flex-row justify-between items-center gap-6">
           <p className="text-muted-foreground text-[10px] font-black uppercase tracking-widest">
-            &copy; 2026 DeliberateChain Protocol. Built for a better future.
+            &copy; 2026 Dlibration Protocol. Built for a better future.
           </p>
           <div className="flex items-center gap-6">
              <span className="flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-green-500/50">
