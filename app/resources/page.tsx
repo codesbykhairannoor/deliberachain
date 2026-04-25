@@ -129,7 +129,7 @@ export default function ResourcesPage() {
         </div>
 
         {/* 3. CATEGORIES - Grid Layout */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-48">
             {[
               { title: "Technical Docs", items: ["Smart Contracts", "AI Prompting", "Node Setup"], color: "amber" },
               { title: "User Guides", items: ["Creating Wallet", "Submitting Issues", "Voter ID"], color: "blue" },
@@ -157,6 +157,34 @@ export default function ResourcesPage() {
                 </motion.div>
             ))}
         </div>
+
+        {/* 4. LEARNING CENTER - NEW */}
+        <section className="mb-48 p-20 bg-blue-600 border border-white/10 rounded-[5rem] relative overflow-hidden group">
+            <div className="bg-pattern-diagonal absolute inset-0 opacity-10"></div>
+            <div className="relative z-10 grid lg:grid-cols-2 gap-20 items-center">
+                <div>
+                    <h2 className="text-4xl md:text-7xl font-black text-white mb-8 tracking-tighter leading-[0.9] uppercase">
+                        Dlibration <br/> Academy.
+                    </h2>
+                    <p className="text-xl text-white/80 mb-12 font-bold leading-relaxed">
+                        Master the art of on-chain deliberation. Our free video courses teach you how to leverage AI and Blockchain for effective advocacy.
+                    </p>
+                    <button className="bg-white text-blue-600 px-12 py-6 rounded-2xl font-black text-xl hover:scale-105 transition-all shadow-2xl flex items-center gap-3">
+                        Enter Academy <ArrowRight size={24} />
+                    </button>
+                </div>
+                <div className="flex gap-4">
+                    <div className="flex-1 aspect-[4/5] bg-white/10 rounded-3xl backdrop-blur-xl border border-white/10 p-8 flex flex-col justify-end">
+                        <div className="text-white font-black text-lg mb-2">Web3 Basics</div>
+                        <div className="text-white/60 text-[10px] font-bold uppercase tracking-widest">12 Modules</div>
+                    </div>
+                    <div className="flex-1 aspect-[4/5] bg-vault-amber rounded-3xl p-8 flex flex-col justify-end mt-12">
+                        <div className="text-black font-black text-lg mb-2">AI Policy</div>
+                        <div className="text-black/60 text-[10px] font-bold uppercase tracking-widest">8 Modules</div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
       </div>
     </div>
