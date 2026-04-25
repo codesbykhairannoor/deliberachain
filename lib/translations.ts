@@ -72,9 +72,9 @@ export const translations = {
     noAssets: "Belum ada catatan aspirasi di wallet ini.",
 
     // STATS
-    stat1: "Blok Aspirasi",
-    stat2: "Partisipan Aktif",
-    stat3: "Policy Briefs",
+    stat1: "Status Protokol",
+    stat2: "Jaringan Utama",
+    stat3: "Standar Audit",
 
     // SYSTEM
     sysOnline: "Sistem Online",
@@ -425,9 +425,9 @@ export const translations = {
     noAssets: "No aspiration records in this wallet.",
 
     // STATS
-    stat1: "Aspiration Blocks",
-    stat2: "Active Participants",
-    stat3: "Policy Briefs",
+    stat1: "Protocol Status",
+    stat2: "Primary Network",
+    stat3: "Audit Standard",
 
     // SYSTEM
     sysOnline: "System Online",

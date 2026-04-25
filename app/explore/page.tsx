@@ -63,7 +63,7 @@ export default function ExplorePage() {
                <div className="flex items-center gap-6">
                   <div className="p-4 bg-blue-500/10 rounded-2xl text-blue-500 border border-blue-500/20 shadow-sm"><Box size={28}/></div>
                   <div>
-                     <h4 className="text-3xl font-black text-foreground font-mono leading-none mb-1">5,291,092</h4>
+                     <h4 className="text-3xl font-black text-foreground font-mono leading-none mb-1 uppercase tracking-tighter">v1.0.0 Alpha</h4>
                      <p className="text-[10px] text-muted-foreground uppercase font-black tracking-widest">{t.stat1}</p>
                   </div>
                </div>
@@ -71,7 +71,7 @@ export default function ExplorePage() {
                <div className="flex items-center gap-6">
                   <div className="p-4 bg-green-500/10 rounded-2xl text-green-500 border border-green-500/20 shadow-sm"><Cpu size={28}/></div>
                   <div>
-                     <h4 className="text-3xl font-black text-foreground font-mono leading-none mb-1">1,024+</h4>
+                     <h4 className="text-3xl font-black text-foreground font-mono leading-none mb-1 uppercase tracking-tighter">Base Sepolia</h4>
                      <p className="text-[10px] text-muted-foreground uppercase font-black tracking-widest">{t.stat2}</p>
                   </div>
                </div>
@@ -79,7 +79,7 @@ export default function ExplorePage() {
                <div className="flex items-center gap-6">
                   <div className="p-4 bg-vault-amber/10 rounded-2xl text-vault-amber border border-vault-amber/20 shadow-sm"><Database size={28}/></div>
                   <div>
-                     <h4 className="text-3xl font-black text-foreground font-mono leading-none mb-1">UNLIMITED</h4>
+                     <h4 className="text-3xl font-black text-foreground font-mono leading-none mb-1 uppercase tracking-tighter">100% On-Chain</h4>
                      <p className="text-[10px] text-muted-foreground uppercase font-black tracking-widest">{t.stat3}</p>
                   </div>
                </div>
