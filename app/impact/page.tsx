@@ -18,6 +18,7 @@ import {
   Layers
 } from "lucide-react";
 import Link from "next/link";
+import { cloneElement } from "react";
 
 export default function ImpactPage() {
   const { lang } = useLanguageStore();
@@ -206,4 +207,3 @@ export default function ImpactPage() {
   );
 }
 
-import { cloneElement } from "react";
