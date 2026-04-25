@@ -55,7 +55,7 @@ export default function Navbar() {
       title: lang === 'id' ? "Fitur Canggih" : "Advanced Features",
       description: lang === 'id' ? "Teknologi blockchain dan AI untuk transparansi total." : "Blockchain and AI tech for total transparency.",
       dropdown: [
-        { name: t.featAiTitleShort, href: "/features/ai", icon: <Sparkles size={18} />, desc: "Gemini 1.5 Analysis" },
+        { name: t.featAiTitleShort, href: "/features/ai", icon: <Sparkles size={18} />, desc: "Generative AI Analysis" },
         { name: t.featChainTitleShort, href: "/features/blockchain", icon: <Shield size={18} />, desc: "Immutable Ledger" },
         { name: t.featGovTitleShort, href: "/features/gov", icon: <Building2 size={18} />, desc: "Agency Dashboard" },
         { name: t.featAuditTitleShort, href: "/features/audit", icon: <BarChart3 size={18} />, desc: "Public Transparency" },

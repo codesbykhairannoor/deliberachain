@@ -26,7 +26,7 @@ export default function FeaturesPage() {
       title: t.featAiTitle,
       desc: t.featAiDesc,
       icon: <Search className="text-vault-amber" size={32} />,
-      badge: "Gemini 1.5 Pro",
+      badge: "Generative AI Pro",
       href: "/features/ai"
     },
     {
@@ -207,7 +207,7 @@ export default function FeaturesPage() {
                             </div>
                             <div>
                                 <h4 className="font-bold text-foreground text-lg mb-2">AI Content Guard</h4>
-                                <p className="text-muted-foreground leading-relaxed">Mendeteksi spam dan upaya manipulasi opini secara real-time dengan akurasi tinggi menggunakan Gemini 1.5.</p>
+                                <p className="text-muted-foreground leading-relaxed">Mendeteksi spam dan upaya manipulasi opini secara real-time dengan akurasi tinggi menggunakan Generative AI.</p>
                             </div>
                         </div>
                     </div>

@@ -137,7 +137,7 @@ export default function PricingPage() {
                        </div>
                        <div className="flex justify-between py-4 border-b border-white/5">
                            <span className="text-muted-foreground">AI Model</span>
-                           <span className="text-foreground">Gemini 1.5 Pro</span>
+                           <span className="text-foreground">Generative AI Pro</span>
                        </div>
                   </div>
              </div>

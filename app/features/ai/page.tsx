@@ -25,7 +25,7 @@ export default function AiFeaturePage() {
                     Advanced AI Deliberation
                 </motion.div>
                 <h1 className="text-5xl md:text-6xl font-black text-foreground mb-8 tracking-tighter leading-tight">
-                    {lang === 'id' ? "Analisis Kebijakan Berbasis" : "Policy Analysis Powered by"} <span className="text-vault-amber">Gemini 1.5 Pro.</span>
+                    {lang === 'id' ? "Analisis Kebijakan Berbasis" : "Policy Analysis Powered by"} <span className="text-vault-amber">Generative AI Pro.</span>
                 </h1>
                 <p className="text-lg text-muted-foreground mb-12 leading-relaxed max-w-xl">
                     {lang === 'id' 
@@ -49,7 +49,7 @@ export default function AiFeaturePage() {
                         <div className="h-2 w-40 bg-white/5 rounded-full"></div>
                     </div>
                     <div className="mt-12 p-6 bg-black/40 rounded-2xl border border-white/5 font-mono text-[10px] text-vault-amber/60">
-                        {`> Initializing Gemini-1.5-Pro...`} <br/>
+                        {`> Initializing generative-ai-Pro...`} <br/>
                         {`> Analyzing 12,402 public reports...`} <br/>
                         {`> Generating policy brief [Success]`}
                     </div>

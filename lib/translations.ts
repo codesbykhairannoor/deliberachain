@@ -34,7 +34,7 @@ export const translations = {
     step1Title: "Suarakan Isu",
     step1Desc: "Sampaikan keluhan, saran, atau ide kebijakan secara mendetail.",
     step2Title: "AI Processing",
-    step2Desc: "Gemini AI akan meringkas, mengelompokkan, dan memvalidasi isu Anda.",
+    step2Desc: "Generative AI AI akan meringkas, mengelompokkan, dan memvalidasi isu Anda.",
     step3Title: "Blockchain Voting",
     step3Desc: "Suara Anda tercatat permanen sebagai bukti partisipasi yang sah.",
 
@@ -129,7 +129,7 @@ export const translations = {
     secBlockchainTitle: "Keamanan Blockchain",
     secBlockchainDesc: "Menggunakan jaringan Base Sepolia untuk memastikan data tidak dapat diubah (immutable) dan tahan terhadap sensor.",
     secAITitle: "Moderasi Cerdas",
-    secAIDesc: "Sistem AI Gemini 1.5 Pro melakukan pemindaian otomatis terhadap spam, ujaran kebencian, dan konten tidak relevan.",
+    secAIDesc: "Sistem AI Generative AI Pro melakukan pemindaian otomatis terhadap spam, ujaran kebencian, dan konten tidak relevan.",
     secPrivacyTitle: "Privasi Terenkripsi",
     secPrivacyDesc: "Laporan sensitif dilindungi dengan enkripsi tingkat tinggi yang hanya dapat dibuka oleh pihak berwenang.",
 
@@ -206,7 +206,7 @@ export const translations = {
 
     // HOME PAGE
     homeHeroTitle: "Demokrasi yang Transparan & Aman",
-    homeHeroSub: "Platform deliberasi publik pertama yang menggabungkan AI Gemini 1.5 Pro dan Blockchain Base untuk memastikan setiap suara rakyat abadi dan berimpact.",
+    homeHeroSub: "Platform deliberasi publik pertama yang menggabungkan AI Generative AI Pro dan Blockchain Base untuk memastikan setiap suara rakyat abadi dan berimpact.",
     homeProblemTitle: "Masalah vs Solusi",
     homeProblemSub: "Mengapa sistem aspirasi konvensional seringkali gagal?",
     homeHowTitle: "Bagaimana Dlibration Bekerja?",
@@ -339,7 +339,7 @@ export const translations = {
     step1Title: "Voice the Issue",
     step1Desc: "Submit complaints, suggestions, or policy ideas in detail.",
     step2Title: "AI Processing",
-    step2Desc: "Gemini AI will summarize, categorize, and validate your issue.",
+    step2Desc: "Generative AI AI will summarize, categorize, and validate your issue.",
     step3Title: "Blockchain Voting",
     step3Desc: "Your voice is permanently recorded as valid proof of participation.",
 
@@ -434,7 +434,7 @@ export const translations = {
     secBlockchainTitle: "Blockchain Security",
     secBlockchainDesc: "Using the Base Sepolia network to ensure data is immutable and censorship-resistant.",
     secAITitle: "Smart Moderation",
-    secAIDesc: "Gemini 1.5 Pro AI system performs automatic scans for spam, hate speech, and irrelevant content.",
+    secAIDesc: "Generative AI Pro AI system performs automatic scans for spam, hate speech, and irrelevant content.",
     secPrivacyTitle: "Encrypted Privacy",
     secPrivacyDesc: "Sensitive reports are protected with high-level encryption that can only be opened by authorities.",
 
@@ -511,16 +511,16 @@ export const translations = {
 
     // HOME PAGE
     homeHeroTitle: "Transparent & Secure Democracy",
-    homeHeroSub: "The first public deliberation platform combining Gemini 1.5 Pro AI and Base Blockchain to ensure every citizen's voice is eternal and impactful.",
+    homeHeroSub: "The first public deliberation platform combining Generative AI Pro AI and Base Blockchain to ensure every citizen's voice is eternal and impactful.",
     homeProblemTitle: "Problem vs Solution",
     homeProblemSub: "Why do conventional aspiration systems often fail?",
     homeHowTitle: "How Dlibration Works?",
 
     // FEATURES PAGE
     featHeroTitle: "Technology Behind",
-    featHeroTitleGold: "Transparency.",
-    featAiTitle: "AI Summarizer & Clustering",
-    featAiDesc: "Automatically groups thousands of similar aspirations for fast policy analysis.",
+    featAiTitleShort: "AI Analysis",
+    featAiTitle: "AI Policy Analysis",
+    featAiDesc: "Use Generative AI to analyze public sentiment and group similar aspirations for fast policy analysis.",
     featChainTitle: "On-Chain Immutable Records",
     featChainDesc: "Data cannot be deleted or changed, guaranteeing information integrity forever.",
     featGovTitle: "Policy Brief Generator",

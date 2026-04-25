@@ -27,7 +27,7 @@ export default function BlogPage() {
       img: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=2070&auto=format&fit=crop"
     },
     {
-      title: lang === 'id' ? "Integrasi AI Gemini 1.5 Pro untuk Analisis Kebijakan" : "Gemini 1.5 Pro AI Integration for Policy Analysis",
+      title: lang === 'id' ? "Integrasi AI Generative AI Pro untuk Analisis Kebijakan" : "Generative AI Pro AI Integration for Policy Analysis",
       desc: lang === 'id' ? "Mempelajari bagaimana sistem kami meringkas ribuan suara rakyat menjadi poin-poin strategis bagi pemerintah." : "Learn how our system summarizes thousands of citizen voices into strategic points for the government.",
       date: "Oct 22, 2026",
       readTime: "8 min read",

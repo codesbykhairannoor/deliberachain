@@ -119,7 +119,7 @@ export default function DemoPage() {
             <p className="text-muted-foreground text-[10px] font-black uppercase tracking-[0.5em] mb-8">Protocol Stack</p>
             <div className="flex flex-wrap justify-center gap-12 grayscale opacity-40">
                 <div className="flex items-center gap-2 font-black text-2xl">NEXT.JS</div>
-                <div className="flex items-center gap-2 font-black text-2xl">GEMINI AI</div>
+                <div className="flex items-center gap-2 font-black text-2xl">Generative AI AI</div>
                 <div className="flex items-center gap-2 font-black text-2xl">THIRDWEB</div>
                 <div className="flex items-center gap-2 font-black text-2xl">BASE</div>
             </div>
