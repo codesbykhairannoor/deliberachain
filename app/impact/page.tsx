@@ -16,7 +16,9 @@ import {
   Heart,
   Briefcase,
   Layers,
-  Sparkles
+  Sparkles,
+  Rocket,
+  Shield
 } from "lucide-react";
 import Link from "next/link";
 import { cloneElement } from "react";
@@ -27,38 +29,46 @@ export default function ImpactPage() {
 
   const pageTranslations = {
     id: {
-        networkTitle: "Jangkauan Dampak Global",
-        networkSub: "Dlibration sedang bertransformasi menjadi tulang punggung demokrasi di berbagai wilayah.",
-        storyTitle: "Kisah Perubahan Nyata",
-        story1Title: "Kecamatan Cerdas",
-        story1Desc: "Integrasi 100% aspirasi warga ke dalam alokasi dana pembangunan desa.",
-        story2Title: "Kampus Inklusif",
-        story2Desc: "Pemilihan raya mahasiswa pertama yang diaudit sepenuhnya secara on-chain.",
-        story3Title: "Audit Publik Mandiri",
-        story3Desc: "Masyarakat sipil dapat memverifikasi setiap rupiah yang dijanjikan pemerintah.",
-        milestoneTitle: "Pencapaian Komunitas",
-        mile1: "450k+ Suara Terverifikasi",
-        mile2: "120+ Instansi Terhubung",
-        mile3: "100% Keamanan Data",
-        futureTitle: "Masa Depan Tanpa Batas",
-        futureSub: "Kami percaya bahwa setiap bit data adalah langkah menuju dunia yang lebih adil."
+        heroTitle: "Membangun Jejak",
+        heroTitleGold: "Transparansi.",
+        heroSub: "Dlibration dirancang untuk mengubah cara dunia mengelola aspirasi. Kami tidak hanya membangun platform, kami membangun standar baru untuk akuntabilitas publik.",
+        milestoneTitle: "Fase Pengembangan Protokol",
+        mile1: "Tahap 1: Arsitektur Alpha",
+        mile1Desc: "Pengembangan inti protokol pada jaringan Base Sepolia.",
+        mile2: "Tahap 2: Integrasi AI",
+        mile2Desc: "Implementasi Gemini 2.0 untuk analisis sentimen skala besar.",
+        mile3: "Tahap 3: Desentralisasi",
+        mile3Desc: "Migrasi penuh ke tata kelola berbasis komunitas (DAO).",
+        useCaseTitle: "Skenario Implementasi Visioner",
+        case1: "Transparansi Anggaran",
+        case1Desc: "Memungkinkan warga memverifikasi alokasi dana secara real-time di atas blockchain.",
+        case2: "Deliberasi Akademik",
+        case2Desc: "Ruang diskusi terstruktur untuk pemilihan dan kebijakan di lingkungan universitas.",
+        case3: "Audit Kebijakan NGO",
+        case3Desc: "Membantu organisasi sosial mengumpulkan bukti digital untuk advokasi kebijakan.",
+        futureTitle: "Visi Masa Depan",
+        futureSub: "Setiap bit data adalah langkah menuju dunia yang lebih adil dan transparan."
     },
     en: {
-        networkTitle: "Global Impact Reach",
-        networkSub: "Dlibration is transforming into the backbone of democracy across various regions.",
-        storyTitle: "Real Stories of Change",
-        story1Title: "Smart Districts",
-        story1Desc: "100% integration of citizen aspirations into village development fund allocation.",
-        story2Title: "Inclusive Campus",
-        story2Desc: "The first student general election fully audited on-chain.",
-        story3Title: "Independent Public Audit",
-        story3Desc: "Civil society can verify every dollar promised by the government.",
-        milestoneTitle: "Community Milestones",
-        mile1: "450k+ Verified Voices",
-        mile2: "120+ Connected Agencies",
-        mile3: "100% Data Security",
-        futureTitle: "Limitless Future",
-        futureSub: "We believe every bit of data is a step towards a fairer world."
+        heroTitle: "Building Traces of",
+        heroTitleGold: "Transparency.",
+        heroSub: "Dlibration is designed to change the way the world manages aspirations. We are not just building a platform, we are building a new standard for public accountability.",
+        milestoneTitle: "Protocol Development Phases",
+        mile1: "Phase 1: Alpha Architecture",
+        mile1Desc: "Core protocol development on the Base Sepolia network.",
+        mile2: "Phase 2: AI Integration",
+        mile2Desc: "Implementation of Gemini 2.0 for large-scale sentiment analysis.",
+        mile3: "Phase 3: Decentralization",
+        mile3Desc: "Full migration to community-based governance (DAO).",
+        useCaseTitle: "Visionary Implementation Scenarios",
+        case1: "Budget Transparency",
+        case1Desc: "Allowing citizens to verify fund allocation in real-time on the blockchain.",
+        case2: "Academic Deliberation",
+        case2Desc: "Structured discussion space for elections and policies in university environments.",
+        case3: "NGO Policy Audit",
+        case3Desc: "Helping social organizations gather digital evidence for policy advocacy.",
+        futureTitle: "Future Vision",
+        futureSub: "Every bit of data is a step towards a fairer and more transparent world."
     }
   };
 
@@ -76,17 +86,15 @@ export default function ImpactPage() {
                 initial={{ opacity: 0, x: -30 }}
                 animate={{ opacity: 1, x: 0 }}
             >
-                <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-vault-amber/30 bg-vault-amber/5 text-vault-amber font-black text-[10px] tracking-[0.2em] uppercase mb-8">
-                    <TrendingUp size={14} /> Measurable Progress
+                <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-vault-amber/30 bg-vault-amber/5 text-vault-amber font-black text-[10px] tracking-[0.2em] uppercase mb-8 shadow-sm">
+                    <Rocket size={14} /> Roadmap to Impact
                 </div>
-                <h1 className="text-6xl md:text-8xl font-black text-foreground mb-8 tracking-tighter leading-[0.9] uppercase">
-                    Data for <br/> 
-                    <span className="text-vault-amber">Humanity.</span>
+                <h1 className="text-6xl md:text-8xl font-black text-foreground mb-8 tracking-tighter leading-[0.9] uppercase italic">
+                    {pt.heroTitle} <br/> 
+                    <span className="text-vault-amber">{pt.heroTitleGold}</span>
                 </h1>
-                <p className="text-xl text-muted-foreground mb-12 leading-relaxed max-w-xl font-medium">
-                    {lang === 'id' 
-                      ? "Kami tidak hanya menghitung angka. Kami menghitung harapan yang terealisasi. Dlibration mentransformasi suara yang hilang menjadi kebijakan publik yang berdampak nyata."
-                      : "We don't just count numbers. We count realized hopes. Dlibration transforms lost voices into impactful public policies."}
+                <p className="text-xl text-muted-foreground mb-12 leading-relaxed max-w-xl font-medium italic opacity-80">
+                    {pt.heroSub}
                 </p>
                 <div className="flex flex-wrap gap-6">
                     <Link href="/dashboard" className="bg-foreground text-background px-12 py-6 rounded-2xl font-black flex items-center gap-3 hover:bg-vault-amber hover:text-black transition-all shadow-2xl uppercase text-sm tracking-widest active:scale-95">
@@ -104,18 +112,18 @@ export default function ImpactPage() {
                             <div className="grid grid-cols-2 gap-8">
                                 <div className="space-y-8">
                                     <div className="p-8 bg-muted border border-border rounded-3xl shadow-sm group-hover:border-vault-amber/30 transition-colors">
-                                        <div className="text-4xl font-black text-vault-amber mb-2">92%</div>
-                                        <div className="text-[9px] font-black uppercase text-muted-foreground tracking-[0.2em]">Resolution Rate</div>
+                                        <div className="text-4xl font-black text-vault-amber mb-2 italic">100%</div>
+                                        <div className="text-[9px] font-black uppercase text-muted-foreground tracking-[0.2em]">Data Integrity</div>
                                     </div>
                                     <div className="p-8 bg-blue-500/5 border border-blue-500/10 rounded-3xl shadow-sm group-hover:border-blue-500/30 transition-colors">
-                                        <div className="text-4xl font-black text-blue-500 mb-2">24h</div>
-                                        <div className="text-[9px] font-black uppercase text-muted-foreground tracking-[0.2em]">Avg Response</div>
+                                        <div className="text-4xl font-black text-blue-500 mb-2 italic">Zero</div>
+                                        <div className="text-[9px] font-black uppercase text-muted-foreground tracking-[0.2em]">Censorship</div>
                                     </div>
                                 </div>
                                 <div className="pt-12">
                                     <div className="p-12 bg-green-500/5 border border-green-500/10 rounded-[3rem] h-full flex flex-col justify-center shadow-sm group-hover:border-green-500/30 transition-colors">
-                                        <div className="text-5xl font-black text-green-500 mb-3">100%</div>
-                                        <div className="text-[9px] font-black uppercase text-muted-foreground tracking-[0.2em] italic">Immutable Proof</div>
+                                        <div className="text-5xl font-black text-green-500 mb-3 italic">∞</div>
+                                        <div className="text-[9px] font-black uppercase text-muted-foreground tracking-[0.2em] italic">Eternal Records</div>
                                     </div>
                                 </div>
                             </div>
@@ -125,89 +133,74 @@ export default function ImpactPage() {
             </div>
         </div>
 
-        {/* 2. SUCCESS STORIES GRID */}
+        {/* 2. VISIONARY USE CASES GRID */}
         <section className="mb-48">
-            <h2 className="text-4xl md:text-7xl font-black text-foreground mb-24 tracking-tighter text-center uppercase leading-none">{pt.storyTitle}</h2>
+            <div className="text-center mb-24">
+                <h2 className="text-4xl md:text-7xl font-black text-foreground mb-10 tracking-tighter uppercase leading-none italic">{pt.useCaseTitle}</h2>
+                <div className="h-2 w-32 bg-vault-amber mx-auto rounded-full"></div>
+            </div>
             <div className="grid md:grid-cols-3 gap-10">
                 {[
-                    { title: pt.story1Title, desc: pt.story1Desc, icon: <MapPin />, color: "text-red-500" },
-                    { title: pt.story2Title, desc: pt.story2Desc, icon: <Briefcase />, color: "text-vault-amber" },
-                    { title: pt.story3Title, desc: pt.story3Desc, icon: <ShieldCheck />, color: "text-blue-500" }
+                    { title: pt.case1, desc: pt.case1Desc, icon: <MapPin />, color: "text-red-500" },
+                    { title: pt.case2, desc: pt.case2Desc, icon: <Briefcase />, color: "text-vault-amber" },
+                    { title: pt.case3, desc: pt.case3Desc, icon: <ShieldCheck />, color: "text-blue-500" }
                 ].map((item, i) => (
                     <motion.div 
                         key={i}
                         whileHover={{ y: -10 }}
-                        className="p-16 bg-muted/50 border border-border rounded-[4rem] group text-center shadow-sm hover:border-vault-amber/30 transition-all"
+                        className="p-16 bg-muted/50 border border-border rounded-[4rem] group text-center shadow-inner hover:border-vault-amber/30 transition-all"
                     >
-                        <div className={`${item.color} mb-10 transition-transform group-hover:rotate-12 flex justify-center bg-background w-20 h-20 items-center rounded-3xl mx-auto border border-border shadow-inner`}>
+                        <div className={`${item.color} mb-10 transition-transform group-hover:rotate-12 flex justify-center bg-background w-20 h-20 items-center rounded-3xl mx-auto border border-border shadow-2xl`}>
                             {cloneElement(item.icon, { size: 40 })}
                         </div>
-                        <h3 className="text-2xl font-black text-foreground mb-6 uppercase tracking-tight leading-tight">{item.title}</h3>
-                        <p className="text-muted-foreground font-medium leading-relaxed">{item.desc}</p>
+                        <h3 className="text-2xl font-black text-foreground mb-6 uppercase tracking-tighter leading-tight">{item.title}</h3>
+                        <p className="text-muted-foreground font-medium leading-relaxed italic opacity-80">{item.desc}</p>
                     </motion.div>
                 ))}
             </div>
         </section>
 
         {/* 3. MILESTONES SECTION */}
-        <section className="mb-48 text-center">
-            <h2 className="text-[10px] font-black text-muted-foreground mb-20 uppercase tracking-[0.6em] opacity-60 italic">{pt.milestoneTitle}</h2>
+        <section className="mb-48">
+            <div className="text-center mb-20">
+                <h2 className="text-[10px] font-black text-muted-foreground uppercase tracking-[0.6em] opacity-60 italic">{pt.milestoneTitle}</h2>
+            </div>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
-                {[pt.mile1, pt.mile2, pt.mile3].map((mile, i) => (
-                    <div key={i} className="p-16 bg-background border border-border rounded-[4rem] relative overflow-hidden shadow-2xl group hover:border-vault-amber/20 transition-all">
-                        <div className="absolute top-0 right-0 w-32 h-32 bg-vault-amber/5 blur-[60px] group-hover:opacity-100 transition-opacity"></div>
-                        <div className="text-4xl font-black text-foreground uppercase tracking-tighter leading-none">{mile.split(' ')[0]}</div>
-                        <div className="text-[10px] font-black text-muted-foreground uppercase mt-3 tracking-widest opacity-60">{mile.split(' ').slice(1).join(' ')}</div>
+                {[
+                    { title: pt.mile1, desc: pt.mile1Desc, icon: <Layers /> },
+                    { title: pt.mile2, desc: pt.mile2Desc, icon: <Cpu /> },
+                    { title: pt.mile3, desc: pt.mile3Desc, icon: <Globe /> }
+                ].map((item, i) => (
+                    <div key={i} className="p-12 bg-background border border-border rounded-[3.5rem] relative overflow-hidden shadow-2xl group hover:border-vault-amber/20 transition-all text-center">
+                        <div className="w-16 h-16 bg-muted rounded-2xl flex items-center justify-center mx-auto mb-8 shadow-inner group-hover:scale-110 transition-transform text-vault-amber">
+                            {item.icon}
+                        </div>
+                        <h4 className="text-xl font-black text-foreground uppercase tracking-tighter leading-none mb-4">{item.title}</h4>
+                        <p className="text-[11px] font-medium text-muted-foreground uppercase tracking-widest opacity-60 leading-relaxed italic">{item.desc}</p>
                     </div>
                 ))}
             </div>
         </section>
 
-        {/* 4. NETWORK VISUALIZATION SECTION */}
-        <section className="mb-48 bg-muted/50 border border-border rounded-[6rem] p-16 lg:p-32 overflow-hidden relative shadow-inner">
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[1000px] bg-blue-500/5 rounded-full blur-[180px] -z-10"></div>
-            <div className="grid lg:grid-cols-2 gap-32 items-center">
-                <div className="relative">
-                    <div className="w-[300px] h-[300px] md:w-[500px] md:h-[500px] mx-auto border-2 border-dashed border-border rounded-full flex items-center justify-center animate-spin-slow">
-                         <Globe size={100} className="text-muted-foreground opacity-20" />
-                    </div>
-                    <div className="absolute inset-0 flex items-center justify-center">
-                        <div className="w-24 h-24 bg-vault-amber rounded-3xl shadow-2xl shadow-vault-amber/40 flex items-center justify-center animate-pulse">
-                            <Layers size={48} className="text-black" />
-                        </div>
-                    </div>
-                </div>
-                <div>
-                    <h2 className="text-4xl md:text-7xl font-black text-foreground mb-12 tracking-tighter leading-none uppercase">{pt.networkTitle}</h2>
-                    <p className="text-xl text-muted-foreground mb-12 font-medium leading-relaxed">{pt.networkSub}</p>
-                    <div className="flex flex-wrap gap-4">
-                        {['SEA Region', 'LATAM Pilot', 'EU Standards', 'Global Node Network'].map(tag => (
-                            <span key={tag} className="px-8 py-3 bg-background border border-border rounded-full text-[10px] font-black uppercase tracking-[0.2em] text-muted-foreground shadow-sm hover:border-vault-amber transition-colors cursor-default">
-                                {tag}
-                            </span>
-                        ))}
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        {/* 5. FINAL CTA */}
-        <section className="p-20 md:p-32 bg-vault-amber border border-vault-amber/30 rounded-[6rem] text-center relative overflow-hidden group shadow-[0_0_100px_rgba(245,158,11,0.2)]">
+        {/* 4. FINAL CTA */}
+        <section className="p-20 md:p-32 bg-foreground border border-foreground rounded-[6rem] text-center relative overflow-hidden group shadow-2xl">
              <div className="bg-pattern-diagonal absolute inset-0 opacity-20"></div>
              <div className="relative z-10 max-w-5xl mx-auto">
-                <div className="w-24 h-24 bg-black rounded-3xl flex items-center justify-center mx-auto mb-16 shadow-2xl group-hover:rotate-12 transition-transform duration-500">
-                    <Heart size={48} className="text-white animate-pulse" />
+                <div className="w-24 h-24 bg-background rounded-3xl flex items-center justify-center mx-auto mb-16 shadow-2xl group-hover:rotate-12 transition-transform duration-500">
+                    <Heart size={48} className="text-vault-amber animate-pulse" />
                 </div>
-                <h2 className="text-5xl md:text-8xl font-black text-black mb-10 tracking-tighter leading-[0.85] uppercase">
-                    Shape the <br/> future with us.
+                <h2 className="text-5xl md:text-8xl font-black text-background mb-10 tracking-tighter leading-[0.85] uppercase italic">
+                    The Future is <br/> Transparent.
                 </h2>
-                <p className="text-2xl text-black/70 mb-16 font-black leading-relaxed max-w-2xl mx-auto uppercase italic tracking-tight">
+                <p className="text-2xl text-background/70 mb-16 font-black leading-relaxed max-w-2xl mx-auto uppercase italic tracking-tight opacity-80">
                     {pt.futureSub}
                 </p>
-                <Link href="/dashboard" className="bg-black text-white px-20 py-10 rounded-[3rem] font-black text-3xl transition-all hover:scale-105 shadow-2xl inline-flex items-center gap-6 active:scale-95 group/btn overflow-hidden relative">
-                   <span className="relative z-10">Join the Movement</span> <ArrowRight size={36} className="relative z-10 group-hover/btn:translate-x-3 transition-transform" />
-                   <div className="absolute inset-0 bg-white/20 translate-y-full group-hover/btn:translate-y-0 transition-transform duration-500"></div>
-                </Link>
+                <div className="flex justify-center">
+                    <Link href="/dashboard" className="bg-vault-amber text-black px-20 py-10 rounded-[3rem] font-black text-3xl transition-all hover:scale-105 shadow-2xl inline-flex items-center gap-6 active:scale-95 group/btn overflow-hidden relative">
+                       <span className="relative z-10">Explore Prototype</span> <ArrowRight size={36} className="relative z-10 group-hover/btn:translate-x-3 transition-transform" />
+                       <div className="absolute inset-0 bg-white/20 translate-y-full group-hover/btn:translate-y-0 transition-transform duration-500"></div>
+                    </Link>
+                </div>
              </div>
         </section>
 
