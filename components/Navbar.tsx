@@ -26,6 +26,12 @@ import { translations } from "@/lib/translations";
 import { usePathname } from "next/navigation";
 import { useTheme } from "next-themes";
 import { Sun, Moon } from "lucide-react";
+import { ConnectButton } from "thirdweb/react";
+import { createThirdwebClient } from "thirdweb";
+import { baseSepolia } from "thirdweb/chains";
+import ClientOnly from "./ClientOnly";
+
+const client = createThirdwebClient({ clientId: process.env.NEXT_PUBLIC_THIRDWEB_CLIENT_ID || "" });
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -182,9 +188,19 @@ export default function Navbar() {
             </button>
             
             <div className="hidden md:flex items-center gap-3">
-               <Link href="/dashboard" className="bg-vault-amber hover:bg-yellow-500 text-black px-10 py-4 rounded-2xl font-black text-sm transition-all shadow-[0_15px_30px_rgba(245,158,11,0.25)] flex items-center gap-3 group hover:scale-105 active:scale-95">
-                  {t.btnGetStarted} <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
-               </Link>
+               <ClientOnly>
+                  <ConnectButton 
+                      client={client} 
+                      theme={theme === "dark" ? "dark" : "light"}
+                      accountAbstraction={{
+                          chain: baseSepolia,
+                          sponsorGas: true,
+                      }}
+                      connectButton={{
+                          className: "!bg-vault-amber !text-black !font-black !px-10 !py-4 !rounded-2xl !text-sm !shadow-[0_15px_30px_rgba(245,158,11,0.25)] hover:!scale-105 transition-transform uppercase !tracking-widest"
+                      }}
+                  />
+               </ClientOnly>
             </div>
 
             <button 
@@ -244,10 +260,22 @@ export default function Navbar() {
                ))}
             </div>
 
-            <div className="pt-12 border-t border-white/10 space-y-6">
-               <Link href="/dashboard" onClick={() => setMobileMenuOpen(false)} className="w-full bg-vault-amber text-black py-8 rounded-[2.5rem] font-black text-center block text-2xl shadow-2xl active:scale-95 transition-transform">
-                  {t.btnGetStarted}
-               </Link>
+            <div className="pt-12 border-t border-white/10 space-y-8">
+               <div className="flex justify-center scale-110">
+                  <ClientOnly>
+                    <ConnectButton 
+                        client={client} 
+                        theme={theme === "dark" ? "dark" : "light"}
+                        accountAbstraction={{
+                            chain: baseSepolia,
+                            sponsorGas: true,
+                        }}
+                        connectButton={{
+                            className: "!bg-vault-amber !text-black !font-black !px-12 !py-6 !rounded-[2rem] !text-xl !shadow-2xl !w-full"
+                        }}
+                    />
+                  </ClientOnly>
+               </div>
                <div className="flex justify-center gap-6 pt-4">
                   <button onClick={() => { setLang('id'); setMobileMenuOpen(false); }} className={`flex-1 py-5 rounded-3xl font-black text-lg transition-all ${lang === 'id' ? 'bg-white text-black shadow-xl' : 'bg-white/5 text-muted-foreground border border-white/10'}`}>ID</button>
                   <button onClick={() => { setLang('en'); setMobileMenuOpen(false); }} className={`flex-1 py-5 rounded-3xl font-black text-lg transition-all ${lang === 'en' ? 'bg-white text-black shadow-xl' : 'bg-white/5 text-muted-foreground border border-white/10'}`}>EN</button>
