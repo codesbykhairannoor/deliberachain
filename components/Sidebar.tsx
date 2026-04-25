@@ -36,10 +36,10 @@ export default function Sidebar({ isOpen, onClose }: SidebarProps) {
   ];
 
   const civicHeroItems = [
-    { name: "Discovery", tab: "discovery", icon: Globe, roles: ["CITIZEN", "ADMIN", "GOVERNMENT"] },
-    { name: "My Feed", tab: "feed", icon: History, roles: ["CITIZEN", "ADMIN", "GOVERNMENT"] },
-    { name: "Deliberation", tab: "room", icon: Flame, roles: ["CITIZEN", "ADMIN", "GOVERNMENT"] },
-    { name: "Criticism", tab: "kritik", icon: AlertCircle, roles: ["CITIZEN", "ADMIN", "GOVERNMENT"] },
+    { name: "Public Feed", tab: "discovery", icon: Globe, roles: ["CITIZEN", "ADMIN", "GOVERNMENT"] },
+    { name: "My Activity", tab: "feed", icon: History, roles: ["CITIZEN", "ADMIN", "GOVERNMENT"] },
+    { name: "Debate Hub", tab: "room", icon: Flame, roles: ["CITIZEN", "ADMIN", "GOVERNMENT"] },
+    { name: "Civic Reports", tab: "kritik", icon: AlertCircle, roles: ["CITIZEN", "ADMIN", "GOVERNMENT"] },
   ];
 
   const authItems = [

@@ -51,15 +51,8 @@ export default function ClientLayoutWrapper({ children }: { children: React.Reac
         <Sidebar isOpen={sidebarOpen} onClose={() => setSidebarOpen(false)} />
         
         <div className="flex-1 lg:ml-64 min-h-screen relative flex flex-col">
-          <AppHeader />
+          <AppHeader onMenuClick={() => setSidebarOpen(true)} />
           
-          {/* Mobile Menu Trigger */}
-          <button 
-            onClick={() => setSidebarOpen(true)}
-            className="lg:hidden fixed bottom-8 right-8 w-14 h-14 bg-vault-amber text-black rounded-full shadow-2xl z-[60] flex items-center justify-center active:scale-90 transition-transform"
-          >
-            <Menu size={24} />
-          </button>
 
           <main className="mt-20 p-4 md:p-8 flex-1">
             <div className="max-w-[1600px] mx-auto">

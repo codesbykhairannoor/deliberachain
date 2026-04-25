@@ -160,6 +160,17 @@ export default function UploadForm({ client, contract, onSuccess }: UploadFormPr
                     {isSecret ? <Lock size={20} /> : <ShieldCheck size={20} />}
                     <span>{isSecret ? "Secret Report" : "Public Post"}</span>
                 </button>
+                {isSecret && (
+                    <motion.p 
+                        initial={{ opacity: 0, y: -5 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        className="text-[9px] font-bold text-red-500 mt-2 px-2 italic leading-tight"
+                    >
+                        {lang === 'id' 
+                          ? "*Laporan rahasia dienkripsi on-chain dan hanya dapat diakses oleh instansi pemerintah terkait (Segera hadir)." 
+                          : "*Secret reports are encrypted on-chain and only accessible by relevant government agencies (Coming soon)."}
+                    </motion.p>
+                )}
             </div>
         </div>
         
