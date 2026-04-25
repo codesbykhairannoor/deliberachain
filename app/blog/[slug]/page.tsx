@@ -13,7 +13,8 @@ import {
   Tag, 
   Share2, 
   MessageSquare,
-  ChevronRight
+  ChevronRight,
+  Sparkles
 } from "lucide-react";
 import Link from "next/link";
 
@@ -33,7 +34,7 @@ export default function BlogDetailPage() {
           <p className="text-muted-foreground mb-8">Post not found</p>
           <button 
             onClick={() => router.push("/blog")}
-            className="px-8 py-4 bg-vault-amber text-black rounded-2xl font-black"
+            className="px-8 py-4 bg-vault-amber text-black rounded-2xl font-black uppercase text-xs tracking-widest shadow-xl"
           >
             Back to Blog
           </button>
@@ -46,45 +47,45 @@ export default function BlogDetailPage() {
   const content = post.content[lang as "en" | "id"];
 
   return (
-    <div className="bg-background min-h-screen pt-48 pb-40 relative overflow-hidden">
+    <div className="bg-background min-h-screen pt-48 pb-40 relative overflow-hidden text-foreground">
       {/* Background Decor */}
       <div className="bg-pattern-grid absolute inset-0 opacity-5 -z-10"></div>
-      <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-vault-amber/5 rounded-full blur-[150px] -z-10"></div>
+      <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-vault-amber/5 rounded-full blur-[150px] -z-10 animate-pulse"></div>
       
       <div className="max-w-4xl mx-auto px-6">
         {/* Breadcrumbs */}
-        <div className="flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-muted-foreground mb-12">
+        <div className="flex items-center gap-3 text-[10px] font-black uppercase tracking-[0.2em] text-muted-foreground mb-16 opacity-60">
             <Link href="/blog" className="hover:text-vault-amber transition-colors">Blog</Link>
-            <ChevronRight size={10} />
-            <span className="text-vault-amber truncate max-w-[200px]">{title}</span>
+            <ChevronRight size={12} className="opacity-30" />
+            <span className="text-vault-amber truncate max-w-[200px] italic">{title}</span>
         </div>
 
         {/* Header */}
         <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="mb-16"
+            className="mb-20"
         >
-            <div className="flex flex-wrap items-center gap-6 text-xs font-bold text-muted-foreground mb-8">
-                <div className="flex items-center gap-2 bg-white/5 px-4 py-2 rounded-full">
+            <div className="flex flex-wrap items-center gap-4 text-[10px] font-black text-muted-foreground mb-10 uppercase tracking-widest">
+                <div className="flex items-center gap-3 bg-muted border border-border px-5 py-2.5 rounded-full shadow-sm">
                     <Calendar size={14} className="text-vault-amber" /> {post.date}
                 </div>
-                <div className="flex items-center gap-2 bg-white/5 px-4 py-2 rounded-full">
+                <div className="flex items-center gap-3 bg-muted border border-border px-5 py-2.5 rounded-full shadow-sm">
                     <User size={14} className="text-vault-amber" /> {post.author}
                 </div>
-                <div className="flex items-center gap-2 bg-white/5 px-4 py-2 rounded-full">
+                <div className="flex items-center gap-3 bg-muted border border-border px-5 py-2.5 rounded-full shadow-sm">
                     <Clock size={14} className="text-vault-amber" /> {post.readTime}
                 </div>
-                <div className="flex items-center gap-2 bg-vault-amber/10 text-vault-amber px-4 py-2 rounded-full uppercase tracking-widest">
+                <div className="flex items-center gap-3 bg-vault-amber/10 text-vault-amber border border-vault-amber/20 px-5 py-2.5 rounded-full shadow-sm italic">
                     {post.category}
                 </div>
             </div>
             
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-black text-foreground mb-12 tracking-tighter leading-[0.95] uppercase">
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-black text-foreground mb-12 tracking-tighter leading-none uppercase">
                 {title}
             </h1>
 
-            <div className="h-1.5 w-32 bg-vault-amber rounded-full"></div>
+            <div className="h-2 w-32 bg-vault-amber rounded-full shadow-[0_0_20px_rgba(245,158,11,0.3)]"></div>
         </motion.div>
 
         {/* Content Area */}
@@ -92,30 +93,30 @@ export default function BlogDetailPage() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.2 }}
-            className="prose prose-invert prose-amber max-w-none mb-24"
+            className="prose prose-amber max-w-none mb-32 dark:prose-invert"
         >
             <div 
-                className="text-lg md:text-xl text-foreground/90 leading-relaxed font-medium space-y-8"
+                className="text-lg md:text-xl text-foreground/90 leading-relaxed font-medium space-y-10 blog-content-wrapper"
                 dangerouslySetInnerHTML={{ __html: content }}
             />
         </motion.div>
 
         {/* Footer Info */}
-        <div className="pt-16 border-t border-white/10 flex flex-col md:flex-row justify-between items-start md:items-center gap-12">
+        <div className="pt-20 border-t border-border flex flex-col md:flex-row justify-between items-start md:items-center gap-16">
             <div className="flex flex-wrap gap-4">
                 {post.tags.map(tag => (
-                    <div key={tag} className="flex items-center gap-2 text-[10px] font-black uppercase tracking-widest px-6 py-2 bg-white/5 border border-white/10 rounded-full text-muted-foreground">
-                        <Tag size={12} /> {tag}
+                    <div key={tag} className="flex items-center gap-3 text-[10px] font-black uppercase tracking-[0.2em] px-8 py-3 bg-muted border border-border rounded-full text-muted-foreground shadow-sm hover:border-vault-amber/30 transition-colors">
+                        <Tag size={14} className="opacity-50" /> {tag}
                     </div>
                 ))}
             </div>
             
-            <div className="flex items-center gap-6">
-                <span className="text-xs font-black uppercase tracking-widest text-muted-foreground">Share this impact:</span>
+            <div className="flex items-center gap-8">
+                <span className="text-[10px] font-black uppercase tracking-[0.3em] text-muted-foreground opacity-60 italic">Share this impact:</span>
                 <div className="flex gap-4">
                     {[1,2,3].map(i => (
-                        <button key={i} className="w-10 h-10 bg-white/5 border border-white/10 rounded-xl flex items-center justify-center text-muted-foreground hover:text-vault-amber hover:border-vault-amber transition-all">
-                            <Share2 size={18} />
+                        <button key={i} className="w-12 h-12 bg-muted border border-border rounded-2xl flex items-center justify-center text-muted-foreground hover:text-vault-amber hover:border-vault-amber transition-all shadow-sm active:scale-90">
+                            <Share2 size={20} />
                         </button>
                     ))}
                 </div>
@@ -123,19 +124,48 @@ export default function BlogDetailPage() {
         </div>
 
         {/* Related / Back */}
-        <div className="mt-32 p-12 bg-vault-card border border-white/10 rounded-[3rem] text-center relative overflow-hidden group">
+        <div className="mt-40 p-16 md:p-24 bg-muted border border-border rounded-[4rem] text-center relative overflow-hidden group shadow-2xl shadow-black/5">
             <div className="bg-pattern-diagonal absolute inset-0 opacity-5"></div>
             <div className="relative z-10">
-                <h3 className="text-2xl font-black text-foreground mb-6 uppercase">Ready to learn more?</h3>
-                <p className="text-muted-foreground mb-10 max-w-md mx-auto">Explore other insights about how we are redefining digital democracy with AI and Blockchain.</p>
-                <div className="flex justify-center gap-6">
-                    <Link href="/blog" className="flex items-center gap-2 text-foreground font-black hover:text-vault-amber transition-all">
-                        <ArrowLeft size={20} /> Back to Blog
+                <div className="w-16 h-16 bg-background border border-border rounded-2xl flex items-center justify-center mx-auto mb-10 shadow-sm group-hover:rotate-12 transition-transform">
+                    <Sparkles size={32} className="text-vault-amber" />
+                </div>
+                <h3 className="text-3xl md:text-4xl font-black text-foreground mb-8 uppercase tracking-tighter leading-none">Ready to learn more?</h3>
+                <p className="text-lg text-muted-foreground mb-12 max-w-xl mx-auto font-medium leading-relaxed">Explore other insights about how we are redefining digital democracy with Gemini 2.0 Flash and Blockchain.</p>
+                <div className="flex justify-center gap-8">
+                    <Link href="/blog" className="flex items-center gap-3 text-foreground font-black hover:text-vault-amber transition-all uppercase text-xs tracking-widest group/back">
+                        <ArrowLeft size={24} className="group-hover/back:-translate-x-3 transition-transform" /> Back to Chronicle
                     </Link>
                 </div>
             </div>
         </div>
       </div>
+      
+      <style jsx global>{`
+        .blog-content-wrapper h2 {
+            font-size: 2rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: -0.05em;
+            margin-top: 4rem;
+            margin-bottom: 1.5rem;
+            color: var(--foreground);
+        }
+        .blog-content-wrapper p {
+            margin-bottom: 2rem;
+            line-height: 1.8;
+            opacity: 0.85;
+        }
+        .blog-content-wrapper blockquote {
+            border-left: 6px solid var(--vault-amber);
+            padding-left: 2rem;
+            font-style: italic;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin: 4rem 0;
+            color: var(--foreground);
+        }
+      `}</style>
     </div>
   );
 }

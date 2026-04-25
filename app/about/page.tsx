@@ -16,7 +16,8 @@ import {
   Calendar,
   Flag,
   Rocket,
-  Compass
+  Compass,
+  Lock
 } from "lucide-react";
 import Link from "next/link";
 
@@ -62,7 +63,7 @@ export default function AboutPage() {
   const pt = pageTranslations[lang as keyof typeof pageTranslations];
 
   return (
-    <div className="bg-background min-h-screen pt-48 pb-40 relative overflow-hidden">
+    <div className="bg-background min-h-screen pt-48 pb-40 relative overflow-hidden text-foreground">
       <div className="bg-pattern-grid absolute inset-0 opacity-10 -z-10"></div>
       
       <div className="max-w-7xl mx-auto px-6">
@@ -73,51 +74,57 @@ export default function AboutPage() {
                 initial={{ opacity: 0, x: -30 }}
                 animate={{ opacity: 1, x: 0 }}
             >
-                <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-vault-amber/30 bg-vault-amber/5 text-vault-amber font-black text-[10px] tracking-[0.2em] uppercase mb-8">
+                <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-vault-amber/30 bg-vault-amber/5 text-vault-amber font-black text-[10px] tracking-[0.2em] uppercase mb-8 shadow-sm">
                     <Flag size={14} /> The Visionary Mission
                 </div>
                 <h1 className="text-6xl md:text-8xl font-black text-foreground mb-8 tracking-tighter leading-[0.9] uppercase">
                     Voices <br/> 
                     <span className="text-vault-amber">Eternalized.</span>
                 </h1>
-                <p className="text-xl text-muted-foreground mb-12 leading-relaxed max-w-xl font-medium">
+                <p className="text-xl text-muted-foreground mb-12 leading-relaxed max-w-xl font-medium italic opacity-80">
                     {lang === 'id' 
                       ? "Dlibration lahir dari satu kegelisahan: hilangnya kepercayaan publik pada janji birokrasi. Kami membangun jembatan digital berbasis blockchain untuk memastikan setiap aspirasi menjadi data yang abadi."
                       : "Dlibration was born from one concern: the loss of public trust in bureaucratic promises. We build a digital bridge based on blockchain to ensure every aspiration becomes eternal data."}
                 </p>
                 <div className="flex flex-wrap gap-6">
-                    <Link href="/dashboard" className="bg-white text-black px-10 py-5 rounded-2xl font-black flex items-center gap-3 hover:bg-vault-amber transition-all shadow-2xl">
+                    <Link href="/dashboard" className="bg-foreground text-background px-12 py-6 rounded-2xl font-black flex items-center gap-3 hover:bg-vault-amber hover:text-black transition-all shadow-2xl uppercase text-sm tracking-widest active:scale-95">
                         {t.btnGetStarted} <ArrowRight size={22} />
                     </Link>
                 </div>
             </motion.div>
 
-            <div className="relative">
-                <div className="bg-vault-card border border-white/10 p-12 rounded-[4rem] shadow-2xl relative overflow-hidden group">
-                    <div className="bg-pattern-diagonal absolute inset-0 opacity-10"></div>
-                    <Globe size={160} className="text-vault-amber/10 mb-8 animate-spin-slow mx-auto" />
-                    <div className="text-center">
-                        <div className="text-4xl font-black text-foreground mb-2">GLOBAL</div>
-                        <div className="text-[10px] font-black text-muted-foreground uppercase tracking-[0.5em]">Network Infrastructure</div>
+            <motion.div 
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                className="relative"
+            >
+                <div className="absolute -inset-10 bg-vault-amber/10 blur-[120px] rounded-full -z-10 animate-pulse"></div>
+                <div className="bg-muted border border-border p-4 rounded-[4rem] shadow-2xl relative overflow-hidden group hover:rotate-1 transition-transform duration-700">
+                    <div className="bg-background rounded-[3.5rem] p-16 relative overflow-hidden flex flex-col items-center border border-border shadow-inner text-center">
+                        <div className="bg-pattern-diagonal absolute inset-0 opacity-10"></div>
+                        <Globe size={160} className="text-vault-amber/10 mb-10 mx-auto animate-spin-slow" />
+                        <div className="relative z-10">
+                            <div className="text-4xl font-black text-foreground mb-3 uppercase tracking-tighter leading-none italic">GLOBAL</div>
+                            <div className="text-[10px] font-black text-muted-foreground uppercase tracking-[0.5em] opacity-60">Network Infrastructure v2</div>
+                        </div>
                     </div>
                 </div>
-                <div className="absolute -top-12 -left-12 w-32 h-32 bg-vault-amber rounded-full blur-[80px] opacity-20 animate-pulse"></div>
-            </div>
+            </motion.div>
         </div>
 
         {/* 2. MANIFESTO SECTION */}
-        <section className="mb-48 text-center bg-white/[0.02] border border-white/10 rounded-[4rem] p-16 lg:p-24 relative overflow-hidden">
+        <section className="mb-48 text-center bg-muted/50 border border-border rounded-[5rem] p-16 lg:p-32 relative overflow-hidden shadow-inner">
             <div className="bg-pattern-diagonal absolute inset-0 opacity-5"></div>
-            <div className="relative z-10 max-w-4xl mx-auto">
-                <h2 className="text-4xl md:text-6xl font-black text-foreground mb-8 tracking-tighter uppercase">{pt.manifestoTitle}</h2>
-                <p className="text-2xl text-muted-foreground font-medium italic leading-relaxed mb-12">
+            <div className="relative z-10 max-w-5xl mx-auto">
+                <h2 className="text-4xl md:text-7xl font-black text-foreground mb-12 tracking-tighter uppercase leading-none">{pt.manifestoTitle}</h2>
+                <p className="text-2xl md:text-3xl text-muted-foreground font-medium italic leading-relaxed mb-16">
                    "{pt.manifestoSub}"
                 </p>
-                <div className="flex items-center justify-center gap-4">
-                    <div className="w-16 h-16 bg-vault-amber rounded-full"></div>
+                <div className="flex items-center justify-center gap-6">
+                    <div className="w-20 h-20 bg-vault-amber rounded-[2rem] shadow-xl border-4 border-white/20"></div>
                     <div className="text-left">
-                        <div className="text-xl font-black text-foreground uppercase tracking-tight">Khairan Noor</div>
-                        <div className="text-xs font-bold text-vault-amber uppercase tracking-widest">Protocol Architect</div>
+                        <div className="text-2xl font-black text-foreground uppercase tracking-tight leading-none mb-1">Khairan Noor</div>
+                        <div className="text-[10px] font-black text-vault-amber uppercase tracking-[0.4em] italic opacity-80">Protocol Architect</div>
                     </div>
                 </div>
             </div>
@@ -125,60 +132,76 @@ export default function AboutPage() {
 
         {/* 3. ROADMAP VISUAL */}
         <section className="mb-48">
-            <h2 className="text-4xl md:text-6xl font-black text-foreground mb-24 tracking-tighter text-center uppercase">{pt.roadmapTitle}</h2>
-            <div className="grid md:grid-cols-4 gap-12">
+            <h2 className="text-4xl md:text-7xl font-black text-foreground mb-24 tracking-tighter text-center uppercase leading-none">{pt.roadmapTitle}</h2>
+            <div className="grid md:grid-cols-4 gap-12 relative">
+                <div className="hidden lg:block absolute top-1/2 left-0 w-full h-1 bg-border -translate-y-1/2 -z-10 opacity-30"></div>
                 {[
-                    { title: pt.road1, icon: <Compass />, status: "Completed" },
-                    { title: pt.road2, icon: <Rocket />, status: "Active" },
-                    { title: pt.road3, icon: <Cpu />, status: "Ongoing" },
-                    { title: pt.road4, icon: <Globe />, status: "Planned" }
+                    { title: pt.road1, icon: <Compass />, status: "Completed", color: "text-green-500" },
+                    { title: pt.road2, icon: <Rocket />, status: "Active", color: "text-blue-500" },
+                    { title: pt.road3, icon: <Cpu />, status: "Ongoing", color: "text-vault-amber" },
+                    { title: pt.road4, icon: <Globe />, status: "Planned", color: "text-zinc-500" }
                 ].map((item, i) => (
-                    <div key={i} className="relative group">
-                        <div className="w-20 h-20 bg-vault-card border border-white/10 rounded-3xl flex items-center justify-center text-vault-amber mb-8 group-hover:scale-110 transition-transform">
+                    <motion.div 
+                        key={i} 
+                        whileHover={{ y: -10 }}
+                        className="bg-background border border-border p-10 rounded-[3rem] shadow-xl relative group hover:border-vault-amber/30 transition-all"
+                    >
+                        <div className={`w-20 h-20 bg-muted border border-border rounded-3xl flex items-center justify-center mb-10 shadow-inner group-hover:scale-110 transition-transform ${item.color}`}>
                             {item.icon}
                         </div>
-                        <div className="text-[10px] font-black uppercase tracking-widest mb-3 opacity-40">{item.status}</div>
-                        <h4 className="text-lg font-bold text-foreground leading-tight">{item.title}</h4>
-                    </div>
+                        <div className="text-[10px] font-black uppercase tracking-[0.4em] mb-4 opacity-40 italic">{item.status}</div>
+                        <h4 className="text-xl font-black text-foreground leading-tight uppercase tracking-tighter">{item.title}</h4>
+                    </motion.div>
                 ))}
             </div>
         </section>
 
         {/* 4. METHODOLOGY GRID */}
         <section className="mb-48">
-            <div className="grid lg:grid-cols-3 gap-12">
+            <div className="text-center mb-24">
+                <h2 className="text-4xl md:text-7xl font-black text-foreground mb-10 tracking-tighter uppercase leading-none">{pt.methodTitle}</h2>
+                <div className="h-2 w-32 bg-vault-amber mx-auto rounded-full"></div>
+            </div>
+            <div className="grid lg:grid-cols-3 gap-10">
                 {[
-                    { title: pt.method1, desc: pt.method1Desc, icon: <ShieldCheck /> },
-                    { title: pt.method2, desc: pt.method2Desc, icon: <Users /> },
-                    { title: pt.method3, desc: pt.method3Desc, icon: <Lock /> }
+                    { title: pt.method1, desc: pt.method1Desc, icon: <ShieldCheck />, color: "text-blue-500" },
+                    { title: pt.method2, desc: pt.method2Desc, icon: <Users />, color: "text-vault-amber" },
+                    { title: pt.method3, desc: pt.method3Desc, icon: <Lock />, color: "text-green-500" }
                 ].map((item, i) => (
                     <motion.div 
                         key={i}
                         whileHover={{ y: -10 }}
-                        className="p-16 bg-white/2 border border-white/5 rounded-[4rem] text-center flex flex-col items-center"
+                        className="p-16 bg-muted/50 border border-border rounded-[4rem] text-center flex flex-col items-center group shadow-sm hover:border-vault-amber/30 transition-all"
                     >
-                        <div className="text-vault-amber mb-8 scale-150">{item.icon}</div>
-                        <h3 className="text-2xl font-black text-foreground mb-6 uppercase tracking-tight">{item.title}</h3>
-                        <p className="text-muted-foreground font-medium leading-relaxed">{item.desc}</p>
+                        <div className={`${item.color} mb-12 bg-background w-24 h-24 flex items-center justify-center rounded-[2.5rem] border border-border shadow-inner transition-transform group-hover:scale-110`}>
+                            {item.icon}
+                        </div>
+                        <h3 className="text-3xl font-black text-foreground mb-6 uppercase tracking-tighter leading-none">{item.title}</h3>
+                        <p className="text-muted-foreground font-medium leading-relaxed italic text-lg opacity-80">{item.desc}</p>
                     </motion.div>
                 ))}
             </div>
         </section>
 
         {/* 5. CALL TO ACTION */}
-        <section className="p-20 bg-vault-amber border border-white/10 rounded-[5rem] text-center relative overflow-hidden group">
-             <div className="bg-pattern-diagonal absolute inset-0 opacity-10"></div>
-             <div className="relative z-10 max-w-4xl mx-auto">
-                <Sparkles size={80} className="text-black mx-auto mb-12 animate-float" />
-                <h2 className="text-4xl md:text-7xl font-black text-black mb-8 tracking-tighter leading-[0.9] uppercase">
+        <section className="p-20 md:p-32 bg-vault-amber border border-vault-amber/30 rounded-[6rem] text-center relative overflow-hidden group shadow-2xl">
+             <div className="bg-pattern-diagonal absolute inset-0 opacity-20"></div>
+             <div className="relative z-10 max-w-5xl mx-auto">
+                <div className="w-24 h-24 bg-black rounded-3xl flex items-center justify-center mx-auto mb-16 shadow-2xl group-hover:rotate-12 transition-transform duration-500">
+                    <Sparkles size={48} className="text-white opacity-40 animate-pulse" />
+                </div>
+                <h2 className="text-5xl md:text-8xl font-black text-black mb-10 tracking-tighter leading-[0.85] uppercase">
                     The Revolution <br/> is on-chain.
                 </h2>
-                <p className="text-xl text-black/70 mb-12 font-bold leading-relaxed">
-                    Be the early adopter of the next-generation digital democracy. Your contribution today shapes the governance of tomorrow.
+                <p className="text-2xl text-black/70 mb-16 font-black leading-relaxed max-w-4xl mx-auto uppercase italic tracking-tight opacity-80">
+                    Be the early adopter of the next-generation digital democracy. Your contribution today shapes the governance of tomorrow with Gemini 2.0 Flash.
                 </p>
-                <Link href="/dashboard" className="bg-black text-white px-16 py-8 rounded-[2.5rem] font-black text-2xl transition-all hover:scale-105 shadow-2xl inline-flex items-center gap-4">
-                   {t.btnGetStarted} <ArrowRight size={28} />
-                </Link>
+                <div className="flex justify-center">
+                    <Link href="/dashboard" className="bg-black text-white px-20 py-10 rounded-[3rem] font-black text-3xl transition-all hover:scale-105 shadow-2xl inline-flex items-center gap-6 active:scale-95 group/btn overflow-hidden relative">
+                       <span className="relative z-10">{t.btnGetStarted}</span> <ArrowRight size={36} className="relative z-10 group-hover/btn:translate-x-3 transition-transform" />
+                       <div className="absolute inset-0 bg-white/10 translate-y-full group-hover/btn:translate-y-0 transition-transform duration-500"></div>
+                    </Link>
+                </div>
              </div>
         </section>
 
@@ -186,5 +209,3 @@ export default function AboutPage() {
     </div>
   );
 }
-
-import { Lock } from "lucide-react";

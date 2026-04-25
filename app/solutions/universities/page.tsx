@@ -66,10 +66,10 @@ export default function UniversitiesSolutionPage() {
   const pt = pageTranslations[lang as keyof typeof pageTranslations];
 
   return (
-    <div className="bg-background min-h-screen pt-48 pb-40 relative overflow-hidden">
+    <div className="bg-background min-h-screen pt-48 pb-40 relative overflow-hidden text-foreground">
       {/* Background Elements */}
       <div className="bg-pattern-grid absolute inset-0 opacity-10 -z-10"></div>
-      <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-vault-amber/10 rounded-full blur-[120px] -z-10"></div>
+      <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-vault-amber/5 rounded-full blur-[150px] -z-10 animate-pulse"></div>
       
       <div className="max-w-7xl mx-auto px-6">
         
@@ -79,7 +79,7 @@ export default function UniversitiesSolutionPage() {
                 initial={{ opacity: 0, x: -30 }}
                 animate={{ opacity: 1, x: 0 }}
             >
-                <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-vault-amber/30 bg-vault-amber/5 text-vault-amber font-black text-[10px] tracking-[0.2em] uppercase mb-8">
+                <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-vault-amber/30 bg-vault-amber/5 text-vault-amber font-black text-[10px] tracking-[0.2em] uppercase mb-8 shadow-sm">
                     <GraduationCap size={14} /> Academic Excellence
                 </div>
                 <h1 className="text-6xl md:text-8xl font-black text-foreground mb-8 tracking-tighter leading-[0.9] uppercase">
@@ -92,12 +92,12 @@ export default function UniversitiesSolutionPage() {
                       : "Universities are the birthplace of ideas. We provide the tools to ensure every student idea is recorded fairly, transparently, and eternally on the blockchain."}
                 </p>
                 <div className="flex flex-wrap gap-6">
-                    <Link href="/contact" className="bg-white text-black px-10 py-5 rounded-2xl font-black flex items-center gap-3 hover:bg-vault-amber transition-all shadow-2xl">
+                    <Link href="/contact" className="bg-foreground text-background px-12 py-6 rounded-2xl font-black flex items-center gap-3 hover:bg-vault-amber hover:text-black transition-all shadow-2xl uppercase text-sm tracking-widest active:scale-95">
                         {lang === 'id' ? "Daftar Paket Kampus" : "Get Campus Pack"} <ArrowRight size={22} />
                     </Link>
-                    <div className="flex items-center gap-4 px-6 py-2 border border-white/10 rounded-2xl bg-white/5">
+                    <div className="flex items-center gap-4 px-6 py-3 border border-border rounded-2xl bg-muted shadow-inner">
                         <Award className="text-vault-amber" size={18} />
-                        <span className="text-xs font-bold text-foreground">Verified for Institutions</span>
+                        <span className="text-[10px] font-black text-foreground uppercase tracking-widest italic">Verified for Institutions</span>
                     </div>
                 </div>
             </motion.div>
@@ -107,23 +107,24 @@ export default function UniversitiesSolutionPage() {
                 animate={{ opacity: 1, scale: 1 }}
                 className="relative"
             >
-                <div className="bg-vault-card border border-white/10 p-2 rounded-[4rem] shadow-2xl relative overflow-hidden group">
-                    <div className="bg-[#0a0a0a] rounded-[3.5rem] p-16 relative overflow-hidden flex flex-col items-center">
+                <div className="absolute -inset-10 bg-vault-amber/10 blur-[120px] rounded-full -z-10 animate-pulse"></div>
+                <div className="bg-muted border border-border p-4 rounded-[4rem] shadow-2xl relative overflow-hidden group hover:rotate-1 transition-transform duration-700">
+                    <div className="bg-background rounded-[3.5rem] p-16 relative overflow-hidden flex flex-col items-center border border-border shadow-inner text-center">
                         <div className="bg-pattern-diagonal absolute inset-0 opacity-5"></div>
-                        <div className="relative z-10 text-center">
-                            <div className="w-24 h-24 bg-vault-amber/10 border border-vault-amber/20 rounded-[2rem] flex items-center justify-center text-vault-amber mb-8 mx-auto">
-                                <Library size={48} />
+                        <div className="relative z-10 w-full">
+                            <div className="w-24 h-24 bg-muted border border-border rounded-[2rem] flex items-center justify-center text-vault-amber mb-10 mx-auto shadow-sm group-hover:scale-110 transition-transform">
+                                <Library size={56} />
                             </div>
-                            <h3 className="text-2xl font-black text-foreground mb-4 uppercase tracking-tighter">Academic Node</h3>
-                            <p className="text-[10px] text-muted-foreground font-black uppercase tracking-[0.3em] mb-10">Institutional Validator v4.2</p>
+                            <h3 className="text-3xl font-black text-foreground mb-4 uppercase tracking-tighter leading-none">Academic Node</h3>
+                            <p className="text-[10px] text-muted-foreground font-black uppercase tracking-[0.4em] mb-12 italic opacity-60">Institutional Validator v4.2</p>
                             
-                            <div className="grid grid-cols-2 gap-4 w-full">
-                                <div className="p-4 bg-white/5 border border-white/10 rounded-2xl">
-                                    <div className="text-vault-amber font-black text-lg">12k+</div>
+                            <div className="grid grid-cols-2 gap-6">
+                                <div className="p-8 bg-muted border border-border rounded-3xl shadow-sm hover:border-vault-amber/30 transition-colors">
+                                    <div className="text-3xl font-black text-vault-amber leading-none mb-2">12k+</div>
                                     <div className="text-[8px] font-black uppercase text-muted-foreground tracking-widest">Active Students</div>
                                 </div>
-                                <div className="p-4 bg-white/5 border border-white/10 rounded-2xl">
-                                    <div className="text-blue-400 font-black text-lg">100%</div>
+                                <div className="p-8 bg-muted border border-border rounded-3xl shadow-sm hover:border-blue-500/30 transition-colors">
+                                    <div className="text-3xl font-black text-blue-500 leading-none mb-2">100%</div>
                                     <div className="text-[8px] font-black uppercase text-muted-foreground tracking-widest">Audit Score</div>
                                 </div>
                             </div>
@@ -135,19 +136,19 @@ export default function UniversitiesSolutionPage() {
 
         {/* 2. USE CASES SECTION */}
         <section className="mb-48">
-            <h2 className="text-4xl md:text-6xl font-black text-foreground mb-24 tracking-tighter text-center uppercase">{pt.useCasesTitle}</h2>
-            <div className="grid md:grid-cols-3 gap-8">
+            <h2 className="text-4xl md:text-7xl font-black text-foreground mb-24 tracking-tighter text-center uppercase leading-none">{pt.useCasesTitle}</h2>
+            <div className="grid md:grid-cols-3 gap-10">
                 {[
-                    { title: pt.case1Title, desc: pt.case1Desc, icon: <Users />, color: "bg-blue-500/10 text-blue-400" },
-                    { title: pt.case2Title, desc: pt.case2Desc, icon: <Share2 />, color: "bg-vault-amber/10 text-vault-amber" },
-                    { title: pt.case3Title, desc: pt.case3Desc, icon: <Lock />, color: "bg-green-500/10 text-green-400" }
+                    { title: pt.case1Title, desc: pt.case1Desc, icon: <Users />, color: "text-blue-500" },
+                    { title: pt.case2Title, desc: pt.case2Desc, icon: <Share2 />, color: "text-vault-amber" },
+                    { title: pt.case3Title, desc: pt.case3Desc, icon: <Lock />, color: "text-green-500" }
                 ].map((item, i) => (
                     <motion.div 
                         key={i}
                         whileHover={{ y: -10 }}
-                        className="p-12 bg-white/2 border border-white/10 rounded-[3rem] group"
+                        className="p-16 bg-muted/50 border border-border rounded-[4rem] group shadow-sm hover:border-vault-amber/30 transition-all"
                     >
-                        <div className={`w-16 h-16 rounded-2xl flex items-center justify-center mb-10 ${item.color}`}>
+                        <div className={`${item.color} mb-10 bg-background w-24 h-24 flex items-center justify-center rounded-[2rem] border border-border shadow-inner transition-transform group-hover:scale-110`}>
                             {item.icon}
                         </div>
                         <h3 className="text-2xl font-black text-foreground mb-6 uppercase tracking-tight leading-none">{item.title}</h3>
@@ -158,39 +159,39 @@ export default function UniversitiesSolutionPage() {
         </section>
 
         {/* 3. RESEARCH INFRASTRUCTURE SECTION */}
-        <section className="mb-48 bg-white/[0.02] border border-white/10 rounded-[4rem] p-16 lg:p-24 overflow-hidden relative">
-            <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-blue-500/10 blur-[100px] -z-10"></div>
-            <div className="grid lg:grid-cols-2 gap-24 items-center">
+        <section className="mb-48 bg-muted/50 border border-border rounded-[5rem] p-16 lg:p-32 overflow-hidden relative shadow-inner">
+            <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-blue-500/5 blur-[150px] -z-10"></div>
+            <div className="grid lg:grid-cols-2 gap-32 items-center">
                 <div className="relative order-2 lg:order-1">
-                    <div className="grid grid-cols-2 gap-6">
-                        <div className="space-y-6">
-                            <div className="p-8 bg-vault-card border border-white/10 rounded-3xl">
-                                <Microscope className="text-vault-amber mb-4" size={32} />
-                                <div className="text-xs font-black uppercase tracking-widest text-muted-foreground mb-2">Dataset</div>
-                                <div className="text-sm font-bold">Anonymized CSV/JSON</div>
+                    <div className="grid grid-cols-2 gap-8">
+                        <div className="space-y-8">
+                            <div className="p-10 bg-background border border-border rounded-[3rem] shadow-xl hover:border-vault-amber/30 transition-colors group">
+                                <Microscope className="text-vault-amber mb-6 group-hover:scale-110 transition-transform" size={40} />
+                                <div className="text-[10px] font-black uppercase tracking-[0.3em] text-muted-foreground mb-3">Dataset Control</div>
+                                <div className="text-lg font-black uppercase tracking-tight">Anonymized CSV/JSON</div>
                             </div>
-                            <div className="p-8 bg-white/5 border border-white/5 rounded-3xl">
-                                <Cpu className="text-blue-400 mb-4" size={32} />
-                                <div className="text-xs font-black uppercase tracking-widest text-muted-foreground mb-2">API</div>
-                                <div className="text-sm font-bold">v1.0-research</div>
+                            <div className="p-10 bg-background border border-border rounded-[3rem] shadow-xl hover:border-blue-500/30 transition-colors group">
+                                <Cpu className="text-blue-500 mb-6 group-hover:scale-110 transition-transform" size={40} />
+                                <div className="text-[10px] font-black uppercase tracking-[0.3em] text-muted-foreground mb-3">Analysis Engine</div>
+                                <div className="text-lg font-black uppercase tracking-tight">v2.0-research API</div>
                             </div>
                         </div>
-                        <div className="pt-12">
-                            <div className="p-10 bg-white/10 border border-white/20 rounded-[2.5rem] h-full flex flex-col justify-center text-center">
-                                <Globe className="mx-auto mb-6 opacity-30" size={64} />
-                                <div className="text-sm font-black uppercase tracking-[0.2em]">Global Network</div>
+                        <div className="pt-16">
+                            <div className="p-12 bg-background border-4 border-dashed border-border rounded-[4rem] h-full flex flex-col justify-center text-center group hover:border-vault-amber/30 transition-colors">
+                                <Globe className="mx-auto mb-10 opacity-10 group-hover:opacity-40 transition-opacity animate-spin-slow" size={80} />
+                                <div className="text-[10px] font-black uppercase tracking-[0.5em] opacity-40">Global Network Node</div>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div className="order-1 lg:order-2">
-                    <h2 className="text-4xl md:text-6xl font-black text-foreground mb-12 tracking-tighter leading-none uppercase">{pt.researchTitle}</h2>
-                    <p className="text-xl text-muted-foreground mb-12 font-medium leading-relaxed">{pt.resDesc}</p>
-                    <ul className="space-y-6">
+                    <h2 className="text-4xl md:text-7xl font-black text-foreground mb-12 tracking-tighter leading-none uppercase">{pt.researchTitle}</h2>
+                    <p className="text-xl text-muted-foreground mb-12 font-medium leading-relaxed italic">{pt.resDesc}</p>
+                    <ul className="space-y-10">
                         {[pt.resPoint1, pt.resPoint2, pt.resPoint3].map((point, i) => (
-                            <li key={i} className="flex items-center gap-4 text-foreground font-bold">
-                                <div className="w-10 h-10 bg-vault-amber rounded-xl flex items-center justify-center text-black shrink-0">
-                                    <Check size={18} strokeWidth={4} />
+                            <li key={i} className="flex items-center gap-6 text-foreground font-black uppercase text-xs tracking-[0.2em]">
+                                <div className="w-14 h-14 bg-vault-amber/10 rounded-2xl flex items-center justify-center text-vault-amber shrink-0 border border-vault-amber/20 shadow-sm">
+                                    <Check size={28} strokeWidth={4} />
                                 </div>
                                 {point}
                             </li>
@@ -201,19 +202,22 @@ export default function UniversitiesSolutionPage() {
         </section>
 
         {/* 4. CALL TO ACTION */}
-        <section className="p-20 bg-vault-amber border border-white/10 rounded-[5rem] text-center relative overflow-hidden group">
-             <div className="bg-pattern-diagonal absolute inset-0 opacity-10"></div>
-             <div className="relative z-10 max-w-4xl mx-auto">
-                <BookOpen size={80} className="text-black mx-auto mb-12 animate-float" />
-                <h2 className="text-4xl md:text-7xl font-black text-black mb-8 tracking-tighter leading-[0.9] uppercase">
+        <section className="p-20 md:p-32 bg-vault-amber border border-vault-amber/30 rounded-[6rem] text-center relative overflow-hidden group shadow-2xl">
+             <div className="bg-pattern-diagonal absolute inset-0 opacity-20"></div>
+             <div className="relative z-10 max-w-5xl mx-auto">
+                <div className="w-24 h-24 bg-black rounded-3xl flex items-center justify-center mx-auto mb-16 shadow-2xl group-hover:rotate-12 transition-transform duration-500">
+                    <GraduationCap size={48} className="text-white opacity-40" />
+                </div>
+                <h2 className="text-5xl md:text-8xl font-black text-black mb-10 tracking-tighter leading-[0.85] uppercase">
                     Empower your <br/> Students today.
                 </h2>
-                <p className="text-xl text-black/70 mb-12 font-bold leading-relaxed">
+                <p className="text-2xl text-black/70 mb-16 font-black leading-relaxed max-w-4xl mx-auto uppercase italic tracking-tight">
                     Dlibration offers special pricing for accredited universities and research institutions. Let's build the future of campus governance together.
                 </p>
-                <div className="flex flex-wrap justify-center gap-6">
-                    <Link href="/contact" className="bg-black text-white px-16 py-8 rounded-[2.5rem] font-black text-2xl transition-all hover:scale-105 shadow-2xl inline-flex items-center gap-4">
-                       Apply for License <ArrowRight size={28} />
+                <div className="flex justify-center">
+                    <Link href="/contact" className="bg-black text-white px-20 py-10 rounded-[3rem] font-black text-3xl transition-all hover:scale-105 shadow-2xl inline-flex items-center gap-6 active:scale-95 group/btn overflow-hidden relative">
+                       <span className="relative z-10">Apply for Academic License</span> <ArrowRight size={36} className="relative z-10 group-hover/btn:translate-x-3 transition-transform" />
+                       <div className="absolute inset-0 bg-white/10 translate-y-full group-hover/btn:translate-y-0 transition-transform duration-500"></div>
                     </Link>
                 </div>
              </div>

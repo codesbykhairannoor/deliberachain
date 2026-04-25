@@ -65,7 +65,7 @@ export default function CitizensSolutionPage() {
   const pt = pageTranslations[lang as keyof typeof pageTranslations];
 
   return (
-    <div className="bg-background min-h-screen pt-48 pb-40 relative overflow-hidden">
+    <div className="bg-background min-h-screen pt-48 pb-40 relative overflow-hidden text-foreground">
       <div className="bg-pattern-grid absolute inset-0 opacity-10 -z-10"></div>
       
       <div className="max-w-7xl mx-auto px-6">
@@ -76,7 +76,7 @@ export default function CitizensSolutionPage() {
                 initial={{ opacity: 0, x: -30 }}
                 animate={{ opacity: 1, x: 0 }}
             >
-                <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-vault-amber/30 bg-vault-amber/5 text-vault-amber font-black text-[10px] tracking-[0.2em] uppercase mb-8">
+                <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-vault-amber/30 bg-vault-amber/5 text-vault-amber font-black text-[10px] tracking-[0.2em] uppercase mb-8 shadow-sm">
                     <Heart size={14} /> Power to the People
                 </div>
                 <h1 className="text-6xl md:text-8xl font-black text-foreground mb-8 tracking-tighter leading-[0.9] uppercase">
@@ -89,7 +89,7 @@ export default function CitizensSolutionPage() {
                       : "You are not just a number on a ballot. You are the holder of sovereignty. Dlibration ensures your voice is heard, recorded, and acted upon objectively."}
                 </p>
                 <div className="flex flex-wrap gap-6">
-                    <Link href="/dashboard" className="bg-vault-amber text-black px-10 py-5 rounded-2xl font-black flex items-center gap-3 hover:scale-105 transition-all shadow-2xl">
+                    <Link href="/dashboard" className="bg-foreground text-background px-12 py-6 rounded-2xl font-black flex items-center gap-3 hover:bg-vault-amber hover:text-black transition-all shadow-2xl uppercase text-sm tracking-widest active:scale-95">
                         {t.btnGetStarted} <ArrowRight size={22} />
                     </Link>
                 </div>
@@ -100,21 +100,24 @@ export default function CitizensSolutionPage() {
                 animate={{ opacity: 1, scale: 1 }}
                 className="relative"
             >
-                <div className="bg-vault-card border border-white/10 p-12 rounded-[4rem] shadow-2xl relative overflow-hidden group flex flex-col items-center">
-                    <div className="bg-pattern-diagonal absolute inset-0 opacity-5"></div>
-                    <div className="relative z-10 text-center">
-                        <Users size={120} className="text-vault-amber/20 mb-8 mx-auto animate-float" />
-                        <div className="text-3xl font-black text-foreground uppercase tracking-tighter">Verified Citizen</div>
-                        <p className="text-[10px] text-muted-foreground font-black uppercase tracking-[0.3em] mt-4 italic">Algorithmic Reputation v1</p>
-                        
-                        <div className="mt-12 grid grid-cols-2 gap-4">
-                            <div className="p-4 bg-white/5 border border-white/10 rounded-2xl">
-                                <div className="text-xl font-black text-vault-amber">24</div>
-                                <div className="text-[8px] font-black uppercase text-muted-foreground tracking-widest">Reports</div>
-                            </div>
-                            <div className="p-4 bg-white/5 border border-white/10 rounded-2xl">
-                                <div className="text-xl font-black text-blue-400">99+</div>
-                                <div className="text-[8px] font-black uppercase text-muted-foreground tracking-widest">Trust Score</div>
+                <div className="absolute -inset-10 bg-vault-amber/10 blur-[120px] rounded-full -z-10 animate-pulse"></div>
+                <div className="bg-muted border border-border p-4 rounded-[4rem] shadow-2xl relative overflow-hidden group hover:rotate-1 transition-transform duration-700">
+                    <div className="bg-background rounded-[3.5rem] p-16 relative overflow-hidden border border-border shadow-inner text-center">
+                        <div className="bg-pattern-diagonal absolute inset-0 opacity-5"></div>
+                        <div className="relative z-10">
+                            <Users size={140} className="text-vault-amber/10 mb-10 mx-auto animate-float" />
+                            <div className="text-4xl font-black text-foreground uppercase tracking-tighter leading-none mb-3">Verified Citizen</div>
+                            <p className="text-[10px] text-muted-foreground font-black uppercase tracking-[0.4em] mb-12 italic opacity-60">Algorithmic Reputation v2.0</p>
+                            
+                            <div className="grid grid-cols-2 gap-6">
+                                <div className="p-8 bg-muted border border-border rounded-3xl shadow-sm hover:border-vault-amber/30 transition-colors">
+                                    <div className="text-3xl font-black text-vault-amber leading-none mb-2">24</div>
+                                    <div className="text-[8px] font-black uppercase text-muted-foreground tracking-widest">Global Reports</div>
+                                </div>
+                                <div className="p-8 bg-muted border border-border rounded-3xl shadow-sm hover:border-blue-500/30 transition-colors">
+                                    <div className="text-3xl font-black text-blue-500 leading-none mb-2">99+</div>
+                                    <div className="text-[8px] font-black uppercase text-muted-foreground tracking-widest">Trust Index</div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -124,37 +127,37 @@ export default function CitizensSolutionPage() {
 
         {/* 2. JOURNEY PATHWAY SECTION */}
         <section className="mb-48">
-            <h2 className="text-4xl md:text-6xl font-black text-foreground mb-24 tracking-tighter text-center uppercase">{pt.pathTitle}</h2>
-            <div className="grid md:grid-cols-3 gap-12 relative">
-                <div className="hidden md:block absolute top-12 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-vault-amber/20 to-transparent"></div>
+            <h2 className="text-4xl md:text-7xl font-black text-foreground mb-24 tracking-tighter text-center uppercase leading-none">{pt.pathTitle}</h2>
+            <div className="grid md:grid-cols-3 gap-16 relative">
+                <div className="hidden md:block absolute top-16 left-0 w-full h-[2px] bg-gradient-to-r from-transparent via-border to-transparent"></div>
                 {[
-                    { title: pt.path1Title, desc: pt.path1Desc, icon: <MessageSquare /> },
-                    { title: pt.path2Title, desc: pt.path2Desc, icon: <Lock /> },
-                    { title: pt.path3Title, desc: pt.path3Desc, icon: <Zap /> }
+                    { title: pt.path1Title, desc: pt.path1Desc, icon: <MessageSquare />, color: "text-blue-500" },
+                    { title: pt.path2Title, desc: pt.path2Desc, icon: <Lock />, color: "text-vault-amber" },
+                    { title: pt.path3Title, desc: pt.path3Desc, icon: <Zap />, color: "text-green-500" }
                 ].map((step, i) => (
                     <div key={i} className="relative z-10 text-center flex flex-col items-center group">
-                        <div className="w-24 h-24 bg-vault-card border border-white/10 rounded-3xl flex items-center justify-center text-vault-amber mb-8 group-hover:scale-110 group-hover:border-vault-amber transition-all shadow-2xl">
+                        <div className={`w-28 h-28 bg-background border border-border rounded-[2.5rem] flex items-center justify-center ${step.color} mb-10 group-hover:scale-110 group-hover:border-vault-amber transition-all shadow-xl shadow-black/5`}>
                             {step.icon}
                         </div>
-                        <h4 className="text-2xl font-black text-foreground mb-4 uppercase">{step.title}</h4>
-                        <p className="text-muted-foreground font-medium max-w-xs">{step.desc}</p>
+                        <h4 className="text-2xl font-black text-foreground mb-4 uppercase tracking-tighter leading-none">{step.title}</h4>
+                        <p className="text-muted-foreground font-medium max-w-xs leading-relaxed">{step.desc}</p>
                     </div>
                 ))}
             </div>
         </section>
 
         {/* 3. REWARD SYSTEM SECTION */}
-        <section className="mb-48 bg-white/[0.02] border border-white/10 rounded-[4rem] p-16 lg:p-24 overflow-hidden relative">
-            <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-vault-amber/10 blur-[100px] -z-10"></div>
-            <div className="grid lg:grid-cols-2 gap-24 items-center">
+        <section className="mb-48 bg-muted/50 border border-border rounded-[5rem] p-16 lg:p-32 overflow-hidden relative shadow-inner">
+            <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-vault-amber/5 blur-[150px] -z-10"></div>
+            <div className="grid lg:grid-cols-2 gap-32 items-center">
                 <div>
-                    <h2 className="text-4xl md:text-6xl font-black text-foreground mb-12 tracking-tighter leading-none uppercase">{pt.rewardsTitle}</h2>
-                    <p className="text-xl text-muted-foreground mb-12 font-medium leading-relaxed">{pt.rewardsDesc}</p>
-                    <div className="space-y-6">
+                    <h2 className="text-4xl md:text-7xl font-black text-foreground mb-12 tracking-tighter leading-none uppercase">{pt.rewardsTitle}</h2>
+                    <p className="text-xl text-muted-foreground mb-12 font-medium leading-relaxed italic">{pt.rewardsDesc}</p>
+                    <div className="space-y-8">
                         {[pt.point1, pt.point2, pt.point3].map((point, i) => (
-                            <div key={i} className="flex items-center gap-4 text-foreground font-bold">
-                                <div className="w-10 h-10 bg-vault-amber/10 rounded-xl flex items-center justify-center text-vault-amber shrink-0">
-                                    <Award size={20} />
+                            <div key={i} className="flex items-center gap-6 text-foreground font-black uppercase text-xs tracking-widest">
+                                <div className="w-12 h-12 bg-vault-amber/10 rounded-2xl flex items-center justify-center text-vault-amber shrink-0 border border-vault-amber/20 shadow-sm">
+                                    <Award size={24} />
                                 </div>
                                 {point}
                             </div>
@@ -162,27 +165,30 @@ export default function CitizensSolutionPage() {
                     </div>
                 </div>
                 <div className="relative">
-                    <div className="grid grid-cols-2 gap-4">
+                    <div className="grid grid-cols-2 gap-8">
                         {[1,2,3,4].map(i => (
-                            <div key={i} className="aspect-square bg-vault-card border border-white/5 rounded-3xl flex items-center justify-center grayscale hover:grayscale-0 transition-all cursor-pointer">
-                                <Sparkles className="text-vault-amber/30 group-hover:text-vault-amber" size={48} />
+                            <div key={i} className="aspect-square bg-background border border-border rounded-[3rem] flex items-center justify-center grayscale hover:grayscale-0 transition-all cursor-pointer shadow-xl hover:scale-105 active:scale-95 group/badge">
+                                <Sparkles className="text-vault-amber/20 group-hover:text-vault-amber transition-colors" size={64} />
                             </div>
                         ))}
                     </div>
+                    <div className="absolute -bottom-16 -right-16 w-48 h-48 bg-vault-amber rounded-full blur-[100px] opacity-20"></div>
                 </div>
             </div>
         </section>
 
         {/* 4. PRIVACY PROTECTION */}
-        <section className="mb-48 text-center max-w-4xl mx-auto">
-            <ShieldCheck className="text-vault-amber mx-auto mb-10" size={80} />
-            <h2 className="text-4xl md:text-6xl font-black text-foreground mb-8 tracking-tighter uppercase">{pt.privacyTitle}</h2>
-            <p className="text-xl text-muted-foreground font-medium leading-relaxed mb-12">
+        <section className="mb-48 text-center max-w-5xl mx-auto">
+            <div className="w-32 h-32 bg-muted border border-border rounded-[3rem] flex items-center justify-center mx-auto mb-16 shadow-inner">
+                <ShieldCheck className="text-vault-amber" size={64} />
+            </div>
+            <h2 className="text-4xl md:text-8xl font-black text-foreground mb-10 tracking-tighter uppercase leading-none">{pt.privacyTitle}</h2>
+            <p className="text-2xl text-muted-foreground font-medium leading-relaxed mb-20 max-w-3xl mx-auto italic">
                 {pt.privacyDesc}
             </p>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-10">
                 {['Zero Knowledge Proofs', 'Differential Privacy', 'AES-256 Storage', 'No KYC Required'].map(tag => (
-                    <div key={tag} className="p-6 bg-white/5 border border-white/10 rounded-2xl text-[10px] font-black uppercase tracking-widest text-muted-foreground">
+                    <div key={tag} className="p-8 bg-muted border border-border rounded-3xl text-[10px] font-black uppercase tracking-[0.3em] text-muted-foreground shadow-sm hover:border-vault-amber/30 transition-colors">
                         {tag}
                     </div>
                 ))}
@@ -190,18 +196,21 @@ export default function CitizensSolutionPage() {
         </section>
 
         {/* 5. CALL TO ACTION */}
-        <section className="p-20 bg-vault-amber border border-white/10 rounded-[5rem] text-center relative overflow-hidden group">
-             <div className="bg-pattern-diagonal absolute inset-0 opacity-10"></div>
-             <div className="relative z-10 max-w-4xl mx-auto">
-                <Globe size={80} className="text-black mx-auto mb-12 animate-spin-slow opacity-20" />
-                <h2 className="text-4xl md:text-7xl font-black text-black mb-8 tracking-tighter leading-[0.9] uppercase">
+        <section className="p-20 md:p-32 bg-vault-amber border border-vault-amber/30 rounded-[6rem] text-center relative overflow-hidden group shadow-2xl">
+             <div className="bg-pattern-diagonal absolute inset-0 opacity-20"></div>
+             <div className="relative z-10 max-w-5xl mx-auto">
+                <div className="w-24 h-24 bg-black rounded-3xl flex items-center justify-center mx-auto mb-16 shadow-2xl group-hover:rotate-12 transition-transform duration-500">
+                    <Globe size={48} className="text-white opacity-40 animate-spin-slow" />
+                </div>
+                <h2 className="text-5xl md:text-8xl font-black text-black mb-10 tracking-tighter leading-[0.85] uppercase">
                     Your voice <br/> is your power.
                 </h2>
-                <p className="text-xl text-black/80 mb-12 font-bold leading-relaxed">
+                <p className="text-2xl text-black/70 mb-16 font-black leading-relaxed max-w-4xl mx-auto uppercase italic tracking-tight">
                     Don't let your aspirations be lost in a filing cabinet. Secure them on the blockchain today and join the movement.
                 </p>
-                <Link href="/dashboard" className="bg-black text-white px-16 py-8 rounded-[2.5rem] font-black text-2xl transition-all hover:scale-105 shadow-2xl inline-flex items-center gap-4">
-                   Start Speaking Out <ArrowRight size={28} />
+                <Link href="/dashboard" className="bg-black text-white px-20 py-10 rounded-[3rem] font-black text-3xl transition-all hover:scale-105 shadow-2xl inline-flex items-center gap-6 active:scale-95 group/btn overflow-hidden relative">
+                   <span className="relative z-10">Start Speaking Out</span> <ArrowRight size={36} className="relative z-10 group-hover/btn:translate-x-3 transition-transform" />
+                   <div className="absolute inset-0 bg-white/10 translate-y-full group-hover/btn:translate-y-0 transition-transform duration-500"></div>
                 </Link>
              </div>
         </section>
