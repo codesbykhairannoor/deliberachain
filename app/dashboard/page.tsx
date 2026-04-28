@@ -38,6 +38,8 @@ import AccessRestricted from "@/components/AccessRestricted";
 import PolicyBulletins from "@/components/PolicyBulletins";
 import GuidePage from "@/app/guide/page";
 import { useRole } from "@/hooks/useRole";
+import { motion } from "framer-motion";
+import Link from "next/link";
 
 const client = createThirdwebClient({ clientId: process.env.NEXT_PUBLIC_THIRDWEB_CLIENT_ID || "" });
 const contract = getContract({ client, chain: baseSepolia, address: process.env.NEXT_PUBLIC_CONTRACT_ADDRESS || "" });
