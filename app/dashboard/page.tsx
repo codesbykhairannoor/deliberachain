@@ -1,6 +1,6 @@
 "use client";
 
-import { createThirdwebClient, getContract } from "thirdweb";
+import { getContract } from "thirdweb";
 import { useActiveAccount, ConnectButton, useReadContract } from "thirdweb/react";
 import { baseSepolia } from "thirdweb/chains";
 import { useState, useMemo, Suspense } from "react";
@@ -43,7 +43,8 @@ import { useRole } from "@/hooks/useRole";
 import { motion } from "framer-motion";
 import Link from "next/link";
 
-const client = createThirdwebClient({ clientId: process.env.NEXT_PUBLIC_THIRDWEB_CLIENT_ID || "" });
+import { thirdwebClient } from "@/lib/thirdwebClient";
+const client = thirdwebClient;
 const contract = getContract({ client, chain: baseSepolia, address: process.env.NEXT_PUBLIC_CONTRACT_ADDRESS || "" });
 
 export default function DashboardPage() {
