@@ -22,7 +22,9 @@ import {
   TrendingUp,
   Activity,
   Megaphone,
-  BookOpen
+  BookOpen,
+  ShieldCheck,
+  BrainCircuit
 } from "lucide-react";
 
 import { useSearchParams, useRouter } from "next/navigation";
