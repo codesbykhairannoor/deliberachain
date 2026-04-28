@@ -104,6 +104,7 @@ export default function DashboardPage() {
 
 function DashboardContent({ dt }: { dt: any }) {
   const account = useActiveAccount();
+  const { role, jurisdiction } = useRole();
   const searchParams = useSearchParams();
   const router = useRouter();
   const activeTab = searchParams.get("tab") || "discovery";
