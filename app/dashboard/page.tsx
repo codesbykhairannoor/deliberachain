@@ -293,43 +293,21 @@ function DashboardContent({ dt }: { dt: any }) {
           )}
 
           {activeTab === "form" && (
-             <div className="w-full animate-in zoom-in-95 duration-500 bg-muted/20 border border-border p-10 md:p-20 rounded-[4rem] shadow-2xl relative overflow-hidden">
-                <div className="absolute inset-0 bg-pattern-grid opacity-5 -z-10"></div>
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-vault-amber/5 rounded-full blur-[150px] -z-10"></div>
-                
-                <div className="max-w-7xl mx-auto">
-                    <div className="flex flex-col lg:flex-row items-center lg:items-start gap-12 lg:gap-24">
-                        <div className="lg:w-1/3 text-center lg:text-left">
-                            <div className="w-24 h-24 bg-vault-amber rounded-3xl flex items-center justify-center mx-auto lg:mx-0 mb-10 shadow-2xl text-black hover:rotate-12 transition-transform group">
-                                    <MessageSquare size={48} className="group-hover:scale-110 transition-transform" />
-                            </div>
-                            <h2 className="text-5xl md:text-7xl font-black text-foreground mb-6 uppercase tracking-tighter leading-none italic">{t.voiceOfThePeople.split(' People.')[0]} People<span className="text-vault-amber">.</span></h2>
-                            <p className="text-muted-foreground font-black text-lg leading-relaxed italic opacity-80 uppercase tracking-tight mb-12">{dt.uploadSub}</p>
-                            
-                            <div className="hidden lg:grid grid-cols-1 gap-6">
-                                <div className="p-8 bg-background/40 border border-border rounded-[2.5rem] backdrop-blur-sm shadow-sm hover:border-vault-amber/30 transition-all group/info">
-                                    <div className="w-12 h-12 bg-vault-amber/10 rounded-2xl flex items-center justify-center text-vault-amber mb-6 group-hover/info:scale-110 transition-transform">
-                                        <Shield size={24} />
-                                    </div>
-                                    <h4 className="text-[10px] font-black uppercase tracking-[0.3em] text-foreground mb-3 italic">Vault-Grade Security</h4>
-                                    <p className="text-xs text-muted-foreground font-medium leading-relaxed">Your data is secured with AES-256 before being committed to the Base Sepolia ledger.</p>
-                                </div>
-                                <div className="p-8 bg-background/40 border border-border rounded-[2.5rem] backdrop-blur-sm shadow-sm hover:border-blue-500/30 transition-all group/info">
-                                    <div className="w-12 h-12 bg-blue-500/10 rounded-2xl flex items-center justify-center text-blue-500 mb-6 group-hover/info:scale-110 transition-transform">
-                                        <Sparkles size={24} />
-                                    </div>
-                                    <h4 className="text-[10px] font-black uppercase tracking-[0.3em] text-foreground mb-3 italic">AI-Powered Audit</h4>
-                                    <p className="text-xs text-muted-foreground font-medium leading-relaxed">Every submission undergoes an automated AI audit to ensure quality and relevance.</p>
-                                </div>
-                            </div>
+             <div className="w-full animate-in zoom-in-95 duration-500 relative py-10">
+                <div className="max-w-[1400px] mx-auto">
+                    <div className="text-center mb-16">
+                        <div className="w-20 h-20 bg-vault-amber rounded-3xl flex items-center justify-center mx-auto mb-8 shadow-2xl text-black hover:rotate-12 transition-transform group">
+                                <MessageSquare size={40} className="group-hover:scale-110 transition-transform" />
                         </div>
-                        
-                        <div className="lg:w-2/3 w-full">
-                            <UploadForm client={client} contract={contract} onSuccess={() => {
-                                router.push("/dashboard?tab=feed");
-                                setRefreshTrigger(p => p + 1);
-                            }} />
-                        </div>
+                        <h2 className="text-5xl md:text-8xl font-black text-foreground mb-6 uppercase tracking-tighter leading-none italic">{t.voiceOfThePeople.split(' People.')[0]} People<span className="text-vault-amber">.</span></h2>
+                        <p className="text-muted-foreground font-black text-xl leading-relaxed italic opacity-80 uppercase tracking-tight max-w-3xl mx-auto">{dt.uploadSub}</p>
+                    </div>
+                    
+                    <div className="w-full">
+                        <UploadForm client={client} contract={contract} onSuccess={() => {
+                            router.push("/dashboard?tab=feed");
+                            setRefreshTrigger(p => p + 1);
+                        }} />
                     </div>
                 </div>
              </div>
