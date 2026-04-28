@@ -125,24 +125,24 @@ export default function AdminPortal() {
   const activeAspirations = allAspirations ? [...allAspirations].reverse() : [];
 
   return (
-    <div className="bg-background min-h-screen pt-40 pb-40 relative overflow-hidden text-foreground">
+    <div className="bg-background min-h-screen pt-32 pb-40 relative overflow-hidden text-foreground">
       <div className="bg-pattern-grid absolute inset-0 opacity-5 -z-10"></div>
       
-      <div className="max-w-7xl mx-auto px-6">
-        <header className="flex flex-col md:flex-row justify-between items-start md:items-center mb-16 gap-8">
+      <div className="w-full max-w-[1600px] mx-auto px-6 lg:px-12">
+        <header className="flex flex-col xl:flex-row justify-between items-start xl:items-end mb-20 gap-10">
             <div>
-               <div className="inline-flex items-center gap-2 px-4 py-1 rounded-full border border-red-600/30 bg-red-600/5 text-red-600 font-black text-[10px] tracking-[0.2em] uppercase mb-4 shadow-sm">
-                   <ShieldAlert size={14} /> {t.restrictedArea}
+               <div className="inline-flex items-center gap-3 px-6 py-2 rounded-full border border-red-600/30 bg-red-600/5 text-red-600 font-black text-[10px] tracking-[0.3em] uppercase mb-6 shadow-lg backdrop-blur-sm">
+                   <ShieldAlert size={16} /> {t.restrictedArea}
                </div>
-               <h1 className="text-5xl md:text-7xl font-black text-foreground tracking-tighter uppercase leading-none italic">
+               <h1 className="text-6xl md:text-9xl font-black text-foreground tracking-tighter uppercase leading-[0.8] italic">
                     Platform <span className="text-red-600">{lang === 'id' ? 'Moderasi' : 'Moderation'}</span>
                </h1>
             </div>
-            <div className="flex items-center gap-4 bg-muted border border-border px-8 py-4 rounded-2xl shadow-inner group">
-                <ShieldCheck size={24} className="text-red-600 group-hover:scale-110 transition-transform" />
+            <div className="flex items-center gap-6 bg-muted/50 border border-border px-10 py-6 rounded-[2rem] shadow-2xl backdrop-blur-sm group">
+                <ShieldCheck size={48} className="text-red-600 group-hover:rotate-12 transition-transform" />
                 <div className="text-left">
-                    <div className="text-[8px] font-black uppercase tracking-widest text-muted-foreground">{t.adminStatus}</div>
-                    <div className="text-xs font-black uppercase text-foreground">{t.activeSession}</div>
+                    <div className="text-[10px] font-black uppercase tracking-[0.4em] text-muted-foreground mb-1">{t.adminStatus}</div>
+                    <div className="text-lg font-black uppercase text-foreground tracking-tight">{t.activeSession}</div>
                 </div>
             </div>
         </header>

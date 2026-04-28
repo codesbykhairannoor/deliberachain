@@ -104,44 +104,44 @@ export default function UploadForm({ client, contract, onSuccess }: UploadFormPr
   }
 
   return (
-    <div className="bg-background border border-border p-6 md:p-12 rounded-[3.5rem] shadow-2xl relative overflow-hidden">
+    <div className="bg-background border border-border p-8 md:p-16 rounded-[4rem] shadow-[0_32px_64px_-16px_rgba(0,0,0,0.1)] relative overflow-hidden">
       <div className="absolute top-0 right-0 p-10 opacity-5 -z-10">
           <BrainCircuit size={120} className="text-vault-amber" />
       </div>
 
-      <div className="flex items-center gap-4 mb-12">
-        <div className="p-3 bg-vault-amber/10 rounded-2xl border border-vault-amber/20 shadow-inner">
-            <Sparkles size={24} className="text-vault-amber" />
+      <div className="flex items-center gap-6 mb-16">
+        <div className="w-16 h-16 bg-vault-amber/10 rounded-[1.5rem] flex items-center justify-center border border-vault-amber/20 shadow-inner">
+            <Sparkles size={32} className="text-vault-amber" />
         </div>
         <div>
-            <h3 className="text-2xl font-black text-foreground uppercase tracking-tighter leading-none">{t.uploadTitle}</h3>
-            <p className="text-[10px] font-black text-muted-foreground uppercase tracking-[0.2em] mt-1 italic">{lang === 'id' ? 'Diamankan dengan AES-256 & Blockchain' : 'Secured by AES-256 & Blockchain'}</p>
+            <h3 className="text-3xl font-black text-foreground uppercase tracking-tighter leading-none">{t.uploadTitle}</h3>
+            <p className="text-xs font-black text-muted-foreground uppercase tracking-[0.2em] mt-2 italic opacity-60">{lang === 'id' ? 'Diamankan dengan AES-256 & Blockchain' : 'Secured by AES-256 & Blockchain'}</p>
         </div>
       </div>
       
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 relative z-10">
+      <div className="grid grid-cols-1 xl:grid-cols-2 gap-16 relative z-10">
         
         {/* Left Column: Essential Info */}
-        <div className="lg:col-span-7 space-y-8">
-            <div className="space-y-3">
-                <label className="text-[10px] font-black uppercase tracking-widest text-muted-foreground ml-2">{t.formTitleLabel}</label>
+        <div className="space-y-10">
+            <div className="space-y-4">
+                <label className="text-[10px] font-black uppercase tracking-[0.3em] text-muted-foreground ml-2">{t.formTitleLabel}</label>
                 <input 
-                className="w-full bg-muted border border-border rounded-2xl p-5 text-foreground font-medium focus:ring-2 focus:ring-vault-amber/50 outline-none transition-all placeholder:text-muted-foreground/40 shadow-inner"
+                className="w-full bg-muted/50 border border-border rounded-2xl p-6 text-foreground font-medium focus:ring-2 focus:ring-vault-amber/30 outline-none transition-all placeholder:text-muted-foreground/30 shadow-inner text-lg"
                 placeholder={t.inputPlaceholder}
                 value={title}
                 onChange={(e) => setTitle(e.target.value)}
                 />
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div className="space-y-3">
-                    <label className="text-[10px] font-black uppercase tracking-widest text-muted-foreground ml-2">{t.formTargetLabel}</label>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div className="space-y-4">
+                    <label className="text-[10px] font-black uppercase tracking-[0.3em] text-muted-foreground ml-2">{t.formTargetLabel}</label>
                     <div className="relative group">
-                        <div className="absolute inset-y-0 left-0 pl-5 flex items-center pointer-events-none text-muted-foreground group-focus-within:text-vault-amber transition-colors">
-                            <Fingerprint size={22} />
+                        <div className="absolute inset-y-0 left-0 pl-6 flex items-center pointer-events-none text-muted-foreground group-focus-within:text-vault-amber transition-colors">
+                            <Fingerprint size={24} />
                         </div>
                         <input 
-                        className="w-full bg-muted border border-border rounded-2xl p-5 pl-14 text-foreground font-medium focus:ring-2 focus:ring-vault-amber/50 outline-none transition-all placeholder:text-muted-foreground/40 shadow-inner"
+                        className="w-full bg-muted/50 border border-border rounded-2xl p-6 pl-16 text-foreground font-medium focus:ring-2 focus:ring-vault-amber/30 outline-none transition-all placeholder:text-muted-foreground/30 shadow-inner"
                         placeholder={lang === 'id' ? "Contoh: KEMENKES, BALI" : "Ex: HEALTH_DEPT, JAKARTA"}
                         value={areaTag}
                         onChange={(e) => setAreaTag(e.target.value)}
@@ -149,51 +149,56 @@ export default function UploadForm({ client, contract, onSuccess }: UploadFormPr
                     </div>
                 </div>
 
-                <div className="space-y-3">
-                    <label className="text-[10px] font-black uppercase tracking-widest text-muted-foreground ml-2">{t.formCategoryLabel}</label>
-                    <select 
-                        className="w-full bg-muted border border-border rounded-2xl p-5 text-foreground font-bold outline-none focus:ring-2 focus:ring-vault-amber/50 cursor-pointer appearance-none shadow-inner"
-                        value={assetType}
-                        onChange={(e) => setAssetType(e.target.value)}
-                    >
-                        <option value="Aspirasi">{t.formCat1}</option>
-                        <option value="Kritik">{t.formCat2}</option>
-                        <option value="Informasi">{t.formCat3}</option>
-                    </select>
+                <div className="space-y-4">
+                    <label className="text-[10px] font-black uppercase tracking-[0.3em] text-muted-foreground ml-2">{t.formCategoryLabel}</label>
+                    <div className="relative">
+                        <select 
+                            className="w-full bg-muted/50 border border-border rounded-2xl p-6 text-foreground font-bold outline-none focus:ring-2 focus:ring-vault-amber/30 cursor-pointer appearance-none shadow-inner"
+                            value={assetType}
+                            onChange={(e) => setAssetType(e.target.value)}
+                        >
+                            <option value="Aspirasi">{t.formCat1}</option>
+                            <option value="Kritik">{t.formCat2}</option>
+                            <option value="Informasi">{t.formCat3}</option>
+                        </select>
+                        <div className="absolute inset-y-0 right-0 pr-6 flex items-center pointer-events-none text-muted-foreground">
+                            <AlertCircle size={18} />
+                        </div>
+                    </div>
                 </div>
             </div>
 
-            <div className="space-y-3">
-                <label className="text-[10px] font-black uppercase tracking-widest text-muted-foreground ml-2">Level Privasi</label>
-                <div className="flex flex-col sm:flex-row gap-4">
+            <div className="space-y-4">
+                <label className="text-[10px] font-black uppercase tracking-[0.3em] text-muted-foreground ml-2">Level Privasi</label>
+                <div className="flex flex-col sm:flex-row gap-5">
                     <button 
                         type="button"
                         onClick={() => setIsSecret(false)}
-                        className={`flex-1 flex items-center justify-center gap-3 px-6 py-4 rounded-xl border transition-all font-black uppercase text-[10px] tracking-widest ${
+                        className={`flex-1 flex items-center justify-center gap-4 px-8 py-5 rounded-2xl border transition-all font-black uppercase text-xs tracking-widest ${
                         !isSecret 
-                        ? 'bg-vault-amber text-black border-vault-amber shadow-lg' 
-                        : 'bg-muted border-border text-muted-foreground hover:border-vault-amber/30'
+                        ? 'bg-vault-amber text-black border-vault-amber shadow-lg scale-[1.02]' 
+                        : 'bg-muted/50 border-border text-muted-foreground hover:border-vault-amber/30'
                         }`}
                     >
-                        <ShieldCheck size={16} /> {t.formPrivacyPublic}
+                        <ShieldCheck size={20} /> {t.formPrivacyPublic}
                     </button>
                     <button 
                         type="button"
                         onClick={() => setIsSecret(true)}
-                        className={`flex-1 flex items-center justify-center gap-3 px-6 py-4 rounded-xl border transition-all font-black uppercase text-[10px] tracking-widest ${
+                        className={`flex-1 flex items-center justify-center gap-4 px-8 py-5 rounded-2xl border transition-all font-black uppercase text-xs tracking-widest ${
                         isSecret 
-                        ? 'bg-red-500 text-white border-red-500 shadow-xl' 
-                        : 'bg-muted border-border text-muted-foreground hover:border-red-500/50'
+                        ? 'bg-red-500 text-white border-red-500 shadow-lg scale-[1.02]' 
+                        : 'bg-muted/50 border-border text-muted-foreground hover:border-red-500/50'
                         }`}
                     >
-                        <Lock size={16} /> {t.formPrivacySecret}
+                        <Lock size={20} /> {t.formPrivacySecret}
                     </button>
                 </div>
                 {isSecret && (
                     <motion.p 
                         initial={{ opacity: 0, y: -5 }}
                         animate={{ opacity: 1, y: 0 }}
-                        className="text-[9px] font-bold text-red-500 mt-2 px-2 italic leading-tight"
+                        className="text-xs font-bold text-red-500 mt-4 px-4 italic leading-relaxed opacity-80"
                     >
                         {t.formSecretDisclaimer}
                     </motion.p>
@@ -202,23 +207,28 @@ export default function UploadForm({ client, contract, onSuccess }: UploadFormPr
         </div>
 
         {/* Right Column: Evidence & Submission */}
-        <div className="lg:col-span-5 flex flex-col h-full">
-            <div className="bg-muted/50 border border-border p-8 rounded-[2.5rem] flex-1 flex flex-col">
-                <label className="text-[10px] font-black uppercase tracking-widest text-muted-foreground mb-4 block text-center italic">{t.formEvidenceLabel}</label>
+        <div className="flex flex-col h-full">
+            <div className="bg-muted/30 border border-border p-10 rounded-[3rem] flex-1 flex flex-col shadow-inner backdrop-blur-sm">
+                <label className="text-[10px] font-black uppercase tracking-[0.3em] text-muted-foreground mb-8 block text-center italic opacity-60">{t.formEvidenceLabel}</label>
                 
-                <div className="flex-1 flex flex-col justify-center gap-8">
+                <div className="flex-1 flex flex-col justify-center gap-10">
                     <label className="relative group cursor-pointer">
-                        <div className="aspect-video bg-background border-2 border-dashed border-border rounded-[2rem] flex flex-col items-center justify-center transition-all group-hover:border-vault-amber group-hover:bg-vault-amber/5 overflow-hidden">
+                        <div className="aspect-[16/10] bg-background/50 border-2 border-dashed border-border rounded-[2.5rem] flex flex-col items-center justify-center transition-all group-hover:border-vault-amber group-hover:bg-vault-amber/5 overflow-hidden group-hover:scale-[0.99] shadow-sm">
                             {file ? (
-                                <div className="p-6 text-center">
-                                    <FileUp size={40} className="text-vault-amber mx-auto mb-3" />
-                                    <p className="text-sm font-bold text-foreground truncate max-w-[200px]">{file.name}</p>
-                                    <p className="text-[9px] text-muted-foreground uppercase font-black mt-1">{t.formReadyLedger}</p>
+                                <div className="p-8 text-center animate-in zoom-in-95">
+                                    <div className="w-20 h-20 bg-vault-amber/10 rounded-full flex items-center justify-center mx-auto mb-6 border border-vault-amber/20">
+                                        <FileUp size={40} className="text-vault-amber" />
+                                    </div>
+                                    <p className="text-lg font-black text-foreground truncate max-w-[250px] mb-2">{file.name}</p>
+                                    <p className="text-[10px] text-vault-amber uppercase font-black tracking-widest">{t.formReadyLedger}</p>
                                 </div>
                             ) : (
-                                <div className="text-center p-6">
-                                    <Upload size={40} className="text-muted-foreground group-hover:text-vault-amber mx-auto mb-3 transition-transform group-hover:-translate-y-1" />
-                                    <p className="text-[10px] font-black uppercase text-muted-foreground tracking-widest">{t.formClickUpload}</p>
+                                <div className="text-center p-8 transition-transform group-hover:-translate-y-2">
+                                    <div className="w-20 h-20 bg-muted rounded-full flex items-center justify-center mx-auto mb-6 border border-border group-hover:border-vault-amber/30 transition-colors">
+                                        <Upload size={40} className="text-muted-foreground group-hover:text-vault-amber transition-colors" />
+                                    </div>
+                                    <p className="text-xs font-black uppercase text-muted-foreground tracking-widest group-hover:text-foreground transition-colors">{t.formClickUpload}</p>
+                                    <p className="text-[10px] text-muted-foreground/40 mt-2 font-medium">PDF, JPG, PNG (Max 10MB)</p>
                                 </div>
                             )}
                         </div>
@@ -229,7 +239,7 @@ export default function UploadForm({ client, contract, onSuccess }: UploadFormPr
                         />
                     </label>
 
-                    <div className="space-y-4">
+                    <div className="space-y-6">
                         <button 
                             type="button"
                             onClick={async () => {
@@ -246,42 +256,43 @@ export default function UploadForm({ client, contract, onSuccess }: UploadFormPr
                                 }
                             }}
                             disabled={isPending}
-                            className="w-full py-4 bg-background border border-border text-foreground hover:bg-muted rounded-xl font-black text-[10px] uppercase tracking-widest transition-all flex items-center justify-center gap-3 active:scale-95 shadow-sm"
+                            className="w-full py-5 bg-background border border-border text-foreground hover:bg-muted rounded-2xl font-black text-xs uppercase tracking-widest transition-all flex items-center justify-center gap-4 active:scale-95 shadow-sm hover:border-vault-amber/30"
                         >
-                            <BrainCircuit size={16} className="text-vault-amber" /> {t.formCheckAi}
+                            <BrainCircuit size={20} className="text-vault-amber" /> {t.formCheckAi}
                         </button>
 
                         <button 
                             onClick={handleUpload}
                             disabled={isPending}
-                            className="w-full bg-vault-amber hover:bg-yellow-500 text-black font-black py-6 rounded-2xl transition-all disabled:opacity-50 flex flex-col justify-center items-center gap-1 shadow-xl shadow-vault-amber/10 active:scale-95 overflow-hidden relative group/btn"
+                            className="w-full bg-vault-amber hover:bg-yellow-500 text-black font-black py-8 rounded-[2rem] transition-all disabled:opacity-50 flex flex-col justify-center items-center gap-2 shadow-2xl shadow-vault-amber/20 active:scale-95 overflow-hidden relative group/btn"
                         >
                             <div className="absolute inset-0 bg-white/20 translate-y-full group-hover/btn:translate-y-0 transition-transform duration-500"></div>
                             {isAiProcessing ? (
-                                <div className="flex items-center gap-3 relative z-10">
-                                    <Loader2 className="w-5 h-5 animate-spin" />
-                                    <span className="text-sm uppercase tracking-tighter">{t.formAiAnalyzing}</span>
+                                <div className="flex items-center gap-4 relative z-10">
+                                    <Loader2 className="w-6 h-6 animate-spin" />
+                                    <span className="text-lg uppercase tracking-tighter">{t.formAiAnalyzing}</span>
                                 </div>
                             ) : isTxPending ? (
-                                <div className="flex items-center gap-3 relative z-10">
-                                    <div className="w-5 h-5 border-4 border-black border-t-transparent rounded-full animate-spin"></div>
-                                    <span className="text-sm uppercase tracking-tighter">{t.formFinalizing}</span>
+                                <div className="flex items-center gap-4 relative z-10">
+                                    <div className="w-6 h-6 border-4 border-black border-t-transparent rounded-full animate-spin"></div>
+                                    <span className="text-lg uppercase tracking-tighter">{t.formFinalizing}</span>
                                 </div>
                             ) : (
                                 <div className="flex flex-col items-center relative z-10">
-                                    <div className="flex items-center gap-2 text-lg uppercase tracking-tighter">
-                                        <ShieldCheck size={20}/> {t.uploadBtn}
+                                    <div className="flex items-center gap-3 text-2xl uppercase tracking-tighter">
+                                        <ShieldCheck size={28}/> {t.uploadBtn}
                                     </div>
-                                    <span className="text-[8px] font-black opacity-60 uppercase tracking-widest">Immutable Transaction</span>
+                                    <span className="text-[10px] font-black opacity-60 uppercase tracking-[0.3em] mt-1 italic">Secured On-Chain Transaction</span>
                                 </div>
                             )}
                         </button>
                     </div>
                 </div>
 
-                <div className="mt-8 flex items-center justify-center gap-4 opacity-30 pt-6 border-t border-border">
-                    <ShieldCheck size={14} className="text-vault-amber" />
-                    <span className="text-[8px] font-black uppercase tracking-[0.2em] text-muted-foreground italic text-center">Certified Digital Patriot Platform</span>
+                <div className="mt-12 flex items-center justify-center gap-6 opacity-40 pt-8 border-t border-border">
+                    <ShieldCheck size={18} className="text-vault-amber" />
+                    <span className="text-[10px] font-black uppercase tracking-[0.3em] text-muted-foreground italic text-center leading-none">Certified Digital Patriot Platform</span>
+                    <ShieldCheck size={18} className="text-vault-amber" />
                 </div>
             </div>
         </div>

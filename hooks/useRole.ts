@@ -20,8 +20,10 @@ export function useRole() {
 
     let auth = getAuthByWallet(account.address);
 
+    // More robust email detection for Thirdweb In-App/Social wallets
     // @ts-ignore
-    const email = account.details?.email;
+    const email = account.details?.email || account.email;
+    
     if (auth.role === "CITIZEN" && email) {
         auth = getAuthByEmail(email);
     }

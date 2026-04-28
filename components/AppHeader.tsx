@@ -12,7 +12,7 @@ import { useEffect, useState } from "react";
 
 const client = createThirdwebClient({ clientId: process.env.NEXT_PUBLIC_THIRDWEB_CLIENT_ID || "" });
 
-export default function AppHeader({ onMenuClick }: { onMenuClick?: () => void }) {
+export default function AppHeader({ onMenuClick, isSidebarCollapsed }: { onMenuClick?: () => void, isSidebarCollapsed?: boolean }) {
   const { lang, setLang } = useLanguageStore();
   const { theme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
@@ -22,7 +22,7 @@ export default function AppHeader({ onMenuClick }: { onMenuClick?: () => void })
   }, []);
 
   return (
-    <header className="fixed top-0 right-0 left-0 lg:left-64 h-20 bg-background/80 backdrop-blur-md border-b border-border z-40 flex items-center justify-between px-6 lg:px-10">
+    <header className={`fixed top-0 right-0 left-0 transition-all duration-300 ${isSidebarCollapsed ? "lg:left-20" : "lg:left-64"} h-20 bg-background/80 backdrop-blur-md border-b border-border z-40 flex items-center justify-between px-6 lg:px-10`}>
       
       {/* Mobile Menu Trigger */}
       <div className="flex lg:hidden items-center gap-4">

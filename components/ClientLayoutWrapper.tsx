@@ -18,6 +18,7 @@ export default function ClientLayoutWrapper({ children }: { children: React.Reac
   const router = useRouter();
   const account = useActiveAccount();
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
 
   // Paths that should use the Dashboard/App layout
   const appPaths = [
@@ -48,14 +49,18 @@ export default function ClientLayoutWrapper({ children }: { children: React.Reac
   if (account && isAppPath) {
     return (
       <div className="min-h-screen bg-background flex text-foreground">
-        <Sidebar isOpen={sidebarOpen} onClose={() => setSidebarOpen(false)} />
+        <Sidebar 
+          isOpen={sidebarOpen} 
+          onClose={() => setSidebarOpen(false)} 
+          isCollapsed={sidebarCollapsed}
+          onToggleCollapse={() => setSidebarCollapsed(!sidebarCollapsed)}
+        />
         
-        <div className="flex-1 lg:ml-64 min-h-screen relative flex flex-col">
-          <AppHeader onMenuClick={() => setSidebarOpen(true)} />
+        <div className={`flex-1 min-h-screen relative flex flex-col transition-all duration-300 ${sidebarCollapsed ? "lg:ml-20" : "lg:ml-64"}`}>
+          <AppHeader onMenuClick={() => setSidebarOpen(true)} isSidebarCollapsed={sidebarCollapsed} />
           
-
-          <main className="mt-20 p-4 md:p-8 flex-1">
-            <div className="max-w-[1600px] mx-auto">
+          <main className="mt-20 p-4 md:p-8 flex-1 flex flex-col">
+            <div className="w-full h-full flex-1">
                 {children}
             </div>
           </main>
