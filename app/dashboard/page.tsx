@@ -295,49 +295,12 @@ function DashboardContent({ dt }: { dt: any }) {
           )}
 
           {activeTab === "form" && (
-             <div className="grid grid-cols-1 xl:grid-cols-12 gap-12 animate-in zoom-in-95 duration-500 w-full">
-                <div className="xl:col-span-8">
+             <div className="w-full animate-in zoom-in-95 duration-500 relative flex justify-center">
+                <div className="w-full max-w-6xl">
                     <UploadForm client={client} contract={contract} onSuccess={() => {
                         router.push("/dashboard?tab=feed");
                         setRefreshTrigger(p => p + 1);
                     }} />
-                </div>
-                <div className="xl:col-span-4 space-y-10">
-                    <div className="bg-muted/30 border border-border p-10 rounded-[3.5rem] backdrop-blur-sm">
-                        <div className="flex items-center gap-4 mb-8">
-                            <div className="w-10 h-10 bg-vault-amber/10 rounded-xl flex items-center justify-center border border-vault-amber/20">
-                                <ShieldCheck size={20} className="text-vault-amber" />
-                            </div>
-                            <h4 className="text-xs font-black uppercase tracking-[0.3em] text-foreground">{lang === 'id' ? 'Protokol Pengiriman' : 'Submission Protocol'}</h4>
-                        </div>
-                        <ul className="space-y-6">
-                            {[
-                                { title: lang === 'id' ? "Enkripsi AES-256" : "AES-256 Encryption", desc: lang === 'id' ? "Data Anda dienkripsi sebelum masuk ke jaringan." : "Your data is encrypted before entering the network." },
-                                { title: lang === 'id' ? "Audit AI Real-time" : "Real-time AI Audit", desc: lang === 'id' ? "Sistem AI memvalidasi relevansi dan kategori laporan." : "AI system validates report relevance and category." },
-                                { title: lang === 'id' ? "Jejak Blockchain" : "Blockchain Ledger", desc: lang === 'id' ? "Bukti pengiriman akan tercatat secara permanen di Base." : "Submission proof will be permanently recorded on Base." }
-                            ].map((item, i) => (
-                                <li key={i} className="flex gap-4 group">
-                                    <div className="text-vault-amber font-mono font-bold text-xs mt-1">0{i+1}</div>
-                                    <div>
-                                        <div className="text-xs font-black uppercase text-foreground mb-1 group-hover:text-vault-amber transition-colors">{item.title}</div>
-                                        <div className="text-[10px] text-muted-foreground leading-relaxed">{item.desc}</div>
-                                    </div>
-                                </li>
-                            ))}
-                        </ul>
-                    </div>
-
-                    <div className="bg-foreground text-background p-10 rounded-[3.5rem] relative overflow-hidden group shadow-2xl">
-                        <div className="absolute -bottom-10 -right-10 opacity-10 rotate-12 group-hover:rotate-45 transition-transform duration-1000">
-                            <BrainCircuit size={150} />
-                        </div>
-                        <h4 className="text-xl font-black uppercase tracking-tighter italic mb-4 leading-none">Ready to contribute?</h4>
-                        <p className="text-xs font-medium opacity-70 leading-relaxed mb-8">Setiap aspirasi adalah batu bata pembangunan demokrasi digital. Pastikan data yang Anda kirimkan akurat dan bermanfaat.</p>
-                        <div className="flex items-center gap-3">
-                            <div className="w-2 h-2 bg-vault-amber rounded-full animate-ping"></div>
-                            <span className="text-[10px] font-black uppercase tracking-widest text-vault-amber">System Ready</span>
-                        </div>
-                    </div>
                 </div>
              </div>
           )}
